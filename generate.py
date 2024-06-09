@@ -12,7 +12,7 @@ from feedgen.feed import FeedGenerator
 SECURITY_CHANNELS = ["ubuntu-security", "ubuntu-meeting"]
 IRC_CHANNEL_URL_FORMAT = "https://irclogs.ubuntu.com/{}/{}/{}/%23{}.txt"
 CACHE_FOLDER = "cache/ubuntu"
-ATOM_FEED_PATH = "feeds/ubuntu.xml"
+XML_FEED_PATH = "feeds/ubuntu.xml"
 
 
 @dataclass
@@ -104,6 +104,8 @@ def generate_and_save_rss_feed(
     feed = FeedGenerator()
     feed.id("ubuntu-security-feeds")
     feed.title("Ubuntu Security Feeds")
+    feed.link(href="https://ubuntu.com", rel="self")
+    feed.description("Feeds related to security on Ubuntu")
     feed.logo("https://assets.ubuntu.com/v1/a7e3c509-Canonical%20Ubuntu.svg")
     feed.language("en")
 
@@ -119,7 +121,7 @@ def generate_and_save_rss_feed(
 
         logger.debug(f'Added entry with the title: "{entry.name}"')
 
-    feed.atom_file(ATOM_FEED_PATH)
+    feed.rss_file(XML_FEED_PATH)
 
 
 def main() -> None:
