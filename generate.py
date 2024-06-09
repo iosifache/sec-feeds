@@ -115,7 +115,7 @@ def generate_and_save_rss_feed(
         rss_entry = feed.add_entry()
         rss_entry.id(entry.name)
         rss_entry.title(entry.name)
-        rss_entry.description(entry.content)
+        rss_entry.description(entry.content.replace("\n", "\\n"))
 
         logger.debug(f'Added entry with the title: "{entry.name}"')
 
