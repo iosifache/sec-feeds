@@ -6,11 +6,13 @@ import requests
 import os
 
 from loguru import logger
+from feedgen.feed import FeedGenerator
 
 
 SECURITY_CHANNELS = ["ubuntu-security", "ubuntu-meeting"]
 IRC_CHANNEL_URL_FORMAT = "https://irclogs.ubuntu.com/{}/{}/{}/%23{}.txt"
 CACHE_FOLDER = "cache"
+ATOM_FEED_PATH = "feed.xml"
 
 
 @dataclass
@@ -96,6 +98,30 @@ def generate_rss_entry_title(entry_date: date, channels: typing.List[str]) -> st
     return entry_date.strftime("%d.%m.%Y") + ": " + ", ".join(channels)
 
 
+def generate_and_save_rss_feed(
+    since_date: typing.Optional[str],
+) -> None:
+    feed = FeedGenerator()
+    feed.id("ubuntu-security-feeds")
+    feed.title("Ubuntu Security Feeds")
+    feed.logo("https://assets.ubuntu.com/v1/a7e3c509-Canonical%20Ubuntu.svg")
+    feed.language("en")
+
+    logger.debug("Adding entries in an RSS feed")
+    for entry in generate_entries(since_date):
+        if not entry:
+            continue
+
+        rss_entry = feed.add_entry()
+        rss_entry.id(entry.name)
+        rss_entry.title(entry.name)
+        rss_entry.description(entry.content)
+
+        logger.debug(f'Added entry with the title: "{entry.name}"')
+
+    feed.atom_file(ATOM_FEED_PATH)
+
+
 def main() -> None:
     since_date = None
     if len(sys.argv) == 2:
@@ -105,8 +131,7 @@ def main() -> None:
 
     logger.debug(f"Set date is: {since_date}")
 
-    for entry in generate_entries(since_date):
-        pass
+    generate_and_save_rss_feed(since_date)
 
 
 if __name__ == "__main__":
