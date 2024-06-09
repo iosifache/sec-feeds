@@ -17,7 +17,7 @@ jobs:
         uses: Gr1N/setup-poetry@v8
       - name: Install the dependencies
         run: poetry install
-      - name: Update the OSS page based on the latest README.md
+      - name: Update the feeds
         run: |
           poetry run python3 generate.py
       - name: Commit the changes
