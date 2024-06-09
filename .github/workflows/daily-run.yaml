@@ -6,6 +6,7 @@ on:
   push:
     paths:
       - generate.py
+      - .github/workflows/daily-run.yaml
 jobs:
   daily-run:
     runs-on: ubuntu-latest
