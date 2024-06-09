@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "ubusec-rss"
+name = "sec-feeds"
 version = "0.1.0"
-description = "RSS feed for security-related discussions on irclogs.ubuntu.com"
+description = "Cybersecurity RSS feeds"
 authors = ["George-Andrei Iosif <hi@iosifache.me>"]
 license = "MIT"
 readme = "README.md"
