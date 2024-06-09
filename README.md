@@ -9,10 +9,11 @@
 - Hosting of RSS feeds
 - RSS feeds generation for the data sources which doesn't have public feeds
 - Caching of the content used for the generation of the feeds
+- Daily regeneration of the feeds
 
 ## Feeds and their data sources
 
 | Name               | Contained data                                      | Feed location      | Cache location |
 |--------------------|-----------------------------------------------------|--------------------|----------------|
-| Security in Ubuntu | `ubuntu-security` and `ubuntu-meeting` IRC channels | `feeds/ubuntu.xml` | `cache/ubuntu` |
+| Security on Ubuntu | `ubuntu-security` and `ubuntu-meeting` IRC channels | `feeds/ubuntu.xml` | `cache/ubuntu` |
 
