@@ -13,7 +13,7 @@
 
 ## Feeds and their data sources
 
-| Name               | Contained data                                      | Feed location      | Cache location |
-|--------------------|-----------------------------------------------------|--------------------|----------------|
-| Security on Ubuntu | `ubuntu-security` and `ubuntu-meeting` IRC channels | `feeds/ubuntu.xml` | `cache/ubuntu` |
+| Name               | Contained data                                      | Feed location      | Cache location   |
+|--------------------|-----------------------------------------------------|--------------------|------------------|
+| Security on Ubuntu | `ubuntu-security` and `ubuntu-meeting` IRC channels | `feeds/ubuntu.xml` | `cache/ubuntu/*` |
 
