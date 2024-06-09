@@ -3,6 +3,9 @@ on:
   workflow_dispatch: {}
   schedule:
     - cron: "0 0 * * *"
+  push:
+    paths:
+      - generate.py
 jobs:
   daily-run:
     runs-on: ubuntu-latest
