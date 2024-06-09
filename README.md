@@ -4,6 +4,8 @@
 
 `sec-feeds` is a repository hosting Atom RSS feeds for different cybersecurity topics in which I'm interested.
 
+All feeds can be accessed at `iosifache.me/feeds/<id>`, where `<id>` is the ID of the feed you want to follow.
+
 ## Features
 
 - Hosting of RSS feeds
@@ -13,7 +15,7 @@
 
 ## Feeds and their data sources
 
-| Name               | Contained data                                  | Feed location      | Cache location   |
-|--------------------|-------------------------------------------------|--------------------|------------------|
-| Security on Ubuntu | `ubuntu-security` and `ubuntu-meeting` IRC logs | `feeds/ubuntu.xml` | `cache/ubuntu/*` |
+| ID       | Name               | Contained data                                  | Feed location      | Cache location   |
+|----------|--------------------|-------------------------------------------------|--------------------|------------------|
+| `ubuntu` | Security on Ubuntu | `ubuntu-security` and `ubuntu-meeting` IRC logs | `feeds/ubuntu.xml` | `cache/ubuntu/*` |
 
