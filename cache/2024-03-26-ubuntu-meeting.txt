@@ -1,0 +1,216 @@
+=== pushkarnk1 is now known as pushkarnk
+=== JanC_ is now known as JanC
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+[15:29] <sarnold> good morning
+[15:29] <eslerm_> good morning o/
+[15:32] <slyon> heyho o/
+[15:33] <slyon> Looks like c_paelzer is out...
+[15:33] <slyon> I can run the meeting. Let me set up my tabs.
+[15:33] <slyon> #startmeeting Weekly Main Inclusion Requests status
+[15:33] <meetingology> Meeting started at 15:33:47 UTC.  The chair is slyon.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:33] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:33] <slyon> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( eslerm dviererbe )
+[15:33] <slyon> #topic current component mismatches
+[15:33] <slyon> Mission: Identify required actions and spread the load among the teams
+[15:33] <slyon> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[15:34] <slyon> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[15:34] <slyon> *trace* got re-assigned within Foundations this week and is actively being worked on this pulse.
+[15:35] <slyon> bpf* Got security ACK. Needs double-checking by cpaelzer to validate the MIR remarks are resolved
+[15:35] <slyon> jaraco.text and python-openstacksdk seem ready
+[15:36] <sarnold> nice nice
+[15:36] <slyon> Needs an AA for promotion
+[15:37]  * slyon subscribing ~ubuntu-archive
+[15:38] <slyon> gnome-snapshort seems to be ready, too. Already got promoted.
+[15:38] <slyon> seb128: on the gnome-snapshot MIR: It looks like you demoted "cheese", but it is back in main again. Could you please double-check?
+[15:38] <slyon> #topic New MIRs
+[15:38] <slyon> Mission: ensure to assign all incoming reviews for fast processing
+[15:39] <slyon> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[15:39] <sarnold> nice catch re cheese
+[15:39] <seb128> slyon, I think we need an upload of ubuntu-desktop which didn't happen yet
+[15:39] <slyon> seb128: ok. I assume your team will be tracking this
+[15:39] <seb128> yes
+[15:39] <slyon> thx!
+[15:40]  * slyon left a comment on that bug
+[15:40] <slyon> bug #2058242 is mostly FYI
+[15:40] -ubottu:#ubuntu-meeting- Bug 2058242 in isc-dhcp (Ubuntu) "Demote isc-dhcp to universe" [Undecided, New] https://launchpad.net/bugs/2058242
+[15:41] <slyon> Also needs an AA for demotion. ~ubuntu-archive is subscribed.
+[15:41] <slyon> nothing to do for us
+[15:41] <slyon> bug #2004442
+[15:41] -ubottu:#ubuntu-meeting- Bug 2004442 in aom (Ubuntu) "[MIR] aom (dependency of libheif)" [Undecided, Confirmed] https://launchpad.net/bugs/2004442
+[15:42] <slyon> Requested changes got landed in Debian. It should be ready once they land in Ubuntu, but are not a priority right now, IIUC. I'd like to see didrocks' confirmation on this.
+[15:42] <slyon> #topic Incomplete bugs / questions
+[15:43] <slyon> Mission: Identify required actions and spread the load among the teams
+[15:43] <slyon> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[15:43] <slyon> bug #2023971
+[15:43] -ubottu:#ubuntu-meeting- Bug 2023971 in libmail-dmarc-perl (Ubuntu) "[MIR] libmail-dmarc-perl" [High, Incomplete] https://launchpad.net/bugs/2023971
+[15:44] <slyon> libmail-dmarc-perl is an interesting one.
+[15:45] <eslerm_> Security is aiming to complete a review for libemail-mime-perl by Thursday
+[15:45] <slyon> eslerm_: That's great. thanks!
+[15:45] <eslerm_> unless using libmail-dmarc-perl as packaged in proposed is preferred
+[15:45] <slyon> The only thing remaining IIUC would be the duplication issue: libemail-mime-perl & libmime-tools-perl in main
+[15:46] <slyon> well well... I don't know. We can make a call between duplicated work because of two similar packages in "main". Or extra work because of carrying non-mainstream patches.
+[15:46] <sarnold> one of the comments on https://github.com/msimerson/mail-dmarc/pull/217 suggested that the original requirements are also requirements for spamassassin 4.0, so suddenly it feels more plausible to use the original requirements..
+[15:46] -ubottu:#ubuntu-meeting- Pull 217 in msimerson/mail-dmarc "use MIME::Entity and MIME::Parser from MIME::Tools instead of Email::MIME" [Open]
+[15:47] <slyon> I don't know what's better and would like to deferr that call to the server team, as they own both of those packages.
+[15:47] <slyon> (CC cpaelzer ^)
+[15:48] <slyon> sarnold: that suggests we should be using libemail-mime-perl after all?
+[15:48] <sarnold> slyon: yeah. it's a complex choice.
+[15:49] <slyon> I'll update the case on LP, as I'd like to wait for server-team input
+[15:49] <sarnold> I was really impressed with mirespace's patch to switch out the dependencies, it looked ideal, but then it felt like we'll eventually need the original packages "soon" anyway..
+[15:49] <sarnold> sounds good
+[15:52]  * slyon commented
+[15:52] <slyon> bug #2015538
+[15:52] -ubottu:#ubuntu-meeting- Bug 2015538 in dbus-broker (Ubuntu) "[MIR] dbus-broker" [Undecided, Incomplete] https://launchpad.net/bugs/2015538
+[15:53] <sarnold> oh lots of conversation since I last looked
+[15:53] <slyon> turns out there is a hard dependency between dbus-run-session and dbus-daemon. So we cannot do a simple package split
+[15:53] <slyon> So this needs to be postponed to next cycle, as we need extra engineering time to come up with a solution.
+[15:54] <slyon> eslerm_: can you clarify your comment on bug #2056099 ?
+[15:54] -ubottu:#ubuntu-meeting- Bug 2056099 in tree (Ubuntu) "[MIR] tree" [Undecided, Incomplete] https://launchpad.net/bugs/2056099
+[15:54] <slyon> Are you saying we don't need security ACK for NN promotion?
+[15:55] <eslerm_> this might explain best: https://bugs.launchpad.net/ubuntu/+source/nbd/+bug/2054480/comments/7
+[15:55] -ubottu:#ubuntu-meeting- Launchpad bug 2054480 in nbd (Ubuntu) "[MIR] nbd-client" [Undecided, Incomplete]
+[15:55] <eslerm_> I just wanted to note these for future cycles
+[15:56] <slyon> I understand for nbd, which was in main for a long time and probably never got security review.
+[15:57] <slyon> but for src:tree it's a new decision, no?
+[15:57] <eslerm_> I'll leave it to Seth if Security wants to review
+[15:58] <slyon> Oh! It's because of the MIR assessment: "This does not need a security review"
+[15:58] <eslerm_> yes :)
+[15:58] <eslerm_> I'm not saying we need to review these for NN
+[15:58] <slyon> joalif: is that something you'd be willing to change for the "tree" MIR?
+[15:58] <slyon> ok
+[15:58] <eslerm_> I just don't want it to be a pattern for OO
+[15:58] <slyon> joalif: nvm :)
+[15:59] <slyon> Well it's always a hard call for us MIR reviewers, as we don't have a security background. But we try to rather be safe and ask for security-review if in doubt
+[16:00] <sarnold>   register void *value = malloc (size);
+[16:00] <eslerm_> it's understandable :pray:
+[16:00] <sarnold> oh wow this thing is *ancient* :)
+[16:01] <sarnold> at least it's using ansi c prototypes, but 'register', I haven't seen that in live code in ages, hehe
+[16:01] <slyon> eslerm_: sarnold: If you have bad feelings about security-review bypassing of a specific package, please always reach out to the MIR reviewer. We might not always be aware of the side-effects.
+[16:02] <eslerm_> ++1
+[16:02] <sarnold> ack, thanks slyon
+[16:02] <slyon> ok. I left a quick comments on the "tree" MIR, as it's still lacking tests
+[16:02] <slyon> moving on..
+[16:02] <slyon> bug #2054480
+[16:02] -ubottu:#ubuntu-meeting- Bug 2054480 in nbd (Ubuntu) "[MIR] nbd-client" [Undecided, Incomplete] https://launchpad.net/bugs/2054480
+[16:04] <slyon> I'd like to get didrocks opinion on nbd-client, to see if his concerns are resolved.
+[16:04] <slyon> bug #2048781
+[16:04] -ubottu:#ubuntu-meeting- Bug 2048781 in authd (Ubuntu) "[MIR] authd" [Undecided, Incomplete] https://launchpad.net/bugs/2048781
+[16:04] <eslerm_> very nice add to authd didrocks :)
+[16:05] <slyon> Here Didier added a ncie "cargo-vendor-filterer" tool, to get rid of windows* crates during package build
+[16:05] <slyon> I think this is a good approach for now, until we can come up with a centralized solution
+[16:06] <slyon> pending security review.
+[16:06] <sarnold> awesome <3
+[16:06] <slyon> #topic Process/Documentation improvements
+[16:06] <slyon> Mission: Review pending process/documentation pull-requests or issues
+[16:06] <slyon> #link https://github.com/canonical/ubuntu-mir/pulls
+[16:06] <slyon> #link https://github.com/canonical/ubuntu-mir/issues
+[16:06] <slyon> only one update to https://github.com/canonical/ubuntu-mir/issues/35
+[16:06] -ubottu:#ubuntu-meeting- Issue 35 in canonical/ubuntu-mir "RFC: Introduce 'base-sets' for vendored dependencies" [Open]
+[16:06] <slyon> which describes the same "cargo-vendor-filterer" solution as above
+[16:07] <slyon> #topic MIR related Security Review Queue
+[16:07] <slyon> Mission: Check on progress, do deadlines seem doable?
+[16:07] <slyon> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[16:07] <slyon> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[16:07] <slyon> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[16:07] <slyon> Internal link
+[16:07] <slyon> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[16:07] <eslerm_> all assigned security MIRs are in-review (except libemail-mime-perl)
+[16:07] <eslerm_> I need to do some wrangling to get them posted
+[16:07] <eslerm_> as a reminder, after beta freeze (Monday) Security is not taking new MIRs for noble
+[16:07] <slyon> thx! Looking pretty good. Kudos to the security-team!
+[16:07] <slyon> #topic Any other business?
+[16:08] <sarnold> nothing from me
+[16:08] <slyon> If nothing else... sorry for running over time and thanks all!
+[16:08] <eslerm_> thanks slyon, everyone o/
+[16:08] <slyon> #endmeeting
+[16:08] <meetingology> Meeting ended at 16:08:43 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-03-26-15.33.moin.txt
+[16:08] <sarnold> thanks slyon, eslerm_, seb128 :)
+[16:17] <didrocks> slyon: I will have a look at aom and nbd-client (but probably next Tuesday morning, Iâm off for a few days starting tomorrow midday and I still have a lot to finish before leaving there)
+[16:18] <slyon> didrocks: thanks, that should be fine. Just leave a comment on the LP bugs whenever you have some time!
+[16:18] <didrocks> slyon: eslerm_: yeah, quite happy with the finale solution (even if not ideal). Iâm happy to liaison on this with the toolchain team during the next sprint
+[16:18] <didrocks> (regarding Rust vendoring)
+[16:19] <slyon> That'd be great. You will be a welcome guest at Foundations' room :)
+[16:20] <didrocks> \o/
+[19:59] <amurray> o/
+[20:00]  * vorlon waves
+[20:00] <vorlon> someone didn't update https://wiki.ubuntu.com/TechnicalBoardAgenda with the chair info :)
+[20:01] <rbasak> o/
+[20:01] <seb128> hey
+[20:01] <amurray> oops - yep, rbasak you're it according to https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-03-12-20.03.html
+[20:02] <rbasak> OK
+[20:02] <rbasak> #startmeeting
+[20:02] <meetingology> Meeting started at 20:02:43 UTC.  The chair is rbasak.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[20:02] <meetingology> Available commands: action, commands, idea, info, link, nick
+[20:03] <rbasak> #topic Apologies
+[20:03] <rbasak> No apologies received.
+[20:03] <rbasak> #topic Action review
+[20:03] <rbasak> ACTION: seb128/amurray/sil2100 to help drafting the snap-store Ubuntu-specific tracks usage
+[20:03] <rbasak> ACTION: seb128 to organize a meeting to unblock the draft of the tracks usage section
+[20:04] <rbasak> These are done I think
+[20:04] <rbasak> ACTION: rbasak to follow up on finding consensus on question of test plans for third party apps
+[20:04] <seb128> thanks rbasak for organizing that meeting!
+[20:04] <rbasak> This is also done, and my action item now is to update the draft
+[20:04] <amurray> yep thanks rbasak for organising that, it was super productive
+[20:04] <rbasak> #action rbasak to update third party repo draft with outcomes from our recent out-of-band meeting
+[20:04] <meetingology> ACTION: rbasak to update third party repo draft with outcomes from our recent out-of-band meeting
+[20:04] <rbasak> ACTION: rbasak to open wider discussion on third-party repo policy
+[20:04] <rbasak> This is pending the previous item
+[20:04] <rbasak> #action rbasak to open wider discussion on third-party repo policy
+[20:04] <meetingology> ACTION: rbasak to open wider discussion on third-party repo policy
+[20:04] <rbasak> ACTION: rbasak to draft a proposal of the DMB-proposed inactivity expiration policy for TB ratification
+[20:04] <rbasak> This is to carry over
+[20:05] <rbasak> #action rbasak to draft a proposal of the DMB-proposed inactivity expiration policy for TB ratification
+[20:05] <meetingology> ACTION: rbasak to draft a proposal of the DMB-proposed inactivity expiration policy for TB ratification
+[20:05] <rbasak> ACTION: seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[20:05] <rbasak> ACTION: seb128 to follow-up with ubuntu cinnamon on 24.04 request
+[20:05] <rbasak>     ACTION: vorlon to look into scripting for packages in flavor-specific overlays
+[20:05] <rbasak> ^ any progress on these three please?
+[20:05] <vorlon> none from me
+[20:05] <rbasak> #action vorlon to look into scripting for packages in flavor-specific overlays
+[20:05] <meetingology> ACTION: vorlon to look into scripting for packages in flavor-specific overlays
+[20:05] <seb128> first one to carry over
+[20:05] <rbasak> #action seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[20:05] <meetingology> ACTION: seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[20:06] <seb128> cinnamon I did a call for vote
+[20:06] <rbasak> Ah. Are we waiting on votes still
+[20:06] <rbasak> ?
+[20:06] <seb128> yes
+[20:06] <rbasak> We have two +1s
+[20:06] <rbasak> vorlon: do you have an opinion please?
+[20:06] <seb128> only alex voted afaik
+[20:07] <seb128> I mean in reply to my email/vote
+[20:07] <vorlon> I think the flavor is better served by me at the moment continuing to work on ensuring they can have a successful beta rather than voting
+[20:07] <vorlon> I'll pick this up after Wednesday
+[20:07] <rbasak> OK. Let's leave this for now then.
+[20:07] <rbasak> #topic Scan the mailing list archive for anything we missed (standing item)
+[20:08] <rbasak> I don't see anything apart from the DMB election planning thread which I think has enough votes to proceed.
+[20:08] <rbasak> FTR, I also (obviously since I proposed it) vote +1, if it matters.
+[20:08] <rbasak> #agreed The DMB election can proceed as proposed
+[20:08] <meetingology> AGREED: The DMB election can proceed as proposed
+[20:09] <rbasak> #info No other outstanding ML items
+[20:09] <rbasak> #topic Check up on community bugs and techboard bugs
+[20:09] <rbasak> #info No open community bugs
+[20:09] <rbasak> #info No new techboard bugs
+[20:09] <rbasak> #topic Select a chair for the next meeting (next from https://launchpad.net/~techboard/+members)
+[20:10] <rbasak> #info Next chair will be seb128, with vorlon as backup
+[20:10] <vorlon> ack
+[20:10] <rbasak> #topic AOB
+[20:10] <rbasak> AOB?
+[20:10] <amurray> nothing from me
+[20:10] <seb128> not from me
+[20:11] <rbasak> OK. Thanks all!
+[20:11] <rbasak> #endmeeting
+[20:11] <meetingology> Meeting ended at 20:11:21 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-03-26-20.02.moin.txt
+[20:11] <seb128> thanks rbasak, an efficient meeting!
+[20:13] <rbasak> yw!
+[20:14] <rbasak> amurray, vorlon in particular, but also maybe relevant for the others: note that the agenda states "London time" and so the next meeting will be presumably in DST and therefore will shift relative to UTC.
+[20:14] <rbasak> (is that correct?)
+[20:19] <vorlon> yes that will be helpful to me, I currently have a conflict with a standup ):
+[20:19] <vorlon> :)
+[20:19] <vorlon> (because of the US already switching)
+[20:20] <vorlon> taking aac-tactics
+[20:29] <vorlon> heh
+[20:34] <amurray> yep I'll try to remember to wake up an hour earlier next time
+[20:35] <amurray> oh it will be 2 hours earlier since DST ends here too

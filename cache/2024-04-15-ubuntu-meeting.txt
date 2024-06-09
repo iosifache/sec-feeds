@@ -1,0 +1,37 @@
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+=== cpaelzer_ is now known as cpaelzer
+=== pushkarnk1 is now known as pushkarnk
+[19:00] <seb128> hey
+[19:00] <bandali> o/
+[19:05] <seb128> sorry, unsure who is around?
+[19:05] <seb128> I did a dmb ping on the devel channel, let's wait a few minutes
+[19:05] <kanashiro> o/
+[19:06] <seb128> nobody declined the calendar invite at least...
+[19:06] <teward> i will not be able to stick around here, i've got a NASTY illness right now and am barely awake
+[19:06] <teward> so consider me unavailable
+[19:09] <seb128> bandali, sorry but it looks we most members aren't there but didn't reflect that on the calendar :-/
+[19:09] <seb128> kanashiro, I guess it doesn't make sense to have the meeting with only us right?
+[19:10] <bandali> seb128, ack.. would it make sense to wait another 5-10 mins in case folks do show up?
+[19:11] <seb128> bandali, we can sure, it's already 10min in though
+[19:11]  * bandali nods
+[19:12] <kanashiro> agreed
+[19:13] <bdmurray> I'm around but buried in release work.
+[19:17] <seb128> let's skip then
+[19:17] <kanashiro> +!
+[19:17] <kanashiro> +1
+[19:17] <seb128> bandali, sorry, let's try again after release...
+[19:17] <bandali> indeed, looks like my great DMB luck has struck again :)
+[19:17] <bandali> *DMB meeting luck
+[19:17] <seb128> :-(
+[19:20] <bandali> i'll update my agenda reservation to 2024-04-29 then
+[19:42] <utkarsh2102> sorry, I am late
+[19:43] <utkarsh2102> oh there's no meeting, I suppose?
+[19:43] <utkarsh2102> I see nothing on the agenda
+[19:43] <utkarsh2102> nice
+=== pushkarnk1 is now known as pushkarnk
+[19:47] <bandali> i did have a reservation on the agenda for today, but most folks didn't show, so i moved it to next meeting :)
+[19:48] <utkarsh2102> ah, okay
+[19:48] <utkarsh2102> thanks for letting me know
+[19:48] <bandali> cheers
+[19:48] <utkarsh2102> :wq!

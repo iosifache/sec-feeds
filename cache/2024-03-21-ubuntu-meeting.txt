@@ -1,0 +1,186 @@
+=== amurray_ is now known as amurray
+=== JanC is now known as Guest3733
+=== JanC_ is now known as JanC
+=== pushkarnk1 is now known as pushkarnk
+=== cpete_ is now known as cpete
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+[15:00] <juliank> o/
+[15:00] <slyon> o/
+[15:00] <mateus-morais> o/
+[15:00] <waveform> \o
+[15:00] <mkukri> o/
+[15:00] <bdrung> \o
+[15:00] <Skia> o/
+[15:01] <liushuyu> o/
+[15:01] <upils> \o
+[15:01] <ginggs> o/
+[15:01] <mclemenceau> o/
+[15:02] <dviererbe> o/
+[15:02] <zhsj> o/
+[15:03] <juliank> #startmeeting Weekly Ubuntu Foundations team
+[15:03] <meetingology> Meeting started at 15:03:05 UTC.  The chair is juliank.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:03] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:03] <juliank> #topic Lightning rounds
+[15:03] <adrien> \o
+[15:03] <juliank> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-2024-03-21/43313
+[15:04] <pushkarnk> o/
+[15:08] <bdrung> waveform, `eval "$(grep "^VERSION_CODENAME=" /etc/os-release)"` can be just changed to `. /etc/os-release`
+[15:09] <waveform> it could... but it just feels a bit "dirty" to me :)
+[15:10] <bdmurray> Less dirty than that ^^
+[15:10] <juliank> quite tricky that os-release
+[15:10] <adrien> you could do that in a subshell and echo the appropriate value too
+[15:10] <juliank> You definitely need a subshell
+[15:10] <bdrung> waveform, the os-release spec says that it is shell sourceable
+[15:11] <juliank> i.e. we needed to do +GRUB_DISTRIBUTOR=`( . /etc/os-release; echo ${NAME:-@DPKG_VENDOR@} ) 2>/dev/null || echo @DPKG_VENDOR@`
+[15:11] <waveform> sure, but do I want to trawl the spec and make certain it can't clobber any existing vars I've got in the env or do I just want to cherry pick the one I'm interested in?
+[15:12] <juliank> The shell just aborts entirely if sourcing os-release fails, hence the need for the subshell
+[15:12] <juliank> i.e. we don't trust it's always readable
+[15:13] <juliank> users mess up stuff but breaking boot for it would be ugh
+[15:13] <juliank> "But I want my system to identify itself as Foobar OS 25.564.53"!
+[15:13] <juliank> Anyway, it's getting late, we should move on :)
+[15:13] <bdmurray> "users mess up stuff" <- truer words were never said
+[15:13] <bdrung> but in this case it is an autopkgtest and it would be fine to fail if os-release contains garbage
+[15:13] <juliank> ack
+[15:13] <juliank> #topic Release incoming bugs
+[15:14] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-nn-incoming-bug-tasks.html#foundations-bugs
+[15:14] <juliank> bug http://launchpad.net/bugs/2054343
+[15:14] -ubottu:#ubuntu-meeting- Launchpad bug 2054343 in gcc-10 (Ubuntu) "arm64 build of gcc-10 10.5.0-3ubuntu1 still broken (CVE-2023-4039 still open)" [Wishlist, Confirmed]
+[15:14] <juliank> This is the only bug today!
+[15:15] <juliank> This needs to be fixed in focal as it is in main
+[15:15] <juliank> In all other releases it is in universe, so it's up to the ESM team to deliver a fix to esm-app-security
+[15:15] <Skia> there is one in unknown that may be foundations too: bug 2058227
+[15:15] -ubottu:#ubuntu-meeting- Bug 2058227 in apt-xapian-index (Ubuntu) "Crash during upgrade from Mantic to Noble due to Python 3.12" [Undecided, New] https://launchpad.net/bugs/2058227
+[15:17] <juliank> Wait am I right in counting, is focal still in standard support?
+=== pushkarnk1 is now known as pushkarnk
+[15:17] <waveform> yup
+[15:17] <waveform> focal's still supported
+[15:17]  * waveform eyes his home server still running focal...
+[15:18] <pushkarnk> yeah, have been running JDK compliance tests for focal :D
+[15:18] <bdmurray> a-x-i is only in main for trusty
+[15:18] <bdmurray> I imagine the fix is simple though but is that package even useful? it was last updated in Focal
+[15:20] <juliank> OK so what I did for gcc-10 is add focal task, change jj, mm to wontfix and said that's a Pro thing
+[15:20] <juliank> Oh but probably it should be split into a FTBFS bug and a security one
+[15:21] <juliank> Left the bug :)
+[15:26] <juliank> So what's the conclusion on the apt-xapian-index one?
+[15:26] <juliank> where does the crash even happen?
+[15:26] <bdmurray> I think we should add a quirk to stop the service from running during the upgrade.
+[15:26] <bdmurray> It happens during a dist-upgrade of Kubuntu.
+[15:27] <juliank> We probably should have a quirk to inhibit all systemd timers and cron jobs
+[15:27] <juliank> Probably should add a feature to systemd to actually inhibit timers
+[15:27] <juliank> But that'S 25.04 talk
+[15:28] <mkukri> cant something like this also happen if an already running service pulls in new stuff dynamically?
+[15:28] <juliank> sure
+[15:29] <juliank> Possibly atomic A/B upgrades are also a topic for 25.04
+[15:29] <juliank> But need cooperating file system with snapshots
+[15:30] <juliank> And figuring out how to upgrade snaps inside the new target
+[15:30] <schopin> 25.04 we said, juliank, not right now ;)
+[15:30] <bdmurray> time is short
+[15:30] <juliank> heh
+[15:30] <juliank> #topic Team proposed-migration report
+[15:30] <juliank> #link https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses_by_team.html#foundations-bugs
+[15:31] <juliank> I don't really want to assign anything particularly much, there's so much flux and it's hard to figure out what is not time_t and we should work on time_t first anyhow?
+[15:32] <juliank> Well we can assign any non-armhf failures
+[15:32] <juliank> Because they block progress and are clearly not time_t armhf bugs ;)
+[15:33]  * juliank finds last week's assignments
+[15:34] <juliank> Apparently Skia is still on libbsd migration but only one armhf task left hooray
+[15:34] <Skia> yes, and it should probably be done shortly after the gvmd upload from this afternoon
+[15:35] <juliank> libapt-pkg-perl
+[15:36] <juliank> liushuyu: bdrung - supposed to have freetype but that seems cleared?
+[15:36] <juliank> sigh
+[15:36] <juliank> libapt-pkg-perl: bdrung? you're supposed to have freetype but that seems cleared?
+[15:36] <ginggs> i had libapt-pkg-perl the previous week
+[15:37] <bdrung> juliank, i'll be on vacation next week. so please skip me.
+[15:37] <juliank> ok
+[15:37] <ginggs> i sync'd the fix from debian, just waiting for tests
+[15:37] <juliank> ginggs: There is no libapt-pkg assignment in the epic from last week
+[15:37] <juliank> but good
+[15:37] <ginggs> previous week
+[15:38] <juliank> ack
+[15:38] <juliank> python-apt is mine
+[15:39] <juliank> waiting for tests I suppose
+[15:39] <juliank> I don't see my test requests on the package page but I did them
+[15:39] <juliank> will check /running later
+[15:40] <juliank> apt vs xz-utils is with upils
+[15:40] <upils> well, this is a time_t related issue AFAIU
+[15:41] <upils> so I cannot really do anything about it except waiting for the -all-proposed run, no?
+[15:41] <juliank> if you queued one then yeah
+[15:41] <adrien_web> I did: they're not helpful
+[15:41] <juliank> libtirpc was with liushuyu, there are no failures, but it doesn't migrate; someone to dig at update_output.txt?
+[15:41] <upils> I did but It may have been lost at some point, I will check again
+[15:41] <juliank> possibly needs hinting
+[15:42] <adrien_web> Britney lags but updated an hour ago luckily
+[15:43] <liushuyu> juliank: libtirpc is still waiting on the excuses to update (the last test just passed several hours ago)
+[15:43] <juliank> no
+[15:44] <juliank> hmm
+[15:44] <juliank> maybe yes but excuses by teams doesn't show
+[15:44] <liushuyu> "Migration status for libtirpc (1.3.4+ds-1build1 to 1.3.4+ds-1.1): Waiting for test results, another package or too young (no action required now - check later)"
+[15:44] <juliank> ok
+[15:44]  * adrien_web only looks at not by team
+[15:44] <juliank> libuv1 is with mwhudson
+[15:44] <juliank> adrien_web: heh but we need to look at by team one here
+[15:45] <juliank> xz-utils is still with zhsj waiting for tests to run I suppose
+[15:45] <adrien_web> I did retries for it, i think they're maybe all good now
+[15:45] <adrien_web> For libuv
+[15:45] <juliank> optipng is with bdmurray still
+[15:46] <juliank> slang2 is with  tim andersson whatever his handle is, I don't know right know :)
+[15:46] <adrien_web> juliank: yeah; I wanted to give more context to what I say
+[15:46] <juliank> nfs-utils is with danilogondolfo still
+[15:46] <Skia> andersson123, usually, but he's not online right now it seems
+[15:47] <juliank> fwupd vs libmbim is with pushkarnk
+[15:47] <pushkarnk> fwupd - waiting for results on amd64/armhf, tests pass locally. Failures on s390x need some investigation
+[15:47] <juliank> This really should unlock all the fwupd vs *
+[15:49] <pushkarnk> (actually, I can't repro the fwupd test failures on s390x locally, the tests seem to pass)
+[15:49] <juliank> glib2.0 blocking *: waveform
+[15:49] <waveform> ack
+[15:50] <juliank> Let's skip a couple which only fail on armhf and get more interesting one
+[15:50] <bdmurray> In the past there were network issues with fwupd
+[15:50] <juliank> babeltrace is blocked by ceph, but due to dependency issues, but on amd64!
+[15:50] <pushkarnk> bdmurray: ack, will check from that angle
+[15:51] <juliank> babeltrace: dviererbe (previous week assignment seems solved)
+[15:52] <bdmurray> being more specific issues with fwupd trying to access external resources
+[15:52] <dviererbe> nice, but I did nothing
+[15:52] <juliank> debhelper: Skia you wanna take those?
+[15:52] <Skia> sure
+[15:52] <juliank> It's 6 packages failing but hmm
+[15:53] <juliank> dwz ginggs
+[15:53] <ginggs> ack
+[15:53] <juliank> libnsl slyon
+[15:54] <slyon> ok
+[15:54] <juliank> gdbm itself: mkukri
+[15:54] <mkukri> ack
+[15:55] <juliank> file, primarily non-armhf ones: mateus-morais
+[15:55] <mateus-morais> juliank: ack
+[15:57] <juliank> zlib has a bunch of dependency issues across non-armhf architectures: pushkarnk (please ping if you need assistance)
+[15:58] <pushkarnk> ack
+[15:58] <juliank> zlib non-armhf ones: schopin
+[15:58] <schopin> isn't it what you just assigned?
+[15:58] <juliank> oops
+[15:59] <juliank> Let me wait until I find a bigger one for you
+[15:59] <schopin> erm... OK?
+[15:59] <juliank> gsasl blocking iproute2: liushuyu
+[15:59] <liushuyu> juliank: okay
+[16:00] <juliank> initramfs-tools: So bdrung wants none, so maybe schopin wants that one
+[16:00] <juliank> It's s390x!
+[16:00] <bdrung> i'll take care of initramfs-tools
+[16:01] <bdrung> all those failures should be fixed with the latest uploads
+=== JanC is now known as Guest1790
+=== JanC_ is now known as JanC
+[16:02] <juliank> libpng1.6: schopin
+[16:02] <juliank> but like maybe focus on the one arm64
+[16:02] <juliank> and the i386
+[16:02]  * schopin looks around for someone else to jump in.
+[16:02] <schopin> ACK.
+[16:02] <juliank> python-click ogayot
+[16:03] <juliank> (again the non-armhf ones)
+[16:03] <juliank> libcgi-pm-perl i386: spyros
+[16:04] <juliank> libclass-xsaccessor-perl non-armhf: vpa1977
+[16:05] <juliank> libdbi-perl non-armhf: adrien_web
+[16:05] <juliank> libemail-address-xs-perl non-armhf chriscoulson
+[16:05] <juliank> doko and vorlon get to do time_t only
+[16:06] <juliank> uh I think let's leave it here
+[16:07] <juliank> #topic AOB
+[16:08] <bdmurray> I'll be out on Monday.
+[16:08] <pushkarnk> The next week is going to be a short one for me (two public holidays - Monday and Friday)
+[16:12] <juliank> #endmeeting
+[16:12] <meetingology> Meeting ended at 16:12:30 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-03-21-15.03.moin.txt

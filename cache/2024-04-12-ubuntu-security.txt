@@ -1,0 +1,24 @@
+=== chris14_ is now known as chris14
+=== guiverc2 is now known as guvierc
+[12:08] <stigo> Just wanted to say that I enjoy the format of the Ubuntu Security Podcast, it gives a nice overview of the latest issues
+[14:50] <ahasenack> georgiag: hi, morning
+[14:50] <ahasenack> I'm getting this apparmor denied log, and am wondering how to best address it
+[14:50] <ahasenack> [ter abr 16 17:25:04 2024] audit: type=1400 audit(1712933337.687:2890): apparmor="DENIED" operation="bind" class="net" namespace="root//lxd-n-pro_<var-snap-lxd-common-lxd>" profile="ubuntu_pro_esm_cache_systemctl" pid=348274 comm="systemctl" family="unix" sock_type="stream" protocol=0 requested_mask="bind" denied_mask="bind" addr="@d08132a6b99ec357/bus/systemctl/system"
+[14:50] <ahasenack> "network unix," sorts it out
+[14:51] <ahasenack> but is there something I can do about the "address" perhaps, to limit it to that */bus/systemctl/system" address?
+[14:54] <georgiag> yep, there are specific unix rules that one would look like: unix bind addr=@*/bus/systemctl/system,
+[14:54] <ahasenack> so "network unix" plus that?
+[14:54] <ahasenack> or just that?
+[14:54] <georgiag> just that works
+[14:54] <ahasenack> thanks, trying
+[14:55] <ahasenack> can I use unix bind addr=@*/bus/systemctl/*, ? I see two addresses:
+[14:55] <ahasenack> addr="@5a483abfca663cfc/bus/systemctl/system"
+[14:55] <ahasenack> and also
+[14:56] <ahasenack> addr="@e85173dd91675953/bus/systemctl/"
+[14:56] <ahasenack> or just list both?
+[14:56] <ahasenack> two "unix bind" lines
+[14:56] <georgiag> addr=@*/bus/systemctl/{,system} seems more strict 
+[14:56] <ahasenack> does this use the normal path globbing rules?
+[14:56] <georgiag> it does
+[14:57] <ahasenack> awesome
+=== cpaelzer_ is now known as cpaelzer

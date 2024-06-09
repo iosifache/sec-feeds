@@ -1,0 +1,13 @@
+=== chris14_ is now known as chris14
+=== cpaelzer_ is now known as cpaelzer
+[12:03] <halloy5845> anyone here working as ubuntu security engineer? 
+[12:07] <halloy5845> trippeh: hi
+[12:08] <ebarretto> halloy5845, how can we help?
+[15:03] <Asif> Hi, I opened bug 2066363 last week. Any chance someone can take a quick look >
+[15:24] <leosilva> hi Asif, can i make the bug public, so the desktop team can see it?
+[15:27] <Asif> yeah, go ahead. Nothing secret on there right now
+[15:28] <Asif> Just saw your comment, its not on the gnome login window. credentials are shown on a console screen before you while the system switches back to the login screen
+[15:28] <leosilva> thanks!
+[15:40] <mdeslaur> Asif: those are the credentials you typed into gdm though, right?
+[15:41] <Asif> yes, the last credentials typed into gdm are what is on the screen
+[15:42] <Asif> We are using AD authentication with sssd 

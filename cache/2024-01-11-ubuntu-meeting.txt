@@ -1,0 +1,115 @@
+=== pushkarnk1 is now known as pushkarnk
+[16:00] <dviererbe> o/
+[16:00] <adrien> o//
+[16:00] <ginggs> o/
+[16:00] <ogayot> o/
+[16:00] <slyon> \o
+[16:00] <mkukri> o/
+[16:00] <zhsj> o/
+[16:01] <liushuyu> o/
+[16:01] <bdrung> \o
+[16:01] <enr0n> o/
+[16:01] <pushkarnk> o/
+[16:01] <cpete> o/
+[16:01] <juliank> o/
+[16:02] <juliank> Firefox is really annoying when I try to find my GOogle Meet url
+[16:02] <juliank> #startmeeting
+[16:02] <meetingology> Meeting started at 16:02:30 UTC.  The chair is juliank.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[16:02] <mateus-morais> o/
+[16:02] <meetingology> Available commands: action, commands, idea, info, link, nick
+[16:02] <juliank> I forgot the name
+[16:02] <juliank> #topic Lightning rounds
+[16:03] <juliank> (This is the foundations weekly meeting)
+[16:03] <juliank> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-11-january-2024/
+[16:06] <bdmurray> "Weird stuff"
+[16:09] <slyon> danilogondolfo: see enr0n's status about the apparmor namespace issue. I guess that's what we see in Netplan, too?
+[16:09] <schopin> why is netplan using unshare() ? oO
+[16:10] <slyon> unshare? oO I didn't check the details yet, but we're seeing strange autopkgtest failures related to namespace restrictions, that cannot be reproduced in Debian
+[16:11] <schopin> that'd be the syscall to create new namespaces :)
+[16:12] <juliank> We ready to continue?
+[16:12] <slyon> oh right. We're not creating any namespaces manually... But it was ringing a bell in my head when I saw that context :)
+[16:12] <danilogondolfo> the issue we are seeing seems to not be related to that I guess. It's due to /usr/lib/netplan being deleted and not recreated due upgrade as far as I can see
+[16:13] <juliank> #topic Release incoming bugs
+[16:13] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-nn-incoming-bug-tasks.html#foundations-bugs
+[16:13] <enr0n> slyon: do you have a link to an example?
+[16:13] <juliank> bug 2048953
+[16:13] -ubottu:#ubuntu-meeting- Bug 2048953 in grub2 (Ubuntu) "grub fails to add boot entries if python3-apt is missing" [Medium, Triaged] https://launchpad.net/bugs/2048953
+[16:14] <juliank> mkukri already tagged it foundations-todo, but we also need to clean the rls-nn-incoming tag
+[16:14] <mkukri> already tagged totdo
+[16:14] <Skia> [5~[5~
+[16:15] <slyon> enr0n: I don't think it's visible from the public logs. Danilo had to dig into a local VM to extract some logs. But it might be unrelated after all..
+[16:15] <enr0n> ack
+[16:15] <juliank> bug 1969394 is with desktop still I believe and not actionable
+[16:15] -ubottu:#ubuntu-meeting- Bug 1969394 in update-manager (Ubuntu) "'Settings & Livepatch' button opens 'settings' tab, not livepatch" [Low, Confirmed] https://launchpad.net/bugs/1969394
+[16:16] <juliank> I'll bounce it to oo
+[16:16] <juliank> bug 1838372
+[16:16] -ubottu:#ubuntu-meeting- Bug 1838372 in apport (Ubuntu) "'ubuntu-bug -w' doesn't work under wayland" [Wishlist, Triaged] https://launchpad.net/bugs/1838372
+[16:16] <juliank> I don't think that's even possible?
+[16:17] <bdmurray> That's my memory
+[16:17] <juliank> Wayland doesn't support things like that by design for security reasons
+[16:17] <bdrung> juliank, is there no way to map a window to a program name?
+[16:17] <juliank> You can't get a list of windows even I believe
+[16:17] <enr0n> I thought we did an SRU for this a year or two ago
+[16:18] <bdrung> The use case: A user knows the icon and window title, but not the program name
+[16:18] <enr0n> This looks like a duplicate of bug 1952947
+[16:18] -ubottu:#ubuntu-meeting- Bug 1952947 in apport (Ubuntu Jammy) "ubuntu-bug -w (using xprop) doesn't work under wayland" [Medium, Fix Released] https://launchpad.net/bugs/1952947
+[16:18] <juliank> Well
+[16:19] <schopin> There's no DE-agnostic way, but maybe we can figure out an API for Gnome and KDE?
+[16:19] <bdmurray> "The patch for this bug adds a message explaining that the -w,--window option cannot be used on Wayland, and suggests a method for finding the window's PID instead."
+[16:19] <bdrung> Yes, but the problem is that user do not know the application name.
+[16:20] <waveform> how does firefox manage it (as a Wayland application, and something that lists "what window do you want to share?")
+[16:20] <schopin> FWIW xdg-portal has a way to list windows when trying to do screenshots/screencast.
+[16:20] <waveform> ah
+[16:20] <juliank> it might not be possible to get back to the pid from that
+[16:20] <schopin> However reading the doc I didn't see a way to get from the handle to a PID or anything like that.
+=== rkratky__ is now known as rkratky
+[16:21] <juliank> if you can get the .desktop that is enough though
+[16:21] <juliank> But we can discuss this more and find out ways or someone on the bug tells us before comitting this to jira
+[16:21] <juliank> bug 2048760
+[16:21] -ubottu:#ubuntu-meeting- Bug 2048760 in python-cssselect (Ubuntu) "[MIR] python-cssselect" [Undecided, Incomplete] https://launchpad.net/bugs/2048760
+[16:21] <slyon> this is looking for a volunteer to do an MIR
+[16:21] <schopin> not it
+[16:21] <juliank> mkukri: ?
+[16:22] <mkukri> sure
+[16:22] <slyon> thanks!
+[16:23] <juliank> bug 2048766
+[16:23] -ubottu:#ubuntu-meeting- Bug 2048766 in dmraid (Ubuntu) "Please remove dmraid from the Ubuntu archive" [Undecided, New] https://launchpad.net/bugs/2048766
+[16:23] <slyon> We have a plan for this one already (see my last comment)
+[16:23] <slyon> I'm not sure how we can track it, to not forget about it?
+[16:26] <slyon> we might target it to a milestone, so it pops up with the release team before release
+[16:26] <juliank> Target to feature freeze milestone
+[16:26] <juliank> and removed the incoming tag
+[16:26] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-mm-incoming-bug-tasks.html#foundations-bugs
+[16:26] <juliank> is really nothing new there
+[16:26] <juliank> just desktop stuff
+[16:26] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-jj-incoming-bug-tasks.html#foundations-bugs
+[16:27] <juliank> surprisingly empty too
+[16:27] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-ff-incoming-bug-tasks.html#foundations-bugs
+[16:27] <juliank> is empty too
+[16:27] <juliank> #topic Team proposed-migration report
+[16:28] <juliank> #link https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses_by_team.html#foundations-bugs
+[16:28] <juliank> firefox is hanging
+[16:30] <juliank> libtircp vs glibc is with danilogondolfo still I believe
+[16:30] <juliank> python-werkzeug is with slyon still
+[16:30] <danilogondolfo> juliank, this one is related to the problem schopin is investigating in glibc
+[16:31] <juliank> debconf is still with enr0n
+[16:31] <juliank> wpa vs netplan is with ogayot
+[16:31] <schopin> danilogondolfo: sorry I forgot to do the migration-reference runs for other archs than amd64 -_-
+[16:33] <juliank> libxcrypt vs ruby
+[16:33] <juliank> libxcrypt vs ruby: adrien?
+[16:33] <adrien> I'm innocent (ack)
+[16:34] <juliank> netplan.io blocking network-manager: slyon
+[16:35] <juliank> systemd-hwe: enr0n
+[16:35] <juliank> debootstrap: bdrung
+[16:35] <bdrung> ack
+[16:36] <juliank> rsyslog: xypron
+[16:37] <juliank> Sadly we are out of bold items and I assigned alphabetically so uh sorry
+[16:37] <juliank> Next time we can start from the back!
+[16:38] <juliank> python-werkzeug: pushkarnk
+[16:38] <pushkarnk> ack
+[16:39] <juliank> #topic AOB
+[16:39] <bdmurray> Monday is a US holiday
+[16:39] <enr0n> \o/
+[16:41] <juliank> well I guess that's it
+[16:41] <juliank> #endmeeting
+[16:41] <meetingology> Meeting ended at 16:41:14 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-01-11-16.02.moin.txt

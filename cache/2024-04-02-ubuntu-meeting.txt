@@ -1,0 +1,220 @@
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+[14:30] <jbicha> o/
+[14:30] <eslerm_> o/
+[14:30] <dviererbe> o/
+[14:31] <slyon> o/
+[14:31] <sarnold> good morning
+[14:34] <slyon> do we have cpaelzer today?
+[14:34] <sarnold> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( eslerm dviererbe )
+[14:34] <jamespage> o/
+[14:35] <slyon> #startmeeting Weekly Main Inclusion Requests status
+[14:35] <meetingology> Meeting started at 14:35:34 UTC.  The chair is slyon.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[14:35] <meetingology> Available commands: action, commands, idea, info, link, nick
+[14:35] <slyon> #topic current component mismatches
+[14:35] <slyon> Mission: Identify required actions and spread the load among the teams
+[14:35] <slyon> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[14:35] <slyon> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[14:36] <slyon> *boom*
+[14:36] <sarnold> oh my
+[14:36] <slyon> I guess we should ignore that for today. I did some investigation ealier, and it's mostly due to missing binaries in the archive, cause by the mass-rebuild
+[14:37] <slyon> then falling back to an alternative dependency, that is not in main
+[14:37] <sarnold> ahhhhhh
+[14:37] <jbicha> -proposed might be roughly correct though
+[14:37] <cpaelzer> hey, thanks for starting
+[14:37] <slyon> gnome-remote-desktop -> freerdp2 should be double checked, as we want it to use freerdp3 instead
+[14:38] <slyon> jbicha: -proposed is even worse
+[14:38] <sarnold> how is that worse? :)
+[14:38] <slyon> I'm not sure where those new rust-* trees/roots come from, but would blame the state of the archive, too
+[14:38] <jbicha> gnome-remote-desktop does depend on freerdp3 in -proposed but failed to build on armhf & may need AA help
+[14:38] <cpaelzer> thanks jbicha, that will resolve the mismatch on freerdp2 then once it migrates
+[14:39] <cpaelzer> what kind of AA help do you expect there?
+[14:39] <slyon> sarnold: ah sorry! I mixed up my -release and -proposed tabs :)
+[14:39] <sarnold> slyon: every single week I think we ought to switch the order of the two links and every single week I do nothing about it :)
+[14:39] <jbicha> we may want to remove gnome-remote-desktop on armhf
+[14:39] <slyon> abseil -> googletest and glib2.0 -> sysprof should be checked by the desktop team (cc didrocks, jbicha)
+[14:39] <jbicha> oh removing armhf was already done so I guess that will clear up on xz-utils migrates
+[14:40] <jbicha> I'm working through glib -> sysprof either by reverting or by demoting libglib2.0-dev to universe (like we did with other sysprof-using libraries)
+[14:40] <jbicha> Desktop plans to do a MIR for sysprof for the 24.10 cycle
+[14:40] <slyon> I updated the *trace* and bpf* cases today and would love to get cpaelzer's input on bpf*, to see if we can drop some of the MIR required TODOs to Recommended TODOs. (but more on that later)
+[14:40] <cpaelzer> ok, so no dependency now - but re-added in 24.10 - sounds good and matches what I expected
+[14:40] <eslerm_> thank you slyon :)
+[14:41] <slyon> #topic New MIRs
+[14:41] <slyon> Mission: ensure to assign all incoming reviews for fast processing
+[14:41] <slyon> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[14:41] <slyon> any volunteers for bug #2060035
+[14:41] -ubottu:#ubuntu-meeting- Bug 2060035 in msgraph (Ubuntu) "[MIR] msgraph" [Undecided, New] https://launchpad.net/bugs/2060035
+[14:41] <slyon> I could take it myself, probably.
+[14:42] <slyon> let's do this
+[14:42] <slyon> #topic Incomplete bugs / questions
+[14:42] <slyon> Mission: Identify required actions and spread the load among the teams
+[14:42] <slyon> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[14:43] <slyon> tracking update on #2051925 (still WIP)
+[14:43] <slyon> bug 2051925
+[14:43] -ubottu:#ubuntu-meeting- Bug 2051925 in libtracefs (Ubuntu) "[MIR] promote libtracefs as a trace-cmd dependency" [Undecided, Incomplete] https://launchpad.net/bugs/2051925
+[14:43] <slyon> same for trace-cmd
+[14:43] <sarnold> bug 2023531 > Therefore, the final requirement for the .NET MIR should be fulfilled.
+[14:43] -ubottu:#ubuntu-meeting- Bug 2023531 in dotnet6 (Ubuntu) "[MIR] dotnet6" [Undecided, Incomplete] https://launchpad.net/bugs/2023531
+[14:44] <cpaelzer> slyon: I'm too distracted still :-/ will read the bpf and trace cases in a bit
+[14:44] <slyon> thanks!
+[14:44] <slyon> So bug 2052813 and bug 2052809 TBD by cpaelzer
+[14:44] -ubottu:#ubuntu-meeting- Bug 2052813 in bpfcc (Ubuntu) "[MIR] bpfcc" [Undecided, Incomplete] https://launchpad.net/bugs/2052813
+[14:44] -ubottu:#ubuntu-meeting- Bug 2052809 in bpftrace (Ubuntu) "[MIR] bpftrace" [Undecided, Incomplete] https://launchpad.net/bugs/2052809
+[14:45] <slyon> next one bug 2023531
+[14:45] -ubottu:#ubuntu-meeting- Bug 2023531 in dotnet6 (Ubuntu) "[MIR] dotnet6" [Undecided, Incomplete] https://launchpad.net/bugs/2023531
+[14:45] <dviererbe> If there are any questions for dotnet. I am here o/
+[14:45] <slyon> https://bugs.launchpad.net/ubuntu/+source/dotnet6/+bug/2023531/comments/16 is also to be double-checked by cpaelzer (please update the case once you have some time), to confirm the requirements are good
+[14:46] <slyon> that's it for updates, I guess
+[14:46] <slyon> I moved quite a few to "In Progress" this morning:
+[14:46] <slyon> https://bugs.launchpad.net/ubuntu/+source/authd/+bug/2048781
+[14:46] -ubottu:#ubuntu-meeting- Launchpad bug 2048781 in authd (Ubuntu) "[MIR] authd" [Undecided, In Progress]
+[14:46] <slyon> https://bugs.launchpad.net/ubuntu/+source/tree/+bug/2056099
+[14:46] -ubottu:#ubuntu-meeting- Launchpad bug 2056099 in tree (Ubuntu) "[MIR] tree" [Undecided, In Progress]
+[14:46] <slyon> https://bugs.launchpad.net/ubuntu/+source/aom/+bug/2004442
+[14:46] -ubottu:#ubuntu-meeting- Launchpad bug 2004442 in aom (Ubuntu) "[MIR] aom (dependency of libheif)" [Undecided, In Progress]
+[14:46] <slyon> https://bugs.launchpad.net/ubuntu/+source/libtraceevent/+bug/2051916
+[14:46] -ubottu:#ubuntu-meeting- Launchpad bug 2051916 in libtraceevent (Ubuntu) "[MIR] promote libtraceevent as a trace-cmd dependency" [Undecided, In Progress]
+[14:46] <slyon> (Just FYI)
+[14:46] <slyon> so those are good
+[14:47] <slyon> #topic Process/Documentation improvements
+[14:47] <slyon> Mission: Review pending process/documentation pull-requests or issues
+[14:47] <slyon> #link https://github.com/canonical/ubuntu-mir/pulls
+[14:47] <slyon> #link https://github.com/canonical/ubuntu-mir/issues
+[14:48] <slyon> no updates AFAICT
+[14:48] <slyon> #topic MIR related Security Review Queue
+[14:48] <slyon> Mission: Check on progress, do deadlines seem doable?
+[14:48] <slyon> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[14:48] <slyon> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:48] <slyon> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:48] <slyon> Internal link
+[14:48] <slyon> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[14:48] <slyon> sarnold:
+[14:48] <slyon> this looks very clean!
+[14:48] <sarnold> it *is* very clean :D
+[14:49] <eslerm_> \o/
+[14:49] <sarnold> eslerm_ has done an excellent job helping many reviewers to help us get to this state :) I'm feeling really good. <3
+[14:49] <dviererbe> wow nearly empty board
+[14:49] <slyon> and there isn't too much in the pipeline.
+[14:49] <slyon> Much appreciated, kudos!
+[14:49] <slyon> But I guess the secirty team is busy with other stuff these days :)
+[14:50] <slyon> #topic Any other business?
+[14:50] <eslerm_> the remaining items on Security's jira board are blocked
+[14:50] <slyon> eslerm_: did you already reach out to the corresponding team to help unblocking it?
+[14:51] <eslerm_> one is blocked by security
+[14:51] <eslerm_> the other we have spoken to desktop about
+[14:51] <sarnold> so, we weren't exactly clear in our "must be assigned to security team before beta freeze" if it was the specific date or the specific milestone .. and perhaps beta freeze has moved around due to the recent fun
+[14:52] <sarnold> in any event, MIRs beyond beta freeze that need security team ACK will also need a conversation with the security engineering director
+[14:52] <sarnold> I think that's all I had
+[14:53] <slyon> thanks for clarifying. This might or might not affect https://launchpad.net/bugs/2060035 â depending on what I find on the MIR review. CC seb128 ^
+[14:53] -ubottu:#ubuntu-meeting- Launchpad bug 2060035 in msgraph (Ubuntu) "[MIR] msgraph" [Undecided, New]
+[14:53] <cpaelzer> slyon: read and updated bug 2023531 - it is indeed ready to go now AFAICS
+[14:53] -ubottu:#ubuntu-meeting- Bug 2023531 in dotnet6 (Ubuntu) "[MIR] dotnet6" [Undecided, In Progress] https://launchpad.net/bugs/2023531
+[14:53] <eslerm_> the msgraph mir says it targets 24.04.1
+[14:54] <slyon> thx cpaelzer! cc dviererbe ^
+[14:54] <slyon> eslerm_: good. that should give some buffer
+[14:54] <slyon> Do we have anything else?
+[14:54] <cpaelzer> slyon: I'm ok on build time tests being impossible on bpftrace - with autopkgtests added that should be ok
+[14:55] <cpaelzer> not that I feel to be the one that has to decide alone, but I think it is ok
+[14:55] <dviererbe> Do I have to open an MIR bug for dotnet8?
+[14:55] <slyon> cpaelzer: I agree. As we need a specific kernel, that we cannot guarantee on the builders
+[14:55] <cpaelzer> yep
+[14:55] <eslerm_> it would be nice to sort out which bpf binaries make it to the default installation, lots of duplication between packages
+[14:56] <cpaelzer> eslerm_: that is on https://bugs.launchpad.net/ubuntu/+source/bpfcc/+bug/2052813
+[14:56] -ubottu:#ubuntu-meeting- Launchpad bug 2052813 in bpfcc (Ubuntu) "[MIR] bpfcc" [Undecided, Incomplete]
+[14:57] <cpaelzer> eslerm_: I think it will only pull in one of them, and IMHO should be the smallest (there are pre-linked and some that have way more dependencies)
+[14:57] <cpaelzer> But I haven't done this myself, so I can't tell you what exactly it would pull atm
+[14:57] <eslerm_> I cannot find my conversation about fdk-aac-free, I'll speak to desktop in case I did not :(
+[14:57] <eslerm_> thanks cpaelzer
+[14:57] <cpaelzer> but we have seen it in the mismatches, so it is there isn't it
+[14:57] <cpaelzer> slyon: https://bugs.launchpad.net/ubuntu/+source/bpftrace/+bug/2052809 seems to be ready then
+[14:57] -ubottu:#ubuntu-meeting- Launchpad bug 2052809 in bpftrace (Ubuntu) "[MIR] bpftrace" [Undecided, Incomplete]
+[14:58] <slyon> cpaelzer: ACK. I'll update the case
+[14:58] <slyon> what about bpfcc?
+[14:58] <cpaelzer> alreaedy done
+[14:58] <slyon> cool!
+[14:58] <cpaelzer> still reading on this one
+[14:58] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/bpfcc/+bug/2052813
+[14:58] -ubottu:#ubuntu-meeting- Launchpad bug 2052813 in bpfcc (Ubuntu) "[MIR] bpfcc" [Undecided, Incomplete]
+[14:58] <eslerm_> personally, I would make the bpftrace binaries non-executable examples
+[14:58] <sarnold> and I personally think that'd vastly detract from the value of the package :)
+[14:59] <eslerm_> there are two packages in the bpfcc source package which duplicate binary functionality as well
+[14:59] <cpaelzer> I think we should have the examples executable
+[14:59] <cpaelzer> it is about making people aware of a whole new world of things they could get
+[14:59] <cpaelzer> eslerm_: are you concerned about something in particular?
+[14:59] <sarnold> the duplicated functionality in the bpfcc package feels pretty unfortunate :( some of them seem to work and others don't :( it'd be nice if the not-working-at-release ones would be removed..
+[15:00] <cpaelzer> slyon: symbols have been looked at, the rest is done or impossible
+[15:00] <cpaelzer> that is usually the amount we strong-require
+[15:00] <slyon> cpaelzer: so that can be promoted?
+[15:00] <cpaelzer> I'd be ok to give it a pass, you are subscribed and might even add c++filt based symbsoils in the past
+[15:00] <eslerm_> it just feels redundant to have execsnoop, execsnoop-bpfcc, and execsnoop.bt all installed by default (and many similar cases)
+[15:00] <cpaelzer> again, you are all entitled to make that call - but I think yes this is ok'ishj
+[15:01] <cpaelzer> we might want to mention the "do not install all tools" that we discussed above
+[15:01] <cpaelzer> eslerm_: yeah, not all of them for sure
+[15:01] <cpaelzer> eslerm_: that is what I meant with just the set without dependencies
+[15:01] <cpaelzer> eslerm_: whichever that was
+[15:02] <eslerm_> I trust that it will be implemented well :)
+[15:02] <cpaelzer> never trust :-)
+[15:02] <cpaelzer> but thanks
+[15:03] <slyon> OK. I'll update the bpfcc case after the meeing then.
+[15:03] <slyon> cpaelzer: May I also ask you to have a look at https://bugs.launchpad.net/ubuntu/+source/libtraceevent/+bug/2051916/comments/22
+[15:03] -ubottu:#ubuntu-meeting- Launchpad bug 2051916 in libtraceevent (Ubuntu) "[MIR] promote libtraceevent as a trace-cmd dependency" [Undecided, In Progress]
+[15:03] <slyon> Do you want those #MISSING: symbols dropped? IMO it should be fine as-is. Upstream is aware and want's to drop it anyway
+[15:04] <cpaelzer> #MISSING is fine unless it keeps adding more and more and more of them
+[15:04] <slyon> but we can also wait for didrocks opinion on this ^ as he was the original reviewer
+[15:04] <slyon> ok
+[15:04] <cpaelzer> you'd usually expect some cleanup every release or so
+[15:05] <sarnold> distro release or package "release"?
+[15:05] <cpaelzer> distro release
+[15:05] <sarnold> ack
+[15:06] <cpaelzer> like not each upload, but one of these usual "once every while" housekeeping tasks
+[15:07] <slyon> I guess that should be all for today...
+[15:07] <slyon> thanks all! o/
+[15:07] <eslerm_> thanks for doing a final triage-review of all the bpf mirs slyon
+[15:07] <cpaelzer> slyon: do you know which bpf tools are the small ones?
+[15:07] <eslerm_> thanks all o/
+[15:07] <slyon> cpaelzer: I don't know, but will check back with ravikant_
+[15:08] <cpaelzer> ok found it
+[15:08] <cpaelzer> the dependency is
+[15:08] <cpaelzer> 1. seeds changed to depend on ubuntu-kernel-accessories
+[15:08] <cpaelzer> 2. that depends on
+[15:08] <cpaelzer> Recommends: bpfcc-tools, bpftrace
+[15:08] <cpaelzer> I think that should actually be libbpf-tools
+[15:08] <cpaelzer> which is the small one as in
+[15:09] <cpaelzer> "
+[15:09] <cpaelzer> 112  This package provides the tools from bpfcc-tools but written in a portable
+[15:09] <cpaelzer> 113  fashion using BTF and libbpf hence the installation footprint will be smaller
+[15:09] <cpaelzer> 114  compared to bpfcc-tools.
+[15:09] <cpaelzer> "
+[15:10] <cpaelzer> I'll ping Robie who was coordinating a lot
+[15:10] <cpaelzer> you ping ravikant_
+[15:10] <cpaelzer> and together they will probably ask kernel to update the dependency or tell us why it needs to be the bigger one
+[15:10] <slyon> sounds like a plan!
+[15:11] <dviererbe> Repeating this question, because I am not sure if the answer was meant for me. Do I have to open an MIR bug for dotnet8? or is this included with the dotnet6 MIR?
+[15:11] <sarnold> oh right .
+[15:11] <cpaelzer> dviererbe: you'd want to open one, but refer to the existing dotnet6
+[15:11] <dviererbe> ack
+[15:11] <cpaelzer> dviererbe: and then spell out what is the same and what is different
+[15:11] <ravikant_> thanks all! I am meeting Robie in 30 mins.
+[15:11] <cpaelzer> dviererbe: so it should exist, but should be a fast path for both sides
+[15:11] <cpaelzer> awesome ravikant_
+[15:11] <sarnold> .. imho opening a new one would make sense; perhaps sometday it'll be as auto-pilot as postgres, but at least the first few it feels like it's worth having an eye on it
+[15:12] <dviererbe> okay, thanks
+[15:12] <sarnold> (we can all dream of someday being as good as postgres :)
+[15:13] <slyon> Can I close the meeting now?
+[15:15] <slyon> (sorry for running over again!)
+[15:15] <sarnold> I think so, but I thought so a few minutes ago, too, hehe
+[15:15] <slyon> #endmeeting
+[15:15] <meetingology> Meeting ended at 15:15:04 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-04-02-14.35.moin.txt
+[15:15] <sarnold> thanks slyon, all :)
+[15:16] <dviererbe> Thanks everyone!
+[15:16] <cpaelzer> thanks slyon and all others
+[15:24] <didrocks> slyon: acking on libtraceevent (sorry, with remaining carry over + day off yesterday, Iâm only able to look at them today, just doing it before EOD).
+[15:25] <slyon> thx didrocks!
+[15:25] <didrocks> yw :)
+[15:25] <cpaelzer> thank you!
+=== arraybolt3_ is now known as arraybolt3
+=== JanC is now known as Guest856
+=== arraybolt3_ is now known as arraybolt3

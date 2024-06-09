@@ -1,0 +1,11 @@
+=== chris14_ is now known as chris14
+=== JanC_ is now known as JanC
+=== ChanServ changed the topic of #ubuntu-security to: Twitter: @ubuntu_sec || https://usn.ubuntu.com || https://wiki.ubuntu.com/SecurityTeam || https://wiki.ubuntu.com/Security/Features || Community: pfsmorigo
+=== popey9 is now known as popey
+=== JanC is now known as Guest9929
+=== JanC_ is now known as JanC
+[21:43] <eslerm> hi @rouca o/
+[21:43] <eslerm> sorry for late response, I need to make irc part of my workflow
+[21:43] <eslerm> running tests on similar software today, and hopefully sendmail too
+[22:44] <eslerm> I wonder if https://linux.die.net/man/8/ssmtp is affected
+[22:44] <eslerm> (as a relay)

@@ -1,0 +1,24 @@
+=== crazybyte7 is now known as crazybyte
+[13:22] <allenpthuang> hey jdstrand, re: postfix, I will work on updates based on those new versions next week. Thanks again for the heads up! :D
+=== coreycb_ is now known as coreycb
+=== punkcoder4 is now known as punkcoder
+[17:19] <arraybolt3> mdeslaur and whoever else: https://bugs.launchpad.net/ubuntu/+source/tigervnc/+bug/2048442/comments/2 I have MOTU upload permissions, can I just upload fixed TigerVNC packages myself, or do I have to attach these as debdiffs because the Security Team is involved?
+[17:19] -ubottu:#ubuntu-security- Launchpad bug 2048442 in tigervnc (Ubuntu Mantic) "CVE-2023-1393 and TigerVNC" [Medium, New]
+[17:19] <arraybolt3> (obviously the fixes will have to go through the SRU process, but I mean for the initial upload to -proposed.)
+[17:39] <mdeslaur> arraybolt3: hi! if it fixes a CVE, it needs to go through security updates, not the SRU process, so please attach debdiffs to the bug, and subscribe ubuntu-security-sponsors to it, and whoever is on sponsoring duty this week will take a look
+[17:39] <mdeslaur> (D'OH I'M ON SPONSORING DUTY THIS WEEK)
+[17:39] <mdeslaur> arraybolt3: the updates need to be built in the security team ppa, as it builds without -updates enabled, so you unfortunately can't upload it directly yourself
+[18:02] <arraybolt3> mdeslaur: makes sense, thanks!
+[18:02] <arraybolt3> you can probably count on me having debdiffs later today, hopefully.
+[18:08] <mdeslaur> arraybolt3: awesome, ping me here when uploaded, and I'll take a look
+=== sdeziel_ is now known as sdeziel
+[20:58] <arraybolt3> mdeslaur: https://bugs.launchpad.net/ubuntu/+source/tigervnc/+bug/2048442 all four affected releases now have debdiffs awaiting review. Thank you!
+[20:58] -ubottu:#ubuntu-security- Launchpad bug 2048442 in tigervnc (Ubuntu Mantic) "CVE-2023-1393 and TigerVNC" [Medium, New]
+[21:02] <arraybolt3> mdeslaur: before you accept any of those, please note that I did **not** already test the actual installation and functionality of those debdiffs, I did this like an SRU and expected things would go to the -proposed pocket.
+[21:02] <arraybolt3> I'm only just now seeing that doesn't happen for security updates.
+[21:03] <arraybolt3> I don't have time to do the actual testing of them right now, so if you have to hold off on doing anything with those, that's fine, I'll get around to it ASAP.
+[21:08] <sarnold> arraybolt3: thanks :) the usual process involves asking the uploader to test the built binaries, to ensure that what we're about to ship to users works as expected
+[21:11] <arraybolt3> sarnold: to be clear, the binaries as built by the debdiff builder themselves? Or does the Security team upload them to their PPA and then testing is done? (This is my first security update so I'm very hazy on just about everything that differs from the traditional SRU process as you could probably tell :P)
+[21:11] <arraybolt3> (I didn't realize this was handled at all different than an SRU right up until I mentioned that I didn't test things already.
+[21:12] <sarnold> arraybolt3: yeah, mdeslaur will upload to a ppa, and then ask you to test those, describe the testing done, etc
+[21:12] <arraybolt3> ahhhh ok that's similar to what I'm used to then. Perfect, then I think we're on track.

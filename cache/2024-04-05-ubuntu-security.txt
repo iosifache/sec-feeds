@@ -1,0 +1,40 @@
+[00:06] <ahasenack_> still somebody here? Another question. I'm checking an apparmor profile at package build time, using apparmor_parser, trying to detect (and avoid) syntax errors
+[00:06] <ahasenack_> so I call it like "apparmor_parser -K -T -Q <file>"
+[00:06] <ahasenack_> works fine
+[00:06] <ahasenack_> except I now have "#include <local/foo>"
+[00:06] <ahasenack_> and /etc/apparmor.d/local/foo doesn't exist in the build environment
+[00:06] <ahasenack_> so that started failing
+[00:07] <ahasenack_> I found the -I option, and it seems to work
+[00:07] <ahasenack_> so, just double checking with another pair of eyes:
+[00:07] <ahasenack_> $ l debian/apparmor/local/ubuntu_pro_apt_news debian/apparmor/ubuntu_pro_apt_news
+[00:07] <ahasenack_> -rw-rw-r-- 1 ubuntu ubuntu    0 Apr  4 23:49 debian/apparmor/local/ubuntu_pro_apt_news
+[00:07] <ahasenack_> -rw-r--r-- 1 ubuntu ubuntu 1.2K Apr  4 23:48 debian/apparmor/ubuntu_pro_apt_news
+[00:07] <ahasenack_> and
+[00:07] <ahasenack_> $ apparmor_parser -I $(pwd)/debian/apparmor -K -T -Q debian/apparmor/ubuntu_pro_apt_news ; echo $?
+[00:07] <ahasenack_> 0
+[00:08] <ahasenack_> looks good?
+[00:09] <sarnold> probably fine; though I see the other examples in my /etc/apparmor.d/local/ are 644 and not 664
+[00:10] <ahasenack_> ah, ok, ddn't check that. Just did a "touch"
+[00:10] <sarnold> we've got an 'include if exists' but I don't see anything using that yet :/ so I don't know if this should be the first or if it's better to just follow along the pattern that the others do
+[00:10] <ahasenack_> looks like my umask is lax
+[00:10] <ahasenack_> I thought of that, but I don't think it exists in xenial
+[00:11] <ahasenack_> let me see if I have a xenial vm...
+[00:11] <ahasenack_> just to make sure
+[00:12] <sarnold> *xenial* ugh I forgot
+[00:12] <sarnold> yeah just stick with what you've got
+[00:12] <sarnold> I can't recall when this was introduced but xenial seems likely to be pushing it :)
+[00:14] <ahasenack_> it's not in the xenial apparmor.d manapge, but is in the jammy one
+[00:14] <ahasenack_> x:            INCLUDE = '#include' ( ABS PATH | MAGIC PATH )
+[00:15] <ahasenack_> j:            INCLUDE = ( '#include' | 'include' ) [ 'if exists' ] ( ABS PATH | MAGIC PATH )
+[00:15] <ahasenack_> was added somewhere in between
+[00:15] <sarnold> i'm glad you went looking rather than just using it :)
+[00:21] <ahasenack_> not my first xenial apparmor profile in the recent months ;)
+[00:21] <ahasenack_> was bitten before
+[00:24] <sarnold> hehehe :(
+=== chris14_ is now known as chris14
+[15:57] <UnivrslSuprBox> USP 224 was an excellent look over the xz-utils backdoor. Thank you!
+=== ahasenack_ is now known as ahasenack
+=== JanC_ is now known as JanC
+[19:42] <RonDesmond> Hi, is there a way to see earlier logs?Â  I asked a question a couple days ago about OVAL reporting
+[19:42] <RonDesmond> The link for channel logs only seems to cover today
+=== NotEickmeyer is now known as Eickmeyer

@@ -1,0 +1,7 @@
+=== chris14_ is now known as chris14
+[02:07] <blahdeblah> Thanks for all your work on the xz backdoor mitigation stuff folks.  Anyone know whether it's likely to result in commits from pre-5.6 versions being rolled back?
+[02:11] <sarnold> heya blahdeblah, afaik no decision has been made about that yet. rebuilding everything is pretty bloody expensive so I think we'd want something more concrete than trying to elide the attacker's account from the history entirely
+[02:12] <blahdeblah> cool - thanks sarnold
+=== sdeziel_ is now known as sdeziel
+[20:07] <LocutusOfBorg> er
+=== JanC is now known as Guest856

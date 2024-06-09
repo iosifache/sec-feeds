@@ -1,0 +1,10 @@
+[00:39] <guiverc> great & most interesting podcast amurray (ubusec 224)
+[00:40] <amurray> thanks guiverc 
+=== chris14_ is now known as chris14
+[01:36] <blahdeblah> amurray: +1 to that - I think there'll be ongoing fun from this one.
+[01:36] <blahdeblah> Although I would probably nitpick your characterisation of it as the biggest Open Source issue since Meltdown/Spectre.  What about log4shell?  Much more widely exploited...
+[02:08] <amurray> blahdeblah: oh indeed, log4shell was more exploited, but I don't think I have seen an issue get so much n news coverage so quickly as this 
+[02:08] <blahdeblah> In terms of hype it's definitely up there. :-)
+[02:33] <xFCFFDFFFFEFFFAF> acpiwar
+=== JanC is now known as Guest8501
+=== JanC_ is now known as JanC

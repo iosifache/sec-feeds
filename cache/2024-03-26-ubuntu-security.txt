@@ -1,0 +1,22 @@
+=== chris14_ is now known as chris14
+=== JanC_ is now known as JanC
+[13:44] <ahasenack> he ubuntu apparmor profile files usually have an include statement at the end, to allow for local customizations in the /etc/apparmor.d/local/<name> file
+[13:44] <ahasenack> but some profiles define child profiles
+[13:44] <ahasenack> I don't see include statements for these child profiles, and that would also not work with dh_apparmor because it only cares about the profile name, assuming that one file defines only one profile
+[13:45] <ahasenack> I guess this is an open question/issue then? We don't have a way to allow for local customizations of child profiles, defined inside a profile?
+[13:46] <ahasenack> like this scenario: https://pastebin.ubuntu.com/p/bDgk4g3Q33/
+[13:47] <ahasenack> profile foo could be adapted via new config in local/foo (but not override explicit DENYs it might have, AIUI)
+[13:47] <ahasenack> but pofiles bar, ugh, and another, cannot be adapted
+[13:49] <georgiag> i guess you could add "include <local/foobar>" under profile bar
+[13:51] <georgiag> but yeah, that has not been done. I'm not sure if that's something just out of my head but I always saw child profiles as self contained so I didn't find it weird it didn't allow for customizations
+[13:55] <ahasenack> yeah, they are usually tailored to how the main application is calling the other executables, and not meant as a general profile
+[13:56] <ahasenack> for example, I have a dpkg child profile, and I'm 100% sure it would not be applicable as a general dpkg profile
+[13:56] <ahasenack> because I only care about how my app calls dpkg, and it's never in a "install a package for me" mode
+[13:56] <ahasenack> so the child profile is much simpler, and tighter
+[13:56] <ahasenack> but there could be bugs
+[13:56] <ahasenack> I guess I'm seeing this include from local as a way to work around bugs in the profile without having to change the main config file
+[14:00] <georgiag> ah right. I don't see local as a way to fix bugs. like for example if I want to compile my own qemu and have libvirt point to my own qemu instead, I would add it to local/usr.sbin.libvirtd. or having a config file in a non-default place and allowing it in the local profile, etc. the end result is the same
+[14:01] <ahasenack> well, one classical case of local overrides is home directories
+[14:01] <ahasenack> a home dir doesn't have to be in /home/$user :)
+[14:01] <ahasenack> classic snap complaint, btw
+[14:09] <georgiag> yep, thats true!

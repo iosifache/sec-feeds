@@ -1,0 +1,48 @@
+=== cpaelzer_ is now known as cpaelzer
+=== pushkarnk1 is now known as pushkarnk
+[15:57] <utkarsh2102> henlo o/
+[15:58] <mirespace> o/
+[15:59] <tsimonq2> o/
+[16:01] <rbasak> o/
+[16:01] <rbasak> Sorry I'm not feeling well today. I'll be around but would appreciate if I didn't take an active role today.
+[16:03] <utkarsh2102> no worries
+[16:03] <utkarsh2102> wait, am I the only one?
+[16:04] <utkarsh2102> mirespace: :P
+[16:05] <mirespace> hehe, I was thinking you was asking for other MDB members
+[16:05] <utkarsh2102> yeah, no, I was
+[16:05] <utkarsh2102> I don't know where are others
+[16:05] <mirespace> It seems I chose a bad slot :(
+[16:06] <utkarsh2102> mirespace: I am sorry, I was excited for today :(
+[16:06] <mirespace> utkarsh2102: thankyou
+[16:07] <utkarsh2102> rbasak: should we take mirespace's application the next time
+[16:07] <teward> o/
+[16:07] <utkarsh2102> or can we still start and vote for ourselves and defer the application to mail
+[16:07] <utkarsh2102> teward: hey, hi!
+[16:07] <utkarsh2102> same question to you^ :D
+[16:07] <teward> *plays catchup as he only just got here*
+[16:08] <utkarsh2102> no rush
+[16:09] <rbasak> So I prefer to ask hard questions, just not today. IMHO, that's valuable to help identify any gaps. If someone else could do that then I'd find it valuable to continue with the application today.
+[16:09] <teward> utkarsh2102: if you have questions for the applicant we can have part 1 where we ask questions and then keep minutes and attach them to a ml item for us to actually vote on or have follow up questions.  Since its only us two we are nowhere near quorate
+[16:09] <utkarsh2102> fair, OK
+[16:09] <teward> i have no issues defering because i'm multitasking on an ITSec incident too
+[16:09] <utkarsh2102> let's defer to the next meeting then :(
+[16:09] <utkarsh2102> aah, okay, definitely defer it then! o/
+[16:10] <rbasak> Is there a suitable slot that mirespace can take that won't delay things too much?
+[16:10] <mirespace> checking MDB agenda slots...
+[16:10] <utkarsh2102> mirespace: hope the next slot is not a problem for you?
+[16:10] <rbasak> There's also https://wiki.ubuntu.com/DeveloperMembershipBoard/KnowledgeBase#Voting_and_Quorum which admittedly I don't quite fully understand
+[16:10] <utkarsh2102> DMB slots only please :P
+[16:10] <utkarsh2102> we don't do MDB stuff yet
+[16:10] <rbasak> It might reduce quorum requirements next time
+[16:11] <rbasak> But I think it only applies if we actually have the meeting today
+[16:11] <utkarsh2102> hm
+[16:11] <mirespace> hehe...sorry, DMB... 03/18 seems next one ...ok
+[16:12] <utkarsh2102> perfect
+[16:12] <utkarsh2102> let's meet next time then! \o
+[16:13] <mirespace> Date changed in the agenda
+[16:15] <utkarsh2102> danke
+[16:15] <utkarsh2102> see you then!
+[16:16] <mirespace> bye
+[16:16] <utkarsh2102> \o
+[16:16] <utkarsh2102> :wq!
+[16:38] <seb128> sorry for missing the meeting, that time of the day doesn't really work out for me :/

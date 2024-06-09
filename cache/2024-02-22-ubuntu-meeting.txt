@@ -1,0 +1,133 @@
+=== Ic3Br3aK3r is now known as ic3br34ker
+=== pushkarnk1 is now known as pushkarnk
+=== ebarretto_ is now known as ebarretto
+=== flag is now known as ppisati
+[15:59] <adrien> \o
+[15:59] <mkukri> o/
+[15:59] <liushuyu> o/
+[15:59] <upils> o/
+[16:00] <zhsj> o/
+[16:00] <adrien> I'm building openssl; it's nice'd but still...
+[16:00] <dviererbe> o/
+[16:00] <ravikant_> o/
+[16:00] <pushkarnk> o/
+[16:00] <bdrung> \o
+[16:00] <ogayot> o/
+[16:01] <slyon> o/
+[16:02] <juliank> o/
+[16:02] <xypron> \o
+[16:02] <juliank> #startmeeting Weekly Ubuntu Foundations team
+[16:02] <meetingology> Meeting started at 16:02:31 UTC.  The chair is juliank.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[16:02] <Skia> o/
+[16:02] <juliank> #topic Lightning rounds
+[16:02] <meetingology> Available commands: action, commands, idea, info, link, nick
+[16:02] <juliank> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-2024-02-22/
+[16:02] <juliank> busy day!
+[16:04] <bdmurray> juliank: Is your status still live?
+=== rkratky__ is now known as rkratky
+[16:04] <juliank> no sorry
+[16:05] <juliank> Forgot to update the timestamp
+[16:05] <juliank> So yes, the DEP17 migration to /usr is at full steam
+[16:05] <juliank> and should hopefully be also done tomorrow
+[16:05] <juliank> The one for essential anyhow
+[16:06]  * juliank had one primary goal: Make mmdebstrap work on noble
+[16:08] <bdmurray> dviererbe: regarding unzip autopkgtests for i386 I've seen the same thing with gzip
+[16:08] <bdmurray> dviererbe: I think there is a bug for that
+[16:09] <dviererbe> bdmurray: is there anything I can do?
+[16:09] <bdmurray> write a patch? ;-)
+[16:09] <dviererbe> :D
+[16:13] <juliank> #topic Release incoming bugs
+[16:13] <bdmurray> wait
+[16:13] <bdmurray> I finally found it!
+[16:13] <bdmurray> dviererbe: bug 1881504
+[16:13] -ubottu:#ubuntu-meeting- Bug 1881504 in autopkgtest (Ubuntu) "cross-testing essential packages fails" [Medium, Confirmed] https://launchpad.net/bugs/1881504
+[16:13] <dviererbe> thx
+[16:13] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-nn-incoming-bug-tasks.html#foundations-bugs
+[16:13] <juliank> bug 2049904
+[16:13] -ubottu:#ubuntu-meeting- Bug 2049904 in rustc (Ubuntu) "meson x rustc library ordering issue" [Undecided, New] https://launchpad.net/bugs/2049904
+[16:17] <bdmurray> juliank: yes, and?
+[16:17] <mkukri> removing rustc, it's not really a bug, rustc does weird things but i think it's "by diesng"
+[16:17] <mkukri> *design
+[16:19] <juliank> Sorry doing DEP17 /usr move coordination in parallel
+[16:19] <bdmurray> Focus man
+[16:19] <juliank> Lots of talking to helmut :)
+[16:20] <juliank> so this is fixed already and the report is out to date
+[16:20] <bdmurray> Thursday, 22. February 2024 14:31 UTC hardly?
+[16:20] <juliank> ugh no rustc is open, but meson is done
+[16:21] <mkukri> removed rustc
+[16:21] <juliank> thanks
+[16:21] <juliank> bug 2054319
+[16:21] -ubottu:#ubuntu-meeting- Bug 2054319 in ubuntu-release-upgrader (Ubuntu) "System installed from jammy point release iso cannot upgrade to noble" [Undecided, New] https://launchpad.net/bugs/2054319
+[16:21] <bdmurray> I think the problem here is polkit
+[16:21] <juliank> We already have one for tracker anyway, so let's remove that
+[16:22] <juliank> tracker-extract crashing is in u-r-u backlog
+[16:22] <juliank> the polkit crash could eventually crash gnome-shell
+[16:23] <juliank> I don't really want to tag this with 3 packages as we get three JIRA issues which will be awkward
+[16:23] <juliank> I guess desktop is doing some analysis too
+[16:24] <juliank> I suggest we skip it until next week
+[16:24] <juliank> maybe the culprit has been seen by then :)
+[16:24] <juliank> bug 2054341
+[16:24] -ubottu:#ubuntu-meeting- Bug 2054341 in livecd-rootfs (Ubuntu) "Ubuntu Cinnamon and Xubuntu FTBFS due to failure in diversion process" [Undecided, New] https://launchpad.net/bugs/2054341
+[16:25] <juliank> fwiw I expect we'll see a bunch more diversions fail next week due to stuff from /bin /sbin moving to /usr
+[16:25] <juliank> I'd argue the idea to make the diversion script a no-op if real script is not present is the right choice, and lets take it
+[16:26] <juliank> Nothing going on in other releases
+[16:27] <juliank> #topic Team proposed-migration report
+[16:27] <juliank> #link https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses_by_team.html#foundations-bugs
+[16:27] <juliank> ginggs hinted or will hint python3-defaults and glibc
+[16:29]  * juliank is reading the last week data
+[16:30] <juliank> OK let's start with expat
+[16:31] <juliank> expat adrien
+[16:31] <adrien> ack
+[16:31] <juliank> python-tz bdmurray
+[16:31] <juliank> ugh
+[16:31] <juliank> python-tz bdrung
+[16:32] <juliank> beets vs sphinx: bdmurray
+[16:33] <juliank> billiard vs sphinx: cpete
+[16:33] <cpete> ack
+[16:33] <juliank> django-reversion vs sphinx: dviererbe
+[16:33] <juliank> sorry
+[16:33] <dviererbe> ack
+[16:33] <juliank> django-reversion vs highlight.js: dbungert
+[16:33] <juliank> highlight.js vs sphinx that is
+[16:34] <juliank> jupyter-client v sphinx:  danilogondolfo
+[16:34] <dbungert> ack for highlight.js vs sphinx
+[16:34] <danilogondolfo> ack
+[16:34] <juliank> php-mockery vs sphinx: waveform
+[16:34] <waveform> ack ... I can mock php :)
+[16:34] <juliank> pyopencl vs sphinx: Skia
+[16:34] <Skia> ack
+[16:34] <juliank> python-djvulibre vs sphinx: xypron
+[16:35] <xypron> ok
+[16:35] <juliank> python-hypothesis vs sphinx: slyon
+[16:35] <slyon> ack
+[16:35] <juliank> python-parsl vs sphinx: mkukri
+[16:35] <mkukri> ack
+[16:35] <juliank> python-qtconsole vs sphinx: enr0n
+[16:35] <juliank> python-requests-toolbelt vs sphinx: ogayot
+[16:35] <juliank> python-tornado vs sphinx: upils
+[16:35] <upils> ack
+[16:35] <ogayot> juliank: ack
+[16:35] <juliank> python-utils vs sphinx: pushkarnk
+[16:36] <pushkarnk> ack
+[16:36] <bdmurray> How did beets every pass he wondered
+[16:36] <bdmurray> *ever
+[16:37] <juliank> spyder vs sphinx: rkratky ?
+[16:37] <rkratky> ack
+[16:37] <juliank> sqlobject vs sphinx: liushuyu
+[16:37] <liushuyu> juliank: ack
+[16:37] <juliank> vcr.py  vs sphinx: zhsj
+[16:38] <zhsj> ack
+[16:38] <juliank> xrayutilities vs sphinx: vpa1977
+[16:38] <juliank> ed: juliank
+[16:38] <juliank> and we are out of issues
+[16:38] <juliank> #topic AOB
+[16:39] <bdmurray> I have issues
+[16:43] <juliank> I have tissues
+[16:43] <bdmurray> Nothing to bring up though
+[16:44] <cpete> I call mine Chrissues
+[16:44] <bdmurray> wow, that's a dad joke there
+[16:45] <mkukri> for anyone reading the log: python-parsl vs sphinx passed, please dont create card
+[16:49] <bdmurray> juliank: end meeting?
+[16:49] <juliank> #endmeeting
+[16:49] <meetingology> Meeting ended at 16:49:34 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-02-22-16.02.moin.txt
+[16:49] <juliank> My apologies

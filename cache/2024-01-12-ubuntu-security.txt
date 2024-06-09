@@ -1,0 +1,9 @@
+=== chris14_ is now known as chris14
+[17:34] <tomreyn> looks like leosilva has been community contact since Oct 10 - are they still?
+[17:38] <ebarretto> tomreyn, he got promoted to full-time community :P ... jokes aside pfsmorigo is on this week's role 
+[17:39] <tomreyn> thanks ebarretto 
+[17:40] <tomreyn> pfsmorigo: could you give me an update on bug 2046565 please?
+[17:41] <JanC> better update the topic then  :)
+=== ChanServ changed the topic of #ubuntu-security to: Twitter: @ubuntu_sec || https://usn.ubuntu.com || https://wiki.ubuntu.com/SecurityTeam || https://wiki.ubuntu.com/Security/Features || Community: pfsmorigo
+[17:42] <ebarretto> done
+=== user03 is now known as gchound

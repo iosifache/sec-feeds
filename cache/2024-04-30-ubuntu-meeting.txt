@@ -1,0 +1,123 @@
+=== dviererbe1 is now known as dviererbe
+=== pushkarnk1 is now known as pushkarnk
+[14:31] <sarnold> good morning
+[14:31] <eslerm_> good morning o/
+[14:33] <cpaelzer> uuuh
+[14:33] <slyon> hello! o/
+[14:33] <cpaelzer> late - sry
+[14:34] <cpaelzer> #startmeeting Weekly Main Inclusion Requests status
+[14:34] <meetingology> Meeting started at 14:34:11 UTC.  The chair is cpaelzer.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[14:34] <meetingology> Available commands: action, commands, idea, info, link, nick
+[14:34] <cpaelzer> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( eslerm dviererbe )
+[14:34] <jamespage> o/
+[14:34] <cpaelzer> so Oraculus Oraculous Ora... I still need to get this into my fingers
+[14:34] <cpaelzer> it opened
+[14:34] <cpaelzer> so we might see new things soon
+[14:34] <cpaelzer> #topic current component mismatches
+[14:34] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[14:34] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[14:34] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[14:35] <cpaelzer> it is https://launchpad.net/ubuntu/oracular
+[14:35] <cpaelzer> ok, no syncs or uploads yet
+[14:35] <cpaelzer> and noble is stable in regard to uploads
+[14:35] <sarnold> is that large 'beta' banner new?
+[14:35] <cpaelzer> ok, next section
+[14:35] <cpaelzer> I do not remember it from past releases
+[14:35] <cpaelzer> but could not guarantee that it is super new
+[14:35] <sarnold> ah focal has one too :) https://launchpad.net/ubuntu/focal
+[14:36] <cpaelzer> #topic New MIRs
+[14:36] <cpaelzer> Mission: ensure to assign all incoming reviews for fast processing
+[14:36] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[14:36] <sarnold> it must be the section, hehe
+[14:36] <cpaelzer> I think that is for Buster not for Focal
+[14:36] <cpaelzer> anyway not going into that, also suggesting trixie here
+[14:36] <cpaelzer> no new open bugs
+[14:36] <cpaelzer> #topic Incomplete bugs / questions
+[14:37] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[14:37] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[14:37] <cpaelzer> only recent update is
+[14:37] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/nbd/+bug/2054480
+[14:37] -ubottu:#ubuntu-meeting- Launchpad bug 2054480 in nbd (Ubuntu) "[MIR] nbd-client" [Undecided, Incomplete]
+[14:37] <cpaelzer> ok, sarnold got to the shallow review we wanted
+[14:37] <cpaelzer> thakns
+[14:38] <cpaelzer> we won't add it to Noble based on that
+[14:38] <cpaelzer> but that means it is unblocked for 24.10 right?
+[14:39] <sarnold> yes, or 24.04.1 ought to be fine, too
+[14:39] <cpaelzer> the required TODOs are still a few non-trivial tests
+[14:39] <cpaelzer> and consider adding confinement as recommended todo
+[14:39] <cpaelzer> IIRC there were answers to that
+[14:39] <cpaelzer> checking ...
+[14:40] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/nbd/+bug/2054480/comments/4
+[14:40] -ubottu:#ubuntu-meeting- Launchpad bug 2054480 in nbd (Ubuntu) "[MIR] nbd-client" [Undecided, Incomplete]
+[14:40] <sarnold> confining all the things would be nice, yeah, but the primary use of nbd-client is likely during early boot with 'fixed' values .. the remote peer will be serving a filesystem, so very very powerful
+[14:41] <cpaelzer> yes, the isolation is a "try to" ask
+[14:41] <cpaelzer> but the testing that was mentioned has not landed yet
+[14:41] <cpaelzer> I think the order from here is
+[14:41] <cpaelzer> 1. land the testing that they mentions
+[14:41] <cpaelzer> 2. continue trying to confine if possible
+[14:41] <cpaelzer> 3. SRU at least the testing
+[14:42] <cpaelzer> actually 3. promoting in 24.10
+[14:42] <cpaelzer> then SRU
+[14:42] <cpaelzer> and then consider promoting in 24.04.1
+[14:42] <slyon> waveform: ^
+[14:44] <cpaelzer> updated the case
+[14:44] <cpaelzer> #topic Process/Documentation improvements
+[14:44] <cpaelzer> Mission: Review pending process/documentation pull-requests or issues
+[14:44] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/pulls
+[14:44] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/issues
+[14:44] <cpaelzer> nothing new
+[14:45] <eslerm_> I added to my end-of-cycle comment
+[14:45] <waveform> slyon, thanks -- I'll stick those on my todo list
+[14:45] <cpaelzer> I see
+[14:45] <eslerm_> an issue from the late cycle request of qrtr/protection-domain-mapper is causing issues
+[14:45] <cpaelzer> the arm64 issues you mean?
+[14:45] <eslerm_> yes
+[14:45] <cpaelzer> I wasn't even aware of those late additions
+[14:46] <cpaelzer> oh that is the x13s story
+[14:46] <eslerm_> they were a late ask in mantic
+[14:46] <sarnold> I think xn_ox bought a new laptop :)
+[14:46] <cpaelzer> ok, it is a good "another example" to the problem overall
+[14:46] <cpaelzer> thanks eslerm_
+[14:46] <cpaelzer> The action still didn't change
+[14:46] <eslerm_> the packages looked dangerous, but were ack'd exculsively for x13s hardware enablement
+[14:47] <cpaelzer> Hmm
+[14:47] <cpaelzer> that adds the thought of "how to ensure limited acks stay limited"
+[14:47] <cpaelzer> I have no great suggestion to make yet, need to ponder about that ...
+[14:47] <cpaelzer> we all might need to, let me go on with the agenda for now
+[14:47] <eslerm_> +1
+[14:48] <cpaelzer> #topic Any other business?
+[14:48] <cpaelzer> oh and more feedback on the topic above
+[14:48] <cpaelzer> you can be sure that I'll mention too huge too late changes in any 24.04 retrospective I'm in
+[14:48] <cpaelzer> not sure it will change things, but it is the right thing to d
+[14:48] <cpaelzer> o
+[14:49] <cpaelzer> other than that - nothing MIR'ish from me or server in general
+[14:49] <sarnold> are you thinking t64 or xz or boto?
+[14:49] <cpaelzer> "or ..." and that is the problem
+[14:49] <cpaelzer> but more t64, crisis, ...
+[14:49] <cpaelzer> huge things we could have done otherwise
+[14:49] <cpaelzer> not so much xz and boto which just fell onto us
+[14:49] <cpaelzer> but that is opinion
+[14:50] <sarnold> t64 really ought to have been done 22.10 or so
+[14:50] <cpaelzer> if we could keep the things we control in -dev
+[14:50] <cpaelzer> that would help
+[14:50] <sarnold> many things only happen when they become a crisis .. alas i'm guilty of this myself
+[14:50] <cpaelzer> yeah sarnold, exactly what you say
+[14:51] <cpaelzer> anything else else?
+[14:51] <sarnold> none here
+[14:51] <slyon> nothing from my side
+[14:51] <cpaelzer> this is the last agenda item, so next would otherwise be closing
+[14:51] <sarnold> except to idly wonder what the next t64 is :)
+[14:51] <eslerm_> none for me
+[14:51] <cpaelzer> sarnold: that is for a talk at beer'o'clock - not for this meeting
+[14:51] <cpaelzer> ok, thank you all
+[14:51] <cpaelzer> closing
+[14:51] <cpaelzer> #topic Any other business?
+[14:51] <sarnold> ooo lucky you, already ti feierabend :)
+[14:52] <sarnold> beer oclcock is a looong ways off..
+[14:52] <eslerm_> o/
+[14:52] <sarnold> cpaelzer: btw that wasn't the usual #endmeeting :)
+[14:52] <cpaelzer> hehe
+[14:52] <cpaelzer> bad copy pasta
+[14:52] <sarnold> thanks cpaelzer, all :)
+[14:53] <cpaelzer> #endmeeting
+[14:53] <meetingology> Meeting ended at 14:53:00 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-04-30-14.34.moin.txt

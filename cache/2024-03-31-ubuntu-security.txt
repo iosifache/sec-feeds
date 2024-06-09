@@ -1,0 +1,14 @@
+[01:20] <mdeslaur> teward: sure, still available as a launchpad artifact here https://launchpad.net/ubuntu/+source/xz-utils/5.6.0-0.2/+build/27848538
+[01:21] <teward> oh nice it's an RCE bug according to the deeper oss-security dive. Now i'm really curious what it's going to do.  *sets up a full system auditor too*
+[01:23] <teward> mdeslaur: wasn't sure if we were going to have the artifacts yanked either, but at least I can start having fun watching in the sandbox of a research lab what this does.  Analysis by others is nice, but sometimes I want to see what it does myself.
+=== chris14_ is now known as chris14
+=== JanC is now known as Guest4893
+=== JanC_ is now known as JanC
+=== JanC is now known as Guest4539
+[11:13] <tomreyn> from what i understand, snap packages are not in your domain (my info may be outdated). and while most snaps run in containment, someone should probably check for embedded xz-utils copies.
+[11:20] <JanC> mostly liblzma* then probably
+[11:49] <tomreyn> might also impact the new desktop installer (snap), which is based on flutter, which depends on xz-utils.
+=== ian` is now known as Guest2824
+=== JanC is now known as Guest2711
+=== JanC is now known as Guest8317
+=== JanC_ is now known as JanC

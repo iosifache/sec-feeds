@@ -1,0 +1,5 @@
+[03:28] <eslerm> @rouca, I've been able to verify that unpatched sendmail is affected by '\n.\r\n' and '\n.\n'
+[03:28] <eslerm> I need to retest if I missed anything in my notes tomorrow https://markesler.com/notes/smtp-smuggling/
+[03:28] <eslerm> and then I'll check the patch
+=== Juesto is now known as Juest
+=== popey0 is now known as popey

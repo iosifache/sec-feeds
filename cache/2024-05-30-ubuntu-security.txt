@@ -1,0 +1,3 @@
+=== chris14_ is now known as chris14
+[11:28] <amurray> mcphail: apologies, I have some unwelcome news - the internal release process has ballooned and the earliest date I can get the associated team to commit to is the 1st of July - would this be acceptable for you? I realise this is a lot longer than you wanted to wait - please let me know your thoughts (I'm eod but will check in the morning tomorrow)
+[14:06] <mcphail> amurray: that's fine. I appreciate there's a lot in the queue already :) . Just don't want it to slip indefinitely. Thanks for your help

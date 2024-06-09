@@ -1,0 +1,12 @@
+=== chris14_ is now known as chris14
+=== cpaelzer_ is now known as cpaelzer
+[09:44] <mpiano> hi folks, we noticed that the OVAL CVE bundles are not getting updated (the last update happened on 2024-05-29T00:22:54), could someone please look into that?
+[09:44] <mpiano> (the USN bundles are still getting updates)
+[09:45] <mpiano> by "CVE bundle" I mean this for example: https://security-metadata.canonical.com/oval/com.ubuntu.jammy.cve.oval.xml.bz2
+[09:53] <ebarretto> mpiano: we are currently investigating it, thanks for the heads up :)
+[09:53] <mpiano> ebarretto: perfect, thank you ð
+[11:12] <ebarretto> mpiano: it just finished generating data, let us know if you see any other issues 
+[13:44] <mpiano> ebarretto: yes, looks like it's fixed now, thanks again
+[13:52] <ebarretto> mpiano: thank you! 
+=== ebarretto is now known as ebarretto_
+=== ebarretto_ is now known as ebarretto

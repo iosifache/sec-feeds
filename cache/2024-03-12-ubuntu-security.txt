@@ -1,0 +1,26 @@
+=== chris14_ is now known as chris14
+=== jccgjw1 is now known as jccgjw
+[16:19] <jccgjw> test
+[16:22] <ebarretto> worked 
+[16:33] <ahasenack> hi #security, apparmor question
+[16:34] <ahasenack> I *think* that after I enabled these systemd isolation features in a service (https://pastebin.ubuntu.com/p/zdbwSXbSMQ/), I started getting the apparmor "failed name lookup - disconnected path" errors
+[16:34] <ahasenack> I'm about to try removing some of those changes, but this test takes a long time to run, like 2h
+[16:34] <ahasenack> and I wanted to get some input here before
+[16:34] <ahasenack> maybe you can spot that it is true, and point me at which one of the changes in the systemd service file could trigger this error?
+[16:35] <ahasenack> I'm thinking PrivateTmp, just because it's the only thing file-system related, but I don't really know
+[16:35] <ahasenack> this was run inside a lxd container
+[16:36] <ahasenack> this is also a weird one, name="apparmor/.null":
+[16:36] <ahasenack> pparmor="DENIED" operation="getattr" class="file" info="Failed name lookup - disconnected path" error=-13 namespace="root//lxd-upro-behave-bionic-system-under-test-0311-181926277595_<var-snap-lxd-common-lxd>" profile="ubuntu_pro_esm_cache" name="apparmor/.null" pid=7519 comm="python3" requested_mask="r" denied_mask="r" fsuid=1000000 ouid=0
+[16:36] <ebarretto> georgiag ^ 
+[16:39] <sdeziel> ahasenack: `PrivateTmp=` causes mount name spaces to be used which is what leads to those disconnected path errors, afaik
+[16:40] <ahasenack> so it's a tradeoff: if using privatetmp, I have to use flags=(attach_disconnected) in the profile
+[19:06] <sarnold> ahasenack: and the apparmor/.null bit is apparmor replacing the filedescriptor for the denied file with a new one, so that the process doesn't run with *no* filedescriptor where it expected one
+[19:07] <sarnold> ahasenack: (a decade or two ago it was popular to run setuid programs without stdin or stdout or whatever and then hilarity ensues when they open() something for writing, and unrelated status output also goes to that file..)
+=== jccgjw1 is now known as jccgjw
+[20:19] <ahasenack> sarnold: do you know if "flags=(attach_disconnected)" is propagated to child profiles?
+[20:20] <sarnold> ahasenack: I don't know but I would guess it isn't
+[20:20] <ahasenack> I'm thinking it's not, based on what I just saw in the logs of my test...
+[20:20] <ahasenack> because I added the flag to the parent profile, and now the logs have the same error but all in child profiles
+[20:20] <sarnold> heh that's what that sounds like
+=== jccgjw1 is now known as jccgjw
+=== chris14_ is now known as chris14

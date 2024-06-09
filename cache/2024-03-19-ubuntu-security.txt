@@ -1,0 +1,6 @@
+=== chris14_ is now known as chris14
+=== chris14_ is now known as chris14
+[11:27] <rouca> eslerm_: it was RFC 2822 of April 2001...
+[11:28] <rouca> eslerm_: I believe we are safe but if we could get an RFC errata it will be better
+=== chris14_ is now known as chris14
+=== JanC_ is now known as JanC

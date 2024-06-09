@@ -1,0 +1,26 @@
+=== user03 is now known as gchound
+=== wete_ is now known as wete
+=== chris14_ is now known as chris14
+[12:15] <mdeslaur> arraybolt3: thanks! looking at it now
+[19:27] <arraybolt3> looks like I have today only if I want to get TigerVNC out the door for Lunar :P am I in time?
+[19:36] <mdeslaur> arraybolt3: sure :)
+[19:36] <mdeslaur> I can publish it tomorrow too
+[19:39] <arraybolt3> kk, getting the VMs set up now (this will take a while but I should be done before the end of today)
+[19:40] <mdeslaur> cool, I'll publish them first thing tomorrow morning, before we shoot lunar in the head :)
+[19:42] <mdeslaur> (in back of the security team barn)
+[19:47] <arraybolt3> grief
+[21:33] <teward> mdeslaur: i want in on some of that action. *brings the incendiary rounds for the deed*
+[21:34] <mdeslaur> teward: whoa, we're just putting it out of its misery, not burning the whole barn down!
+[21:35] <teward> :P
+[21:36] <arraybolt3> when was teward ever about *not* burning the whole barn down?
+[21:36] <arraybolt3> *ducks*
+[21:36] <teward> *puts arraybolt3 in the salt mines*
+[21:36] <mdeslaur> arraybolt3: ah, true :)
+[21:38] <teward> well if the barn catches fire then we have to build a better barn :P
+[21:42] <arraybolt3> sheesh so it took me like 30 minutes to figure out how on earth to get TigerVNC working because the documentation was so scattered. I literally had to resort to the Arch Wiki to get it going.
+[21:43] <arraybolt3> anyway currently installing Lunar, then going to go to Jammy and Focal, these should go *fairly* fast.
+=== user03 is now known as gchound
+[23:51] <arraybolt3> mdeslaur: Friendly ping to let you know https://bugs.launchpad.net/ubuntu/+source/tigervnc/+bug/2048442 testing is complete and has passed :)
+[23:51] -ubottu:#ubuntu-security- Launchpad bug 2048442 in tigervnc (Ubuntu Mantic) "CVE-2023-1393 and TigerVNC" [Medium, New]
+[23:51] <mdeslaur> arraybolt3: awesome, I'll publish them first thing tomorrow. Thanks!
+[23:52] <arraybolt3> Thank you!

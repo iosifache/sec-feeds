@@ -1,0 +1,2 @@
+=== chris14_ is now known as chris14
+[08:41] <ricotz> hello, could I get some guidance on how to handle the following security issue for mantic and noble? https://bugs.launchpad.net/ubuntu/+source/libreoffice/+bug/2065728 

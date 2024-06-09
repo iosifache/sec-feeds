@@ -1,0 +1,10 @@
+[04:23] <NotEickmeyer> tomreyn: snaps are built using jammy, so no, they would not be affected.
+[04:24] <NotEickmeyer> (Perhaps even focal)
+=== JanC is now known as Guest2589
+=== JanC_ is now known as JanC
+[09:53] <tomreyn> thanks NotEickmeyer 
+[09:56] <tomreyn> security team: sorry to bug with a minor issue around these times, but this XSS on public errors.ubuntu.com is still live 4.5 months after reporting: https://bugs.launchpad.net/errors/+bug/2046565
+=== ChanServ changed the topic of #ubuntu-security to: Mastodon: @ubuntusecurity@fosstodon.org || https://usn.ubuntu.com || https://wiki.ubuntu.com/SecurityTeam || https://wiki.ubuntu.com/Security/Features || Community: pfsmorigo
+=== NotEickmeyer is now known as Eickmeyer
+[16:36] <sbeattie> tomreyn: ack, thanks, I'll push internally.
+[17:08] <tomreyn> Thanks, Steve!

@@ -1,0 +1,3 @@
+=== chris14_ is now known as chris14
+[15:40] <mcphail> Hi. Can I annoy you for news on disclosure for cve-2024-1724 ? I reported this back in Feb and it has been patched for some time now. Keen to stick out a blog article
+[15:40] -ubottu:#ubuntu-security- ** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided. <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1724>

@@ -1,0 +1,377 @@
+[16:00] <juliank> o/
+=== rkratky__ is now known as rkratky
+[16:00] <ravikant_> o/
+[16:01] <Skia> o7
+[16:01] <mateus-morais> o/
+[16:01] <juliank> #startmeeting Weekly Ubuntu Foundations team
+[16:01] <meetingology> Meeting started at 16:01:39 UTC.  The chair is juliank.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[16:01] <xypron> \o
+[16:01] <bdrung> \o
+[16:01] <meetingology> Available commands: action, commands, idea, info, link, nick
+[16:01] <juliank> #topic Lightning rounds
+[16:01] <ginggs> o/
+[16:01] <juliank> #link https://discourse.ubuntu.com/t/foundations-teams-updates-thursday-2024-03-07
+[16:02] <pushkarnk> o/
+[16:02] <schopin> o/
+[16:02] <ogayot> o/
+[16:02] <upils> o/
+[16:04] <mkukri> o/
+[16:04] <zhsj> o/
+[16:04] <liushuyu> o/
+[16:05] <adrien> \o
+[16:14] <juliank> #topic Release incoming bugs
+[16:14] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-nn-incoming-bug-tasks.html#foundations-bugs
+[16:14] <juliank> bug 2056375
+[16:14] -ubottu:#ubuntu-meeting- Bug 2056375 in mokutil (Ubuntu) "Ubuntu Studio ISO fails to build: '/usr/sbin/grub-probe: error: failed to get canonical path of `overlay'.'" [Critical, Fix Committed] https://launchpad.net/bugs/2056375
+[16:15] <juliank> vorlon: you tagged this but it's basically waiting for mokutil to migrate which has a dep-wait on armhf, where we don't even use mokutil and forced grub through
+[16:15] <juliank> or rather force deleted grub
+[16:15] <juliank> should we just force delete mokutil in armhf?
+[16:16] <vorlon> juliank: I don't follow how it's a mokutil issue, how would that force the removal of packages?
+[16:16] <vorlon> I can certainly force delete mokutil on armhf, I don't mind
+[16:16] <vorlon> I just don't follow how you figured that out
+[16:17] <juliank> vorlon: grub is removed because it is built against libefivar1t64, and we install mokutil from release pocket which still uses libefivar1
+[16:17] <juliank> migrating new mokutil with libefivar1t64 depends fixes issue
+[16:17] <vorlon> except the libefivar1 dep should be satisfied by libefivar1t64 Provides: libefivar1
+[16:18] <vorlon> if promoting mokutil works around it, that's fine, let's just do that
+[16:18] <vorlon> and we can move on to the next bug here :)
+[16:18] <juliank> APT being stupid I suppose
+[16:18] <juliank> bug 2055720
+[16:18] -ubottu:#ubuntu-meeting- Bug 2055720 in ubuntu-release-upgrader (Ubuntu) "Edubuntu upgrade removed universe repo mantic -> noble" [High, New] https://launchpad.net/bugs/2055720
+[16:19] <enr0n> The main reason I tagged this is that when u-r-u doesn't find valid sources, it offers to setup default sources. Currently that means configuring main and restricted. That's just wrong, right?
+[16:19] <enr0n> At the very least it's inconsistent with the default sources described in https://discourse.ubuntu.com/t/spec-apt-deb822-sources-by-default/29333
+[16:19] <juliank> Indeed
+[16:20] <schopin> Do we enable universe by default?
+[16:20] <schopin> On a new install, I mean.
+[16:20] <waveform> we used to
+[16:21] <waveform> there was an issue where they were disabled ... I think that came up in mantic with ubuntu-image produced builds but it was fixed before release I believe
+[16:21] <enr0n> ogayot and dbungert would probably know what we do on default installs
+[16:21]  * Eickmeyer chimes
+[16:22] <Eickmeyer> Flavors require universe on new installs
+[16:22] <waveform> yes, LP: #2037018
+[16:22]  * Eickmeyer chimes out
+[16:22] -ubottu:#ubuntu-meeting- Launchpad bug 2037018 in ubuntu "universe and multiverse missing from apt sources" [Undecided, Fix Released] https://launchpad.net/bugs/2037018
+[16:23] <vorlon> enr0n: "default" sources should include universe, for all install types
+[16:23] <enr0n> vorlon: cool thanks
+[16:23] <upils> ubuntu-image is setting main,restricted by default but some (ex. ubuntu-server-pi-arm64) configurations do override it to add universe and multiverse
+[16:23] <vorlon> I think multiverse should also be enabled though the history there is a bit muddled
+[16:23]  * juliank relatedly is also working with josch to get a hook added to mmdebstrap that auomtatically enables universe on Ubuntu systems
+[16:23] <vorlon> upils: well there's a bug about it being wrong to use the same set of components for the image build and the post-install sources
+[16:24] <waveform> indeed -- it shouldn't be enabled during the image build itself, but patched in at the end
+[16:24] <juliank> I see bootstraps of any sorts are main/restricted only, and then enable universe/multiverse? before building final image
+[16:25] <juliank> so we don't install packages from them into the image :)
+[16:25] <vorlon> juliank: bootstraps of *Ubuntu* are main/restricted only
+[16:25] <upils> vorlon: which is now fixed (see LP: 2038111)
+[16:25] -ubottu:#ubuntu-meeting- Launchpad bug 2038111 in ubuntu-image "must be able to distinguish between components for image build and target sources.list in image definition" [Medium, Fix Released] https://launchpad.net/bugs/2038111
+[16:25] <vorlon> flavors include universe
+[16:25] <juliank> hmm
+[16:25] <vorlon> upils: ok :)
+[16:25] <enr0n> Okay, well for the case of ubuntu-release-upgrader, which is *not* building images, I am going to just add universe to the default components.
+[16:25] <juliank> +10
+[16:26] <enr0n> I'll untag etc.
+[16:26] <vorlon> enr0n: (and multiverse)
+[16:26] <enr0n> vorlon: ack
+[16:26] <juliank> And next is another enr0n thingie: bug 2055806
+[16:26] -ubottu:#ubuntu-meeting- Bug 2055806 in openssh (Ubuntu) "sshd.service ssh.socket systemd-tmpfiles-setup:Before= - Missing privilege separation directory: /run/sshd" [Undecided, New] https://launchpad.net/bugs/2055806
+[16:27] <vorlon> analysis on the bug, seemed like it was a slam dunk to fix?
+[16:28] <enr0n> vorlon: does that mean you agree with my comment (https://bugs.launchpad.net/ubuntu/+source/openssh/+bug/2055806/comments/8)
+[16:28] -ubottu:#ubuntu-meeting- Launchpad bug 2055806 in openssh (Ubuntu) "sshd.service ssh.socket systemd-tmpfiles-setup:Before= - Missing privilege separation directory: /run/sshd" [Undecided, New]
+[16:28] <vorlon> enr0n: well it made sense to me :)
+[16:28] <enr0n> vorlon: ack, I will upload a fix today then
+[16:28] <juliank> +1
+[16:28] <vorlon> so I agree but have thought deeply about it independently!
+[16:28] <vorlon> *not
+[16:29] <juliank> If that fails some way we can always add the After= :D
+[16:29] <juliank> OK that's it for incoming bugs, the other releases did not have anything for us
+[16:29] <juliank> #topic Team proposed-migration report
+[16:30] <juliank> #link https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses_by_team.html#foundations-bugs
+[16:30]  * juliank hands the talking stick to vorlon
+[16:30] <dbungert> does it crash the browser today?
+[16:30] <upils> yup
+[16:30] <vorlon> 480 packages needing attention
+[16:30] <vorlon> hasn't crashed my browser *yet*
+[16:31] <vorlon> let's go ahead and assign some of these out
+[16:31] <vorlon> and everybody can share in the time_t fun
+[16:31] <vorlon> libselinux: adrien please
+[16:31] <vorlon> vim: bdrung
+[16:31] <bdrung> ack
+[16:32] <vorlon> initramfs-tools vs klibc: cpete
+[16:32] <adrien> btw, as I mentioned on mattermost, if it crashes your browser, download the page, and atler the page with: sed 's/<a href="https:\/\/.*-perl.*">\(.*\)<\/a>/\1/'
+[16:32] <vorlon> procps: dbungert:
+[16:32] <dbungert> ack
+[16:32] <cpete> ack
+[16:32] <vorlon> python-ldap: waveform
+[16:32] <adrien> vorlon: I'm scared :D
+[16:32] <waveform> ack
+[16:32] <vorlon> libgtk3-perl: dviererbe:
+[16:32] <dviererbe> ack
+[16:33] <vorlon> dviererbe: fwiw that seems to be a general pango1.0 ppc64el issue, based on the list of regressions - so you'll probably need to fix pango1.0 itself
+[16:33] <dbungert> adrien: my go-to is to just look at it in `links` on such days
+[16:33] <vorlon> libbsd: Skia
+[16:33] <dviererbe> okay
+[16:33] <Skia> ack
+[16:33] <waveform> or good ol' w3m
+[16:33] <vorlon> libapt-pkg-perl: ginggs
+[16:33] <ginggs> aye aye
+[16:33] <vorlon> packagekit: xypron
+[16:33] <adrien> dbungert: I know some do but I find it less readable; this sed call reduces the memory usage byt 75% currently, probably more when the page is worse
+[16:34] <vorlon> python-apt: juliank
+[16:34] <vorlon> dnspython: mkukri
+[16:34] <mkukri> ack
+[16:34] <vorlon> python-cups: mateus-morais
+[16:34] <juliank> hooray
+[16:34] <mateus-morais> ack
+[16:34] <vorlon> curl: I'm just going to take this one myself because I know what that bootstrap chain looks like :)
+[16:34] <Skia> for information, initramfs-tools vs klibc, there already is a fix here: https://salsa.debian.org/kernel-team/initramfs-tools/-/merge_requests/91
+[16:34] -ubottu:#ubuntu-meeting- Merge 91 in kernel-team/initramfs-tools "d/t/test-common: fix finding klibc.so" [Opened]
+[16:34] <vorlon> publicsuffix: enr0n
+[16:35] <enr0n> ack
+[16:35] <cpete> skia: perfect, thanks
+[16:35] <vorlon> Skia: great, then someone can cherry-pick :)
+[16:35] <Skia> yes, I think bdrung wanted to have a look, and certainly got sidetracked
+[16:35] <vorlon> apt vs db5.3: ogayot
+[16:35] <ogayot> vorlon: ack
+[16:35] <vorlon> apt vs xz-utils: upils
+[16:35] <upils> ack
+[16:36] <vorlon> ccache: pushkarnk
+[16:36] <pushkarnk> ack
+[16:36] <vorlon> ogayot: let's make that db5.3 in general please, there are several packages that need retested with --all-proposed or such (assuming they're fixed to depend on libdb5.3t64)
+[16:37] <vorlon> elfutils: ravikant_:
+[16:37] <vorlon> fwupd vs xz-utils: schopin
+[16:37] <schopin> vorlon: ack
+[16:37] <vorlon> libtirpc: liushuyu
+[16:37] <vorlon> libuv1: mwhudson
+[16:37] <liushuyu> vorlon: okay
+[16:37] <vorlon> pycurl: vpa1977:
+[16:37] <ravikant_> vorlon: I am ooo next week, can sombody else take it?
+[16:37] <bdrung> cpete, please give me initramfs-tools vs klibc. you get vim instead. i have a pending initramfs-tools upload where i can include the fix from Skia (and yes, i missed to pick that fix)
+[16:37] <vorlon> and the rest of xz-utils to zhsj
+[16:38] <vorlon> bdrung: done for now
+[16:38] <zhsj> ack
+[16:38] <cpete> bdrung: ack
+[16:38] <schopin> nice, I got a non-armhf regression!
+[16:38] <adrien> vorlon: so, umockdev armhf build fails (it failed a couple minutes ago) due to t64; are there general guidance there?
+[16:38] <juliank> vorlon, ravikant_ I can take elfutils too I suppsoe
+[16:38] <vorlon> adrien: do we need to get umockdev rebuilt? if so, make that happen.  or if we need to retest with --all-proposed, do that
+[16:38] <ravikant_> juliank: thanks
+[16:39] <adrien> vorlon: ack, thanks
+[16:39] <vorlon> adrien: ah you said the build fails.  So yes, you need to make it not fail :-)
+[16:39] <vorlon> if you're lucky that's maybe a simple retry with new apt, or a copy to the bootstrap archive and back
+[16:39] <vorlon> if you're unlucky you should sign up to learn how to trace bootstrapping horrors with me
+[16:40]  * schopin will try to attend that workshop
+[16:40] <adrien> thanks, I'll see, it's either t64 or something else yet to be fully identified
+[16:40] <bdrung> Skia, I included your fix in the 0.142ubuntu20 upload which is still in -proposed
+[16:40] <Skia> bdrung: great!
+[16:41] <vorlon> adrien: you're unlucky, umockdev depends on glib
+[16:42] <vorlon> adrien: or maybe you're lucky, because that means you probably don't have anything to do there and maybe should leave it to mwhudson or doko or myself
+[16:42] <adrien> haha, I'll also try to get up to speed with what's going on with glib
+[16:43] <vorlon> adrien: there's a terrible bootstrap loop between glib2.0 and gobject-introspection
+[16:43] <adrien> (well, at least for t64 because I never want to get deep into glib :) )
+[16:43] <adrien> doh
+[16:43] <vorlon> I got as far as building glib2.0 without gir
+[16:44] <vorlon> and then I had to leave it there to work on other stuff and didn't look any deeper at bootstrapping gobject-introspection
+[16:44] <vorlon> so jbicha reverted it because it was blocking things on !armhf in -proposed
+[16:44] <vorlon> juliank: back to you
+[16:44] <adrien> thanks for the summary, yeah, it's complicated
+[16:44] <adrien> and long
+[16:45] <juliank> #topic aob
+[16:47] <pushkarnk> tomorrow is a public holiday in India
+[16:48] <bdrung> and in Berlin
+[16:48] <juliank> not here :(
+[16:48] <juliank> but on the bright side it's going to be sunny
+[16:48] <juliank> (pun intended)
+[16:49] <ravikant_> It is International Women's Day
+[16:49] <bdrung> we got this public holiday because Berlin has fewer public holidays than other regions in Germany
+[16:50] <juliank> some celebrate women, other celebrate shiva
+[16:51] <pushkarnk> :D
+[16:53] <juliank> final call!
+[16:53] <juliank> 32
+[16:53] <juliank> 3
+[16:53] <juliank> 2
+[16:53] <juliank> 1
+[16:53] <juliank> #endmeeting
+[16:53] <meetingology> Meeting ended at 16:53:29 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-03-07-16.01.moin.txt
+[19:12] <ravage> hi leftyfb . thanks for joining. so now i know my bridge works ð
+[19:24] <arraybolt3> looking forward to the coming meeting :)
+[19:29] <ravage> \o
+[19:33] <oerheks> :-)
+[19:33] <ravage> oh already here
+[19:55] <ic3br34ker27> Hi Everyone=D
+[19:55] <oerheks> hi ic3br34ker27
+[19:55] <ravage> \o
+[19:55] <Bashing-om> ic3br34ker27: :D Hey-ya - Hang on a bit and we get started.
+[19:56] <lucyllewy> hello all
+[19:56] <naudy> Hello ð
+[19:56] <arraybolt3> I'm not quite here yet :P
+[19:56] <oerheks> and hi lucyllewy
+[19:56] <arraybolt3> I have four minutes, I need those!
+[19:56] <ravage> i can see you arraybolt3 !
+[19:57] <oerheks> 3 minutes..
+[19:57] <arraybolt3> nifty
+[19:57] <ilvipero> Hi all
+[19:57] <linaporras> Hi all!
+[19:58] <ic3br34ker77> Hi everyone:D Â , Greetings
+[19:58] <arraybolt3> two minutes... getting there
+[19:58] <arraybolt3> great, I broke IRC
+[19:59] <arraybolt3> !ping
+[19:59] <ubottu> pong!
+[19:59] <lucyllewy> hi arraybolt3
+[19:59] <arraybolt3> alright, got it back :P (hit a wrong button in WeeChat)
+[19:59] <arraybolt3> and I am finally here.
+[19:59] <lucyllewy> hi linaporras
+[19:59] <oerheks> !yay
+[19:59] <ubottu> Glad you made it! :-)
+[19:59] <oerheks> 10...9..8..7..6..
+[20:00] <arraybolt3> -5, -6, -7...
+[20:00] <lucyllewy> who do we have in from the board this evening?
+[20:02]  * Bashing-om present
+[20:02] <lucyllewy> me too
+[20:02] <ic3br34ker77> My name is Carlos Maestre, nice to meet you everyone. IÂ´m from Barranquilla, Colombia.:D
+[20:04] <lucyllewy> we will need to wait to see if any more members can arrive. We have three potential voters right now (1 via proxy) but we need four to meet quorum
+[20:04] <arraybolt3> mesebrec: o/
+[20:04] <oerheks> arraybolt3, Bashing-om, lucyllewy and me..
+[20:04] <oerheks> we do have 4
+[20:05] <arraybolt3> I'm not on the UMB?
+[20:05] <lucyllewy> oerheks: arraybolt isn't Larry
+[20:05] <mesebrec> Hi everyone! o/
+[20:05] <arraybolt3> I'm here to advocate for ravage's application, not vote :P
+[20:05] <oerheks> Larry?
+[20:05] <oerheks> oh sorry
+[20:06] <Bashing-om> oerheks: Larry aka Wildman :D
+[20:06] <lucyllewy> mapreri: are you about?
+[20:07] <Bashing-om> Kilos ^ same
+[20:08] <lucyllewy> we need either fenris, mapreri, or Kilos to be here as well
+[20:09] <lucyllewy> might need to petition the cc to allow cc members to vote in case they can fill a quorum quota in future meetings
+[20:09] <arraybolt3> only additional member I see who's in the room is mapreri
+[20:09] <arraybolt3> oh wait
+[20:09] <lucyllewy> yup
+[20:09] <arraybolt3> I see I missed stuff
+[20:10] <arraybolt3> somehow my IRC client stopped scrolling down.
+[20:12] <mesebrec> Maybe ping some people via Telegram, for example?
+[20:12] <mesebrec> I see Mattia hasn't been online here for a while, but he's online on Telegram
+[20:14] <oerheks> Is Mark himself online?
+[20:15] <lucyllewy> mapreri already indicated they might not make it
+[20:19] <lucyllewy> we might have to defer the meeting :'( we have the 22:00 slot today as well if any applicants can shift, but I'm not sure if anybody extra will be able to make that who hasn't managed this meeting
+[20:19] <lucyllewy> the alternative is the board members vote via our mailing list
+[20:20] <ravage> i am here if needed. dont know about the others
+[20:21] <ic3br34ker77> o/
+[20:21] <ic3br34ker77> I would like to submit the link to my UBM application.
+[20:21] <ic3br34ker77> https://discourse.ubuntu.com/t/carlos-maestre-membership-application/41783
+[20:22] <arraybolt3> ic3br34ker77: ravage isn't on the UMB, he's seeking Ubuntu Membership this meeting.
+[20:22] <oerheks> ic3br34ker77, thanks, nice pictures!
+[20:22] <ic3br34ker77> oh, cool just like me:D
+[20:23] <linaporras> Good idea the mailing list
+[20:24] <lucyllewy> we're well into the scheduled hour, and I don't want to keep you if there's not much likelihood of getting the required Quorum by the end of the time slot to be able to start the meeting, so if you'd all like I can either move you to the later meeting today (1.5 hours from now at 22:00 GMT) or take the vote to email
+[20:24] <ic3br34ker77> Thanks oerheks
+[20:25] <lucyllewy> waiting is another option if you would prefer that
+[20:25] <ic3br34ker77> by my side, I donÂ´t have any problem.
+[20:26] <mesebrec> I'm not sure I understand the quorum rules
+[20:26] <mesebrec> Membership board has 6 voting members
+[20:26] <mesebrec> if 3 are present, isn't that enough?
+[20:26] <lucyllewy> mesebrec: I think it is 50%+1 unless 50% is already an odd number
+[20:27] <lucyllewy> so floor(50%+1)
+[20:27] <mesebrec> So that's 3
+[20:28] <lucyllewy> oops. I explained that bad. I meant integer, not odd
+[20:28] <mesebrec> The number here is wrong because the CC is part of the team (for technical reasons) https://launchpad.net/~ubuntu-membership-board/+members#active
+[20:30] <lucyllewy> as we have 6 members it's floor((6/2)+1) = floor(3+1) = 4. if we had 7 it'ld be floor((7/2)+1) = floor(3.5+1) = 4
+[20:31] <mesebrec> oh
+[20:37] <cangreja533> Hello, warm greetings from Colombia
+[20:37] <mesebrec> Ok, the Matrix Council is having a meeting now, but we can jump back here if quorum is reached
+[20:37] <lucyllewy> ok
+[20:38] <lucyllewy> we'll try to get things sorted via email asap if that's the decision
+[20:38] <lucyllewy> we also still have the second meeting slot today if we can't get quorum by the end of this slot
+[20:38] <lucyllewy> so sorry about this
+[20:39] <mesebrec> No problem, it happens!
+[20:39] <mesebrec> If it's a persistent problem, feel free to ask the CC for help and we can see if we can do interim elections or provide some replacements.
+[20:40] <ic3br34ker77> no worries lads, It's understandable, it happens.
+[20:40] <Bashing-om> cangreja533: Welcome - are you too going to be a participant in FLiSoL Barranquilla ?
+[20:43] <lucyllewy> thank you, mesebrec. I'll chat with the board to see what we want to do
+[20:43] <cangreja533> I would love to, but I am organizing FLISOL in Manizales
+[20:43] <lucyllewy> we'll then mail the CC with those ideas and request advice or help
+[20:44] <ic3br34ker77> 8) Â FliSoL Manizales, with the smell of coffeeÂ =D
+[20:46] <oerheks> meanwhile, a fresh kernel update on 22.04
+[20:46] <Bashing-om> cangreja533: For visibility be good to post to Discourse that Manizales will be a part: eg - https://discourse.ubuntu.com/t/flisol-barranquilla-2024/42702 :D
+[20:57] <lucyllewy> that's about the time slot finished. we'll bump everyone to the next slot in 1 hour unless you request to take your application through to email
+[21:08] <ravage> we can wait
+[21:12] <ic3br34ker77> Yeah sure.
+[21:14] <oerheks> brb
+[22:00] <ic3br34ker77> Welcome gschiano !
+[22:00] <gschiano> Hello :)
+[22:00] <lucyllewy> okie dokie. time for round two. hopefully we can get quorum this time.
+[22:01] <ic3br34ker77> Round 2XD
+[22:01] <lucyllewy> we need two of: Bashing-om, mapreri, Kilos, fenris
+[22:01] <lucyllewy> I have a proxy for wildman so with two others and myself we can meet quorum.
+[22:02] <ravage> sounds promising ð
+[22:02]  * Bashing-om present
+[22:02] <oerheks> :-)
+[22:02] <lucyllewy> 1 met
+[22:02] <lucyllewy> need 1 more
+[22:02] <gschiano> Stars aligning
+[22:02]  * arraybolt3 kicks stars
+[22:02] <ilvipero> hello!
+[22:02] <lucyllewy> hi ilvipero
+[22:02] <gschiano> Hey ilvipero
+[22:03] <lucyllewy> mapreri: has ducked out for certain
+[22:03] <lucyllewy> that leaves either Kilos or fenris
+[22:04] <gschiano> *invokes fenris* (because his name sounds like an invocation)
+[22:05] <ic3br34ker77> Â Fenris woow, the mythological wolf of ragnarok.
+[22:05] <sarnold> awoooooo
+[22:05] <gschiano> \O/
+[22:05] <lucyllewy> haha
+[22:05] <arraybolt3> is "fenris" known as "myfenris" on Telegram?
+[22:05] <arraybolt3> If so, I just pinged him
+[22:05] <lucyllewy> yes.
+[22:05] <arraybolt3> (via #kubuntu-devel)
+[22:06] <lucyllewy> I'm confused as to names. silly memory is broken. We need Wild_Man
+[22:06] <arraybolt3> fenris already voted?
+[22:06] <lucyllewy> yeh
+[22:06] <lucyllewy> sorry about that. I can't equate people's telegram display names to irc nicks unless they are the same :P
+[22:09] <ic3br34ker77> I'm sorry how do you vote? I'm also trying to vote for UM but I don't understand... apologies in advance.
+[22:11] <ic3br34ker77> correction, I'm sorry how do you vote? I'm also trying to find out if you vote for me to be UM but I don't understand... apologies in advance.**
+[22:11] <arraybolt3> The Ubuntu Membership Board votes on whether people become Ubuntu Members or not. So far we have two people here and a third has already voted in advance, we need one more person...
+[22:12] <lucyllewy> ic3br34ker77: we need a "quorum" of board members to be able to run a meeting
+[22:12] <arraybolt3> ...and that one more person isn't showing up yet.
+[22:12] <lucyllewy> it's only the board members that may vote on membership applications in this process
+[22:12] <Bashing-om> ic3br34ker77: 6 members of the board - upon examining your application each cast a yea or nay vote for acceptance. usually in this channel.
+[22:13] <ic3br34ker77> ohh oh, I get it, thank you very much for clarifying, it's just that it's my first day. xD
+[22:13] <lucyllewy> no worries
+[22:14] <ic3br34ker77> thanks lucyllewy
+[22:14] <gschiano> If fenris already voted I invoked the wrong one. I need to call for Kilos then
+[22:14] <lucyllewy> yeh that's my fault.. I got names mixed up in my head
+[22:15] <gschiano> *Rise, Kilos, in mystic might: unveil the hidden light!*
+[22:16] <ic3br34ker77> hehe
+[22:18] <gschiano> So without a quorum, we're in a split brain situation right ?
+[22:18] <arraybolt3> yup
+[22:18] <gschiano> *scale down unit 3"
+[22:18] <gschiano> *scale down unit 3*
+[22:18] <mesebrec> I think it's difficult to get >50% of people to show up when people are in all timezones.
+[22:19] <mesebrec> Statistically speaking, at least 50% of people will be asleep
+[22:19] <lucyllewy> just had confirmation from WildMan that they can't make it
+[22:19] <gschiano> Indeed
+[22:20] <mesebrec> I think the membership board has a lot of people, to make sure enough people can show up
+[22:20] <lucyllewy> ravage, ic3br34ker77, gschiano, can each of you choose whether you'd like to move your application to email or a future meeting?
+[22:20] <ravage> email
+[22:20] <gschiano> How is it processed if the application is managed by email ?
+[22:21] <lucyllewy> we'll also contact the CC about quorum numbers and get that properly documented what we need and the calculation for that number
+[22:22] <gschiano> Well I think email is fine
+[22:22] <lucyllewy> gschiano: we'll vote on our internal mailing list and CC the results to each applicant as soon as we can. Sometimes we might want to ask questions, but if we can we'll vote without
+[22:23] <ic3br34ker77> Guys; ravage, gschiano if you agree by mail, I'll join you too. I haven't gone home. xD
+[22:23] <ravage> email is totally fine with me
+[22:23] <lucyllewy> I'm so sorry to all of you for the failures today
+[22:23] <gschiano> No worry :)Ã 
+[22:24] <lucyllewy> can you each DM me an email you are happy for us to use if you don't have it publicly shown on your launchpad profile?
+[22:24] <lucyllewy> email address**
+[22:24] <ic3br34ker77> Email too, no worries lucyllewy it happens:)
+[22:24] <gschiano> Any of my launchpad email address are fine
+[22:25] <lucyllewy> gschiano: it looks like your launchpad email is hidden from public view, so I can't see it
+[22:25] <gschiano> Ok, let me DM you
+[22:25] <lucyllewy> cool
+[22:25] <ic3br34ker77> lucyllewy my email: candres.maestre@gmail.com
+[22:27] <lucyllewy> thank you, ic3br34ker77
+[22:27] <ic3br34ker77> Thanks to you lucyllewy have a good one.
+[22:28] <ic3br34ker77> have a good one everyone. see ya!
+[22:28] <gschiano> Thanks all, see you :)
+[22:28] <lucyllewy> thank you so much everyone. And I'm really sorry again.
+[22:29] <ravage> no worries
+[22:29] <mesebrec> No worries lucy, you're amazing!
+[22:29] <gschiano> Really no worryies
+[22:32] <ic3br34ker77> my launchpad just in case, https://launchpad.net/~ic3br34ker hehe have a good one. see ya!

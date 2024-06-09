@@ -1,0 +1,4 @@
+=== chris14_ is now known as chris14
+[13:35] <rouca> eslerm: any news of sendmail ?
+[14:37] <tsimonq2> https://discourse.ubuntu.com/t/resources-for-development-related-tasks/42544 :)
+=== wete_ is now known as wete

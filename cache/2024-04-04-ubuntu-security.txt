@@ -1,0 +1,18 @@
+[04:56] <sbeattie> If RonDesmond comes back, please let him know we are investigating his oval report.
+=== JanC_ is now known as JanC
+[20:38] <ahasenack_> georgiag: hi, quick q
+[20:38] <ahasenack_> georgiag: when I have a profile file that defines child profiles,
+[20:39] <ahasenack_> profile {
+[20:39] <ahasenack_>   ...rules...
+[20:39] <ahasenack_>   profile {
+[20:39] <ahasenack_>   }
+[20:39] <ahasenack_>   ..more rules..
+[20:39] <ahasenack_> }
+[20:39] <ahasenack_> is that "more rules" bit allowed there, after the child pofile is defined?
+[20:39] <ahasenack_> I still want it in the context of the parent profile
+[20:40] <sdeziel> ahasenack_: yes
+[20:40] <georgiag> yep, it shouldn't matter
+[20:40] <ahasenack_> ok
+[20:40] <ahasenack_> I need to add the missing #include <local/...> line
+[20:40] <ahasenack_> that usually goes at the end
+[20:40] <ahasenack_> but here, "the end" is after other child profiles were defined

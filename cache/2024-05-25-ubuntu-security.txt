@@ -1,0 +1,6 @@
+=== chris14_ is now known as chris14
+[08:22] <blahdeblah> amurray: Thanks again as usual for the podcast - idea for future episode: analysis of https://ciq.com/whitepaper/vendor-kernels-bugs-stability/ as general advice, and as it pertains to Ubuntu LTS.
+=== JanC is now known as Guest6483
+=== JanC is now known as Guest9440
+=== JanC is now known as Guest6253
+=== JanC is now known as Guest8945

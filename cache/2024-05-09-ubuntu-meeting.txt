@@ -1,0 +1,31 @@
+=== pushkarnk1 is now known as pushkarnk
+[15:06] <waveform> #startmeeting Weekly Ubuntu Foundations team
+[15:06] <meetingology> Meeting started at 15:06:39 UTC.  The chair is waveform.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:06] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:06] <waveform> #topic Lightning rounds
+[15:07] <waveform> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-2024-05-09/44905
+[15:07] <waveform> we'll have a few minutes while everyone catches up on status
+[15:09] <zhsj> o/
+[15:10] <waveform> #topic Release incoming bugs
+[15:10] <waveform> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-nn-incoming-bug-tasks.html#foundations-bugs
+[15:10] <waveform> just the one this week, bug 2036094
+[15:11] <waveform> https://bugs.launchpad.net/ubuntu/+source/unattended-upgrades/+bug/2063094
+[15:11] -ubottu:#ubuntu-meeting- Launchpad bug 2063094 in unattended-upgrades (Ubuntu) "unattended-upgrades is running forever" [High, Confirmed]
+[15:12] <waveform> there was some discussion about this, leaving for now
+[15:13] <waveform> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-mm-incoming-bug-tasks.html#foundations-bugs
+[15:13] <waveform> LP: #2041518
+[15:13] -ubottu:#ubuntu-meeting- Launchpad bug 2041518 in gtk+3.0 (Ubuntu) "/usr/share/apport/apport-gtk:5:_g_log_abort:g_log_writer_default:g_log_structured_array:g_log_structured_array:g_log_structured_standard" [Undecided, New] https://launchpad.net/bugs/2041518
+[15:13] <waveform> that's one for desktop
+[15:13] <waveform> LP: #2041831
+[15:13] -ubottu:#ubuntu-meeting- Launchpad bug 2041831 in update-manager (Ubuntu) "/usr/bin/update-manager:11:g_type_check_instance_is_fundamentally_a:g_object_ref:gdk_event_copy:pygi_boxed_copy_in_place:arg_boxed_to_py_cleanup" [Undecided, New] https://launchpad.net/bugs/2041831
+[15:14] <waveform> again, one for desktop
+[15:14] <waveform> nothing in jammy or focal
+[15:14] <waveform> #topic Team proposed-migration report
+[15:14] <waveform> #link https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses_by_team.html#foundations-bugs
+[15:15] <waveform> skipping for this week as there'll be no time to work on any of it before sprint travel anyway
+[15:16] <waveform> #topic AOB
+[15:17] <waveform> going once
+[15:17] <waveform> going twice
+[15:18] <waveform> #endmeeting
+[15:18] <meetingology> Meeting ended at 15:18:01 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-05-09-15.06.moin.txt
+=== dbungert1 is now known as dbungert

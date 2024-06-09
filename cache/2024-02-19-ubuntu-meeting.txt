@@ -1,0 +1,194 @@
+=== JanC_ is now known as JanC
+=== JanC is now known as Guest9929
+=== JanC_ is now known as JanC
+[19:00] <rbasak> o/
+[19:00] <vpa1977> good evening!
+[19:01] <sil2100> o/
+[19:03] <sil2100> vpa1977: good morning o/
+[19:03] <rbasak> We need four DMB members ideally, but I think we should proceed with fewer if they don't attend.
+[19:03] <rbasak> I need a few minutes though
+[19:04] <sil2100> I think it's a US holiday, so bdmurray might be away
+[19:05] <rbasak> I'm back
+[19:05] <rbasak> Shall we proceed anyway then?
+[19:05] <sil2100> Let's do that, yes
+[19:06] <rbasak> #startmeeting Developer Membership Board
+[19:06] <meetingology> Meeting started at 19:06:00 UTC.  The chair is rbasak.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[19:06] <sil2100> Should I chair or do you want to?
+[19:06] <meetingology> Available commands: action, commands, idea, info, link, nick
+[19:06] <sil2100> Oh, thanks ;)
+[19:06] <rbasak> #topic Ubuntu Core Developer Applications
+[19:06] <rbasak> #subtopic Vladimir Petko
+[19:06] <rbasak> #link https://wiki.ubuntu.com/vpa1977/CoreDeveloperApplication
+[19:06] <rbasak> vpa1977: welcome!
+[19:06] <vpa1977> thank you =)
+[19:06] <rbasak> vpa1977: would you like to introduce yourself?
+[19:07]  * kanashiro waves
+[19:07] <vpa1977> Hi my name is Vladimir and I am working on Java packages in Ubuntu.
+[19:07] <vpa1977> I have been involved in development for the past year and before that worked on commercial software.
+[19:08] <vpa1977> Most notable item is Together (old uml modelling tool) =)
+[19:08] <vpa1977> at least for me =)
+[19:08] <sil2100> #link https://udd.debian.org/cgi-bin/ubuntu-sponsorships.cgi?render=html&sponsor=*&sponsor_search=name&sponsoree=Vladimir+Petko&sponsoree_search=name
+[19:09] <rbasak> Thanks! Let me get started. When is feature freeze please, and how would you find that information?
+[19:09] <vpa1977> I will be looking at https://discourse.ubuntu.com/t/noble-numbat-release-schedule/35649
+[19:09] <vpa1977> The current deadline is 29 feb
+[19:09] <rbasak> If you need a feature freeze exception, what's the process?
+[19:10] <vpa1977> I will be raising a bug explaining the need for the feature freeze, proposed changes and their impact
+[19:10] <vpa1977> I will provide a test plan and subscribe ubuntu-release
+[19:10] <vpa1977> *need for the feature freeze exception
+[19:11] <vpa1977> The bug will have a debdiff/MP attached and the associated test logs
+[19:11] <rbasak> OK. Let's say that we have version 1.2-3 packaged, upstream have released 1.2.1, and feature freeze is in effect. Would an upload of 1.2.1 be permitted without an exception, or, if you need more information, what information would that be?
+[19:12] <vpa1977> I will review changelogs to identify if it is a bugfix release
+[19:12] <vpa1977> In this case it is allowed to request a feature freeze
+[19:12] <vpa1977> exception
+[19:12] <rbasak> OK. Let's say that it is a bugfix release. What package versions string would you expect to use for your upload?
+[19:12] <rbasak> *package version string
+[19:13] <vpa1977> It depends if it is Ubuntu specific or debian package. For ubuntu it will be 1.2.1-0ubuntu1 for debian it will be 1.2.1~us1-0ubuntu1
+[19:13] <vpa1977> reason for ~us1 is that original tarballs are not reproducible in some cases
+[19:13] <vpa1977> and the repack suffix will allow sync with debian
+[19:14] <rbasak> Good answer :)
+[19:14] <vpa1977> (not reproducible e.g. when used xz compression)
+[19:14] <rbasak> Let me move on to transitions
+[19:15] <rbasak> In the usual case, how would you verify if an upload you're considering making would introduce a transition or not?
+[19:15] <vpa1977> The transition will happen when there are API/ABI changes in the package providing a build dependency (e.g. time_t)
+[19:15] <vpa1977> Or the toolchain changes such as Java 21
+[19:16] <vpa1977> *build or runtime dependency
+[19:17] <vpa1977> In this case all dependant package will need to migrate together to ensure that there are no breaks
+[19:17] <sil2100> I'll have an unrelated question when you're done
+[19:17] <rbasak> Let's say that the package is src:foo, which generates binary package libfoo1. You're about to update a new major version of src:foo, and you have a test build ready in a PPA. Is there something you can see easily by inspection from the web UI that would instantly tell you if there's an ABI break if this is a normal case with nothing special going on?
+[19:19] <vpa1977> From the web UI i can the major version change, but I would be looking at reverse-depends and reverse-depends -b to see if it has any dependencies
+[19:19] <vpa1977> and rebuild those /autopkgtest in the ppa
+[19:19] <vpa1977> I apologise if I am taking the long route here.
+[19:19] <vpa1977> But library bumping a major version indicates some kind of break
+[19:20] <rbasak> It doesn't necessarily mean it's an ABI break.
+[19:20] <rbasak> What would be the difference, in terms of binary packages generated?
+[19:21] <vpa1977> Meaning what constitutes the ABI break? Change of function parameters, removal of a function
+[19:21] <vpa1977> Change of the exported structures
+[19:21] <rbasak> Assume that it is correctly declared by the packaging
+[19:22] <rbasak> What would be externally visible in the packaging that would indicate the ABI break?
+[19:22] <vpa1977> as in from launchpad UI ?
+[19:23] <rbasak> I'm suggesting that it's possible to see from Launchpad web UI what I'm asking for, yes.
+[19:23] <rbasak> Assuming you have a PPA test build ready
+[19:24] <vpa1977> hmm... I fail to answer that ;( without looking inside package / at the sources ;(
+[19:25] <rbasak> OK let's move on.
+[19:25] <rbasak> sil2100: you said you had a question?
+[19:25] <vpa1977> (please share the answer later =) )
+[19:25] <sil2100> Yes, I had an SRU related question!
+[19:26] <sil2100> I see that you did do a few SRUs, but I just want to make sure. When requesting an SRU, the template requires putting a "Where problems could occur"/"Regression Potential" section
+[19:26] <sil2100> Can you tell me what is the purpose of it?
+[19:27] <sil2100> What do we want the SRU requesters to do as part of the preparation of this section?
+[19:28] <teward> *shows up late*
+[19:28] <teward> (I had no internet until now sorry, technician was on site fixing the fiber link)
+[19:28] <vladimirp> sorry disconnect
+[19:29] <vladimirp> Not sure if the answer got through : the section identifies extended test plan that tries to identify possible regressions/impact on users due to the change
+[19:29] <sil2100> Thanks o/
+[19:30] <sil2100> I have no further questions
+[19:31] <kanashiro> all the answers so far and the endorsements are enough for me to vote
+[19:32]  * rbasak is pondering whether he has further questions
+[19:33] <rbasak> vladimirp: let's say that an upload might have resulted in a component mismatch. Where would you confirm whether this is the case or not, and what are the options available to resolve a component mismatch?
+[19:33] <vladimirp> Lets say I have introduced a dependency on main package which is currently in universe.
+[19:34] <vladimirp> In this case I will need to go through MIR process first to move my dependency from universe to main before uploading the package.
+[19:34] <vladimirp> I can rollback the change by uploading the fix that removes the dependency (if possible)
+[19:35] <rbasak> OK, thanks.
+[19:35] <rbasak> I'm ready to vote.
+[19:35] <rbasak> teward: do you have any questions?
+[19:35] <teward> nope, on account you and others have asked the questions I had :)
+[19:35] <teward> and also apologies for my being late, I hate being late but when I have no internet...
+[19:36] <rbasak> #vote Grant Vladimir Petko core dev
+[19:36] <meetingology> Please vote on: Grant Vladimir Petko core dev
+[19:36] <meetingology> Public votes can be registered by saying +1, -1 or +0 in channel (for private voting, private message me with 'vote +1|-1|+0 #channelname')
+[19:36] <sil2100> +1
+[19:36] <meetingology> +1 received from sil2100
+[19:36] <kanashiro> +1
+[19:36] <meetingology> +1 received from kanashiro
+[19:36] <teward> +1
+[19:36] <meetingology> +1 received from teward
+[19:38] <rbasak> +1 I think a couple of answers fell a little short of my expectations, but your endorsements speak well of your tendency to be thoughful and ask questions before acting. And some of your answers demonstrates some very deep knowledge. I get the impression you understand the broad picture OK. It sounds like it'd be of net benefit to grant you core dev now and allow you to catch up with the odd gap on
+[19:38] <meetingology> +1 I think a couple of answers fell a little short of my expectations, but your endorsements speak well of your tendency to be thoughful and ask questions before acting. And some of your answers demonstrates some very deep knowledge. I get the impression you understand the broad picture OK. It sounds like it'd be of net benefit to grant you core dev now and allow you to catch up with the odd gap on received from rbasak
+[19:38] <rbasak> the fly.
+[19:38] <rbasak> #endvote
+[19:38] <meetingology> Voting ended on: Grant Vladimir Petko core dev
+[19:38] <meetingology> Votes for: 4, Votes against: 0, Abstentions: 0
+[19:38] <meetingology> Motion carried
+[19:39] <sil2100> \o/
+[19:39] <sil2100> vladimirp: congratulations o/
+[19:39] <vladimirp> Thank you =)
+[19:39] <kanashiro> vladimirp congrats!
+[19:40] <sil2100> You can assign me the action item of following up
+[19:40] <vladimirp> Thank you =)
+[19:40] <arraybolt3> I just want to say that was awesome to watch. I learned a bit watching this :D
+[19:40] <arraybolt3> (namely the ~us1 version trick)
+[19:40] <rbasak> Thanks sil2100!
+[19:40] <rbasak> #action sil2100 to announce vladimirp's successful application
+[19:40] <meetingology> ACTION: sil2100 to announce vladimirp's successful application
+[19:41] <rbasak> #action sil2100 to action vladimirp's addition to core dev
+[19:41] <meetingology> ACTION: sil2100 to action vladimirp's addition to core dev
+[19:42] <rbasak> We have time left, so...
+[19:42] <rbasak> #topic Review of previous action items
+[19:42] <rbasak> Utkarsh to review the tasks for a DMB election and decide if he can take that on. If not we should choose somebody to run the election.
+[19:42] <rbasak> He doesn't seem to be around
+[19:42] <rbasak> #action Utkarsh to review the tasks for a DMB election and decide if he can take that on. If not we should choose somebody to run the election.
+[19:42] <meetingology> ACTION: Utkarsh to review the tasks for a DMB election and decide if he can take that on. If not we should choose somebody to run the election.
+[19:42] <rbasak> teward follow up to get all application process wiki/docs to explain the process to be able to edit wiki pages, for applicants who don't yet have wiki edit access (carried over)
+[19:43] <rbasak> teward: ?
+[19:44] <rbasak> I guess we can carry it
+[19:44] <rbasak> #action teward follow up to get all application process wiki/docs to explain the process to be able to edit wiki pages, for applicants who don't yet have wiki edit access (carried over)
+[19:44] <meetingology> ACTION: teward follow up to get all application process wiki/docs to explain the process to be able to edit wiki pages, for applicants who don't yet have wiki edit access (carried over)
+[19:44] <rbasak> #topic Outstanding mailing list requests to assign
+[19:45] <rbasak> I don't see any
+[19:45] <rbasak> #info No new ML requests seen
+[19:45] <rbasak> #topic Open TB bugs
+[19:45] <rbasak> #info No open TB/DMB bugs
+[19:45] <rbasak> #topic AOB
+[19:45] <rbasak> AOB?
+[19:45] <tsimonq2> o/
+[19:45] <teward> yeah carry that sorry
+[19:45] <rbasak> tsimonq2: go ahead please
+[19:46]  * rbasak needs to step away for three minuts
+[19:46] <tsimonq2> > sil2100 to better document what we expect applicants to know, at last an initial draft and then pass over to rbasak (will be carried until mentioned)
+[19:46] <tsimonq2> So, I have something small started for this.
+[19:46] <tsimonq2> https://discourse.ubuntu.com/t/resources-for-development-related-tasks/42544\
+[19:47] <sil2100> o/
+[19:47] <sil2100> Thank you for working on this!
+[19:47] <tsimonq2> My pleasure :D please do make edits if you see them! I'll be working on it as time allows, ideally before the next DMB meeting.
+[19:47] <tsimonq2> *see the opportunity for them
+[19:47] <sil2100> It's a good start I see
+[19:48] <tsimonq2> Anyway, I'll be here for the next meeting, if you all would like to discuss further progress at that point. :)
+[19:48] <tsimonq2> sil2100: thanks :)
+[19:48] <tsimonq2> (EOF)
+[19:48]  * rbasak is back
+[19:49] <rbasak> tsimonq2: that looks great. Thank you!
+[19:50] <rbasak> tsimonq2: I don't know if you're aware of https://wiki.ubuntu.com/RobieBasak/DMB/CoreDev
+[19:50] <rbasak> That's just my opinion - I think we were hoping to try and get that adjusted according DMB consensus and then share that more widely.
+[19:50] <tsimonq2> rbasak: Nope, but now I am :D this is meant to be a shorter reference anyway, with links to something like that.
+[19:51] <rbasak> That would be fine I think. The issue (at the DMB end) is that we vary in opinion, but that makes it hard for applicants.
+[19:51] <rbasak> It'd be nice to find/negotiate common ground, tweaking as necessary, and have an official DMB opinion.
+[19:51] <rbasak> Anyway, thank you again for working on this.
+[19:51] <tsimonq2> I documented this for Lubuntu a while back: https://git.lubuntu.me/lubuntu-wiki/wiki/wiki/lubuntu-dev - might be worth exploring.
+[19:51] <tsimonq2> rbasak: I completely agree :) thanks for considering it!
+[19:52] <rbasak> Indeed - that looks like it'd be useful input to a final DMB opinion too!
+[19:52] <rbasak> Anything else on this to discuss for now?
+[19:52] <tsimonq2> I'm good if you all are good :)
+[19:52] <rbasak> Any other business?
+[19:54] <arraybolt3> vpa1977 wanted to know the answer to the question about transitions that rbasak asked?
+[19:54] <rbasak> The binary package generated would have changed from libfoo1 to libfoo2. That's what triggers a "normal" transition - libfoo1 would become uninstallable (and/or NBS) were the package to migrate.
+[19:55] <rbasak> Though I think vladimirp might have already understood this and it was just a mismatch in communication!
+[19:55] <rbasak> I find it quite hard to phrase questions to avoid that sort of thing, without giving away my expected answers.
+[19:55] <arraybolt3> which is exactly what happened to me when you hit me with a near-identical question last January
+[19:56] <arraybolt3> :P
+[19:56] <vladimirp> I was thinking - I have a package to review and needs to find if it contains an ABI break.
+[19:56] <vladimirp> Could have mentioned abi-compliance-checker (but its a nightmare)
+[19:57] <vladimirp> Plus C++ only
+[19:57] <rbasak> arraybolt3: indeed :)
+[19:57] <rbasak> I guess the meeting's done though then?
+[19:57] <rbasak> #endmeeting
+[19:57] <meetingology> Meeting ended at 19:57:47 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-02-19-19.06.moin.txt
+[19:58] <rbasak> Feel free to carry on chatting if you'd like. I welcome feedback on how I ask questions, too!
+[19:58] <rbasak> Though I need to go now. I will catch up later.
+[19:58] <kanashiro> o/
+[19:58] <teward> tsimonq2: i'm stealing you btw
+[20:01] <tsimonq2> teward: ok lol
+[20:06] <tsimonq2> rbasak: Part of the difficult thing about being on the DMB is, in order to ask the right questions, you need to know your audience for the questions. Many assumptions can be made through reviewing debdiffs, but until there is something clear saying "this is a MOTU, this is a Core Dev," the DMB has a large amount of flexibility on what it can ask.
+[20:06] <tsimonq2> Now, I'm not suggesting we go full Debian Developer and have pre-written questions. There should, however, be something saying "these are the kinds of questions you can expect."
+[20:07] <tsimonq2> If there's one thing I've heard from candidates privately that sticks out, it is "I'm scared for the meeting because they could ask anything," and quite honestly, that's the truth. As an existing Ubuntu Developer, it's fun to see, but I remember it being a very anxiety-prone process to go through.
+[20:08] <tsimonq2> That was the catalyst for writing that reference document above, to get something solid started on this front, to benefit every applicant that comes after Vladimir.
+=== _doko is now known as doko

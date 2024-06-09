@@ -1,0 +1,71 @@
+=== JanC is now known as Guest9843
+=== JanC_ is now known as JanC
+=== chris14_ is now known as chris14
+=== JanC is now known as Guest7658
+=== JanC_ is now known as JanC
+=== JanC is now known as Guest6853
+=== JanC_ is now known as JanC
+=== chris14_ is now known as chris14
+[16:40] <JanC> ugh, just seeing this... https://www.openwall.com/lists/oss-security/2024/03/29/4
+[16:42] <mdeslaur> yeah, not fun
+[16:42] <JanC> doesn't impact Ubuntu fortunately
+[16:45] <JanC> looks like that was a new contributor who did translation updates originally...
+[16:47] <mdeslaur> yeah, I wonder if this is the first time I've seen a malicious contributor playing the long game
+[16:47] <JanC> not a very long game
+[16:47] <JanC> they mighthave started a couple weeks after those initial translation commits
+[16:48] <JanC> in fact, after a couple _days_
+[16:49] <mdeslaur> huh? they have been contributing for a year or so
+[16:49] <mdeslaur> here's nov 2022 https://github.com/tukaani-project/xz/commits?author=JiaT75&since=2022-11-01&until=2022-12-01
+[16:50] <JanC> oh, right, I wasn't looking far enough
+[16:50] <mdeslaur> there are others before that
+[16:51] <mdeslaur> JanC: also, it did make it's way into noble-proposed, we're still investigating
+[16:51] <JanC> oh
+[16:51] <JanC> I'd only looked at packages.ubuntu.com
+[16:52] <JanC> which doesn't include -proposed  :)
+[16:53] <JanC> that person was removed from xz project I see
+[16:55] <mdeslaur> hrm, you sure?
+[16:56] <JanC> oh, he wasn't
+[16:56] <JanC> or she
+[16:57] <JanC> man, GitHub UI is so confusing
+[16:57] <JanC> they seem to have commits in libarchive also: https://github.com/search?q=repo%3Alibarchive%2Flibarchive+JiaT75&type=commits
+[16:57] <JanC> well merge requests
+[16:58] <JanC> that seem to be committed
+[16:58] <JanC> might be worth investigating those too?
+[17:01] <JanC> although that was in 2021, so probably part of the "long game"?
+[17:03] <mdeslaur> yeah, nothing particularly sticks out there
+[17:08] <JanC> so possibly other things than sshd might be affected too
+=== arraybolt3 is now known as arraybolt3-dange
+=== arraybolt3-dange is now known as arraybolt3-cmp
+[19:29] <teward> is Noble affected by the xz vuln?  It's been in Unstable for a little while now if I'm reading OpenWall's analysis
+[19:29] <teward> also I assume 22.04 LTS and such are not affected
+[19:30] <mdeslaur> teward: it was in noble-proposed, we removed it, we're currently investigating what else we need to do to noble
+[19:30] <mdeslaur> (if anything)
+[19:30] <teward> mdeslaur: tactical nuke / rebuild of anything that used xz libraries sounds prudent
+[19:30] <teward> but i know that may not be feasible (insert builder issues here)
+[19:30] <mdeslaur> teward: smarter people than me are looking into it
+[19:30] <teward> good good
+[19:31] <teward> mdeslaur: but none of the already released releases are affected?
+[19:31] <teward> i.e. LTS, etc.
+[19:31] <teward> s/LTS/current LTS/
+[19:31] <mdeslaur> no, noble only
+[19:31] <mdeslaur> no released ubuntu versions are affected
+[19:32] <teward> check, just making sure
+[19:39] <teward> mdeslaur: not sure if it's necessary, but Debian has 5.6.1+really5.4.5-1 or higher i think because of this discovery.  So it's something to keep an eye on.
+[19:39] <teward> JanC: if I read the Openwall stuff, SystemD might be impacted by anything in liblzma and such, so it's something that the smarter people need to look at
+[19:39] <teward> (yes i am reading scrollback)
+[19:43] <mdeslaur> teward: yeah, we just removed it since it was still in noble-proposed, but debian had it all the way to testing, so publishing an update was required
+[19:43] <teward> mdeslaur: was anything released from -proposed since the first-affected version from Debian was introduced?
+[19:44] <teward> I'm assuming *no* because that'd probably be a 'Held because xz-utils, etc. not OK'd"
+[19:44] <teward> so just doing due diligence asking some questions (forgive if they seem a little stupid)
+[19:46] <mdeslaur> teward: that is what is under investigation
+[19:46] <teward> mdeslaur: ack.
+[19:46] <teward> any chance there'll be a major notice on -devel or such if some kind of thing is discovered about this, sort of a post-incident thing?
+[19:47] <teward> and by 'on devel' i mean the mailing list or discourse or something
+[19:48] <mdeslaur> I assume so, but I'm not the person working on that
+[19:48] <teward> ack
+=== JanC_ is now known as JanC
+[20:35] <JanC> https://news.ycombinator.com/item?id=39865810 has some interesting stuff also
+[22:14] <ItzSwirlz> i.e. its not like in the old days where the file is obvious, it's a genuine recognizable file
+=== JanC_ is now known as JanC
+=== JanC is now known as Guest8342
+=== JanC_ is now known as JanC

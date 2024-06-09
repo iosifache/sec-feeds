@@ -1,0 +1,378 @@
+=== JanC is now known as Guest8158
+=== JanC_ is now known as JanC
+=== pushkarnk1 is now known as pushkarnk
+=== JanC_ is now known as JanC
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+=== cpaelzer_ is now known as cpaelzer
+[15:21] <cpaelzer> slowly lighting a MIR campfire ...
+[15:28]  * eslerm warms up
+[15:30] <jbicha> o/
+[15:30] <cpaelzer> hehe
+[15:30] <cpaelzer> #startmeeting Weekly Main Inclusion Requests status
+[15:30] <meetingology> Meeting started at 15:30:54 UTC.  The chair is cpaelzer.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:30] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:31] <cpaelzer> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( eslerm dviererbe )
+[15:31] <cpaelzer> #topic current component mismatches
+[15:31] <slyon> o/
+[15:31] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[15:31] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[15:31] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[15:31] <jamespage> o/
+[15:31] <sarnold> good morning
+[15:31] <slyon> nullboot and python-cssselect should be ready
+[15:31] <cpaelzer> let us cheeck
+[15:32] <cpaelzer> they are approved at least by the color
+[15:32] <slyon> yes, that's what I did earlier today :)
+[15:32] <slyon> besides those, kexec-tools looks new to me
+[15:32] <cpaelzer> yes, they can be promoted
+[15:32] <cpaelzer> I'll do so tomorrow if no one beats me to it
+[15:32] <slyon> thanks!
+[15:33] <sarnold> i'm surprised the kexec-tools owner is ~canonical-ubuntu-qa
+[15:33] <sarnold> I expected kernel team ;)
+[15:33] <cpaelzer> it is the kernel team
+[15:33] <sarnold> (maybe foundations..)
+[15:33] <slyon> It shows ~kernel-packages for me
+[15:33] <cpaelzer> http://reqorts.qa.ubuntu.com/reports/m-r-package-team-mapping.html
+[15:33] <cpaelzer> some are subscribed by multiple which breaks some checks
+[15:33] <sarnold> aha
+[15:34] <slyon> but yes, QA is subscribed, too
+[15:34] <sarnold> I was going by bug subscribers https://launchpad.net/ubuntu/+source/kexec-tools
+[15:34] <cpaelzer> this is added in kexec-tools (1:2.0.25-1)
+[15:34] <cpaelzer>   * Added build dependency on libxen-dev so kexec would work on xen
+[15:34] <cpaelzer>     (Closes: #1023270)
+[15:34] <cpaelzer> the merge didn't revert that change and made it Ubuntu delta kexec-tools (1:2.0.28-0ubuntu1)
+[15:34] <cpaelzer> but probably needs to
+[15:35] <cpaelzer> We lack a kernel person to ping
+[15:35] <cpaelzer> let me see who uploaded that ...
+[15:35] <cpaelzer> https://launchpad.net/ubuntu/+source/kexec-tools/1:2.0.28-0ubuntu1
+[15:35] <cpaelzer> xnox: did
+[15:35] <cpaelzer> hi xnox, do you think we should remove the recommends to xen from kexec-tools or do you want to pursue this in any other way?
+[15:36] <cpaelzer> The rest of the component mismatches are known cases that are being worked on or false-positives
+[15:36] <cpaelzer> #topic New MIRs
+[15:36] <cpaelzer> Mission: ensure to assign all incoming reviews for fast processing
+[15:36] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[15:36] <cpaelzer> There are two more from the production/crisis-tools set
+[15:36] <cpaelzer> we last week consumed three of them, some already done some still in flight
+[15:37] <slyon> I can take one of the desktop MIRs
+[15:38] <cpaelzer> handing you the snapshot
+[15:38] <slyon> ack
+[15:39] <cpaelzer> hmm
+[15:40] <cpaelzer> hard to spread the others
+[15:40] <cpaelzer> jamespage: can I pass you one as well today?
+[15:40] <cpaelzer> to balance the load?
+[15:40] <eslerm> bpf bugs mention they are WIP, but the outstanding issues seemed small enough that I encourged submitting them (missing unit tests)
+[15:40] <cpaelzer> joalif: seems not to be here yet but last week had already a second assigned - so probably full too
+[15:41] <cpaelzer> I completed mine this morning (last minutes)
+[15:41] <cpaelzer> There are two ways we can do this
+[15:41] <eslerm> I wouldn't mind foing a review for the MIR team if that is okay
+[15:41] <eslerm> doing*
+[15:41] <joalif> sorry I am here but at 2 mtgs in teh same time and didnt say hi
+[15:41] <cpaelzer> hehe
+[15:41] <cpaelzer> np joalif, how possible or not is it to take another reivew?
+[15:41] <joalif> If you cannot find anyone else assign a bug to me but then again no promises for next week
+[15:42] <cpaelzer> joalif: as long as not all of them are piling up and are done never it is ok to take a while each
+[15:42] <jamespage> cpaelzer: yep
+[15:42] <joalif> ok then
+[15:42] <cpaelzer> I assigned langtable to joalif
+[15:42] <cpaelzer> thanks jamespage - giving you bpftrace
+[15:42] <joalif> ack
+[15:42] <cpaelzer> and myself taking bpfcc
+[15:43] <jamespage> ta
+[15:43] <cpaelzer> That clears the list
+[15:43] <cpaelzer> to all of us, good luck in finding an efficient review time
+[15:44] <cpaelzer> #topic Incomplete bugs / questions
+[15:44] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[15:44] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[15:44] <cpaelzer> ok we see the libtrace* things going back
+[15:45] <cpaelzer> mostly being great and ok actually, but missing some better QA
+[15:45] <cpaelzer> one done by didrocks, one by me
+[15:45] <slyon> cc upils: ^
+[15:45] <cpaelzer> slyon: of the team prefers, there is the option to do autopkgtests once and awesome just on the high level
+[15:45] <cpaelzer> I suggested to that in my review
+[15:46] <cpaelzer> like
+[15:46] <cpaelzer> a) get the build time tests to be better, seems didrocks found the same in his review
+[15:46] <cpaelzer> but also
+[15:46] <cpaelzer> b) autopkgtests are weak
+[15:46] <cpaelzer> but for (b)
+[15:46] <cpaelzer> that can be done in-pkg
+[15:46] <cpaelzer> or it can be done on the level that pulls it in, which here is trace-cmd
+[15:46] <cpaelzer> there is might be easier to write non trivial tests
+[15:47] <cpaelzer> and if made sure that this uses both libs, that might be adressing 3-for-1
+[15:47] <cpaelzer> all other incomplete cases in this list are much older
+[15:47] <slyon> right. This is for upils to look into. Potentially doing proper autopkgtests for trace-cmd only
+[15:47] <sarnold> tracing the autopkgtest runner kernels might be a challenge
+[15:47] <cpaelzer> yeah slyon, if done right that would cover all three at once
+[15:47] <cpaelzer> sarnold: we have testcases which spawn VMs to have control and avoid weird effects
+[15:48] <cpaelzer> this could be another one of those
+[15:48] <cpaelzer> mark them big to have enough mem/cpu and set it up that way
+[15:48] <tsimonq2> o/ MIR team! Sorry to butt in, I just wanted to bring this to your attention: https://tracker.debian.org/news/1493585/accepted-ubuntu-dev-tools-0198-source-into-unstable/ - I am quite happy to accept any feedback if you have it. :)
+[15:48] <cpaelzer> not saing it has to be that way, but it helps to have control and avoid flakyness
+[15:48] <cpaelzer> hi tsimonq2, you are totally fine to interrupt
+[15:48] <cpaelzer> having a look ...
+[15:49] <tsimonq2> Those are just some slight tweaks I found useful for check-mir. Anyone in ~ubuntu-dev is welcome to upload to ubuntu-dev-tools in Debian as a team upload.
+[15:49] <sarnold> cool :)
+[15:49] <cpaelzer> tsimonq2: thanks
+[15:50] <slyon> tsimonq2: without looking at the code, those sound like very useful additions! thanks :)
+[15:50] <tsimonq2> My pleasure. :)
+[15:50] <cpaelzer> ok, getting to git next
+[15:50] <cpaelzer> we had landed some
+[15:50] <cpaelzer> let us look at the queues
+[15:50] <cpaelzer> #topic Process/Documentation improvements
+[15:50] <cpaelzer> Mission: Review pending process/documentation pull-requests or issues
+[15:50] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/pulls
+[15:50] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/issues
+[15:50] <upils> hi. thanks for the suggestion. This approach is new to me to I will probably ping some of you at some point for some details in the implementation. I have no idea how much work this is.
+[15:51] <upils> *so I will
+[15:51] <cpaelzer> only the old "need to work on it once we have time" cases on github
+[15:51] <cpaelzer> ok upils, that is only fair
+[15:51] <cpaelzer> thanks for driving this
+[15:51] <cpaelzer> you might look at other tests doing that, I think systemd does - any others one immediately remembers?
+[15:52] <upils> not quite sure I will have time to work on it this week but maybe next one
+[15:53] <cpaelzer> sure upils, while we should try to avoid getting too late - promotions/demotions are not strictly bound by feature freeze
+[15:53] <cpaelzer> better go slow and do it right if in doubt (as long as we do not miss noble)
+[15:53] <cpaelzer> #topic MIR related Security Review Queue
+[15:53] <cpaelzer> Mission: Check on progress, do deadlines seem doable?
+[15:53] <cpaelzer> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[15:53] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[15:53] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[15:54] <sarnold> (but due keep in mind that the MIR has to be assigned ot security before the beta freeze to avoid extra paperwork)
+[15:54] <cpaelzer> Internal link
+[15:54] <cpaelzer> - ensure your teams items are prioritized among each other as you'd expect
+[15:54] <cpaelzer> - ensure community requests do not get stomped by teams calling for favors too much
+[15:54] <cpaelzer> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[15:54] <slyon> bug #2052495 is ready for security review
+[15:54] -ubottu:#ubuntu-meeting- Bug 2052495 in wsl-pro-service (Ubuntu Noble) "[MIR] wsl-pro-service" [Undecided, Confirmed] https://launchpad.net/bugs/2052495
+[15:54] <sarnold> pro on wsl, interesting :)
+[15:55] <sarnold> at the moment things feel like we've got a decent handle on the list of outstanding mirs
+[15:55] <cpaelzer> ack sarnold, there are time limits for sure
+[15:56] <cpaelzer> and pro on wsl is not only interesting it is also great :-)
+[15:56] <cpaelzer> will you add it to the jira board?
+[15:56] <upils> ack cpaelzer sarnold, that should be manageable before Beta Freeze I think
+[15:56] <sarnold> yeah, we'll add it
+[15:57] <cpaelzer> thanks
+[15:57] <cpaelzer> the rest on the board looks sane
+[15:57] <cpaelzer> glad to see that
+[15:57] <cpaelzer> #topic Any other business?
+[15:58] <cpaelzer> not from me
+[15:58] <slyon> nothing here
+[15:58] <cpaelzer> mirespace: is still on writing the wrapper for libcrpytx
+[15:59] <cpaelzer> actually mirespace, I know you are unavailable now but please answer later - is the new version that does not use ed uploaded already to promote the full stack for now?
+[15:59] <cpaelzer> as the rest adding it with the openssl wrapper is for "later" anyway
+[15:59] <sarnold> one small item here
+[15:59] <cpaelzer> go sarnold while I check these perl libs ...
+[15:59] <sarnold> the flowchart on https://github.com/canonical/ubuntu-mir has a lot of html formatting codes in it
+[15:59] <sarnold> this feels new :)
+[16:00] <cpaelzer> hehe
+[16:00] <sarnold> I'm hoping that this is an obvious "oh I know how to fix that" for someone around here
+[16:00] <cpaelzer> yeah, it was cleaner than that for sure
+[16:00] <slyon> I wonder if dviererbe can help with that... I can reach out to hin
+[16:00] <slyon> him*
+[16:01] <tsimonq2> sarnold: It's being interpeted as a string, Markdown is formatted into HTML to be rendered, thus it's a matter of telling the renderer "hey, actually render this as HTML!" :)
+[16:01] <sarnold> I forgot to open an issue last time I spotted this :/
+[16:01] <sarnold> tsimonq2: if only the browsers would inspect the content they've been delivered and ignore the MIME types they were told to use, I'm sure there's no ill consequences of this choice :)
+[16:01] <tsimonq2> :D
+[16:02] <tsimonq2> I suspect this will help: https://mermaid.js.org/syntax/flowchart.html#markdown-formatting
+[16:02] <sarnold> anyway that was it for me
+[16:02] <cpaelzer> This is a good one
+[16:02] <tsimonq2> All I have for AOB is, thank you for your work, MIR Team! :D
+[16:02] <cpaelzer> let us wait what dviererbe will say
+[16:02] <cpaelzer> thanks tsimonq2, same to you and all others contributing to Ubuntu out there!
+[16:03] <cpaelzer> since slyon will reach out we can consider this as "it will happen"
+[16:03] <cpaelzer> thanks
+[16:03] <cpaelzer> ok, that seems to be a wrap
+[16:03] <cpaelzer> and I'm too late to the next meeting
+[16:03] <sarnold> thanks cpaelzer, all :)
+[16:03] <cpaelzer> closing ...
+[16:03] <eslerm> thanks all o/
+[16:03] <slyon> thakns cpaelzer, all!
+[16:03] <cpaelzer> #endmeeting
+[16:03] <meetingology> Meeting ended at 16:03:45 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-02-13-15.30.moin.txt
+[20:00] <rbasak> o/
+[20:00] <amurray> o/
+[20:00] <tsimonq2> o/
+[20:02]  * vorlon waves
+[20:02] <seb128> hey
+[20:03] <amurray> I can't see any apologies from sil2100 - does anyone know if he is out this week?
+[20:04] <vorlon> he's not out this week, I can't speak to where he is at the moment
+[20:04] <amurray> ok, I'll jump in to chair then
+[20:05] <amurray> #startmeeting Ubuntu Technical Board
+[20:05] <meetingology> Meeting started at 20:05:16 UTC.  The chair is amurray.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[20:05] <meetingology> Available commands: action, commands, idea, info, link, nick
+[20:05] <amurray> #topic Apologies
+[20:05] <amurray> none but seems sil2100 is unavailable
+[20:05] <amurray> #topic Action review
+[20:06] <amurray> ACTION: seb128/amurray/sil2100 to help drafting the snap-store Ubuntu-specific tracks usage
+[20:06] <amurray> no update on this from my side
+[20:06] <seb128> neither from mine, sorry
+[20:06] <amurray> no worries - will carry over
+[20:06] <seb128> and I didn't schedule the meeting
+[20:06] <amurray> #action seb128/amurray/sil2100 to help drafting the snap-store Ubuntu-specific tracks usage
+[20:06] <meetingology> ACTION: seb128/amurray/sil2100 to help drafting the snap-store Ubuntu-specific tracks usage
+[20:07] <amurray> ACTION: seb128 to organize a meeting to unblock the draft of the tracks usage section
+[20:07] <amurray> carry over?
+[20:08] <seb128> yes
+[20:08] <amurray> #action seb128 to organize a meeting to unblock the draft of the tracks usage section
+[20:08] <meetingology> ACTION: seb128 to organize a meeting to unblock the draft of the tracks usage section
+[20:08] <amurray> ACTION: rbasak to draft a proposal of the DMB-proposed inactivity expiration policy for TB ratification
+[20:08] <rbasak> Carry over please
+[20:08] <amurray> #action rbasak to draft a proposal of the DMB-proposed inactivity expiration policy for TB ratification
+[20:08] <meetingology> ACTION: rbasak to draft a proposal of the DMB-proposed inactivity expiration policy for TB ratification
+[20:08] <amurray> ACTION: rbasak to follow up on finding consensus on question of test plans for third party apps
+[20:09] <rbasak> Carry over, but this one I'd like to talk about if we have time today please
+[20:09] <amurray> ok do you want to do that during AOB?
+[20:09] <rbasak> Yes let's do it at the end
+[20:10] <amurray> #action rbasak to follow up on finding consensus on question of test plans for third party apps
+[20:10] <meetingology> ACTION: rbasak to follow up on finding consensus on question of test plans for third party apps
+[20:10] <amurray> ACTION: rbasak to open wider discussion on third-party repo policy
+[20:10] <rbasak> It's low priority so whatever else comes first can have the time first
+[20:10] <rbasak> This is blocked on the previous
+[20:10] <amurray> ack
+[20:10] <amurray> #action rbasak to open wider discussion on third-party repo policy
+[20:10] <meetingology> ACTION: rbasak to open wider discussion on third-party repo policy
+[20:10] <amurray> ACTION: seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[20:10] <seb128> carry over please
+[20:10] <amurray> #action seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[20:10] <meetingology> ACTION: seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[20:10] <amurray> ACTION: vorlon to write up draft guidelines for packages in the archive that download from the Internet
+[20:11] <vorlon> I suggest we drop this from here and that I track it elsewhere, since I'm the one who was arguing for it
+[20:11] <vorlon> and haven't had time to follow through
+[20:12] <amurray> would it be worth filing at https://bugs.launchpad.net/techboard to track this?
+[20:12] <vorlon> only if you think the TB wants to keep track of it IMHO
+[20:12] <vorlon> since it was my proposal, it's more useful for me to track the TODO elsewhere
+[20:13] <amurray> I don't think the TB needs to track it
+[20:14] <amurray> I'll drop it from the agenda then
+[20:14] <amurray> ACTION: seb128 to follow-up with ubuntu cinnamon on 24.04 request
+[20:14] <seb128> I did, and they replied so I need to process the details and follow up
+[20:14] <seb128> let's carry over
+[20:15] <amurray> #action seb128 to follow-up with ubuntu cinnamon on 24.04 request
+[20:15] <meetingology> ACTION: seb128 to follow-up with ubuntu cinnamon on 24.04 request
+[20:15] <amurray> ACTION: seb128 to follow-up with ubuntu budgie on 24.04 request
+[20:15] <seb128> done
+[20:15] <amurray> ack - https://lists.ubuntu.com/archives/technical-board/2024-January/002874.html
+[20:15] <seb128> that one should have been deleted from the actions in favor of the one 3 items down
+[20:15] <seb128> which is also done
+[20:16] <amurray> ah ok  - I'll keep plowing through the agenda to make sure we don't miss anything
+[20:16] <amurray> ACTION: amurray to send confirmation of successful LTS status for UbuntuKylin 24.04
+[20:16] <amurray> done - https://lists.ubuntu.com/archives/technical-board/2024-January/002870.html
+[20:17] <amurray> ACTION: sil2100 to review the lubuntu LTS participation request and follow up as appropriate (question or call for vote)
+[20:17] <amurray> I'll put that as carry over too then
+[20:18] <amurray> oh actually I forgot we already voted via email
+[20:18] <amurray> so it just needs someone to send the confirmation email from what I can tell
+[20:19] <amurray> I can do that then
+[20:19] <seb128> I guess since Lukasz was doing the review he should do the emailing?
+[20:19] <seb128> or that :)
+[20:19] <amurray> I'm fine either way
+[20:19] <tsimonq2> Didn't vorlon follow up giving an official ack? :)
+[20:19] <vorlon> I think I did?
+[20:19] <vorlon> yes
+[20:20] <seb128> oh yes, I went over that email but the conclusion is several screen down and I didn't scroll all the way :p
+[20:20] <amurray> ah right - sorry I wasn't looking at the right one either - https://lists.ubuntu.com/archives/technical-board/2024-February/002877.html
+[20:20] <vorlon> https://lists.ubuntu.com/archives/technical-board/2024-February/002877.html
+[20:20] <amurray> thanks vorlon
+[20:20] <vorlon> yah
+[20:20] <tsimonq2> <3
+[20:20] <amurray> ACTION: seb128 to send confirmation of successful LTS status for Ubuntu Budgie 24.04
+[20:20] <seb128> that's done
+[20:20] <amurray> as seb noted above this is done already
+[20:21] <amurray> ACTION: vorlon to confirm TB agreement to launchpad-buildd-admins ownership change
+[20:21] <vorlon> done
+[20:21] <amurray> this was done in https://lists.ubuntu.com/archives/technical-board/2024-February/002876.html
+[20:21] <amurray> ACTION: amurray to follow up with Kubuntu on 24.04 LTS request
+[20:21] <amurray> this is still ongoing
+[20:21] <tsimonq2> o/ I'm a stand-in for Kubuntu today, and just wanted to provide some context (nothing actionable.) Scarlett Gately Moore has been working for the Kubuntu Council now, officially, on a contract basis. I have been tasked with guiding her through so she re-learns the ropes. There has been enough progress and energy in the Kubuntu Team where I am confident in saying we should be re-qualified. I'm
+[20:21] <tsimonq2> happy to answer any specific questions if there are any today, because I have been deeply involved in this effort.
+[20:22] <tsimonq2> Rik is still around and involved, providing guidance on the precedent he has set over the past few years, to be clear.
+[20:23] <amurray> hey tsimonq2 - at this stage I don't have any specific questions, I'll probably just continue to follow up via email - I did notice scarlett said they would intend to support the entire kubuntu packageset (which is great!) but I worry about whether they have the resources for this?
+[20:23] <vorlon> that all seems reasonable, and Kubuntu is established enough that I'm personally not worried about a change of lead impacting the LTS qual
+[20:24] <vorlon> amurray: could you elaborate as to what's in the kubuntu packageset that's not KDE?
+[20:24] <vorlon> we do a poor job of gardening packagesets
+[20:24] <vorlon> there's probably a bunch of stuff listed that doesn't even exist in the archive anymore
+[20:25] <tsimonq2> vorlon: I understand this isn't necessarily what we want to do going forward, but yes, that list has quite grown over time.
+[20:25] <vorlon> doesn't have to be done here and now, anyway; this could be a mail followup
+[20:25] <vorlon> but I'd like to get into the nitty-gritty of the capacity concerns
+[20:26] <tsimonq2> Not a problem :)
+[20:26] <amurray> ok (fyi the packageset is quite long https://pastebin.ubuntu.com/p/jbYsvvfVgq/ so I assume the kubuntu folks might want to scope their statement of support a bit)
+[20:26] <rbasak> I think a flavour packageset is a poor list to use outside of DMB managed ACLs because they are (were) automatically produced
+[20:26] <vorlon> https://ubuntu-archive-team.ubuntu.com/packagesets/noble/kubuntu btw
+[20:27] <rbasak> ...and they might change arbitrarily for the same sort of reason in the future
+[20:27] <tsimonq2> I'll follow up on our end to see if Rik had a particular rhyme or reason.
+[20:27] <amurray> ok, we'll continue this via email then
+[20:27] <vorlon> rbasak: unfortunately it's the best proxy we have for "things in this flavor that aren't also in a base seed" without additional coding that we've never bothered doing.  But I agree
+[20:27] <vorlon> tsimonq2: I look forward to you elaborating on your support plan for cvs
+[20:28] <rbasak> The task of fixing the scripts is years old and not taken now. The DMB currently just adjusts them manually on request.
+[20:28] <tsimonq2> vorlon: lol :)
+[20:28] <rbasak> So there's no longer really any assurance that packages in there aren't in a different seed. Nobody is checking for that.
+[20:28] <vorlon> uh you can give me an action to look whether we have any ubuntu-archive / ubuntu-release bits that would let me say "this bit is the flavor-specific overlay"
+[20:29] <vorlon> because what we want to see is set(kubuntu-seeds) - set(platform-seeds)
+[20:29] <amurray> #action vorlon to look into scripting for packages in flavor-specific overlays
+[20:29] <meetingology> ACTION: vorlon to look into scripting for packages in flavor-specific overlays
+[20:30] <amurray> ACTION: vorlon to confirm ratification of Lubuntu LTS
+[20:30] <amurray> as noted above, this was already done
+[20:30] <vorlon> well. set(kubuntu-seeds) - set(platform-seeds) - set(ubuntu-seeds)
+[20:31] <amurray> #topic Scan the mailing list archive for anything we missed (standing item)
+[20:31] <rbasak> xnox asked for a change in LP
+[20:31] <vorlon> yes
+[20:32] <vorlon> which he pointed out that my previous request for apt maintainer sign-off was unfortunately on a superseded mp and thus "lost" to the stream
+[20:32] <vorlon> with my AA hat on I have 0 concerns about dropping this if apt itself doesn't use it
+[20:32] <rbasak> I wanted to know who would be taking responsibility for the change, dealing with any fallout, etc, and I don't think I got a clear answer to that.
+[20:32] <amurray> yep - I'm not sure how to proceed here - there is clearly some perceived risk in this change but its not clear to me who owns it
+[20:33] <vorlon> I will as an AA
+[20:33] <vorlon> give this to me as an action please
+[20:33] <rbasak> Great - thanks!
+[20:33] <amurray> thanks vorlon
+[20:33] <vorlon> (TBH I think despite the acl being owned by the TB this could have just been handled directly with the AA members of the TB rather than involving the TB as a whole)
+[20:33] <amurray> #action vorlon to follow up on xnox's request to set noble.publish_i18n_index to False
+[20:33] <meetingology> ACTION: vorlon to follow up on xnox's request to set noble.publish_i18n_index to False
+[20:34] <amurray> I don't see anything else on the mailing list for today
+[20:34] <amurray> #topic Check up on community bugs and techboard bugs
+[20:34] <amurray> #link https://bugs.launchpad.net/ubuntu-community/+bugs?field.assignee=techboard
+[20:34] <amurray> #link https://bugs.launchpad.net/techboard
+[20:35] <amurray> nothing here either
+[20:35] <amurray> #topic Select a chair for the next meeting (next from https://launchpad.net/~techboard/+members)
+[20:35] <amurray> looks like its me and rbasak as backup
+[20:35] <rbasak> ack
+[20:35] <amurray> #agreed next meeting chair: amurray, backup: rbasak
+[20:35] <meetingology> AGREED: next meeting chair: amurray, backup: rbasak
+[20:36] <amurray> #topic AOB
+[20:36] <rbasak> o/
+[20:36] <vorlon> the covention is that it be sil2100 with rbasak as backup, but ok :)
+[20:36] <vorlon> +n
+[20:36] <amurray> oh cool
+[20:36] <amurray> #agreed next meeting chair: sil2100, backup: rbasak
+[20:36] <meetingology> AGREED: next meeting chair: sil2100, backup: rbasak
+[20:36] <vorlon> (i.e. missing your chair spot doesn't get you off the hook for chairing :)
+[20:37] <amurray> does anyone else have AOB? otherwise rbasak the floor is yours
+[20:37] <rbasak> This relates to "snap-MIRs" here: https://docs.google.com/document/d/1apUKR4gtOrfPGCWmtoebaQUhoy-fG8Cyo3VKJyhnpD0/edit#heading=h.whx7oqqnxsv0
+[20:37] <rbasak> Our previous discussions are summarised and linked from there. This is the only thing that might be holding up the main body text. To make progress I'd like to: 1) decide if it really needs to be general, because if we can agree that it's snap-specific then we can progress on the main body at least; 2) meet in a higher bandwidth medium (Google Meet?) with amurray and maybe seb128, sil2100, whoever
+[20:37] <rbasak> else wants to be involved to actually get something drafted that works for us.
+[20:37] <rbasak> This might be homework for you for next time to remind yourself of the previous conversation, but maybe it's worth mentioning here in public that I'd like to resolve this out-of-band and come back with a result to present in public in order to get something into the draft that's workable for everyone. I'd still expect a final vote / ratification here in public regardless so I don't think there need
+[20:37] <rbasak> be any concerns about not being public enough with the work on this.
+[20:38] <amurray> sounds reasonable to me
+[20:38] <vorlon> +1
+[20:39] <rbasak> Thanks. I'll set up a meeting then. Anybody else who'd like to be involved, please contact me.
+[20:40] <amurray> we already have an action item on the agenda around this so I won't add any additional one
+[20:40] <seb128> rbasak, I had that action item but I'm happy for it to grab it if you have time to move that forward
+[20:41] <rbasak> seb128: I think that was on a different point - snap tracks?
+[20:41] <amurray> yeah we have 2 similar items on the agenda - one is about track usage and the other is about test plans for third-party apps - this is about the second one
+[20:42] <rbasak> We could try and combine them to make scheduling easier
+[20:42] <rbasak> Approximately the same set of people need to discuss them anyway
+[20:42] <amurray> sure
+[20:42] <rbasak> So you can leave it with me to schedule something
+[20:42] <amurray> thanks rbasak
+[20:42] <seb128> ah, right, sorry ... but yeah, might be more efficient to cover both topics in one meeting
+[20:42] <seb128> rbasak, thanks!
+[20:43] <amurray> anything else for today...?
+[20:43] <vorlon> nothing here
+[20:43] <rbasak> Nothing else from me. Thanks!
+[20:44] <seb128> not from me
+[20:44] <tsimonq2> Thank you all for
+[20:44] <tsimonq2> ...what you do :)
+[20:44] <amurray> thanks folks
+[20:44] <amurray> #endmeeting
+[20:44] <meetingology> Meeting ended at 20:44:15 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-02-13-20.05.moin.txt
+[20:44] <seb128> thanks! :)
+[20:44] <amurray> yw tsimonq2 :)
+[20:44] <tsimonq2> rbasak: Happy to attend the meeting if you would find my opinion to be valuable.
+[20:44] <rbasak> OK I'll add you to the invite list. Thanks!
+[20:44] <tsimonq2> <3

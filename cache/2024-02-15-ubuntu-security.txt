@@ -1,0 +1,5 @@
+=== chris14_ is now known as chris14
+[08:53] <rouca> eslerm: just send you a patch
+[08:54] <rouca> eslerm: forget to mention it was against bookworm
+=== JanC is now known as Guest1755
+=== JanC_ is now known as JanC

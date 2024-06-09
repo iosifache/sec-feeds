@@ -1,0 +1,12 @@
+[00:25] <arraybolt3> Two questions. One, what is "device slack" in the output of `btrfs fi usage`? Secondly, why in all of creation is it seen as 16 **exabytes** if I run it without root on my meager 6TB HDD?
+[00:25] <arraybolt3> I may be a slight data hoarder but I haven't gone that crazy yet :P
+[00:26] <arraybolt3> (when I run it with sudo it shows up as 0 bytes, which ironically is the opposite extreme but that's beside the point)
+[00:55] <arraybolt3> lol, I posted this in the wrong channel
+[00:55] <arraybolt3> turns out #ubuntu-meeting is immediately above #btrfs in my client
+=== JanC is now known as Guest5517
+=== JanC_ is now known as JanC
+=== jnsgrukGuest36 is now known as jnsgruk
+=== JanC_ is now known as JanC
+=== tsimonq2_ is now known as tsimonq2
+=== NotEickmeyer is now known as Eickmeyer
+=== JanC_ is now known as JanC

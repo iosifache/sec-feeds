@@ -1,0 +1,15 @@
+=== NotEickmeyer is now known as Eickmeyer
+[05:03] <luna> amurray: when is the first episode of 2024 planned to be released of the podcast?
+=== JanC is now known as Guest2655
+=== JanC_ is now known as JanC
+[16:36] <Apparmortastic> hey, i am trying to use libnss-resolve, when I `aa-disable ping` then i can resolve things using libnss-resolve because i can access the socket `/run/systemd/resolve/io.systemd.Resolve` but if i do `aa-complain ping` or `aa-enforce ping` i can not, why would complain block access and why is /run/systemd/resolve/io.systemd.Resolve blocked to begin
+[16:36] <Apparmortastic> with
+[16:36] <Apparmortastic> the only log entry relevant is this one, seemingly allowing the connection
+[16:36] <Apparmortastic> apparmor="ALLOWED" operation="connect" info="Failed name lookup - disconnected path" error=-13 profile="ping" name="run/systemd/resolve/io.systemd.Resolve" pid=2450 comm="ping" requested_mask="wr" denied_mask="wr" fsuid=0 ouid=102
+[16:36] <Apparmortastic> but if i aa-disable, no worries, works fine
+[17:10] <georgiag> Apparmortastic: the socket must be in a different namespace than the process trying to access it. to enable permission to do this, you need to add flags=(attach_disconnected) in the ping profile
+[18:15] <KarlG100> Greetings, have a sanity check question.
+[18:15] <KarlG100> I'm working on deploying smartcard enfocement on 22.04, and running into what I think is a pam_sss bug.
+[18:16] <KarlG100> when require_cert_auth is added to the pam_sss.so line all methods of logging in seem to work and reject password based auth, except ssh.
+[18:17] <KarlG100> does anyone know/tracking any issues in the stock pam_sss with the require_cert_auth and rejecting password based auth?
+=== user03 is now known as gchound

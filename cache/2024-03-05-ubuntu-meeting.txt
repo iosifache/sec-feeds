@@ -1,0 +1,167 @@
+=== pushkarnk1 is now known as pushkarnk
+[15:30] <sarnold> good morning
+[15:31] <cpaelzer> hey
+[15:31] <eslerm_> greetings from 34k" over the dakotas o/
+[15:31] <cpaelzer> noble is completely time_t'ed - let us see how that looks in the reports
+[15:31] <cpaelzer> #startmeeting Weekly Main Inclusion Requests status
+[15:31] <meetingology> Meeting started at 15:31:53 UTC.  The chair is cpaelzer.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:31] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:31] <cpaelzer> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( eslerm dviererbe )
+[15:32] <cpaelzer> #topic current component mismatches
+[15:32] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[15:32] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[15:32] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[15:32] <cpaelzer> trace-cmd is an ongoing effort
+[15:32] <cpaelzer> we have reviewed some of them, no new action
+[15:32] <cpaelzer> #topic New MIRs
+[15:32] <cpaelzer> Mission: ensure to assign all incoming reviews for fast processing
+[15:32] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[15:32] <cpaelzer> hmm, two new ones here
+[15:33] <cpaelzer> first: https://bugs.launchpad.net/ubuntu/+source/tree/+bug/2056099
+[15:33] -ubottu:#ubuntu-meeting- Launchpad bug 2056099 in tree (Ubuntu) "[MIR] tree" [Undecided, New]
+[15:33] <cpaelzer> reading the rational before we try to assign ...
+[15:34] <cpaelzer> hmm - reading "this has been discussed with the Foundations team"
+[15:34] <cpaelzer> slyon isn't around
+[15:34] <cpaelzer> What I see makes me think could it not do that while staying in universe?
+[15:35] <cpaelzer> it won't be seeded, nor will it be advertised much outside of the mentioned SDK
+[15:35] <ahresse> Hello, I posted the MIR about tree . It is my first MIR so feel free to ask me questions here.
+[15:35] <cpaelzer> hi ahresse, welcome
+[15:35] <cpaelzer> try to answer the above I guess
+[15:35] <cpaelzer> it is mostly me trying to get if the motivation to do that is valid
+[15:35] <joalif> o/
+[15:36] <cpaelzer> hi joalif (and sarnold and eslerm_)
+[15:36] <cpaelzer> JFTR
+[15:36] <cpaelzer> ahresse: what I mean is that you've written "their user experience on their Ubuntu based SDK images"
+[15:36] <cpaelzer> which is fine, but why does it have to be in main for that
+[15:37] <cpaelzer> what is the value it provides to the rest of Ubuntu, since you said "enerally useful for a large part of our user base using the command-line" over it being what it is right now
+[15:37] <ahresse> I guess we (Canonical) concluded to support these packages officially in our partneship contract
+[15:37] <ahresse> And getting these into main is the way to validate this
+[15:38] <cpaelzer> If (IIFF) foundations is truly happy to own this, I'm ok then. This will go to some -supported seed and not be pulled in anywhere.
+[15:38] <cpaelzer> since slyon isn't around and do_ko extra busy with time_t64 I'd wait until next week for them to say something instead of assigning it right away
+[15:39] <eslerm_> doesn't the contract validate support?
+[15:39] <cpaelzer> oh eslerm_ do not get me started "support" is an undefined term to begin with
+[15:39] <cpaelzer> it means 105 things to 52 different people
+[15:39] <sarnold> it could just be that getting updates for this from esm to sdk users might be A Real Challenge
+[15:39] <cpaelzer> ahresse: you could speed that up or avoid the same delay to happen again if you could ask Fundations management to comment on the bug agreeing that they will own it and that they consider this a good idea too
+[15:40] <cpaelzer> ahresse: this isn't negelcting your request, but we need to validate you are not secretly putting that onto their agenda :-)
+[15:40] <cpaelzer> and I'd not feel well for someon in the MIR team to review before I feel sure this will happen
+[15:40] <cpaelzer> does that work for you ahresse?
+[15:40] <ahresse> What I noted from my meeting from Fundation was: Lukasz: low risk, not so critical. Should go with a MIR. No strong objection from Foundation.
+[15:41] <cpaelzer> I totally believe you, but "No strong objection from Foundation" does not yet say "I'm ok that our team will take care for this for a decade" - although to admit this one seems low effort indeed
+[15:42] <cpaelzer> still I need to hold everything against sort of the same bar to pass
+[15:42] <cpaelzer> and we had others suggesting other owning teams ... guess how those ended up
+[15:42] <cpaelzer> @MIR folks - how do you think about adding a rule to the template that enforced an ack from the to be owning team?
+[15:42] <cpaelzer> I feel we almost have discussed that ...
+[15:43] <eslerm_> ++1
+[15:43] <sarnold> that's probably a good idea, we've had other community folks try to get teams to support (sorry) packages that they weren't interested in
+[15:43] <joalif> +1
+[15:44] <cpaelzer> ok, 1 sec
+[15:45] <cpaelzer> created https://github.com/canonical/ubuntu-mir/issues/52
+[15:45] -ubottu:#ubuntu-meeting- Issue 52 in canonical/ubuntu-mir "Suggested owner should provide a confirmation from the owning team" [Open]
+[15:45] <ahresse> TBH, this is my first MIR attempt so I will just follow what you propose... Let's just summerize it on the associated LP bug at the end.
+[15:46] <cpaelzer> ok, on tree we will recheck next week with foundations people around
+[15:46] <cpaelzer> again ahresse you can help with asking them to please comment and confirm on the bug
+[15:46] <cpaelzer> no problem ahresse, we are friendly and try to get your case resolved
+[15:46] <cpaelzer> excuse us for immediately starting with an extra whoop to jump through
+[15:46] <sarnold> ahresse: to be clear, this is a lovely mir :)
+[15:46] <cpaelzer> indeed sarnold
+[15:46] <cpaelzer> the rest LGTM in a glance
+[15:47] <cpaelzer> just in the 360 and FF week resources are scarce
+[15:47] <cpaelzer> hence I'm hoolding back and want to ensure ownership before spending any
+[15:47] <cpaelzer> next to look at is https://bugs.launchpad.net/ubuntu/+source/pemmican/+bug/2055434
+[15:47] -ubottu:#ubuntu-meeting- Launchpad bug 2055434 in pemmican (Ubuntu) "[MIR] pemmican" [Undecided, New]
+[15:47] <cpaelzer> and ahresse - thanks for being here for discussion
+[15:47] <cpaelzer> that helps to speed up things - so it is highly appreciated
+[15:48] <cpaelzer> in regard to the former discussion foundations team asking to own it themselve
+[15:48] <cpaelzer> also a pattern that we had before - special Pi bits for the Pi images that need to be in main for that reason
+[15:48] <cpaelzer> joalif: do you have any capacity to consider reviewing this (I'm drowned in 360 efforts)?
+[15:48] <waveform> sorry :)
+[15:49] <joalif> yup
+[15:49] <cpaelzer> hu, why excusing waveform
+[15:49] <cpaelzer> all good
+[15:49] <cpaelzer> thank you so much joalif
+[15:49] <cpaelzer> assigning
+[15:49] <cpaelzer> #topic Process/Documentation improvements
+[15:49] <cpaelzer> Mission: Review pending process/documentation pull-requests or issues
+[15:49] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/pulls
+[15:49] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/issues
+[15:49] <cpaelzer> my issue of 4 minutes ago
+[15:50] <cpaelzer> and eslerm with cargo vendor
+[15:50] <cpaelzer> reading ...
+[15:50] <cpaelzer> https://github.com/canonical/ubuntu-mir/issues/51
+[15:50] -ubottu:#ubuntu-meeting- Issue 51 in canonical/ubuntu-mir "cargo vendor adds unnecessary crates" [Open]
+[15:51] <cpaelzer> yeah, we need to have the toolchain folks comment
+[15:51] <cpaelzer> and until then probably leave a note in the MIR policies
+[15:51] <cpaelzer> WDYT?
+[15:51] <eslerm_> toolchains commented in the linked jira task
+[15:51] <cpaelzer> opening
+[15:51] <sarnold> I understand there's around 80megs of windows crates in the authd packages
+[15:52] <cpaelzer> so what can we do for now, other than expecting anyone touching it to manually do the culling to those that matters?
+[15:52] <sarnold> should we ask for those to be deleted by hand before release? shipping that to all mirrors for ten more years makes me sad :(
+[15:52] <cpaelzer> we can not say "no rust until it solved" not can we "all that is listed needs to be fully reviewed" :-/
+[15:53] <cpaelzer> sarnold: with "by hand" you mean d/rules removing them along the source build and build?
+[15:53] <sarnold> cpaelzer: exactly
+[15:54] <cpaelzer> posting on the case
+[15:54] <cpaelzer> but I'm unsure who to wait/block/gate/assign
+[15:54] <cpaelzer> so what will happen now, and by whom ... ?
+[15:56] <cpaelzer> updated to ask didrocks what he thinks
+[15:56] <eslerm_> waiting for more discussion might be a good place to wait for next week
+[15:56] <cpaelzer> that was triggered by a desktop package right?
+[15:56] <eslerm_> correct
+[15:56] <cpaelzer> authd - yeah
+[15:56] <cpaelzer> let us see what becomes of this
+[15:56] <cpaelzer> interesting for sure
+[15:56] <cpaelzer> rushing the last steps, 4 minutes to go
+[15:56] <cpaelzer> #topic MIR related Security Review Queue
+[15:56] <cpaelzer> Mission: Check on progress, do deadlines seem doable?
+[15:56] <cpaelzer> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[15:56] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[15:57] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[15:57] <cpaelzer> Internal link
+[15:57] <cpaelzer> - ensure your teams items are prioritized among each other as you'd expect
+[15:57] <cpaelzer> - ensure community requests do not get stomped by teams calling for favors too much
+[15:57] <cpaelzer> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[15:57] <eslerm_> security mirs are progressing :)
+[15:57] <eslerm_> we need a volunteer for a perl package, we'll ifnd one
+[15:57] <cpaelzer> make them found eslerm_! :-)
+[15:57] <eslerm_> bpf mirs are going smoothly
+[15:58] <cpaelzer> I guess there is not much more to say here
+[15:58] <cpaelzer> any other around bpf (like trace and such) showing any signs of trouble?
+[15:58] <eslerm_> yes
+[15:58] <cpaelzer> oh
+[15:58] <eslerm_> I mention it in the spec
+[15:59] <eslerm_> the binaries from these packages are numerous (which is fine) and duplicate each others function
+[15:59] <eslerm_> but, those working on the spec can figure this out
+[15:59] <cpaelzer> yeah I've seen that if you mean libbpf-tools and bpt-tools IIRC
+[15:59] <cpaelzer> but they are from the same source - so just one effort to maintain
+[15:59] <eslerm_> we don't want ALL of these binaries to be installed by default most likely
+[15:59] <cpaelzer> and we'd not install all
+[15:59] <cpaelzer> yeah
+[15:59] <cpaelzer> ack on not installing all
+[16:00] <cpaelzer> TBH only the smaller ones built with less dependencies would be my suggestions (libbpf-tools)
+[16:00] <eslerm_> and bpftrace, it dupes bpt-tools too
+[16:00] <cpaelzer> oh
+[16:00] <cpaelzer> unexpected
+[16:00] <cpaelzer> thanks for raising
+[16:00] <cpaelzer> rushing on then ...
+[16:00] <eslerm_> in bpftrace's cases, I'd make the binaries examples since that is really what they are
+[16:00] <eslerm_> examples of writing bpfc-tools with bpftrace
+[16:00] <cpaelzer> agreed, that is what I considered them
+[16:00] <cpaelzer> useful examples though
+[16:00] <eslerm_> very
+[16:00] <cpaelzer> #topic Any other business?
+[16:00] <cpaelzer> not from me
+[16:01] <joalif> none
+[16:01] <eslerm_> none
+[16:01] <sarnold> none here
+[16:01] <cpaelzer> thanks
+[16:01] <cpaelzer> sorry for the rush
+[16:01] <cpaelzer> two more meetings now ...
+[16:01] <cpaelzer> o/
+[16:01] <eslerm_> o/
+[16:01] <joalif> thanks cpaelzer, all :)
+[16:01] <sarnold> thanks cpaelzer, all :)
+[16:01] <cpaelzer> #endmeeting
+[16:01] <meetingology> Meeting ended at 16:01:34 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-03-05-15.31.moin.txt
+=== JanC is now known as Guest3312
+=== JanC_ is now known as JanC

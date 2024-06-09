@@ -1,0 +1,3 @@
+[07:39] <ogayot> adrien: no I didn't. That was just before feature freeze so it wasn't really an option at the time
+[10:23] <adrien> ogayot: ok, thanks; I only looked at one revdep ("google-something") and noticed it's at version 1.x and there's 2.x which is still updated; no idea about other revdeps though and it doesn't mean it's not more sensible to patch the package now and do the migration over a long timeframe (I'll see next week, I'm off until tuesday)
+=== Mr_Pan_ is now known as Mr_Pan

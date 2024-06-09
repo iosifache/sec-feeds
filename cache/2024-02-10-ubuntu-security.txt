@@ -1,0 +1,11 @@
+[01:19] <Juest> sarnold: ^^
+[01:24] <sarnold> Juest: this is repeatable?? very weird
+[01:24] <Juest> strangely ,yes
+[01:24] <Juest> this is in artix with latest gpg
+[01:25] <sarnold> well, the plus side, now you've got a pretty good bug report :)
+[01:26] <Juest> heh :)
+[01:26] <Juest> im usually pretty vague and dont extensively test
+=== chris14_ is now known as chris14
+=== JanC is now known as Guest9448
+=== JanC_ is now known as JanC
+=== user03 is now known as gchound

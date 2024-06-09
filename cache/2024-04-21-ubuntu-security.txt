@@ -1,0 +1,2 @@
+[19:33] <luna_> https://discourse.ubuntu.com/t/upcoming-apparmor-security-update-for-cve-2016-1585/44268/1
+[19:33] -ubottu:#ubuntu-security- In all versions of AppArmor mount rules are accidentally widened when compiled. <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1585>

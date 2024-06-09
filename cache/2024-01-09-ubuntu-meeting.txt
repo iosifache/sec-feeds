@@ -1,0 +1,212 @@
+[15:31] <cpaelzer> hiho
+[15:31] <sarnold> good morning
+[15:31] <cpaelzer> #startmeeting Weekly Main Inclusion Requests status
+[15:31] <meetingology> Meeting started at 15:31:32 UTC.  The chair is cpaelzer.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:31] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:31] <cpaelzer> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( eslerm dviererbe )
+[15:31] <slyon> o/
+[15:31] <jamespage> o/
+[15:32] <cpaelzer> welcome back to a new year some of you
+[15:32] <cpaelzer> hello again to the others
+[15:32] <cpaelzer> let us get started
+[15:32] <cpaelzer> #topic current component mismatches
+[15:32] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[15:32] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[15:32] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[15:32] <cpaelzer> non proposed is very small now
+[15:32] <sarnold> \o/
+[15:32] <cpaelzer> lxml is worked on by foundations I guess
+[15:32] <cpaelzer> yes slyon I see
+[15:32] <cpaelzer> good
+[15:33] <cpaelzer> the other is the known false positive
+[15:33] <cpaelzer> proposed has mostly known things
+[15:33] <cpaelzer> nut
+[15:33] <cpaelzer> dkim-perl
+[15:33] <cpaelzer> jaraco
+[15:33] <cpaelzer> I'm not sure I remember libqmi
+[15:33] <cpaelzer> and alembic I've seen long ago, seems to be needing something again
+[15:34] <cpaelzer> alembic was openstack IIRC - right jamespage?
+[15:34] <jbicha> o/
+[15:34] <jamespage> it is
+[15:34] <cpaelzer> hi jbicha
+[15:34] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/python-typing-extensions/+bug/2002821
+[15:34] -ubottu:#ubuntu-meeting- Launchpad bug 2002821 in python-typing-extensions (Ubuntu) "[MIR] python-typing-extensions" [Undecided, In Progress]
+[15:34] <cpaelzer> was filed
+[15:34] <cpaelzer> was reviewed
+[15:34] <cpaelzer> open to clear ...
+[15:34] <eslerm> hi o/
+[15:35] <jbicha> libqmi is libqrtr-glib from last week
+[15:35] <jamespage> subscriptions all in place to support that
+[15:35] <cpaelzer> oh it seems only the subscription was missing
+[15:35] <cpaelzer> and it was approved before
+[15:36] <jamespage> yep - dependency looks to be coming in via jaraco and alembic now
+[15:36] <cpaelzer> yes the tree of deps changed
+[15:36] <cpaelzer> but it is ready
+[15:36] <cpaelzer> jamespage: will you promote it now that it is ready?
+[15:36] <cpaelzer> or do you want one of us to do so?
+[15:37] <cpaelzer> oh you can't
+[15:37] <jamespage> nope I can't ;)
+[15:37] <jamespage> needs an aa
+[15:37] <cpaelzer> sorry, my memory gave you more permissions
+[15:37] <cpaelzer> I'll do so tomorrow morning once I have time to do last saftey checks
+[15:37] <jamespage> I don't have the required superpoers
+[15:37] <cpaelzer> but it LGTM
+[15:38] <cpaelzer> next (as I learned of last week) https://bugs.launchpad.net/ubuntu/+source/libqrtr-glib/+bug/1963707
+[15:38] -ubottu:#ubuntu-meeting- Launchpad bug 1963707 in libqrtr-glib (Ubuntu) "[MIR] libqrtr-glib" [Low, In Progress]
+[15:38] <cpaelzer> That was ok, seb completed the dependency for it to show up
+[15:38] <cpaelzer> I can promote that too then
+[15:39] <slyon> +1
+[15:39] <cpaelzer> lsat but not least
+[15:39] <cpaelzer> on modbus we are waiting on Debian
+[15:39] <cpaelzer> not infinitely, but we want to give them time and if possible move together
+[15:39] <cpaelzer> FYI https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1059985
+[15:39] -ubottu:#ubuntu-meeting- Debian bug 1059985 in nut "apc_modbus pulls in libmodbus in the default installation" [Normal, Open]
+[15:39] <cpaelzer> going on in the agenda
+[15:39] <cpaelzer> #topic New MIRs
+[15:39] <cpaelzer> Mission: ensure to assign all incoming reviews for fast processing
+[15:39] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[15:40] <cpaelzer> oh wow
+[15:40] <cpaelzer> three new
+[15:40] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/gsasl/+bug/2044535 actually is only shown as it is up in the task list
+[15:40] -ubottu:#ubuntu-meeting- Launchpad bug 2044535 in libgssglue (Ubuntu) "[MIR] libgssglue" [Undecided, New]
+[15:40] <cpaelzer> the request is for libgssglue Edit
+[15:40] <slyon> this seems to be a false positive
+[15:40] <slyon> It's assigned to security
+[15:41] <cpaelzer> we need to mark this something else than New
+[15:41] <cpaelzer> doing so
+[15:41] <slyon> Is it due to the unassigned gsasl task?
+[15:41] <cpaelzer> yes
+[15:41] <slyon> Could probably be Invalid.
+[15:41] <slyon> It was just to make it show up on foundations reports
+[15:41] <slyon> I can handle that
+[15:41] <cpaelzer> ok
+[15:42] <cpaelzer> I've already updated
+[15:42] <cpaelzer> feel free to change it further
+[15:42] <cpaelzer> next two are christmas presents from seb128
+[15:42] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/speexdsp/+bug/2047149
+[15:42] -ubottu:#ubuntu-meeting- Launchpad bug 2047149 in speexdsp (Ubuntu) "[MIR] speexdsp" [Undecided, New]
+[15:42] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/roc-toolkit/+bug/2047150
+[15:42] -ubottu:#ubuntu-meeting- Launchpad bug 2047150 in roc-toolkit (Ubuntu) "[MIR] roc-toolkit" [Undecided, New]
+[15:42] <cpaelzer> both related to pipewire
+[15:42] <cpaelzer> to support more things
+[15:42] <cpaelzer> speex is a codec
+[15:42] <cpaelzer> what is roc ...
+[15:43] <cpaelzer> streaming
+[15:43] <cpaelzer> ok, either way
+[15:43] <cpaelzer> this needs reviewers
+[15:43] <cpaelzer> anyone up to take one this week?
+[15:44] <slyon> I can take one for next tuesday
+[15:44] <cpaelzer> thx, handing you roc
+[15:44] <cpaelzer> jamespage: didrocks: joalif: anyone ok to review speexdsp ?
+[15:45] <cpaelzer> until the mid cycle spint I'm not sure I can handle one easily
+[15:46] <eslerm> (I just set pydantic to incomplete for jamepage 's review)
+[15:46] <cpaelzer> didrocks: mentioned he has a conflict usually now but is ok to pick one if highlighted, I'll do so and if impossible let me know and I'll try to squeeze it in ignoring the planning
+[15:46] <cpaelzer> thanks eslerm
+[15:46] <cpaelzer> ok, next agenda item
+[15:46] <cpaelzer> #topic Incomplete bugs / questions
+[15:46] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[15:46] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[15:46] <cpaelzer> pydantic eslerm mentioned
+[15:46] <cpaelzer> python-cssselect we mentioned before as well
+[15:47] <cpaelzer> and the dmarc related things are from mirespace
+[15:47] <cpaelzer> there was one update in one of those ...
+[15:47] <cpaelzer> reading
+[15:47] <sarnold> https://bugs.launchpad.net/ubuntu/+source/objgraph/+bug/2047821 ?
+[15:47] -ubottu:#ubuntu-meeting- Launchpad bug 2047821 in objgraph (Ubuntu) "[MIR] objgraph" [Undecided, Incomplete]
+[15:47] <cpaelzer> ok still on her
+[15:47] <cpaelzer> sarnold: that one is good
+[15:47] <eslerm> pydantic has security ack already, but upstream brought up a concern afterwards
+[15:47] <cpaelzer> that was there for a potential MIr
+[15:47] <cpaelzer> but fixed in cherrypy3 last few days
+[15:48] <cpaelzer> eslerm: oh is that what happened, reading ...
+[15:48] <cpaelzer> jamespage: I think the pydantic question is for you to answer that is from the openstack deps
+[15:49] <cpaelzer> will this change to v2 to not be stuck?
+[15:49] <eslerm> I'm not sure what stuck means, debian hasn't updated to v2 yet
+[15:49] <sarnold> the pydantic in debian seems unhappy https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1058324 and the v2 uses rust https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1052619 -- there may not be an easy path forward
+[15:49] -ubottu:#ubuntu-meeting- Debian bug 1058324 in src:pydantic "pydantic: FTBFS: failed tests" [Serious, Open]
+[15:49] <cpaelzer> https://github.com/pydantic/pydantic/tags
+[15:49] -ubottu:#ubuntu-meeting- Debian bug 1052619 in wnpp "ITP: pydantic-core -- Rust implementation of pydantic core functionality" [Wishlist, Open]
+[15:50] <cpaelzer> there are really many 2.x updates but only minimal fix updates on 1.x
+[15:50] <cpaelzer> eslerm: and they have no namespacing calling it pydantic2 to be co-installable or any such?
+[15:51] <eslerm> I'm not aware of that
+[15:51] <cpaelzer> hrm
+[15:51] <cpaelzer> ok, incomplete is right for james and the team to answer how they want to deal with that
+[15:51] <cpaelzer> it can be 1.x now, but we'd need a commitment to make it 2.x to maintain it in the long run - is that the correct state eslerm?
+[15:51] <eslerm> that feels appropriate to me
+[15:51] <cpaelzer> eslerm: would you require 2.x in noble or any time later?
+[15:52] <eslerm> likely, Seth?
+[15:52] <eslerm> security support in LTS would be much better with 2.x
+[15:52] <jamespage> I don't think that's under debate and I did comment on this - it just quite a wide set of packages to test and update to bump to 2 right now
+[15:52] <sarnold> I'm not sure "require" is quite the right word; the timing is pretty poor :(
+[15:52] <cpaelzer> indeed
+[15:52] <eslerm> +1
+[15:52] <cpaelzer> reading more of the backlog
+[15:53] <cpaelzer> we even discussed that
+[15:53] <sarnold> a change of this magnitude would be nice to do *before* an LTS release; I could easily imagine the upstream folks moving on to a hypothetical 2.1 and 2.2 etc in quick order, as they keep making progress...
+[15:53] <jamespage> we did
+[15:53] <cpaelzer> and I should remember as I posted in november
+[15:53] <cpaelzer> "- not going to 2.x for now, thanks for explaining"
+[15:53] <sarnold> hah, nice
+[15:53] <cpaelzer> ok, so this can go back to in-progress
+[15:53] <cpaelzer> was worth to make sure
+[15:53] <eslerm> upstreams comment was: "Just to confirm, I assume it will be pydantic V2 that's added to Ubuntu main?! It would be very unfortunate if an old and outdated version was added."
+[15:54] <sarnold> old, outdated, and hopefuilly stable :)
+[15:54] <cpaelzer> we will add v1 to main now and update it in the future to v2
+[15:54] <eslerm> sounds good to me
+[15:54] <cpaelzer> oh wow
+[15:54] <cpaelzer> the time
+[15:54] <cpaelzer> arr
+[15:54] <cpaelzer> let me go on
+[15:54] <sarnold> arrrr
+[15:54] <cpaelzer> #topic Process/Documentation improvements
+[15:55] <cpaelzer> Mission: Review pending process/documentation pull-requests or issues
+[15:55] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/pulls
+[15:55] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/issues
+[15:55] <cpaelzer> nothing new
+[15:55] <cpaelzer> #topic MIR related Security Review Queue
+[15:55] <cpaelzer> Mission: Check on progress, do deadlines seem doable?
+[15:55] <cpaelzer> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[15:55] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[15:55] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[15:55] <cpaelzer> Internal link
+[15:55] <cpaelzer> - ensure your teams items are prioritized among each other as you'd expect
+[15:55] <cpaelzer> - ensure community requests do not get stomped by teams calling for favors too much
+[15:55] <cpaelzer> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[15:55] <cpaelzer> have things started to speed up again now that people come back?
+[15:55] <slyon> wow, so clean!
+[15:55] <slyon> oh well, I have a filter on :D
+[15:55] <sarnold> they have not; we've had this conversation with upstream as part of working the pydantic mir
+[15:55] <sarnold> ha ;)
+[15:56] <sarnold> but it's not yet recovered full velocity
+[15:56] <eslerm> setting up training for libgssglue MIR, email mirs should be handled
+[15:56] <eslerm> fdk-aac-free may need to be assigned
+[15:57] <eslerm> libmysofa is waiting on upstream fixes
+[15:57] <cpaelzer> isn't that icon saying Jorge is on it?
+[15:57] <eslerm> yes, it is his first mir
+[15:57] <cpaelzer> welcoem then :-)
+[15:57] <cpaelzer> \o/
+[15:57] <sarnold> :D
+[15:58] <cpaelzer> I love to see your team grow
+[15:58] <eslerm> from the certs/fips team for crypto too :)
+[15:58] <sarnold> me too
+[15:58] <cpaelzer> well, I think it is time for
+[15:58] <cpaelzer> #topic Any other business?
+[15:58] <cpaelzer> nothing else from me
+[15:58] <sarnold> none here
+[15:58] <cpaelzer> slyon: jamespage: ?
+[15:58] <slyon> nothing
+[15:58] <eslerm> I'd like to connect with slyon about growing the rust core set, but offline
+[15:58] <cpaelzer> ack
+[15:58] <slyon> ack
+[15:58] <cpaelzer> well then, goodbye
+[15:58] <cpaelzer> see you next week
+[15:58] <eslerm> o/
+[15:59] <cpaelzer> and happy review, fixing and all else
+[15:59] <cpaelzer> #endmeeting
+[15:59] <meetingology> Meeting ended at 15:59:05 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-01-09-15.31.moin.txt
+[15:59] <sarnold> thanks cpaelzer, all :)
+[15:59] <slyon> eslerm: maybe we can move that discussion to ~Foundations? We should have all the relevant people there.
+[16:03] <eslerm> sounds good
+[16:07] <didrocks> cpaelzer: no worry on speexdsp, Iâll card it appropriately and be done for next week :)
+[16:31] <cpaelzer> thanks didrocks
+=== JanC_ is now known as JanC

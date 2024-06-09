@@ -1,0 +1,15 @@
+=== chris14_ is now known as chris14
+[16:46] <wuzamarine> I am having issues with ufw and I was hoping to get a fresh set of eyes on it. https://ubuntuforums.org/showthread.php?t=2495670&p=14181005#post14181005 I have a second issue that I have a feeling is very much connected  https://ubuntuforums.org/showthread.php?t=2495836&p=14181365#post14181365 and help would be dearly appreciated.
+[20:43] <sarnold> wuzamarine: if I'm reading your posts correctly, I think you'd have more consistent results if you disable or uninstall ufw and write nftables rules by hand -- ufw is meant to be easy enough to run simple commands to enable common filtering things, but beyond a certain level of complexity it'd just be easier to manage exactly the rules you want yourself
+[20:46] <JanC> the "u" in "ufw" stands for "uncomplicated"
+[20:48] <JanC> there are other frontends for nftables too
+[20:52] <sarnold> and probably way more for iptables, some of them very complicated :)
+[20:59] <JanC> by default iptables itself is a frontend for nftables nowadays  :)
+[21:01] <wuzamarine> sarnold the problem with iptables is that you will learn the syntax once to build a firewall and then 3 years later when you have to do the same task, the syntax changes and you have to relearn it again from scratch. At this point, I am looking for anything to make it easier.
+[21:03] <sarnold> wuzamarine: hah, yeah, i'm familiar with that .. ipfwadm was easy enough but then they introduced ipchains. ipchains was annoying so I switched to ipf. then ipf was replaced with pf. then just when I was starting to learn ipchains they introduced iptables. and then just when I was getting around to learning iptables they introduced nftables. who even knows how long this one is going to last..
+[21:11] <JanC> ufw has been good enough for what I need recently, but almost a couple decades ago I used shorewall; no idea how it compares nowadays...
+[21:11] <JanC> and there are other tools/frontends too
+[21:12] <JanC> even ufw might work for what you are trying to do, but it's been a long time since I did anything complicated with it...   :)
+[21:14] <JanC> certainly port 25 just works for me...
+[21:17] <JanC> (but it's probably a different ufw version)
+[21:18] <JanC> are you certain fail2ban or knockd aren't causing your issues?

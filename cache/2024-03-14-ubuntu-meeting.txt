@@ -1,0 +1,165 @@
+[15:00] <bdrung> \o
+[15:00] <juliank> #startmeeting Weekly Ubuntu Foundations team
+[15:00] <meetingology> Meeting started at 15:00:38 UTC.  The chair is juliank.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:00] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:00] <ginggs> o/
+[15:00] <zhsj> o/
+[15:00] <juliank> #topic Lightning rounds
+[15:00] <ogayot> o/
+[15:00] <juliank> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-2024-03-14/
+[15:02] <liushuyu> o/
+[15:02] <schopin> o/
+[15:02] <slyon> o/
+[15:02] <dbungert> o/
+[15:03] <mateus-morais> o/
+[15:04] <mkukri> o/
+[15:05] <bdmurray> enr0n: is there somebody specific you want to review the polkit-1 change?
+[15:05] <Skia> o/
+[15:05] <enr0n> bdmurray: yes, I requested seb on the MP
+[15:06] <upils> o/
+[15:07] <bdmurray> I'd like to see a photo of "bug grooming"
+[15:08] <vorlon> adrien: what specifically does openssl need to support wrt LTO?
+[15:09] <upils> bdmurray, would "backlog grooming" be more appropriate?
+[15:10] <bdmurray> IDK I just thought it'd be funny to groom a flea  / ant.
+[15:10] <vorlon> do you have nits
+[15:11] <adrien> \o
+[15:11] <adrien> oh, DST, that's why, and I'll be not so available :/
+[15:11] <adrien> but let me find that
+[15:11] <schopin> vorlon: I think adrien meant something related to https://github.com/openssl/openssl/issues/18663
+[15:11] -ubottu:#ubuntu-meeting- Issue 18663 in openssl/openssl "-Werror=free-nonheap-object warnings with GCC LTO" [Open]
+[15:12] <adrien> there are several issues, and at least a recent one with clang and ppc64el
+[15:12] <adrien> it all revolves around aliasing
+[15:12] <adrien> moreover I'm not sure it brings much performance for openssl
+[15:12] <schopin> And it surely murder the build time :)
+[15:13] <ginggs> bdrung: do you plan to sync libapache2-mod-python ?
+[15:13] <juliank> let's move on
+[15:13] <juliank> #topic Release incoming bugs
+[15:13] <bdmurray> vorlon: Do you have experience w/ umockdev and the fake devices script in ubuntu-drivers-common?
+[15:13] <vorlon> schopin: "glibc now treating C.UTF-8 the same way it does C" hmm in what way?  I did have a build failure I was debugging recently that was locale-sensitive
+[15:14] <vorlon> (though I've forgotten which)
+[15:14] <vorlon> bdmurray: sorry, I don't
+[15:14] <bdrung> ginggs, yes. thanks for the reminder
+[15:14] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-nn-incoming-bug-tasks.html#foundations-bugs
+[15:14] <juliank> bug 2054716
+[15:14] -ubottu:#ubuntu-meeting- Bug 2054716 in systemd (Ubuntu) "package polkitd 124-1 failed to install/upgrade: installed polkitd package post-installation script subprocess returned error exit status 1" [High, Confirmed] https://launchpad.net/bugs/2054716
+[15:14] <schopin> vorlon: AIUI it won't even look up translations if the locale is C
+[15:14] <bdmurray> that's well in hand
+[15:15] <vorlon> schopin: ah - that actually sounds related to the bug I saw
+[15:15] <vorlon> good to know
+=== rkratky__ is now known as rkratky
+[15:15] <juliank> enr0n: Should we just untag the bug or do you want it in jira?
+[15:16] <enr0n> juliank: let's just untag it
+[15:16] <juliank> ack
+[15:16] <juliank> bug 2056562
+[15:16] -ubottu:#ubuntu-meeting- Bug 2056562 in shim-signed (Ubuntu) "shim-signed 1.57+15.8-0ubuntu1 upgrade failing due to grub-common/2.12-1ubuntu3 still being present during installation" [Undecided, Confirmed] https://launchpad.net/bugs/2056562
+[15:17] <juliank> I think we can actually just respin noble's shim-signed with Breaks: grub-common (= 2.12-1ubuntu3) for the few people affected by this
+[15:17] <juliank> It's an ... unconventional use of Breaks, but it avoids order entanglement at upgrade
+[15:19] <juliank> and that's it for incoming bugs nothing to see in other releases
+[15:19] <juliank> #topic Team proposed-migration report
+[15:19] <juliank> #link https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses_by_team.html#foundations-bugs
+[15:19] <juliank> vorlon:
+[15:20] <vorlon> does the page load today? let's see
+[15:20] <juliank> I find the issue with my proposed-migration is the runners are full so I don't have the results from last weeks items yet
+[15:20] <vorlon> 450 packages needing attention
+[15:20] <vorlon> libselinux was mentioned in somebody's status report I think?
+[15:21] <schopin> adrien but he's AFK right now because DST
+[15:21] <vorlon> ok
+[15:21] <vorlon> so I'll leave libselinux with adrien
+[15:21] <vorlon> waveform: you're still working on python-ldap?
+[15:22] <waveform> yup
+[15:22] <vorlon> is hyask not here?
+[15:22] <vorlon> ah Skia
+[15:22] <schopin> Skia: ^
+[15:22] <vorlon> Skia: you're ok to follow through on libbsd vs gvmd?
+[15:23] <vorlon> python-apt vs apt: juliank
+[15:23] <juliank> I'm doing all the apt ones
+[15:23] <vorlon> ack
+[15:24] <vorlon> a lot of armhf autopkgtest failures there that need retried with --all-proposed, for sure
+[15:24] <Skia> vorlon: yes, it's just been a moving target all the week, but I do plan on continuing to follow this
+[15:24] <vorlon> mkukri: are you still on dnspython vs samba?
+[15:24] <juliank> I'm kind trying to build the recursive list of dependencies and add them as triggers to avoid even more failures from all-proposed
+[15:25] <mkukri> ack
+[15:25] <vorlon> I had curl vs nettle assigned last week; this week it looks like curl vs libpsl.  anyway this is all tied into the time_t transition, and I'll follow up
+[15:26] <vorlon> and on libpsl generally
+[15:26] <vorlon> juliank: does 'all the apt ones' include apt blocking xz-utils on armhf?
+[15:27] <vorlon> libtirpc: still with liushuyu ?
+[15:27] <juliank> well, everything blocking apt 2.7.12->2.17.3ubuntu1
+[15:27] <upils> that seems related yes. I am waiting for a restest to confirm
+[15:27] <upils> *retest
+[15:27] <vorlon> upils: sorry, which is that in response to?
+[15:27] <juliank> apt blocking xz-utils is what upils retried earlier
+[15:27] <upils> yes
+[15:27] <vorlon> ah yes
+[15:27] <vorlon> ok
+[15:28] <juliank> Any apt/2.7.12 result needs retrying with apt/2.7.13 trigger
+[15:28] <vorlon> bear in mind that for any autopkgtest failures on armhf specifically, they should be retested with --all-proposed because 99% are going to require this due to time_t
+[15:28] <juliank> because apt builds test helpers at test time with now t64 that fail to link against the old t32 library from 2.7.12
+[15:28] <vorlon> and if that still fails you should check that the package has been rebuilt in -proposed for the new library package name, and if not, arrange no-change rebuilds
+[15:29] <vorlon> libuv1 is still with mwhudson
+[15:29] <vorlon> freetype didn't get assigned last week - bdrung can you take it?
+[15:29] <bdrung> ack
+[15:29] <vorlon> optipng - bdmurray ?
+[15:30] <vorlon> libgd2 - cpete__ ?
+[15:30] <cpete__> bdmurack
+[15:30] <vorlon> is cpete an internal gcc macro
+[15:30] <cpete__> ack
+[15:30] <bdmurray> okay
+[15:30] <vorlon> casper vs plymouth: dbungert
+[15:30] <bdmurray> Tim would like one too
+[15:31] <dbungert> ack for casper vs plymouth
+[15:31] <vorlon> slang2: Tim
+[15:31] <vorlon> nfs-utils vs adsys: danilogondolfo
+[15:31] <vorlon> pyopenssl: ginggs
+[15:31] <danilogondolfo> vorlon, ack
+[15:31] <ginggs> ack
+=== cpete__ is now known as cpete
+[15:32] <vorlon> software-properties vs dconf: ooh it's not a time_t one.  xypron
+[15:32] <xypron> ok
+[15:33] <vorlon> xypron: actually there are 3 separate autopkgtest failures on arm64 in response to dconf: software-properties, update-manager, update-notifier.  So probably a dconf regression, can you look at all of these please?
+[15:33] <vorlon> (dconf itself is not ours, so it's ok if the investigation results in turning it over to the Desktop Team to fix)
+[15:33] <vorlon> libvpx: slyon
+[15:33] <slyon> ok
+[15:33] <vorlon> initramfs-tools vs netplan.io on armhf: mateus-morais
+[15:34] <mateus-morais> ack
+[15:34] <vorlon> libgtk3-perl: enr0n
+[15:34] <enr0n> vorlon: ack
+[15:34] <vorlon> software-properties vs gtk+3.0: ogayot
+[15:34] <bdrung> vorlon, I am taking initramfs-tools vs netplan.io - this needs just some handholding
+[15:34] <ogayot> vorlon: ack
+[15:35] <vorlon> ubuntu-release-upgrader vs gtk+2.0: mateus-morais since bdrung is stealing
+[15:35] <mateus-morais> vorlon: ok
+[15:35] <bdrung> (i want to check that the initramfs-tools tests became stable again)
+[15:35] <vorlon> mateus-morais: please also take update-manager, update-notifier, and vim blocking gtk+3.0 - these are probably all just autopkgtest retries
+[15:35] <mateus-morais> ack
+[15:35] <vorlon> fwupd vs libmbim: pushkarnk
+[15:36] <pushkarnk> ack
+[15:36] <vorlon> pushkarnk: fwupd is also blocking libqmi and modemmanager, so please check on these too, probably same root cause
+[15:36] <pushkarnk> vorlon: ok
+[15:36] <vorlon> pango1.0 vs harfbuzz: schopin
+[15:36] <schopin> ack
+[15:36] <vorlon> schopin: hmmm raqm and pango1.0 both fail on harfbuzz/arm64, please look at both
+[15:37] <schopin> ok
+[15:37] <vorlon> cryptsetup vs jq: zhsj
+[15:37] <vorlon> and we'll stop there
+[15:37] <vorlon> anyone who runs out of things to do this week on proposed-migration, there's plenty more ;)
+[15:37] <vorlon> juliank: back to you
+[15:37] <zhsj> ack
+[15:40] <juliank> #topic AOB
+[15:40] <juliank> any other business?
+[15:40] <juliank> any other busyness? :D
+[15:40] <vorlon> busy busy
+[15:41] <juliank> I still need to take half a day this month!
+[15:41] <schopin> 29th afternoon?
+[15:41] <juliank> Probably like next Wednesday afternoon?
+[15:41] <bdrung> I am taking my remaining days at the end of the month
+[15:41] <juliank> Rather ad-hoc when it's sunny and nobody wants to meet
+[15:42] <enr0n> I will be out most of next week. Starting Tuesday afternoon, and will be back the following Monday
+[15:43] <bdmurray> I'll be working in a different location most of next week
+[15:44] <schopin> bdmurray: will your working hours change?
+[15:44] <bdmurray> No
+[15:44] <bdmurray> Same time zone
+[15:47] <juliank> #endmeeting
+[15:47] <meetingology> Meeting ended at 15:47:09 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-03-14-15.00.moin.txt
+[15:47] <vorlon> thanks!
+[16:09] <adrien> vorlon: libselinux is waiting on umockdev tests from 3 days ago
+[16:10] <adrien> (I joined here on my phone a bit later than I had wanted because I had used irc.freenode.net out of habit...)

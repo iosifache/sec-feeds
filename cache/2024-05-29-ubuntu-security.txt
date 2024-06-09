@@ -1,0 +1,5 @@
+=== chris14_ is now known as chris14
+=== punkcoder7 is now known as punkcoder
+[20:58] <federicoquattrin> hi @LocutusOfBorg,! I noticed you were the last one to merge tpm2-tss. There's a new version in debian now that fixes a security issue. Were you planning on merging the new version?
+[21:12] <LocutusOfBorg> federicoquattrin, sure
+[21:20] <LocutusOfBorg> and uploaded

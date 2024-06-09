@@ -1,0 +1,11 @@
+=== chris14_ is now known as chris14
+=== crazybyte6 is now known as crazybyte
+[10:36] <SvenKieske> Hi there, anybody does care about the recent python vulns disclosed? 2 days ago but I don't find any information on updates or even a public bugtracker entry? e.g. CVE-2024-0450 https://bugs.launchpad.net/ubuntu?field.searchtext=CVE-2024-0450&search=Search&field.status%3Alist=NEW&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.status%3Alist=CONFIRMED&field.
+[10:36] -ubottu:#ubuntu-security- An issue was found in the CPython `zipfile` module affecting versions 3.12.2, 3.11.8, 3.10.13, 3.9.18, and 3.8.18 and prior. The zipfile module is vulnerable to &#8220;quoted-overlap&#8221; zip-bombs which exploit the zip format to create a zip-bomb with a high compression ratio. The fixed versions of CPython makes the zipfile module reject zip archives which overla... <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0450>
+[10:36] <SvenKieske> status%3Alist=TRIAGED&field.status%3Alist=INPROGRESS&field.status%3Alist=FIXCOMMITTED&field.assignee=&field.bug_reporter=&field.omit_dupes=on&field.has_patch=&field.has_no_package=
+[10:36] <SvenKieske> sorry for the broken link, launchpad search links are really long it seems. but you get the idea. search for the cve...nothing found on all of launchpad
+[10:37] <SvenKieske> for reference: https://seclists.org/oss-sec/2024/q1/240
+[10:39] <SvenKieske> I honestly would have assumed that at least a bugreport is open at canonical, or maybe even updates, for a package managed by ubuntu core? :-/ seems people are really busy then.
+[11:58] <mdeslaur> SvenKieske: that info just cam out yesterday, you'll need to wait for a few days for it to show up in our tracker and for us to triage it
+[12:00] <mdeslaur> I'll manually add them to our tracker now instead of waiting for our usual CVE feeds
+=== JanC is now known as Guest1840

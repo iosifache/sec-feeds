@@ -1,0 +1,11 @@
+[00:03] <JanC> hm, but arm64 packages aren't on many (most?) mirrors, nor are they on e.g. security.ubuntu.com, just only on ports.ubuntu.com, why is that?
+[00:04] <JanC> I remember 32-bit arm (armhf?) used to be on all the mirrors?
+[00:10] <JanC> (I've seen there is also Ubuntu Pro for arm64, so the support should be okay, I guess :) )
+[00:13] <amurray> hmm that is a good point re security.u.c - I wonder if we should consider having all the archs published there... I'll bring it up internally
+[00:21] <JanC> I was also wondering about the availability of local mirrors (but maybe that's not a security question, except when the ports repos are not available for some reason?)
+[00:24] <blahdeblah> It is a kind of weird look having official architectures only showing up on ports.u.c
+[00:25] <JanC> yeah, it also used to be that architectures there didn't have full (LTS) support or the same priorities   :)
+[00:38] <JanC> blahdeblah: especially as ports isn't mirrored on any mirror site I checked (both big local mirrors & hosting company mirrors)
+[02:18] <blahdeblah> JanC: Yep, exactly
+=== Juesto is now known as Juest
+=== Juest- is now known as Juest

@@ -1,0 +1,299 @@
+=== cpaelzer_ is now known as cpaelzer
+[15:00] <juliank> #startmeeting Weekly Ubuntu Foundations team
+[15:00] <meetingology> Meeting started at 15:00:03 UTC.  The chair is juliank.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:00] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:00] <juliank> #topic Lightning rounds
+[15:00] <juliank> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-2024-06-06/
+[15:00] <zhsj> o/
+[15:00] <ginggs> o/
+[15:00] <Skia> o/
+[15:00] <bdrung> \o
+[15:00] <xypron> o/
+[15:00] <liushuyu> o/
+[15:01] <adrien> \o
+[15:01] <slyon> o/
+[15:01] <ogayot> o/
+[15:01] <pushkarnk> o/
+[15:01] <mkukri> o/
+[15:01] <cpete> o/
+[15:01] <mclemenceau> o/
+[15:02] <ravikant_> o/
+[15:02] <bdmurray> o/
+[15:02] <mateus-morais> o/
+[15:03] <vorlon> o\
+[15:10] <bdrung> reading cpete's status, i got reminded to look at the apport PR again
+[15:11] <bdmurray> cpete: I might be of some assistance with an SRU test plan for apport.
+[15:11] <cpete> bdrung: thank you
+[15:12] <bdrung> we need to sru that and also the fix for bug #2067120
+[15:12] -ubottu:#ubuntu-meeting- Bug 2067120 in apport (Ubuntu) "apport-retrace crashed with subprocess.CalledProcessError in check_call(): Command '['dpkg', '-x', '/srv/vms/apport-retrace/Ubuntu 24.04/apt/var/cache/apt/archives//base-files_13ubuntu9_amd64.deb', '/tmp/apport_sandbox_zj9wto2z']' returned non-zero exit status 2." [High, New] https://launchpad.net/bugs/2067120
+[15:12] <bdmurray> waveform_: will there be a snap update of rpi-imager?
+[15:12] <cpete> bdmurray: that would be great, thanks. I plan to start that next pulse.
+[15:12] <waveform_> yes, but while the changes are merged upstream they're not released yet (or weren't when I checked a few days ago)
+[15:12] <bdmurray> bdrung: What about the /usr/lib sandbox change?
+=== waveform_ is now known as waveform
+[15:13] <bdmurray> cpete: I'm out part of next pulse.
+[15:14] <bdmurray> bdrung: https://bugs.launchpad.net/ubuntu/+source/apport/+bug/2067120/comments/7 for clarity
+[15:14] <bdrung> bdmurray, i need to incorporate your fix (and hopefully add a test case). i'll have an apport session with schopin tomorrow where we can work on that.
+[15:14] -ubottu:#ubuntu-meeting- Launchpad bug 2067120 in apport (Ubuntu) "apport-retrace crashed with subprocess.CalledProcessError in check_call(): Command '['dpkg', '-x', '/srv/vms/apport-retrace/Ubuntu 24.04/apt/var/cache/apt/archives//base-files_13ubuntu9_amd64.deb', '/tmp/apport_sandbox_zj9wto2z']' returned non-zero exit status 2." [High, New]
+[15:14] <cpete> bdmurray: I'll run my ideas past you sooner then
+[15:16] <bdmurray> Skia: Is there any kind of testing of the base images that can be done in jenkins / the upgrade testing?
+[15:17] <bdmurray> dbungert: "RESULTS WILL VARY." I like your certainty
+[15:18] <juliank> Can we continue, we have a couple of bugs?
+[15:18] <juliank> #topic Release incoming bugs
+[15:18] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-oo-incoming-bug-tasks.html#foundations-bugs
+[15:18] <juliank> bug 1969394
+[15:18] -ubottu:#ubuntu-meeting- Bug 1969394 in update-manager (Ubuntu) "'Settings & Livepatch' button opens 'settings' tab, not livepatch" [Low, Confirmed] https://launchpad.net/bugs/1969394
+[15:19] <juliank> This is a desktop+design topic I believe
+[15:19] <juliank> Or wellr seb believes
+[15:20] <vorlon> agreed
+[15:20] <Skia> bdmurray: difficult to say. In that case, the image were booting, but the system just was partially broken afterwards. In any case, the tests were red, meaning we had a look at them, and fixed the issue. The answer might just be that I need to level up in debugging those tests :-)
+[15:21] <juliank> bug 2063467
+[15:21] -ubottu:#ubuntu-meeting- Bug 2063467 in needrestart (Ubuntu) "needrestart should mark services as needing a restart in systemd" [Undecided, New] https://launchpad.net/bugs/2063467
+[15:21] <juliank> This is a simple quality of life improvement I believe
+[15:21] <vorlon> I'm going to argue that's pretty low priority
+[15:22] <juliank> We could mark just the services that would need restarting that we didn't
+[15:22] <vorlon> compared to all the other things wrong with needrestart :)
+[15:22] <vorlon> and thus shouldn't be taken for foundations
+[15:22] <schopin> +1 on vorlon's remarks :)
+[15:22] <juliank> Untagging
+[15:22] <juliank> bug 2067350
+[15:22] -ubottu:#ubuntu-meeting- Bug 2067350 in glibc (Ubuntu) "Removal of 31-bit (s390) glibc packages" [Undecided, New] https://launchpad.net/bugs/2067350
+[15:24] <schopin> doko has been OOO so I think I'll JFDI in glibc in my upcoming merge.
+[15:24]  * bdmurray trembles
+[15:24] <juliank> I'll assign it to you and tag it todo
+[15:24] <schopin> bdmurray: don't worry, I'll warm up the queues first with an openssl sponsoring.
+[15:24] <bdmurray> so winter isn't coming? ;-)
+[15:24] <juliank> bug 2015538
+[15:24] -ubottu:#ubuntu-meeting- Bug 2015538 in dbus-broker (Ubuntu) "[MIR] dbus-broker" [Undecided, Incomplete] https://launchpad.net/bugs/2015538
+[15:24] <juliank> this one again
+[15:25] <slyon> hehe, maybe. someday
+[15:25] <vorlon> not sure why, process-wise, an MIR bug should be in the -incoming queue
+[15:25] <slyon> It needs somebody doing the (upstream) work
+[15:26] <schopin> vorlon: there's something that needs implementing in there, I believe.
+[15:26] <juliank> vorlon: The queue part is removing the dbus-run-session dependency from gdm, basically
+[15:27] <juliank> There is https://github.com/bus1/dbus-broker/pull/321
+[15:27] -ubottu:#ubuntu-meeting- Pull 321 in bus1/dbus-broker "session: implement dbus-broker-session" [Open]
+[15:27] <juliank> Which is written in Rust
+[15:27] <juliank> So bluca doesn't want it :D
+[15:28] <juliank> But I guess we can move this to rls-pp-incoming
+[15:28] <juliank> And hope the solution is ready then
+[15:29] <juliank> Well no objections, so moving it
+[15:29] <bdmurray> petable porcupine
+[15:29] <dbungert> pointed panther
+[15:30] <vorlon> postulating pika
+[15:30] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-nn-incoming-bug-tasks.html#foundations-bugs
+[15:30] <juliank> bug 2066995
+[15:30] -ubottu:#ubuntu-meeting- Bug 2066995 in apport (Ubuntu) "apport-gtk keeps prompting to report crashes in a loop" [High, New] https://launchpad.net/bugs/2066995
+[15:30] <vorlon> please? :)
+[15:31] <bdrung> assign that one to vorlon? ;)
+[15:31] <vorlon> D:
+[15:31] <bdrung> we need to find the root cause.
+[15:31] <schopin> I'm wondering if that's not a whoopsie problem.
+[15:32] <juliank> So this only affects vorlon so far and he's the only one who can investigate? :D
+[15:32] <vorlon> I assume this is only because none of you are having crashes
+[15:32] <juliank> And why don't we log the errno for "could not be opened"
+[15:32] <schopin> Well, the looping part is all vorlon, but the failing to deal with Python crashes I also observed.
+[15:32] <juliank> I don't have apport but systemd-coredump
+[15:32] <juliank> :D
+[15:32] <schopin> not a coredump.
+[15:33] <bdmurray> cupsd and some bluetooth thing crash for me regularly
+[15:33] <bdrung> juliank, you can have both now: systemd-coredump and apport
+[15:33] <juliank> I guess that's true
+[15:33] <vorlon> bdmurray: this is probably python specific
+[15:33] <juliank> I need to set it up, bdrung
+[15:33] <bdmurray> vorlon: you didn't say that in your original statement
+[15:33] <juliank> Ah ok I just had no apport-gtk
+[15:33] <vorlon> bdmurray: the example crash is a python thingy
+[15:34] <vorlon> and the only crashes I've had here on noble have been python
+[15:34] <juliank> Really need to have an "investigate bug" spike
+[15:34] <vorlon> maybe y'all should just run 'grep-merges' :P
+[15:34] <vorlon> merges.ubuntu.com will helpfully make this crash
+[15:35] <vorlon> and then you can see if it's reproducible!
+[15:35] <juliank> I just crashed apport by inserting a raise ValueError
+[15:36] <juliank> Well I'll move on
+[15:37] <juliank> bug 2067622
+[15:37] -ubottu:#ubuntu-meeting- Bug 2067622 in ubuntu-release-upgrader (Ubuntu) "cryptsetup-initramfs disappeared during upgrade from 23.10 to 24.04 leading to failing boot" [Undecided, New] https://launchpad.net/bugs/2067622
+[15:37] <bdmurray> oof
+[15:37] <juliank> That seems straightforward, no, ubuntu-release-upgrader has a flag to make it protect some packages
+[15:38] <juliank> Broken cryptsetup-initramfs:amd64 Depends on cryptsetup:amd64 < 2:2.7.0-1ubuntu4 @ii pgP > (>= 2:2.7.0-1ubuntu4)
+[15:38] <juliank> It doesn't help that we break users by purging all packages during the upgrade
+[15:39] <juliank> Assigning to Nick, targetting, and tagging
+[15:39] <juliank> bug 2067916
+[15:39] -ubottu:#ubuntu-meeting- Bug 2067916 in glibc (Ubuntu Noble) "libc6: broken utmp handling in 32-bit programs with 64-bit time_t" [Medium, New] https://launchpad.net/bugs/2067916
+[15:39] <schopin> Ah. Yes.
+[15:40] <schopin> Just wanted to discuss the severity of this.
+[15:40] <juliank> If it crashes it should get fixed
+[15:40] <juliank> :D
+[15:40] <bdmurray> but how soon?
+[15:40] <juliank> ASAR
+[15:40] <schopin> Not actually sure it crashes?
+[15:40] <juliank> :D
+[15:41] <juliank> If the data is just garbled but not crashing that may be um not critical
+[15:41] <schopin> I mean, the crash would be for last(1) and a few other tools.
+[15:41] <schopin> And only if they're upgrading.
+[15:42] <juliank> But yeah medium seems fine
+[15:42] <vorlon> things crashing on malformed utmp would almost certainly be security issues that should have been fixed 20 years ago
+[15:42] <juliank> I guess they are not setuid binaries that crash
+[15:43] <juliank> Anyway I'll go tag this and assign it to schopin
+[15:43] <schopin> ACK
+[15:43] <schopin> to the backlog it goes :)
+[15:43] <juliank> OK rls-mm just has the usual 2 desktop bugs masquerading in foundations queue :D
+[15:44] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-jj-incoming-bug-tasks.html#foundations-bugs
+[15:44] <juliank> bug 530252
+[15:44] -ubottu:#ubuntu-meeting- Bug 530252 in os-prober (Ubuntu) "os-prober fails to recognize linux installations with crypted root partition" [Undecided, Confirmed] https://launchpad.net/bugs/530252
+[15:44] <juliank> This we probably should just untag, it should land via patch pilot
+[15:45] <juliank> Oh I think they directly installed to a luks partition, rather than use lvm
+[15:45] <schopin> Oh wow, 6 digits!
+[15:45] <bdrung> schopin, 5 digits is needed for a "wow"
+[15:45] <vorlon> definitely shouldn't be accepted via the incoming queue, based solely on the bug number :)(
+[15:46] <juliank> Ok ff is mpty too
+[15:46] <juliank> #topic Team proposed-migration report
+[15:46] <juliank> #link https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses_by_team.html#foundations-bugs
+[15:46] <juliank> vorlon:
+[15:47] <vorlon> fwupd-efi is carry-over, sits with me and juliank
+[15:47] <bdrung> regarding dracut blocking systemd 256~rc3-5ubuntu1: I need to merge dracut 102 to fix that.
+[15:48] <vorlon> pyopenssl still stuck - adrien this was assigned to you, and I think you're still working on it wrt python-oauth2client and its revdeps?
+[15:51] <vorlon> gcc-13 I see as 'candidate' but it hasn't moved. bdrung can you take this? means digging into update_output.txt
+[15:51] <bdrung> vorlon, i still have dracut vs systemd
+[15:51] <vorlon> dbungert: ^ can you take this?
+[15:52] <vorlon> cpete: you still have libsub-override-perl yes? (MIR)
+[15:52] <adrien> vorlon: yes, still on it; there's a few packages left
+[15:52] <cpete> vorlon: yes
+[15:52] <dbungert> ack for dracut vs systemd
+[15:52] <vorlon> juliank: apt and cron, I guess this is with you
+[15:52] <vorlon> ?
+[15:52] <vorlon> dbungert: sorry, I meant can you take gcc-13 - leaving dracut v systemd with bdrung
+[15:53] <dbungert> ah, sorry
+[15:53] <dbungert> ack for gcc-13
+[15:53] <juliank> vorlon: Well yes, that should sort itself out with the next apt upload
+[15:53] <vorlon> git: danilogondolfo?
+[15:53] <danilogondolfo> ack
+[15:53] <adrien> vorlon: cinder, python-googleapi done; pydrive sorted out (removal); beancount, fence-agents, python-certbot-dns-google: need to be worked upon; pydrive2: not obvious how to deal with it (assess whether we can remove stuff from python-oauth2client and vendor?)
+[15:54] <vorlon> systemd: enr0n uploaded but he's out this week. ginggs?
+[15:54] <ginggs> ack
+[15:54] <vorlon> and then that's the list
+[15:55] <bdrung> we have fakeroot 1.35-1 that FTBFS
+[15:55] <adrien> well, I have at least one revdep of python-googleapi that will need attention...
+[15:55] <schopin> all arches or armhf?
+[15:55] <schopin> oh, all arches. Not t64, good :)
+[15:55] <bdrung> fakeroot ftbfs on all archs (except riscv64)
+[15:56] <bdrung> so who want to take it?
+[15:56] <bdrung> or vorlon to pick a volunteer
+[15:56] <zhsj> i can take
+[15:56] <vorlon> zhsj: thanks
+[15:56] <zhsj> though not expect a easy fix
+[15:59] <vorlon> juliank:
+[15:59] <juliank> #topic AOB
+[16:00] <tsimonq2> I took https://launchpad.net/ubuntu/+source/debhelper/13.15.3ubuntu1 and https://launchpad.net/ubuntu/+source/bash/5.2.21-2.1ubuntu1 and will follow up on p-m - if these uploads break anything please feel free to ping me.
+[16:01] <juliank> #endmeeting
+[16:01] <meetingology> Meeting ended at 16:01:20 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-06-06-15.00.moin.txt
+=== Kilos-- is now known as Kilos
+[19:57] <WildMan> This is WildMan
+[19:57] <Kilos> hi there
+[20:04] <Kilos> wb
+[20:05] <WildMan> Thank you, what did I miss, Iâm having connection issues
+[20:06] <Kilos> I see that. the applicant is not here yet
+[20:09] <WildMan> Okay, thank you I canât see who is in the room from the web client on my cell
+[20:09] <Kilos> I am watching all that start with m
+[20:09] <Kilos> he is mrbright right
+[20:09] <Kilos> lol or something like that
+[20:16] <Kilos> WildMan: meeting is in 1 hour and 44 mins
+[20:18] <WildMan> Okay please vote my proxy as I stated in our channel please, I have to go back to work
+[22:06] <Kilos> hi Mrbite
+[22:06] <Mrbite> Hello Team, Good to be here.
+[22:06] <Mrbite> Hello Kilos
+[22:07] <Bashing-om> ^ \o/ Mrbite
+[22:08] <Mrbite> Bashing-om â¡ï¸
+[22:15] <Kilos> Mrbite: please be patient we are just sorting some issues
+[22:16] <mapreri> alright!
+[22:16] <Mrbite> Alright--
+[22:16] <mapreri> #startmeeting Ubuntu Membership Board
+[22:16] <meetingology> Meeting started at 22:16:32 UTC.  The chair is mapreri.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[22:16] <meetingology> Available commands: action, commands, idea, info, link, nick
+[22:16] <mapreri> #voters Kilos Bashing-om mapreri
+[22:16] <meetingology> Current voters: Bashing-om, Kilos, mapreri
+[22:16] <mapreri> Hello and welcome to the Ubuntu Membership Review Board meeting for June 7th 2024. The wiki page for the Review Boards is available here: https://wiki.ubuntu.com/Membership/Boards
+[22:17] <mapreri> Today we only have one applicant, whom is here already, and we also have a quorum, so I see no reason as to why we shouldn't be able to handle it today!
+[22:17] <mapreri> Each applicant should introduce themselves (1-5 sentences) and provide links to their Ubuntu Wiki page or Ubuntu Discourse thread. After the introduction, the members of the Membership Review Board will review the pages and, if needed, ask the applicant further questions.
+[22:17] <mapreri> During this time, it is encouraged for other members of the community to show their support for the applicant. Do not be alarmed if the members of the Membership Review Board are quiet during this time; they are reading wiki/launchpad/forum/other pages and deciding how they are going to vote.
+[22:17] <mapreri> When the board is ready to vote, they will publicly vote in the channel with either +1, 0, or -1 (for membership, abstain, and against membership, respectively). If most of the voting board members vote +1, then the applicant is now an official Ubuntu member! (Feel free congratulate them!)
+[22:17] <mapreri> Now, with any further ado, let's get started with the first applicant...
+[22:17] <mapreri> #topic Bright Adams < Mrbite >
+[22:18] <mapreri> Mrbite: please introduce yourself and share your links to IRC as well.
+[22:20] <mapreri> Mrbite: ?
+[22:22] <Mrbite> My name is Bright Adams. Am a blockchain Developer and am here to express my interest for Ubuntu membership.
+[22:22] <Mrbite> Will drop links sooner.
+[22:23] <Mrbite> https://discourse.ubuntu.com/c/locos/ubuntu-ng/155
+[22:23] <Mrbite> This link directs you to some of our accomplishemts.
+[22:24] <Mrbite> https://discourse.ubuntu.com/t/bright-adams-membership-application/44254
+[22:25] <mapreri> could I ask you why on discourse you are part of the ubuntu-unity-devs team, whereas I can't find any sort of connection anywhere else (especially in lpâ¦)?
+[22:27] <mapreri> also, could you confirm to us that indeed your first contribution to the community was roughly one year ago?
+[22:27] <Mrbite> I really can't say how I got that tag.
+[22:28] <Mrbite> Yes, roughly a year ago.
+[22:28] <mapreri> ack.
+[22:29] <mapreri> On discourse, you state "I am eager to continue my contributions to the Ubuntu community and to work towards its goals" - could you possibly be a bit more specific about what you'd like to engage in?
+[22:30] <Bashing-om> I count 10 months contributing - with huge efforts.
+[22:32] <Mrbite> Continue to contribute to the Ubuntu Comm. and further its growth.
+[22:33] <Bashing-om> Mrbite: What does attaining Ubuntu membership mean to you, personally ?
+[22:35] <Mrbite> Getting Ubuntu membership means a lot to me
+[22:35] <Mrbite> It feels like I'm part of something bigger and important. ...Plus, it pushes me to keep learning and doing more.
+[22:36] <Bashing-om> :)
+[22:36] <Kilos> Mrbite: have you been to your discourse pages again ?
+[22:36] <Mrbite> Not yet
+[22:36] <Kilos> there are links to other countries in africa that also use ubuntu
+[22:37] <Kilos> I think I collected them all in 2016 or soon after
+[22:37] <Mrbite> Ye i saw the link Bashing-om sent.
+[22:38] <Mrbite> Okay thats great, what do you suggest I do wit them?
+[22:38] <Kilos> please follow up on them
+[22:38] <Mrbite> Why are they not on the discourse?
+[22:39] <Kilos> encourage them , when freenode crashed many of them left irc
+[22:39] <Kilos> discourse is newish
+[22:39] <Kilos> we used launchpad and the wiki before
+[22:40] <Mrbite> Ohhh Thats right.
+[22:40] <Mrbite> Will do just that.
+[22:40] <Kilos> thank you
+[22:42] <mapreri> I likewise encourage you to look a bit into a bit of "history" of the project, as there have been changes over the years (and there are still changes ongoing, like how IRC is slowly being replaced by matrix).  but a community as wide as Ubuntu's can be slow to move and adapt. :)
+[22:42] <mapreri> You'll easily find pieces left over from our predecessors and have been abandoned here and there... (not necessarily what you need, but some finds can be pretty interesting and amusing heh)
+[22:43] <Mrbite> Ye... thats right.
+[22:43] <mapreri> Kilos, Bashing-om: would you be ready to vote?
+[22:43] <Mrbite> Will look into that.
+[22:43] <mapreri> or would you like more time?
+[22:43] <Kilos> mapreri: yip
+[22:43] <Bashing-om> yup
+[22:43] <Bashing-om> ready to vote.
+[22:44] <mapreri> #vote Ubuntu Membership for Mrbite
+[22:44] <meetingology> Please vote on: Ubuntu Membership for Mrbite
+[22:44] <meetingology> Public votes can be registered by saying +1, -1 or +0 in channel (for private voting, private message me with 'vote +1|-1|+0 #channelname')
+[22:44] <Bashing-om> +1
+[22:44] <meetingology> +1 received from Bashing-om
+[22:44] <Kilos> +1
+[22:44] <meetingology> +1 received from Kilos
+[22:44] <Kilos> and a +1 from wildman
+[22:45] <mapreri> +1 - what you have done in this little time is honestly quite amazing, going from next to nothing to such nice meetups!  However for me normally I'd consider contributions in such short timeframe not quite enough.  I pretty much giving this +1 in the hope that you'll continue strong in spreading Ubuntu around Nigeria, and Africa as a whole! :)
+[22:45] <meetingology> +1 - what you have done in this little time is honestly quite amazing, going from next to nothing to such nice meetups!  However for me normally I'd consider contributions in such short timeframe not quite enough.  I pretty much giving this +1 in the hope that you'll continue strong in spreading Ubuntu around Nigeria, and Africa as a whole! :) received from mapreri
+[22:46] <mapreri> #endvote
+[22:46] <meetingology> Voting ended on: Ubuntu Membership for Mrbite
+[22:46] <meetingology> Votes for: 3, Votes against: 0, Abstentions: 0
+[22:46] <meetingology> Motion carried
+[22:46] <mapreri> #action mapreri will send out the mail and add Mrbite to the LP group
+[22:46] <meetingology> ACTION: mapreri will send out the mail and add Mrbite to the LP group
+[22:46] <Bashing-om> congratulation Mrbite !
+[22:46] <aaronprisk> Congrats, Bright! Well deserved and keep up the great work!
+[22:47] <Kilos> Mrbite: congratulations. Keep up the good work
+[22:48] <Kilos> mapreri: thank you for chairing
+[22:48] <mapreri> Mrbite: your @ubuntu.com alias should be working within 24 (or was it 48?) hours after being added to the ~ubuntumembers launchpad group.   See https://wiki.ubuntu.com/Membership#The_Perks for all the other perks that come with this title!
+[22:48] <Mrbite> Thank Youuu.
+[22:48] <Mrbite> I am grateful for this.
+[22:48] <mapreri> #topic closing remarks
+[22:49] <mapreri> Congratulations to all the new members from this meeting!
+[22:49] <Bashing-om> Mrbite: This is not free - you earned it :D
+[22:49] <mapreri> Thank you also to all the Membership Board members that attended the meeting and voted for these new applicants.
+[22:49] <mapreri> See you all at the next board call on June 19th, 12 UTC
+[22:49] <Kilos> always a pleasure
+[22:50] <mapreri> #endmeeting
+[22:50] <meetingology> Meeting ended at 22:50:00 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-06-06-22.16.moin.txt
+[22:50] <mapreri> o/
+[22:50] <Bashing-om> o/
+[22:51] <mapreri> ah, aaronprisk!
+[22:51] <mapreri> damn, I didn't even read his message, I realized he was here only by looking at the "People present" section of the minutes u.u
+[22:51] <mapreri> ahah

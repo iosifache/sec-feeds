@@ -1,0 +1,14 @@
+=== user03 is now known as gchound
+=== chris14_ is now known as chris14
+[02:50]  * tsimonq2 throws on a $dayjob hat
+[02:50] <tsimonq2> So, something regressed in PHP 8.1 in Jammy, as the result of a security update.
+[02:50] <tsimonq2> I'll give it a day or so before I go file a regression-update bug.
+[02:50] <tsimonq2> That being said, is_file() is completely broken, and I have anecdotal evidence confirming.
+[02:50] <tsimonq2> Is *anyone* else experiencing issues with PHP 8.1?
+[08:04] <ebarretto> leosilva, fyi ^ 
+[12:28]  * leosilva looks
+[12:30] <leosilva> tsimonq2: do you mind point ways to reproduce it, pls?
+[16:01] <tsimonq2> leosilva: I will prepare a POC for you by EOD. :)
+[16:21] <leosilva> tsimonq2: thanks! =]
+=== sdeziel_ is now known as sdeziel
+=== user03 is now known as gchound

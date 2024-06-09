@@ -1,0 +1,127 @@
+=== JanC_ is now known as JanC
+=== pushkarnk1 is now known as pushkarnk
+=== rkratky__ is now known as rkratky
+[16:01] <pushkarnk> o/
+[16:01] <Skia> o/
+[16:01] <juliank> o/
+[16:01] <liushuyu> o/
+[16:01] <mkukri> o/
+[16:01] <juliank> #startmeeting Weekly Ubuntu Foundations team
+[16:01] <meetingology> Meeting started at 16:01:34 UTC.  The chair is juliank.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[16:01] <meetingology> Available commands: action, commands, idea, info, link, nick
+[16:01] <juliank> #topic Lightning rounds
+[16:01] <enr0n> o/
+[16:01] <juliank> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-25-january-2024/
+[16:01] <zhsj> o/
+[16:02] <ogayot> o/
+[16:02] <xypron> o/
+[16:02] <mateus-morais> o/
+[16:02] <ginggs> o/
+[16:02] <dviererbe> o/
+[16:02] <slyon> o/
+[16:03] <schopin> o/
+[16:05] <cpete> o/
+[16:08] <bdmurray> schopin: computers - yeah!
+[16:08] <ravikant_> o/
+[16:11] <juliank> #topic Release incoming bugs
+[16:11] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-nn-incoming-bug-tasks.html#foundations-bugs
+[16:12] <juliank> bug 2049686
+[16:12] -ubottu:#ubuntu-meeting- Bug 2049686 in dpkg (Ubuntu) "dpkg-buildflags: emit build flags for negated features" [High, Confirmed] https://launchpad.net/bugs/2049686
+[16:12] <juliank> this is with security then and assigned to them, I guess we should drop the label
+[16:14] <juliank> but we can keep it and follow up on that
+[16:14] <juliank> bug 2045455
+[16:14] -ubottu:#ubuntu-meeting- Bug 2045455 in software-properties (Ubuntu) "add-apt-repository crashed with --- in _request()" [Medium, New] https://launchpad.net/bugs/2045455
+[16:14] <juliank> this is a server authorization issue in launchpad
+[16:15] <juliank> I'll go comment "what PPA were you trying to add"
+[16:15] <bdmurray> ProcCmdline: /usr/bin/python3 /usr/bin/add-apt-repository ppa:relan/exfat -y
+[16:15] <bdmurray> its right there
+[16:15] <juliank> oh
+[16:16] <bdmurray> although you might want to check the duplicates using some magic tool
+[16:16] <schopin> Ideally we'd have some proper error handling though rather than just throw up some exception up the stack to apport?
+[16:16] <bdmurray> lp-bug-dupe-properties -b 2045455 -D ProcCmdline
+[16:16] <juliank> yes
+[16:17] <juliank> tagging it
+[16:17] <bdmurray> It's all the same PPA
+[16:17] <enr0n> ^ from lptools
+[16:17] <juliank> tagged
+[16:17] <juliank> Moving on...
+[16:17] <juliank> bug 2049907
+[16:17] -ubottu:#ubuntu-meeting- Bug 2049907 in ubuntu-release-upgrader (Ubuntu) "tracker-extract-3 crashes routinely during distribution upgrades" [Medium, New] https://launchpad.net/bugs/2049907
+[16:18] <juliank> ask here is to disable tracker extract during upgrades, note that tracker extract runs in user sessions - it's not a system service
+[16:20] <juliank> enr0n is tagging it
+[16:20] <juliank> bug 2043820
+[16:20] -ubottu:#ubuntu-meeting- Bug 2043820 in firefox (Ubuntu) "Unable to contact snap store on Xubuntu from Jammy to Noble" [High, Confirmed] https://launchpad.net/bugs/2043820
+[16:20] <juliank> This is the firefox postinst failing to contact snap store, not the u-r-u itself
+[16:22] <bdmurray> Agreed
+[16:22] <juliank> I mean this must a snapd bug or a server outage or something?
+[16:22] <juliank> I'm inclined to swap u-r-u for snapd
+[16:22] <bdmurray> Its weird because the chromium snap update right before that succeeds
+[16:22] <bdmurray> Every time in testing
+[16:22] <Skia> probably not a server outage, it's been consistant for like 2 months
+[16:23] <juliank> ok but what would the action for us be here?
+[16:23] <bdmurray> I don't think there is an action for Foundations this was just originally reported about u-r-u
+[16:24] <juliank> it basically fails in snap info firefox
+[16:24] <juliank> i'll reassign u-r-u to snapd to have them investigate
+[16:25] <juliank> And that wraps up noble
+[16:26] <juliank> Mantic only has the two desktop bugs it has every week
+[16:26] <juliank> And the other incoming queues are empty
+[16:26] <juliank> #topic Team proposed-migration report
+[16:26] <juliank> #link https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses_by_team.html#foundations-bugs
+[16:26] <juliank> I'm somewhat tired today, does anyone else want to do this fascinating long list
+[16:29] <juliank> No volunteers? OK
+[16:29] <juliank> python-werkzeug is still with pushkarnk
+[16:29] <juliank> there are needs fixing merge requests I saw during patch pilot
+[16:29] <pushkarnk> yes, MPs under review, debian merged one of the two MRs
+[16:30] <juliank> libxcrypt vs ruby is with adrien
+[16:30] <juliank> Not sure about libxcrypt vs exim4, I don't see a previous owner
+[16:30] <slyon> pushkarnk: should onionshare be sync'ed from experimental?
+[16:30] <slyon> (which is including your fix)
+[16:30] <pushkarnk> yes
+[16:30] <slyon> I can do that..
+[16:31] <pushkarnk> slyon: thanks!
+[16:31] <pushkarnk> lektor is the elephant in the room :/
+[16:31] <juliank> I guess we assumed all libxcrypt is with adrien last week
+[16:31] <juliank> adrien: does that work?
+[16:32] <adrien> I'm waiting for a review
+[16:32] <juliank> ok
+[16:32] <xypron> I would like to look into 'apport'. Seems to rsyslog related.
+[16:32] <juliank> systemd-hwe is with enr0n
+[16:32] <enr0n> juliank: that migrated
+[16:32] <juliank> ah cool
+[16:33] <juliank> ok let's hunt for more
+[16:33] <schopin> adrien: could you tag your bugs awaiting review as update-excuse so that it shows up on the report?
+[16:34] <adrien> oops, sure, sorry about that
+[16:34] <juliank> apt I guess is with me
+[16:34] <adrien> schopin: ah but I don't have a bug, only an MR
+[16:35] <juliank> btrfs-progs vs dracut I'll go pick bdrung
+[16:35] <adrien> (for reference: https://code.launchpad.net/~adrien-n/ubuntu/+source/ruby3.1/+git/ruby3.1/+merge/459015 )
+[16:35] <juliank> (yes it's part of python3 transition but also not related to it in terms of failure)
+[16:36] <xypron> I could also have a look at 'rich'.
+[16:36] <juliank> None of these are on the list?
+[16:37] <juliank> I'm skipping over the python 3 transition too mostly
+[16:37] <bdmurray> check-postgres on armhf looks strange (the one with liblocale-gettext-perl as a trigger)
+[16:40] <juliank> I don't think we can go investigate the perl and python stuff this all needs to be retried and then if stuff is still broken and the list is smaller we go look at it?
+[16:40] <ginggs> bdmurray: 2024-01-21 02:40:37 UTC ?
+[16:40] <juliank> And I should build a filtered list excluding the transitions locally
+[16:41] <juliank> Lots of waiting stuff
+[16:41] <juliank> Nothing really actionable right now afaict
+[16:41] <bdmurray> ginggs: yes
+[16:41] <juliank> Or like only very small items
+[16:42] <ginggs> bdmurray: llvm-toochain-17 was being rebuilt
+[16:42] <ravikant_> I volunteer for a small item
+[16:42] <ginggs> it finished on 2024-01-21 04:26:17 UTC
+[16:43] <ginggs> https://launchpad.net/ubuntu/+source/llvm-toolchain-17/1:17.0.6-5build1/+build/27661259
+[16:44] <juliank> I guess let's revisit the queue next week, the perl transition is still blocking a lot of runs that need retrying
+[16:44] <juliank> #topic AOB
+[16:44] <pushkarnk> public holiday in India tomorrow
+[16:45] <ogayot> I'll be off next week
+[16:45] <Skia> I'm off Monday and Tuesday
+[16:46] <mateus-morais> I'm off tomorrow and Monday
+[16:47] <adrien> fosdem is in 10 days \o/
+[16:48] <juliank> Reminder that carry-over days remain until end of March :)
+[16:48] <juliank> I will *not* be at FOSDEM
+[16:48] <schopin> Oh right, thanks for the reminder for the carryover!
+[16:49] <juliank> And that wraps up this meeting I believe!
+[16:49] <juliank> #endmeeting
+[16:49] <meetingology> Meeting ended at 16:49:02 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-01-25-16.01.moin.txt
+=== pushkarnk1 is now known as pushkarnk

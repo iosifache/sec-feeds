@@ -1,0 +1,2 @@
+=== wete_ is now known as wete
+[18:28] <rouca> eslerm_: did you test the sendmail patch ?

@@ -1,0 +1,15 @@
+=== ChanServ changed the topic of #ubuntu-security to: Twitter: @ubuntu_sec || https://usn.ubuntu.com || https://wiki.ubuntu.com/SecurityTeam || https://wiki.ubuntu.com/Security/Features || Community: mdeslaur
+[14:49] <jdstrand_> hey, I see that postfix was updated in https://ubuntu.com/security/notices/USN-6591-1 (thanks!). I noticed there is a refined patch to use 'smtpd_forbid_bare_newline = normalize' which improves compatibility while still closing the issue: https://www.postfix.org/announcements/postfix-3.8.5.html. Is Ubuntu planning on updating for this?
+=== jdstrand_ is now known as jdstrand
+[14:51] <jdstrand> allenpthuang: ^
+[14:53] <sdeziel> it doesn't help discoverability that this refinement isn't mentioned in the timeline on https://www.postfix.org/smtp-smuggling.html
+[14:53] <jdstrand> it doesn't
+[14:53] <jdstrand> I saw it on oss-sec
+[15:07] <amurray> hey (and thanks for the heads up) jdstrand - allenpthuang is on a training course but will take a look later today
+[15:13] <jdstrand> amurray: ack, thanks!
+=== JanC_ is now known as JanC
+[23:08] <allenpthuang> hey jdstrand (re: postfix patch) thanks for the heads up! I took a quick look and can confirm I was working on those updates based on the versions 3.8.4, 3.7.9, 3.6.13 and 3.5.23. And I now find they update the page (https://www.postfix.org/smtp-smuggling.html) with the newer version you mentioned. I'll have another further look to see what I can
+[23:08] <allenpthuang> do tomorrow :)
+[23:18] <jdstrand> allenpthuang: thanks! :)
+[23:43] <allenpthuang> no problem at all!
+=== user03 is now known as gchound

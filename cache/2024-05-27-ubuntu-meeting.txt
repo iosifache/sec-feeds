@@ -1,0 +1,51 @@
+[16:00] <rbasak> o/
+[16:01] <kanashiro> o/
+[16:02] <utkarsh2102> yoyo
+[16:02] <utkarsh2102> sorry, I don't have a scrollback, do we have quorum?
+[16:03] <rbasak> We need one more I think. And a candidate.
+[16:03] <utkarsh2102> mitchdz: hey!
+[16:03] <utkarsh2102> are you around?
+[16:04]  * utkarsh2102 no likey no-shows
+[16:05] <utkarsh2102> could have done Sudip today
+[16:05] <rbasak> It's a public holiday here today, so I'll wait until ten minutes past and then go.
+[16:05] <utkarsh2102> Sudip doesn't seem to be around either.
+[16:05] <kanashiro> also for USA people
+[16:05] <utkarsh2102> yep
+[16:05] <kanashiro> I do not think we will have quorum
+[16:06] <utkarsh2102> kanashiro: technically, we do ;)
+[16:06] <rbasak> I think quite a few people are off today? From my calendar it looks that way anyway.
+[16:06] <utkarsh2102> rbasak: hey! https://launchpad.net/~developer-membership-board/+members -> when do we plan to hold elections, in no time the seats will expire.
+[16:07] <kanashiro> do we have quorum with 3 people out of 7?
+[16:07] <utkarsh2102> do we _plan_ to hold elections, though?
+[16:07] <utkarsh2102> kanashiro: "technically" there's only 4 members in the board atm, hehe. 3/4 are here, so technically we have quorum, hehe.
+[16:08] <kanashiro> am I a member? :P
+[16:08] <kanashiro> I shouldn't b here haha
+[16:08] <utkarsh2102> oops
+[16:09] <utkarsh2102> yeah, go away, kanashiro, tch tch
+[16:09] <utkarsh2102> run
+[16:09]  * kanashiro runs away
+[16:09] <utkarsh2102> hehe
+[16:09] <utkarsh2102> alright, I'll email Mitch about the no-show & will ask him to reschedule to a month from now
+[16:10] <utkarsh2102> anyway, I'll go as well.
+[16:10] <utkarsh2102> rbasak: let us know your election plans, please. :)
+[16:11] <utkarsh2102> okeydoke, see you both in the next meeting, have fuuuuun!
+[16:11] <utkarsh2102> kanashiro: have a drink on my behalf in Ibiza, please
+[16:11] <utkarsh2102> if you're still there :)
+[16:12] <kanashiro> utkarsh2102 I am back home now :(
+[16:12] <utkarsh2102> oh no
+[16:12] <utkarsh2102> okay, let's chat soon
+[16:12] <rbasak> utkarsh2102: sorry I was ill last week. If all's well then I hope to kick off the election process this week.
+[16:12] <utkarsh2102> danke
+[16:12] <utkarsh2102> thank you v much
+[16:12] <rbasak> (it got delayed due to the Noble release rush, etc)
+[16:12] <utkarsh2102> let me know if you need help
+[16:12] <rbasak> ack thanks
+[16:13] <utkarsh2102> see y'all!
+[16:13] <kanashiro> utkarsh2102 we can grab a drink during debcamp/debconf :)
+[16:13] <utkarsh2102> YES! <3
+[16:13] <kanashiro> cya o/
+[16:13]  * utkarsh2102 waves and hugs kanashiro and rbasak
+[16:13] <utkarsh2102> bye bye
+[16:13] <utkarsh2102> :wq!
+[17:37] <mitchdz> Hi everyone, sorry about the no-show. I calculated the wrong time from Ubuntu Fridge :(
+=== ghost is now known as ghost345

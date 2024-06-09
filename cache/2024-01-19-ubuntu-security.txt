@@ -1,0 +1,12 @@
+=== ted_ is now known as ted
+=== user03 is now known as gchound
+=== user03 is now known as gchound
+=== chris14_ is now known as chris14
+=== aiena is now known as aiena2
+[16:02] <aiena> How do I learn about the syntax for apparmor profiles I found the man page of apparmor.d but it does not go into more detail
+[16:15] <ebarretto> georgiag, do you have it ^ in hand? 
+=== user03 is now known as gchound
+[16:43] <georgiag> aiena: you can refer to the wiki in our gitlab https://gitlab.com/apparmor/apparmor/-/wikis/AppArmor_Core_Policy_Reference
+[16:44] <georgiag> on the right there's a sidebar with more relevant pages
+[16:50] <georgiag> aiena: I also think this one is very helpful https://documentation.suse.com/sles/15-SP4/html/SLES-all/cha-apparmor-profiles.html
+=== user03 is now known as gchound

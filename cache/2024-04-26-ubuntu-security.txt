@@ -1,0 +1,6 @@
+=== chris14_ is now known as chris14
+[11:32] <mdeslaur> teward: I've updated the CVE and have marked it as ignored
+=== locutusofborg_ is now known as locutusofborg
+[16:47] <teward> mdeslaur: thank you kindly, I am going to quote your explanation in my answer to the original Ask Ubuntu asker. And from that help the original asker create a justification statement as to why their PCI DSS compliance scan shows that CVE and why it's not fixable currently (because hardware platform level stuff not software level)
+[16:58] <mdeslaur> cool
+[18:10]  * arraybolt3 is still finding channels I accidentally dropped out of

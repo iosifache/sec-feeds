@@ -1,0 +1,122 @@
+=== JanC is now known as Guest2458
+=== JanC_ is now known as JanC
+[12:00] <youngbin> ã/
+[12:00] <youngbin> o/
+[12:12]  * kanashiro waves
+[12:14]  * youngbin waves
+[12:18] <youngbin> kanashiro: I think we'll need wait a bit more for others to start meeting. While waiting, do you have other agenda to discuss today?
+[12:21] <kanashiro> I do not to be honest
+[12:22] <youngbin> ð
+[12:37]  * youngbin pokes mapreri
+[12:40] <kanashiro> It seems that we will not have quorum today
+[12:40] <youngbin> yups
+[12:40] <youngbin> do we want to wait a bit or just skip meeting for today?
+[12:43] <kanashiro> I think we need to skip
+[12:44] <youngbin> i think we've waited enough for other folks. Let's skip LoCo Council meeting today. I'll post next meeting schedule on discourse
+[12:44] <kanashiro> youngbin thanks!
+[12:44] <youngbin> Next meeting - April 5 12:00 UTC
+[12:44] <youngbin> your welcome. thanks for being present. see you :)
+[12:50] <youngbin> hello coolbhavi
+[12:51] <youngbin> kanashiro: coolbhavi: do we met quorum now?
+[12:51] <coolbhavi> Yes I think
+[12:52] <coolbhavi> 3 out of 5
+[12:52] <youngbin> ok so do we want to start meeting?
+[12:52] <coolbhavi> Hope I wasn't late youngbin
+[12:53] <coolbhavi> Yes if we 3 are present we can start I guess
+[12:53] <youngbin> ok
+[12:53] <youngbin> #startmeeting Ubuntu LoCo Council meeting 2024-03-08
+[12:53] <meetingology> Meeting started at 12:53:38 UTC.  The chair is youngbin.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[12:53] <meetingology> Available commands: action, commands, idea, info, link, nick
+[12:54] <youngbin> hello
+[12:54] <youngbin> So, let's have a look at agenda first
+[12:54] <coolbhavi> Hello youngbin
+[12:54] <youngbin> Agenda: Follow up on action items from last meeting / Fix agenda / AOB / Next meeting schedule and chair
+[12:55] <youngbin> if we don't more topics to discuss, let start with follow up on action items from last meeting
+[12:55] <youngbin> #topic Follow up on action items from last meeting
+[12:55] <coolbhavi> Sorry was occupied with Ubucon asia stuff so wasn't active on Matrix channel
+[12:55] <coolbhavi> So need to followup which I will do tomorrow
+[12:56] <youngbin> Ah no worries im also busy with organizing bunch of events lol
+[12:56] <coolbhavi> Haha okay ð
+[12:56] <youngbin> So i think we don't have organized note for last meeting. if it's ok let me follow up based on this one... https://gemini.google.com/share/25540f1b2216
+[12:56] <youngbin> 1. Follow up with Mauro about setting up the LoCo Council matrix room.
+[12:57] <youngbin> We now have Matrix space and room for LoCos
+[12:58] <youngbin> #info We now have Matrix space and room for LoCos
+[12:58] <youngbin> 2. Create a topic on Discourse to discuss proposals for regular LoCo activity reporting. - any idea what was this about?
+[12:59] <coolbhavi> It was related to get a note of loco activities I guess
+[12:59] <youngbin> ah to follow up on loco activity update?
+[13:00] <coolbhavi> Yes and a follow up thing to this was to create a survey
+[13:01] <youngbin> #info Create a topic on Discourse to follow up on LoCo activity updates. - Follow up thing was to crate a survey
+[13:02] <coolbhavi> And come up with questions for the survey but on a personal level got very busy with the venue and contracts for Ubucon asia..
+[13:02] <youngbin> yes i remember discussion on matrix. i guess not much progress since then
+[13:02] <youngbin> 3. Each council member to come up with questions for the LoCo health survey.
+[13:02] <youngbin> this should be the survey we just mentioned...
+[13:02] <coolbhavi> (time to get things moving I guess now regarding Ubucon Asia :))
+[13:03] <youngbin> 4. Reach out to LoCo leaders to participate in the AMA.
+[13:03] <youngbin> i think for me, i got no updates
+[13:04] <coolbhavi> Me too so lets work on the previous action items and come up with things on the next meeting perhaps ð
+[13:04] <youngbin> #info Reach out to LoCo leaders to participate in the AMA. - No updates from meeting participants for now
+[13:05] <youngbin> So let's move on to next topic
+[13:05] <coolbhavi> Yes
+[13:05] <youngbin> #topic Fixed agenda
+[13:05] <youngbin> I would like to suggest have some fixed agenda.
+[13:06] <youngbin> For example: Action item follow up, AOB(Any other business), Next meeting schedule and chair
+[13:06] <coolbhavi> +1
+[13:06] <youngbin> other then this 3 items are there other fixed agneda that we should have?
+[13:07] <youngbin> agneda -> agenda
+[13:07] <coolbhavi> None I can think of right now
+[13:07] <youngbin> ok then i think we can vote on 3 fixed agenda. btw...
+[13:08] <youngbin> kanashiro: are you present?
+[13:09] <youngbin> ok let me setup vote just a minute...
+[13:09] <youngbin> #vote Fixed agenda for LoCo Council meeting: Last meeting Action items follow up, AOB(Any other business), Next meeting schedule and chair
+[13:09] <meetingology> Please vote on: Fixed agenda for LoCo Council meeting: Last meeting Action items follow up, AOB(Any other business), Next meeting schedule and chair
+[13:09] <meetingology> Public votes can be registered by saying +1, -1 or +0 in channel (for private voting, private message me with 'vote +1|-1|+0 #channelname')
+[13:10] <youngbin> #voters youngbin kanashiro coolbhavi
+[13:10] <meetingology> Current voters: coolbhavi, kanashiro, youngbin
+[13:10] <coolbhavi> +1
+[13:10] <meetingology> +1 received from coolbhavi
+[13:10] <youngbin> +1
+[13:10] <meetingology> +1 received from youngbin
+[13:11]  * youngbin pokes kanashiro
+[13:11] <youngbin> hmm
+[13:11] <youngbin> wait for kanashiro or end vote?
+[13:12] <coolbhavi> Lets wait for quorum then
+[13:12] <coolbhavi> Yes
+[13:12] <youngbin> ok let's wait for few minutes
+[13:12] <coolbhavi> Orelse we will not have quorum
+[13:17] <youngbin> let's wait a bit more for 3 min then pass. maybe we can discuss again on next meeting?
+[13:18] <coolbhavi> Sure
+[13:19] <coolbhavi> Since there is no quorum now we can shift the agenda to our next meeting I guess
+[13:19] <youngbin> yups
+[13:19] <youngbin> #endvote
+[13:19] <meetingology> Voting ended on: Fixed agenda for LoCo Council meeting: Last meeting Action items follow up, AOB(Any other business), Next meeting schedule and chair
+[13:19] <meetingology> Votes for: 2, Votes against: 0, Abstentions: 0
+[13:19] <meetingology> Motion carried
+[13:20] <youngbin> #topic AOB
+[13:20] <youngbin> Do we have any other business?
+[13:20] <coolbhavi> Ubucon Asia in full swing now .. time to step up the preparation I think :)
+[13:21] <coolbhavi> Apart from that none from my side
+[13:21] <youngbin> yups i've been also busy try to reach out some sponsors :)
+[13:22] <youngbin> #info Update from coolbhavi - Ubucon Asia in full swing now...
+[13:22] <youngbin> ok last topic
+[13:22] <youngbin> #topic Next meeting schedule and chair
+[13:22] <coolbhavi> Yes same here I am trying to reach out to local sponsors but once venue contract is done it will be full steam ahead
+[13:22] <youngbin> thanks for hard work :)
+[13:23] <youngbin> Our next meeting will be on Friday, April 5, 12:00 UTC
+[13:23] <coolbhavi> Good for me ð
+[13:23] <youngbin> I guess until we got matrix-irc bridge for this #ubuntu-meeting channel. It will be still on IRC
+[13:23] <youngbin> And chair?
+[13:23] <coolbhavi> You can chair
+[13:24] <coolbhavi> As this meeting had no quorum
+[13:24] <youngbin> yups then i'll chair for now. if anyone would volunteer then i'll hand over
+[13:24] <youngbin> indeed
+[13:24] <coolbhavi> :)
+[13:24] <youngbin> #action Next meeting will be on Friday, April 5, 12:00 UTC. youngbin will chair
+[13:24] <meetingology> ACTION: Next meeting will be on Friday, April 5, 12:00 UTC. youngbin will chair
+[13:25] <youngbin> Ok let's finish meeting today.
+[13:25] <coolbhavi> Have a nice evening youngbin see you in 2 days time again!
+[13:25] <youngbin> have a nice evening too :) see you sunday.
+[13:25] <youngbin> and for other folks. see you next month.
+[13:25] <youngbin> #endmeeting
+[13:25] <meetingology> Meeting ended at 13:25:41 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-03-08-12.53.moin.txt
+=== JanC is now known as Guest3720
+=== JanC_ is now known as JanC

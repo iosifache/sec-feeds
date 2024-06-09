@@ -1,0 +1,88 @@
+[14:32] <jbicha> o/
+[14:32] <dviererbe> o/
+[14:34] <slyon> o/ Do we have quorum for a MIR meeting? I see some people are out..
+[14:36] <dviererbe> Doesn't look like it :/
+[14:39] <jbicha> heads up that Desktop is working on filing a MIR for sysprof (bug 2066269) which will have 2 dependent MIRs. I expect it will need Security review
+[14:39] -ubottu:#ubuntu-meeting- Bug 2066269 in sysprof (Ubuntu) "[MIR] sysprof" [Undecided, Incomplete] https://launchpad.net/bugs/2066269
+[14:39] <slyon> status looks pretty much as last time (2 weeks ago). A much of component mismatches, mostly for openstack and desktop teams, but also one new for foundations. One request to promote a split out package from desktop and the heads up from jbicha ^
+[14:39] <slyon> Otherwise, no updates
+[14:39] <slyon> thanks jbicha for raising it early!
+[14:40] <slyon> Let's meet next week, when everybody is back again.
+=== dbungert1 is now known as dbungert
+=== dbungert is now known as dbungert1
+=== dbungert1 is now known as dbungert
+[18:59] <amurray> o/
+[19:02] <sil2100> o/
+[19:03] <seb128> hey
+[19:04] <seb128> hum, looks like it's my turn to chair today?
+[19:04] <amurray> yep :)
+[19:05] <seb128> #startmeeting
+[19:05] <meetingology> Meeting started at 19:05:15 UTC.  The chair is seb128.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[19:05] <meetingology> Available commands: action, commands, idea, info, link, nick
+[19:05] <seb128> #topic Apologies
+[19:05] <seb128> none on the list it seems
+[19:06] <seb128> nor on the calendar invite
+[19:06] <seb128> unsure if rbasak and vorlon are around/plan to join but let's start without them
+[19:06] <seb128> #topic Action review
+[19:06] <seb128> ACTION: everyone to review the third party repo draft within a week and raise any comments they have, after that Robie will post to discourse
+[19:07] <seb128> Robie isn't here and he didn't post afaik so I will carry over
+[19:07] <sil2100> I don't think we'll have vorlon around today
+[19:07] <seb128> ack
+[19:07] <sil2100> (he's also marked as OoO)
+[19:08] <seb128> (to be fair I was expecting even less people to show since it's post Canonical travel week(s))
+[19:08] <seb128> #action everyone to review the third party repo draft within a week and raise any comments they have, after that Robie will post to discourse
+[19:08] <meetingology> ACTION: everyone to review the third party repo draft within a week and raise any comments they have, after that Robie will post to discourse
+[19:08] <seb128> ACTION: rbasak to open wider discussion on third-party repo policy
+[19:08] <seb128> in fact that's probably the one that we should keep?
+[19:08] <amurray> yeah I think so
+[19:09] <seb128> #undo
+[19:09] <meetingology> Removing item from minutes: ACTION
+[19:09] <seb128> unsure how that syntax is working :/
+[19:09] <seb128> I will just edit the wiki manually
+[19:09] <seb128> #action rbasak to open wider discussion on third-party repo policy
+[19:09] <meetingology> ACTION: rbasak to open wider discussion on third-party repo policy
+[19:10] <seb128> ACTION: rbasak to draft a proposal of the DMB-proposed inactivity expiration policy for TB ratification
+[19:10] <seb128> Robie is not there and that didn't move afaik so carrying over
+[19:10] <seb128> #action rbasak to draft a proposal of the DMB-proposed inactivity expiration policy for TB ratification
+[19:10] <meetingology> ACTION: rbasak to draft a proposal of the DMB-proposed inactivity expiration policy for TB ratification
+[19:10] <seb128> ACTION: rbasak to get the DMB election going
+[19:10] <seb128> same
+[19:10] <seb128> #action rbasak to get the DMB election going
+[19:10] <meetingology> ACTION: rbasak to get the DMB election going
+[19:10] <seb128> ACTION: vorlon to look into scripting for packages in flavor-specific overlays
+[19:10] <seb128> similarly
+[19:10] <seb128> #action vorlon to look into scripting for packages in flavor-specific overlays
+[19:10] <meetingology> ACTION: vorlon to look into scripting for packages in flavor-specific overlays
+[19:10] <seb128> ACTION: seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[19:11] <seb128> nothing to report on that front, I will carry over
+[19:11] <seb128> #action seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[19:11] <meetingology> ACTION: seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[19:11] <seb128> ACTION: vorlon to follow up on the Cinnamon 24.04 LTS Qualification re the number of contacts listed for the flavor
+[19:12] <sil2100> Didn't hear anything about that sadly
+[19:12] <sil2100> The isotracker manifest only has one person for now
+[19:12] <seb128> unsure if that still makes sense to follow up since we are past LTS and we vote in favor of it
+[19:13] <seb128> would still be nice to see that raised and changed if possible though
+[19:13] <seb128> let's carry over, we can drop next time when Steve is around if needed
+[19:13] <seb128> #action vorlon to follow up on the Cinnamon 24.04 LTS Qualification re the number of contacts listed for the flavor
+[19:13] <meetingology> ACTION: vorlon to follow up on the Cinnamon 24.04 LTS Qualification re the number of contacts listed for the flavor
+[19:14] <seb128> #topic Scan the mailing list archive for anything we missed (standing item)
+[19:14] <seb128> nothing recent on the mailing list it seems
+[19:14] <seb128> #topic Check up on community bugs and techboard bugs
+[19:15] <seb128> https://bugs.launchpad.net/ubuntu-community/+bugs?field.assignee=techboard is empty
+[19:15] <seb128> and nothing new on https://bugs.launchpad.net/techboard
+[19:15] <seb128> #topic Select a chair for the next meeting (next from https://launchpad.net/~techboard/+members)
+[19:16] <seb128> #info Next chair will be vorlon, with sil2100 as backup
+[19:16] <seb128> #topic AOB
+[19:16] <seb128> any other topic?
+[19:16] <amurray> nothing from me
+[19:17] <seb128> and nothing from me either
+[19:17] <seb128> let's call it a wrap then, short one :)
+[19:17] <seb128>  #endmeeting
+[19:17] <meetingology> Meeting ended at 19:17:47 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-05-21-19.05.moin.txt
+[19:17] <amurray> thanks seb128
+[19:17] <seb128> thanks amurray and sil2100!
+[19:18] <amurray> and sil2100 :)
+[19:21] <sil2100> o/
+[19:21] <sil2100> Thanks seb128 !
+[19:21] <sil2100> And amurray :)
+[19:21] <sil2100> See you next time o/

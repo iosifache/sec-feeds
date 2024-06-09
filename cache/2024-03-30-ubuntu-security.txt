@@ -1,0 +1,7 @@
+=== wete_ is now known as wete
+=== chris14_ is now known as chris14
+=== jdstrand_ is now known as jdstrand
+=== JanC is now known as Guest7099
+=== JanC_ is now known as JanC
+[23:50] <teward> probably the stupidest thing to ask but are there any copies of the exploited binaries for xz still available? Want to detonate the payload safely in a research lab and examine the results to see what else this "backdoor" does other than intercept auths
+[23:50] <teward> only asking as a security research perspective

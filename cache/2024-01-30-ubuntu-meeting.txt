@@ -1,0 +1,360 @@
+=== JanC_ is now known as JanC
+[15:20] <didrocks> hey MIR team, as usual, not available but will read the backlog later. On the authd MIR, being upstream, I canât review it, itâs a clear conflict of interests, but happy to take whatever else is available for review :)
+[15:31] <cpaelzer_> hey
+[15:31] <cpaelzer_> getting ready
+=== cpaelzer_ is now known as cpaelzer
+[15:32] <sarnold> good morning
+[15:32] <slyon> hey!
+[15:32]  * eslerm away at training
+[15:33] <cpaelzer> #startmeeting Weekly Main Inclusion Requests status
+[15:33] <meetingology> Meeting started at 15:33:12 UTC.  The chair is cpaelzer.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:33] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:33] <cpaelzer> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( eslerm dviererbe )
+[15:33] <cpaelzer> #topic current component mismatches
+[15:33] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[15:33] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[15:33] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[15:33] <cpaelzer> this looks quite clean
+[15:33] <cpaelzer> cssselect is known
+[15:33] <joalif> o/
+[15:33] <cpaelzer> the jaraco stack as well
+[15:34] <cpaelzer> libcryptx is on miriam and a big unknown still
+[15:34] <cpaelzer> I see nothing that needs new MIRs filed in here
+[15:34] <cpaelzer> #topic New MIRs
+[15:34] <cpaelzer> Mission: ensure to assign all incoming reviews for fast processing
+[15:34] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[15:35] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/authd/+bug/2048781
+[15:35] -ubottu:#ubuntu-meeting- Launchpad bug 2048781 in authd (Ubuntu) "[MIR] authd" [Undecided, New]
+[15:35] <cpaelzer> Looking for a reviewer
+[15:36] <cpaelzer> slyon: joalif: anyone up to a review this week?
+[15:36] <joalif> i can take one
+[15:36] <cpaelzer> thank you, done
+[15:36] <slyon> I'm pretty busy, as I'm helping out with the time_t transition NMUs in Debian, so would prefer not to.
+[15:36] <cpaelzer> #topic Incomplete bugs / questions
+[15:36] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[15:36] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[15:37] <cpaelzer> one recent which is a stub https://bugs.launchpad.net/ubuntu/+source/jpeg-xl/+bug/2051579
+[15:37] -ubottu:#ubuntu-meeting- Launchpad bug 2051579 in jpeg-xl (Ubuntu) "[MIR] jpeg-xl" [Undecided, Incomplete]
+[15:37] <slyon> stub
+[15:37] <cpaelzer> ok on this
+[15:37] <cpaelzer> no action needed either
+[15:37] <cpaelzer> #topic Process/Documentation improvements
+[15:37] <cpaelzer> Mission: Review pending process/documentation pull-requests or issues
+[15:37] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/pulls
+[15:38] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/issues
+[15:38] <cpaelzer> one new thing by eslerm
+[15:38] <cpaelzer> who said above he is distracted on training
+[15:39] <cpaelzer> https://github.com/canonical/ubuntu-mir/issues/44
+[15:39] -ubottu:#ubuntu-meeting- Issue 44 in canonical/ubuntu-mir "deprecated crypto defaults" [Open]
+[15:39] <cpaelzer> https://github.com/canonical/ubuntu-mir/pull/45
+[15:39] -ubottu:#ubuntu-meeting- Pull 45 in canonical/ubuntu-mir "add deprecated crypto check" [Open]
+[15:39] <cpaelzer> actually I feel we have discussed this ...
+[15:39] <cpaelzer> let me refresh my memory
+[15:40] <cpaelzer> oh I see, he followed my suggestion of a slight hint
+[15:40] <eslerm> as long as this is mentioned *somehow* so owning teams know I'd be grateful, feel free to ammend as needed
+[15:40] <cpaelzer> IMHO as a TODO we'd all struggle how to know if thins are deprecated
+[15:41] <cpaelzer> if you are ok, I'll ammend after my meeting phase
+[15:41] <cpaelzer> and then land it
+[15:41] <eslerm> thank you
+[15:41] <cpaelzer> as a RULE and as a new bullet point
+[15:41] <cpaelzer> #topic MIR related Security Review Queue
+[15:41] <cpaelzer> Mission: Check on progress, do deadlines seem doable?
+[15:41] <cpaelzer> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[15:41] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[15:41] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[15:41] <cpaelzer> Internal link
+[15:41] <cpaelzer> - ensure your teams items are prioritized among each other as you'd expect
+[15:41] <cpaelzer> - ensure community requests do not get stomped by teams calling for favors too much
+[15:41] <cpaelzer> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[15:42] <sarnold> we've got five MIRs in-flight at the moment, three with new reviewers :) things are feeling good
+[15:42] <cpaelzer> nice that you get those new reviewers started as planned
+[15:42] <cpaelzer> looking good indeed
+[15:43] <cpaelzer> #topic Any other business?
+[15:43] <cpaelzer> I have a heads up for MIR and security team
+[15:43] <cpaelzer> anyone else before I go into details?
+[15:43] <sarnold> I don't think so...
+[15:43] <slyon> no
+[15:43] <cpaelzer> ok, then here the FYI
+[15:44] <cpaelzer> there is effort in making the default set of tools available for performance and crash analysis nicer to the users
+[15:44] <sarnold> nice
+[15:44] <cpaelzer> details vary and depend on the context, no need to go into too much details - if you are curious get in touch
+[15:44] <cpaelzer> but what is worth
+[15:44] <cpaelzer> is that out of that effort there will be an expected flurry of MIRs and associated security reviews coming
+[15:44] <cpaelzer> the amount is probably 3-8
+[15:45] <cpaelzer> so not too insane
+[15:45] <cpaelzer> but it will be noble time-frame
+[15:45] <cpaelzer> so to whatever amount you can, reserve some time and tell your managers upfront
+[15:45] <cpaelzer> involved are mostly kernel, foundations and server - but to some extend anyone that feels to belong to *ubuntu*
+[15:46] <cpaelzer> so much for now I'd think
+[15:46] <cpaelzer> I think the MIR review capactity is fine for this
+[15:46] <eslerm> knowning which packages to plan for would help
+[15:46] <cpaelzer> for security we thought this is worth to be mentioned to know about it by now instead of out of a sudden
+[15:46] <eslerm> it is appreciated :)
+[15:47] <sarnold> in yesterday's team meeting I communicated that there's usually a flurry of last-minute packages to review
+[15:47] <sarnold> so hopefully our need for more reviewers won't come as a surprise
+[15:47] <cpaelzer> eslerm: sarnold: For details you can go to FO147 spec for now and anything you find linked from jira Fr-6202
+[15:48] <cpaelzer> with that being said, I think we are good for now
+[15:48] <cpaelzer> any other famous last words?
+[15:48] <sarnold> have a nice day?
+[15:48] <cpaelzer> ok, that is a now
+[15:48] <cpaelzer> no
+[15:48] <cpaelzer> see you all
+[15:48] <sarnold> thanks cpaelzer, all :)
+[15:48] <slyon> thanks! o/
+[15:49] <cpaelzer> #endmeeting
+[15:49] <meetingology> Meeting ended at 15:49:00 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-01-30-15.33.moin.txt
+[15:49] <eslerm> thanks all o/
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+=== arraybolt3 is now known as arraybolt3_wc
+[19:57] <arraybolt3> o/
+[20:00] <rbasak> o/
+[20:00]  * vorlon waves
+[20:00] <vorlon> I believe I'm chairing today
+[20:00] <amurray> o/
+[20:01] <sil2100> Apologies everyone, I won't be able to actively participate in today's meeting. I'm fighting quite a headache and I'm afraid I'll be useless today
+[20:01] <vorlon> sil2100: rest well
+[20:01] <seb128> hey
+[20:01] <vorlon> #startmeeting
+[20:01] <meetingology> Meeting started at 20:01:50 UTC.  The chair is vorlon.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[20:01] <meetingology> Available commands: action, commands, idea, info, link, nick
+[20:01] <vorlon> [topic] Apologies
+[20:02] <vorlon> sil2100 in real time let us know he won't be attending today
+[20:02] <rbasak> The agenda looks quiet today, but I think there are some flavour LTS qualifications outstanding from the ML, and also I'd like to discuss my "onsensus on question of test plans for third party apps" action item if we have time.
+[20:02] <vorlon> and it looks like we have everyone else here?
+[20:03] <vorlon> #topic Action review
+[20:03] <vorlon> there are a lot of actions listed; rather than going point-by-point, can I just ask if anyone has updates, and assume the rest are carry-over? https://wiki.ubuntu.com/TechnicalBoardAgenda
+[20:04] <rbasak> All mine are to carry over please. Though as above I've been looking at one, might as well carry it over until discussed since it's unlikely to be resolved completely today.
+[20:04] <amurray> sounds good to me (mine are all carry-over)
+[20:04] <seb128> ACTION: seb128 to follow-up with ubuntu cinnamon on 24.04 request  -> https://lists.ubuntu.com/archives/technical-board/2024-January/002853.html
+[20:04] <seb128> no reply from them though
+[20:04] <seb128> ACTION: seb128 to follow-up with ubuntu budgie on 24.04 request  -> https://lists.ubuntu.com/archives/technical-board/2024-January/002855.html
+[20:05] <vorlon> seb128: thanks
+[20:05] <seb128> and we had 4 +1 votes so I think that's approved
+[20:05] <vorlon> agreed
+[20:05] <vorlon> mine is also carry-over
+[20:05] <vorlon> seb128: do you want to send a follow-up email to confirm this is approved?
+[20:05] <vorlon> (amurray had an action to do so for UbuntuKylin)
+[20:06] <amurray> yeah not sure how I missed that but will get to it later today
+[20:06] <seb128> vorlon, yes, I will send the budgie email
+[20:07] <vorlon> #action seb128 to send confirmation of successful LTS status for UbuntuBudgie 24.04
+[20:07] <meetingology> ACTION: seb128 to send confirmation of successful LTS status for UbuntuBudgie 24.04
+[20:07] <vorlon> #topic Scan the mailing list archive for anything we missed (standing item)
+[20:07] <vorlon> the various vote threads are accounted for, I think
+[20:07] <vorlon> two other threads on there we should probably touch base on
+[20:08] <vorlon> first is "VirtualBox Postmortem"
+[20:08] <vorlon> tsimonq2 let me know he wasn't available to attend this meeting today
+[20:08] <arraybolt3> I'm here in his absence.
+[20:08] <arraybolt3> (I did a bunch of the VirtualBox testing to solve the bug that email is related to.)
+[20:09] <vorlon> I have lots of thoughts in regards to that email, but perhaps someone who's not wearing dual TB + SRU hats wants to comment first
+[20:09] <vorlon> (which would be seb128 or amurray rather than rbasak or myself)
+[20:10] <rbasak> I do wear both hats, but my usual response in these cases is to ask for the responsible team to respond in the first instance.
+[20:10] <rbasak> In other words, even when TB escalation is appropriate, the TB should seek to get input from both sides - from both the complainant(s) and the responsible teams. In this case that'd be the SRU team, rather than non-SRU team members.
+[20:11] <seb128> right, I'm unsure if that's a topic for the TB at this point, I would like at least to see a reply from the SRU team first
+[20:11] <vorlon> well I'm going to say that the reason I haven't responded to this email at all yet is that I found it to be an entirely unconstructive and anti-collaborative approach to the question
+[20:11] <seb128> rbasak, vorlon, do you have any insight if the SRU team is working on a reply?
+[20:11] <amurray> from my point of view, whilst I can entirely understand the frustrations expressed in the email, I also can sympathise with the SRU team et al - due to the distributed / silo'd nature of Ubuntu development this kind of thing feels sometimes inevitable even when we try hard to coordinate to avoid such situations
+[20:12] <amurray> so unless a response from the SRU team highlights any particular problems on their side, I am not sure there is much for the TB to do at this time
+[20:12] <vorlon> I'm not aware of a current SRU team decision about responding to the email
+[20:12] <rbasak> The SRU team haven't had an opportunity to discuss this yet really.
+[20:13] <rbasak> The relevant people to discuss this are in a late-ish timezone, and we usually chat every four weeks, and that hasn't come up yet.
+[20:14] <rbasak> I don't mind going into more details now, on behalf of the SRU team, and while vorlon's also here. But maybe that's not really appropriate right now (or do others think otherwise?)
+[20:14] <seb128> is that going to happen before the next TB meeting then? if so maybe let's revisit next time?
+[20:14] <rbasak> It might be if we were in a rush, but I have noticed SRU activity on this package, so is there still a rush?
+[20:14] <vorlon> should happen this week I think?
+[20:14] <rbasak> Yes - on Thursday - assuming the other relevant people are able to attend.
+[20:14] <arraybolt3> February 2, the new VBox SRU should be ready to go out. Me and LoB already did all verificaiton.
+[20:15] <arraybolt3> So I can confirm this week.
+[20:15] <vorlon> yes, SRU team meeting Thursday
+[20:15] <arraybolt3> (assuming the SRU team does migrations from -proposed to -updates on Friday - I don't actually know if this is the case)
+[20:15] <rbasak> I'd like to be constructive here, but I'm finding that quite challenging.
+[20:15] <rbasak> A couple of things to note, if you're expecting the release to happen because you've marked verification-done...
+[20:16] <seb128> that's a long email with a lot of details, but to me it seems the SRU team should maybe add to their process to check if a kernel update breaks virtualbox
+[20:17] <vorlon> yes, a "post mortem" which assumes itself to be in possession of all of the facts without consulting > half the people involved, and drawing conclusions and assigning blame, is not a springboard for a constructive discussion
+[20:17] <vorlon> seb128: that's the thing, I haven't had time to dig into this, but kernel SRUs are supposed to check the results of all dkms package builds
+[20:17] <arraybolt3> I think with the virtualbox breakage bug, the issue was that the update was never accepted into proposed in the first place. There was nothing any other team could have done.
+[20:17] <rbasak> https://wiki.ubuntu.com/StableReleaseUpdates#virtualbox is false. Contrary to what that says, I don't consider anything pre-approved by the SRU. I've mentioned this on IRC to LocutusOfBorg before.
+[20:17] <rbasak> by the SRU team
+[20:18] <arraybolt3> I didn't read Simon's email as attempting to be a be-all-end-all postmortem, I thought it was intended to start discussion, laying out everything Simon knew already. His tone is rather negative, but I think he was trying to be constructive and that he had some good points if you read past the tone.
+[20:19] <rbasak> From what I consider to be the draft at https://wiki.ubuntu.com/VirtualboxUpdates, it's not clear to me what precisely is committed to being verified, and even if it were, that hasn't been agreed by the SRU team. Therefore, there isn't a standard for me to confirm against that appopriate verification has been performed.
+[20:19] <vorlon> arraybolt3: telling the SRU team "you owe N an apology" is a pretty hard tone to get past.
+[20:19] <rbasak> In bug 2050891, currently the Test Plan says: "Install virtualbox, run VMs". That is not an acceptable test plan IMHO.
+[20:19] <arraybolt3> Valid, I just am saying, don't throw the baby out with the bathwater.
+[20:19] -ubottu:#ubuntu-meeting- Bug 2050891 in virtualbox-hwe (Ubuntu Mantic) "[SRU] virtualbox 6.1.50 and 7.0.14" [Undecided, Fix Committed] https://launchpad.net/bugs/2050891
+[20:20] <rbasak> I believe this has all been raised before, and not addressed.
+[20:20] <rbasak> So from my perspective, were I asked to release it, the SRU is blocked.
+[20:20] <arraybolt3> rbasak: I think LocutusOfBorg simply put the test plan in the wrong spot.
+[20:20] <Eickmeyer> To be fair, LoB told people in private chats that he was feeling ignored and got tired of pinging in #ubuntu-release since October that an SRU of virtualbox was ready for review. So, this was not a failure on his part.
+[20:20] <arraybolt3> It's right under "Where Problems Could Occur" under the "Some Guest OSes might fail to load" part.
+[20:21] <Eickmeyer> Literally broke his spirit. That's no way to treat a community member.
+[20:21] <arraybolt3> I can fix that right now if it's needed to unblock the SRU.
+[20:21] <rbasak> My frustration is that we iterated enough times already and it's still not acceptable to me. When I've been asked, I've tried to be helpful. I believe that conversation has already been linked to.
+[20:22] <rbasak> Let's be constructive please.
+[20:23] <seb128> I didn't found the detail by reading through the email again, but did anyone attempted to block promotion to updates of the kernel by flagging that it created a regression?
+[20:23] <rbasak> I hope it's quite clear that currently expectations are far from being met, and that this is the root cause of the issue.
+[20:23] <seb128> if not why did people do IRC pings instead of following the process?
+[20:23] <rbasak> So let's try to figure out how to get to a place where they are met, rather than throw accusations around.
+[20:23] <Eickmeyer> seb128: tsimonq2 pinged xnox .
+[20:23] <seb128> xnox isn't an SRU team member
+[20:24] <seb128> and that wouldn't flag the SRU as not to promote on the SRU report
+[20:24] <seb128> anyway, I don't think we will resolve that tonight
+[20:24] <seb128> I would suggest we wait for the SRU team meeting this week and to see if there is an outcome of that discussion
+[20:25] <vorlon> true, but I think it's useful to have this frank discussion about some of the issues here, that as I mentioned was a bit blocked on the lists because long-form emails are something of a barrier
+[20:25] <rbasak> From my perspective, if someone says something is ready for review, I ask for substantial changes, they don't fix what I requested and then say it's ready for review again, so I ask for substantial changes, ad infinitum, at what point is it no longer reasonable to claim that I'm treating the uploader badly?
+[20:25] <Eickmeyer> Another point: The SRU team meets *every four weeks?* Is this a time constraint issue, because, as someone with a leadership degree, this is not how teams are run under any circumstance. Furthermore, does the SRU team meet *behind closed doors*? That seems pretty suspicious to me.
+[20:26] <arraybolt3> I'm fairly certain there's an SRU team meeting in this channel every four weeks?
+[20:26] <arraybolt3> rbasak: "I believe that conversation has already been linked to." I may be blind, but I don't see the link. (I'd just like to look over it so I can get a better understanding.)
+[20:26] <vorlon> I reject the characterization of this as "suspicious".  The SRU team is not a "leadership" team, it is a functional team with work to do and the meetings are internal to the team for getting things done
+[20:27] <Eickmeyer> vorlon: A community team though, with community governance? I reject the notion that an open source team should be behind closed doors.
+[20:27] <vorlon> expecting teams to not have private meetings for working through outstanding task lists is unhelpful
+[20:28] <vorlon> I categorically reject this framing
+[20:28] <Eickmeyer> I categorically disagree.
+[20:28] <rbasak> arraybolt3: it's in tsimonq2's email
+[20:28] <arraybolt3> I'll have to agree with vorlon. We have a private Matrix Operators meeting every week in order to discuss difficult technical and management topics, we're an open-source and community-related team, and this is what is working best for us so far.
+[20:28] <arraybolt3> rbasak: thanks, I am blind then :P
+[20:29] <Eickmeyer> arraybolt3: However, an SRU team isn't a team that has to deal with private matters regarding individuals.
+[20:29] <rbasak> arraybolt3: well, it is difficult. That's the issue with these threads that get longer and longer - they take expontentially more time to follow.
+[20:29] <arraybolt3> our meetings aren't about those either yet.
+[20:30] <seb128> rbasak, what I don't understand is that from that number of pings and the review of the virtualbox SRU how did we end up in a situation where nobody from the SRU team though we had a problem that needed to be resolved in some way before promoting the new kernel?
+[20:30] <rbasak> Pragmatically, we get stuff done quicker when the involved people can speak to each other high bandwidth without excessive bureaucracy
+[20:30] <vorlon> seb128: those kinds of technical details I think are something best worked through by the SRU team as we sort out responding to the email
+[20:30] <rbasak> seb128: I'm not aware that anybody flagged virtualbox as being broken by the new kernel.
+[20:31] <rbasak> At least, not to the SRU team.
+[20:31] <rbasak> Another complication is that the kernel SRU process operates fairly independently
+[20:31] <seb128> vorlon, ack
+[20:33] <rbasak> Eickmeyer: private matters regarding individuals> I disagree. The complaints posted _are_ accusatory of the conduct of individuals.
+[20:34] <vorlon> independently of the rest of the SRU team, and also independently of the britney-triggered autopkgtests
+[20:34] <rbasak> There are various aspects of this matter that I am deliberately not going into here because it is inappropriate to discuss them publicly.
+[20:35] <Eickmeyer> rbasak: Why is the SRU team discussing complaints of the conduct of individuals? That seems out of scope?
+[20:35]  * Eickmeyer is confused
+[20:35] <rbasak> I think it is in scope, but I cannot explain why exactly without going into private matters.
+[20:36] <rbasak> I'd be happy to explain to the TB in private, or to the CC in private.
+[20:36] <rbasak> But an escalation to the CC at this stage I think would be counterproductive. We need to stop being accusatory and try and resolve this constructively.
+[20:37] <vorlon> ok it's clear that the ball is in the SRU team's court for responding to the email, and I think we've exhausted any useful informal discussion here on the topic.  Moving on
+[20:37] <vorlon> #link https://lists.ubuntu.com/archives/technical-board/2024-January/002862.html launchpad-buildd-admin team ownership
+[20:37] <rbasak> On that topic, Ubuntu's infrastructure provision arrangements from Canonical pre-date my involvement, but there's plenty of stuff that we rely very heavily on Canonical IS for, and I don't see any reason why this case needs to be an exception. So following the existing pattern, it makes sense to me to delegate management of this stuff to Canonical, just like various other infrastructure where we
+[20:37] <rbasak> already do that.
+[20:38] <rbasak> So +1 from me
+[20:38] <vorlon> wgrant had approached me privately about this earlier and I said I had no reservations but that it should be public
+[20:39] <vorlon> of anyone likely to be accidentally exercising this privilege, it would be those members of the Archive Admin team that *happen* to also be on the TB (me, sil2100, seb128)
+[20:39] <vorlon> and there's no reason for that to be the case
+[20:39] <vorlon> and if we need stuff as AAs we can work that out directly with launchpad instead
+[20:39] <vorlon> any objections?
+[20:39] <amurray> +1 from me too (although I can't help but notice that since all current TB members are Canonical employees I wonder if there is a perceived conflict of interest in being asked about this)
+[20:40] <vorlon> well. given that this is true it would still only be Canonical employees able to *exercise* that acl
+[20:40] <vorlon> and afaik none of us do
+[20:40] <amurray> indeed
+=== shettysudhird is now known as sshetty
+[20:41] <vorlon> ok 3 +1, I'll just follow up to the mail to confirm that as a TB position, thanks
+[20:41] <amurray> thanks vorlon
+[20:41] <vorlon> #action vorlon to confirm TB agreement to launchpad-buildd-admins ownership change
+[20:41] <meetingology> ACTION: vorlon to confirm TB agreement to launchpad-buildd-admins ownership change
+[20:41] <vorlon> #topic Check up on community bugs and techboard bugs
+[20:42] <vorlon> #link https://bugs.launchpad.net/ubuntu-community/+bugs?field.assignee=techboard
+[20:42] <vorlon> zaroo boogs
+[20:42] <vorlon> #link https://bugs.launchpad.net/techboard
+[20:42] <vorlon> nothing new :/
+[20:42] <Eickmeyer> Uh, what about Kubuntu requalification?
+[20:43] <seb128> sorry, I was catching up with other channels, I'm +1 also for the launchpad-buildd-admin
+[20:43] <vorlon> and there are carry-over actions for the two open bugs there
+[20:43] <vorlon> seb128: thanks
+[20:43] <seb128> Eickmeyer, I was going to ask about that in the AOB
+[20:43] <Eickmeyer> seb128: Ah, thx
+[20:43] <seb128> it just arrived an hour ago
+[20:44] <vorlon> ok sorry I was assuming that the flavor qual stuff as a whole was in hand and failed to consider that the new mail should have a driver assigned to it
+[20:44] <vorlon> #topic Select a chair for the next meeting (next from https://launchpad.net/~techboard/+members)
+[20:44] <vorlon> I believe next should be sil2100 with amurray as backup
+[20:44] <amurray> ack
+[20:45] <vorlon> #agreed next chair: sil2100, backup: amurray
+[20:45] <meetingology> AGREED: next chair: sil2100, backup: amurray
+[20:45] <vorlon> #topic AOB
+[20:45] <vorlon> seb128:
+[20:45] <seb128> we missed https://lists.ubuntu.com/archives/technical-board/2024-January/002864.html in the list review
+[20:45] <arraybolt3> (not bringing it up right now, but I have a question related to Lubuntu LTS requalification at some point before AOB ends)
+[20:45] <seb128> we should have somone doing the review and call for a vote if it's ready
+[20:46] <arraybolt3> w.r.t. the Kubuntu LTS requalification, I see that Scarlett didn't list any official contacts. This was a hang-up for Lubuntu, and I know who the contacts are. Would it be helpful for me to reply to that email with that info so that someone from the Kubuntu Council can +1 it?
+[20:47] <vorlon> arraybolt3: might speed things up, sure
+[20:47] <vorlon> to be clear, flavors don't need to feel any urgency about this process (there was one email apologizing for being late)
+[20:47] <vorlon> we have until April to make final decisions
+[20:47] <Eickmeyer> To be fair, that's only 2 months with lots of stuff to do in between.
+[20:48] <arraybolt3> still, good to know that we aren't already too late (I was a bit worried with how long Lubuntu was taking, so this is good new info for me to have).
+[20:48] <ricktimmis> +1
+[20:48] <vorlon> anyone on the TB want to volunteer to drive Kubuntu qual?
+[20:49] <amurray> I can take it
+[20:49] <vorlon> #action amurray to follow up with Kubuntu on 24.04 LTS request
+[20:49] <meetingology> ACTION: amurray to follow up with Kubuntu on 24.04 LTS request
+[20:49] <seb128> amurray, thanks!
+[20:49] <vorlon> amurray: thank
+[20:49] <vorlon> s
+[20:49] <arraybolt3> a single thank is good enough *ducks*
+[20:50] <ricktimmis> Happy to be point of contact for Kubuntu
+[20:50] <vorlon> ricktimmis: apologies, but I have no idea who you are that you are volunteering?
+[20:50] <arraybolt3> He is a Kubuntu Council member
+[20:51] <arraybolt3> https://launchpad.net/~kubuntu-council/+members#active
+[20:51] <vorlon> https://launchpad.net/~kubuntu-council/+members gotcha
+[20:51] <arraybolt3> (them and Scarlett are the contacts)
+[20:51] <vorlon> well anyway, Kubuntu folks should among them decide who it's going to be and post to the list please
+[20:51] <vorlon> ricktimmis: nice to meet you (after you've been on the Kubuntu Council for 6 years ;)
+[20:51] <arraybolt3> ricktimmis: it sounds like you're better equipped to post that info, so I'll leave that alone so I don't mess anything up :P
+[20:52] <amurray> yes please, that way I know who to reply to since Scarlett didn't CC anyone else
+[20:52] <Eickmeyer> ricktimmis: You know me, so if you need help, you know who to find as well.
+[20:52] <vorlon> any other AOB?
+[20:52] <arraybolt3> o/
+[20:53] <rbasak> o/
+[20:53] <arraybolt3> is there anything else that needs done for Lubuntu's LTS requalification?
+[20:53] <arraybolt3> (that was me raising my hand)
+[20:53] <ricktimmis> Thx
+[20:53] <arraybolt3> (sorry, looked like a wave goodbye)
+[20:53] <arraybolt3> I don't know if it's been officially ratified yet, and this was something Simon wanted to bring up.
+[20:54] <vorlon> thanks for checking
+[20:55] <vorlon> looking at the mailing list archive I find myself confused because I was pretty sure there was a reply to my question about the contacts on list but I don't see it there
+[20:55] <rbasak> It wasn't threaded
+[20:55] <arraybolt3> sec, I'll dig it up
+[20:55] <vorlon> rbasak: yah but I don't see it at all?
+[20:55] <rbasak> "Updating Lubuntu's Release Management Delegation" dated Tue, 9 Jan 2024 16:06:05 +0000
+[20:55] <rbasak> Oh - it's not in the archive?
+[20:56] <arraybolt3> I'm seeing it as my reply to Lubuntu LTS Requalificatoin: 24.04 Noble Numbat
+[20:56] <vorlon> rbasak: *that* email was before my question, where the answer referenced that other email
+[20:56] <rbasak> https://lists.ubuntu.com/archives/technical-board/2024-January/002851.html is what I thought we're talking about
+[20:56] <arraybolt3> I definitely sent it to the list
+[20:56] <vorlon> so anyway uh list archive maybe broken
+[20:56] <vorlon> but I have it in my local mail archive
+[20:56] <rbasak> Oh, I see.
+[20:56] <rbasak> I didn't receive that email in that case
+[20:56] <vorlon> so I'll take the action to follow up and confirm Lubuntu status (I think we have enough +1s and no objections)
+[20:57] <rbasak> Oh wait
+[20:57] <rbasak> I did get it to ubuntu-release@
+[20:57] <arraybolt3> weird, yeah it looks like the archive just swallowed a bunch of stuff.
+[20:57] <vorlon> ahhhh
+[20:57] <arraybolt3> My name isn't anywhere on there.
+[20:57] <rbasak> https://lists.ubuntu.com/archives/ubuntu-release/2024-January/005891.html and onwards?
+[20:57] <vorlon> arraybolt3: well yes, the email I find from you is To: ubuntu-release@lists.ubuntu.com, Simon Quigley <tsimonq2@lubuntu.me>
+[20:57] <arraybolt3> ah, yep, that's it
+[20:57] <rbasak> technical-board@ wasn't included from then onwards
+[20:58] <arraybolt3> oh
+[20:58] <rbasak> (it was neither in To: nor Cc:)
+[20:58]  * arraybolt3 missed we were hunting through the technical-board ML, I thought this was ubuntu-release :P
+[20:58] <vorlon> you even suckered a member of the TB to posting their +1 only to ubuntu-release
+[20:58] <arraybolt3> hahahahaha
+[20:58] <vorlon> I've just bounced a bunch of mails to the list from my mailbox, let's see if that works
+[20:58] <arraybolt3> Thunderbird is hard
+[20:58] <Eickmeyer> ð¤£
+[20:59] <vorlon> #action vorlon to confirm ratification of Lubuntu LTS
+[20:59] <meetingology> ACTION: vorlon to confirm ratification of Lubuntu LTS
+[20:59] <vorlon> we're at time and I think that's everything?
+[21:00] <arraybolt3> nothing else from me
+[21:00] <amurray> nothing from me
+[21:00] <rbasak> As we're out of time I'll add an item to the agenda for our next meeting instead
+[21:00] <seb128> rbasak raised his hand earlier?
+[21:00] <seb128> rbasak, ack
+[21:01] <vorlon> #endmeeting
+[21:01] <meetingology> Meeting ended at 21:01:42 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-01-30-20.01.moin.txt
+[21:01] <vorlon> thanks all
+[21:01] <rbasak> FWIW, your bounces just came through
+[21:01] <rbasak> Thanks!
+[21:01] <seb128> thanks!
+[21:01] <amurray> thanks folks
+[21:02] <arraybolt3> thanks everyone :)
+=== arraybolt3 is now known as arraybolt3_local
+=== arraybolt3_wc is now known as arraybolt3
+=== shettysudhird is now known as sshetty

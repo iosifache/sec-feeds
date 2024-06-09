@@ -1,0 +1,218 @@
+=== pushkarnk1 is now known as pushkarnk
+[15:49] <utkarsh2102> sil2100, kanashiro, teward: hey! are you all available to join the meeting in 15?
+[15:49] <utkarsh2102> fwiw, Brian, Seb, and Robie are out today and won't make it.
+[15:49] <utkarsh2102> as a result, we won't be quorate
+[15:50] <sil2100> Yeah, I'm here
+[15:52] <utkarsh2102> sil2100: do we still have the meeting per usual?
+[15:52] <utkarsh2102> or should we defer the applicant to the next one? :(
+[15:54] <teward> *burps* yes utkarsh2102
+[15:55] <teward> but if we dont have quorum we can still meet ask questions and then defer to ML for vote. Up to you what we do
+[15:55] <teward> we can defer to next meeting for applicant or have our meeting but have final vote on ML or such
+[15:55] <teward> i'm not against deferring though
+[15:55] <teward> weird ass monday @ work today
+[15:56] <bandali> wouldn't 4/7 be quorum?
+[15:57] <rbasak> o/
+[15:57] <teward> i see a robie
+[15:57] <rbasak> What's desktop-core and desktop-extra?
+[15:58] <teward> rbasak: think you meant that for -devel
+[15:58] <teward> rbasak: AFAIK desktop-core is the base install and -extra is all the extras like libreoffice, etc. selected @ install time
+[15:58] <rbasak> No it's in relation to the upcoming application meeting
+[15:58] <rbasak> These are packagesets
+[15:58] <teward> ah check
+[15:58] <rbasak> But I don't understand why they exist or what they're used for
+[15:59] <teward> rbasak: sounds like a question we have to bug foundations or desktop team about i'm just guessing
+[15:59] <teward> we have packageset lists lying around somewhere right
+[16:00] <teward> i forgot where we keep those lists :/
+[16:00] <teward> (computer resets are evil)
+[16:00] <bandali> i'm not sure about the reaosn for distinction between ubuntu-desktop and desktop-core, but the Description of desktop-extra is clarifying: https://ubuntu-archive-team.ubuntu.com/packagesets/noble/desktop-extra
+[16:00] <bandali> Description: Every package that is NOT in ubuntu-desktop, desktop-core or core, but needed for a vanilla GNOME.
+[16:01] <teward> i wonder if core is the minimal default insyall
+[16:02] <teward> install stuff*
+[16:02] <teward> and Desktop is the full software set
+[16:02] <rbasak> What I'm wondering is why most of the required packages here aren't in ubuntu-desktop already.
+[16:02] <teward> rbasak:  unless -core and -desktop are both based on the metapackages (which would make little sense for uploads)
+[16:03] <utkarsh2102> okay, let me officially start the meeting?
+[16:03] <rbasak> Please. Thanks!
+[16:03] <teward> unless Desktop has different requirements in their teams for upload to different segments and such
+[16:03] <utkarsh2102> sil2100, kanashiro?
+[16:03] <sil2100> Sorry, was finishing up a meeting, now here 100%
+[16:03] <utkarsh2102> #startmeeting Developer Membership Board
+[16:03] <meetingology> Meeting started at 16:03:57 UTC.  The chair is utkarsh2102.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[16:03] <sil2100> Reading up the backlog
+[16:03] <meetingology> Available commands: action, commands, idea, info, link, nick
+[16:04] <utkarsh2102> #link https://wiki.ubuntu.com/DeveloperMembershipBoard/Agenda
+[16:04] <utkarsh2102> I'll head straight to the applications o/
+[16:04] <utkarsh2102> #topic Core Dev Applications
+[16:05] <utkarsh2102> #subtopic Amin Bandali
+[16:05] <utkarsh2102> #link https://wiki.ubuntu.com/bandali/core-dev-application
+[16:05] <utkarsh2102> bandali: hello! can you please introduce yourself?
+[16:05] <utkarsh2102> meanwhile we all go through your application page?
+[16:05] <bandali> hi utkarsh2102 :) sure
+[16:07] <bandali> i'm Amin Bandali, and i've been part of Canonical's Ubuntu Desktop team since Nov 2022. i'm primarily the maintainer of Ubuntu's Firefox packages, but i also work on various other aspects of the Ubuntu Desktop, and i've also worked on other areas of Ubuntu in general, both via my kind sponsors and indirectly as a Debian Developer
+[16:07] <rbasak> Hi!
+[16:07] <bandali> hi! o/
+[16:07] <rbasak> " Becoming a core-dev would allow me to upload all kinds of desktop-related packages across the Ubuntu archive, not just the subset I have access to as a member of ~ubuntu-desktop (which excludes most packages in the desktop-core set)."
+[16:08] <rbasak> As above, I'm puzzled by this. Why aren't desktop-related packages that you need to upload as part of desktop work already the ubuntu-desktop packageset?
+[16:08] <rbasak> (maybe not really a question for you)
+[16:08] <rbasak> I ask because if we fixed that, surely that would help more people than just you?
+[16:09] <rbasak> Perhaps there are some packages that shouldn't belong in ubuntu-desktop for which you getting core dev privileges would help, but I'm unclear on what those are.
+[16:09] <utkarsh2102> also, I note that there are endorsements from people who are not Ubuntu members/MOTU/core dev. Can they still endorse? I'd expect them to be in the "Comments" section.
+[16:09] <bandali> right, that's a great question but unfortunately i don't have the historical background (i wish Seb was here today). but i know it goes back at least 4 years, and most likely many more years before that
+[16:09] <teward> i have a followup on that, why do you need coredev if instead you could apply for the specific packagesets
+[16:09] <teward> (even if we didnt consolidate all the desktop pkgsets today)
+[16:09] <rbasak> Could you perhaps elaborate on exactly which packages you would like to upload, and which of those packages you have had sponsored, that do not belong in the ubuntu-desktop packageset?
+[16:09] <utkarsh2102> if so, then only two core-devs which are both in ~Desktop. Are there people who you've worked outside ~Desktop?
+[16:10] <bandali> i'm applying for core-dev in part because i don't *only* work on desktop packages
+[16:11] <rbasak> i don't *only* work on desktop packages> OK - could you elaborate then please on exactly which packages we're talking about?
+[16:12] <bandali> being a DD, i work on packages across the Debian archives (e.g. i maintain jami, opendht, restinio, etc.)
+[16:12] <bandali> i believe there a number of exampels of non-desktop packages i've worked on on my application page, if you search for 'non-desktop'
+[16:12] <rbasak> OK but I don't see any sponsored uploads of those packages into Ubuntu.
+[16:13] <teward> ^^ that
+[16:13] <bandali> how about poppler?
+[16:13] <rbasak> We should certainly consider PPU for the packages that you maintain in Debian
+[16:14] <bandali> i also do +1 rotations every now and again, and being able to upload those directly would be great
+[16:15] <rbasak> For a core dev application, I'd like to start by seeing your track record of sponsorship in Ubuntu for the packages that you are looking to upload. To be clear, I'm not saying that there's a hard requirement to have these, but I'd like to understand where you are and that's usually my starting point, and I'm struggling to identify the subset of your sponsored uploads that relate to this application.
+[16:15] <utkarsh2102> I was wondering if a path like packageset -> MOTU -> core-dev would be good. So essentially, MOTU being the next target?
+[16:15] <bandali> it so happens that for my last +1 shift i was able to do all of my work directly in Debian, but being able to do that work directly in Ubuntu would be nice
+[16:15] <utkarsh2102> re: +1 work^
+[16:16] <bandali> i did initially consider MOTU first, but thought it might be good to skip directly to core-dev since i've worked on a number of non-desktop main packages like poppler etc. that aren't in universe and so not addressed by motu
+[16:17] <bandali> and thought that my background and experience as a DD would have provided me with the skills to aim directly for core-dev
+[16:17] <rbasak> I realise that poppler isn't strictly desktop since I suppose it can be used usefully in a server environment, but it does still feel desktop-y. Has it been considered for the ubuntu-desktop packageset?
+[16:18] <bandali> not that i know of, i'd defer to Seb to clarify that
+[16:19] <bandali> (also, to be clear, this is the part of the page i was referring to earlier: https://wiki.ubuntu.com/bandali/core-dev-application#non-desktop )
+[16:20] <rbasak> Did you take that from the sponsorship miner / udd? I'm looking the miner results at https://udd.debian.org/cgi-bin/ubuntu-sponsorships.cgi?render=html&sponsor=&sponsor_search=name&sponsoree=*bandali*&sponsoree_search=name and it seems a bit messed up :-(
+[16:21] <bandali> err yes i think so
+[16:21] <utkarsh2102> I was gonna get to that, too :)
+[16:21] <utkarsh2102> there seems to be a mismatch
+[16:21] <bandali> yeah e.g. some of that aren't SRUs
+[16:21] <utkarsh2102> a lot of those uploads are uploads to Debian
+[16:21] <utkarsh2102> and a sync here
+[16:22] <utkarsh2102> that's why some won't show up in UDD
+[16:22] <bandali> sorry i probably should've cleaned that up beforehand. in my defence i wasn't sure if there would be a meeting today..
+[16:23] <teward> bandali: it's always best to **assume there will be a meeting** if you've placed yourself in the agenda
+[16:23] <teward> because otherwise you arrive here unprepared
+[16:23] <bandali> teward, that's what i assumed the last times it didn't happen :)
+[16:23] <bandali> but ack
+[16:25] <utkarsh2102> bandali: I see almost all uploads by Jeremy and some by Seb. Whilst that's not a problem, I am wondering if you have worked with core-devs outside ~Desktop?
+[16:25] <rbasak> Do you have any SRU experience for regular bugfixes?
+[16:25] <rbasak> I only see https://launchpad.net/ubuntu/+source/gtk4/4.12.3+ds-1ubuntu0.1 which looks like an upstream point release. Are there any other SRUs you've had sponsored?
+[16:26] <bandali> utkarsh2102, yes indeed, just about all my uploads to Ubuntu have been sponsored by Jeremy and Seb
+[16:26] <bandali> rbasak, i believe i had several more. lemme see if i can find them quickly
+[16:28] <sil2100> bandali: related to rbasak's question: what do you need to consider when preparing for an SRU upload? What can be uploaded as an SRU, what is the process and how to make it land in a stable series?
+[16:28] <utkarsh2102> and on that note, I had a question.What if a package X is on version 1.2.3-1 in Focal and 1.2.4-1 in Mantic, Jammy, Noble, and devel (Oracular now). And there's a bug you'd like to fix for X at least for Focal, what will be the next steps?
+[16:28] <bandali> rbasak, e.g. there's this nautilus one https://launchpad.net/ubuntu/+source/nautilus/1:42.6-0ubuntu1 but as a component of GNOME core, it has a micro-release exception
+[16:29] <rbasak> I'm really looking for "regular" ones please
+[16:30] <rbasak> (since they exercise the SRU process much more compleely - do you have experience of doing that?)
+[16:30] <utkarsh2102> I have more questions, but I'll let you get the above ones squared away first :)
+[16:30] <bandali> rbasak, i recall doing some but i'm afraid i don't have a link handy at this moment. i'll let you know if i can find though
+[16:30] <bandali> sil2100, typing my answer to your question now
+[16:30] <utkarsh2102> :(
+[16:30] <sil2100> Thank you! :)
+[16:32] <bandali> sil2100, generally speaking, SRUs should only contain bug fixes and no new features. the procedure is described on https://wiki.ubuntu.com/StableReleaseUpdates, including a sample template for the accompanying bug that needs to be filed on LP to explain the rationale for the SRU, its potential impact on users, and the bug(s) it aims to fix and how that can be validated (that it indeed fixes though
+[16:32] <bandali> bugs)
+[16:32] <bandali> (also including a test plan for testing and validation of the fix, of course)
+[16:33] <bandali> utkarsh2102, typing an answer to your question now
+[16:35] <bandali> utkarsh2102, generally the fix should also be prepared for all affected later Ubuntu releases as well, so that upgrading to newer releases wouldn't cause a regression again
+[16:35] <utkarsh2102> bandali: okay, thanks, what versions would you use for each releases, then?
+[16:37] <bandali> utkarsh2102, the versions of X would have to be crafted in a way to ensure that they are in increasing order from one Ubuntu release to the next, so that apt would correctly pick it up as an upgrade
+[16:37] <utkarsh2102> yes, can you give me exact versions please?
+[16:37] <sil2100> bandali: thanks. And once the SRU gets accepted into -proposed, what does the uploader need to do? What are their responsibilities? When will the update be made avilable to the users?
+[16:38] <bandali> utkarsh2102, e.g. 1.2.3-1ubuntu1 in focal, perhaps 1.2.3-2ubuntu1 in jammy, and 1.2.4-1ubuntu in mantic
+[16:40] <bandali> sil2100, the uploader would then do validation on the -proposed upload to verify that the indeed fixes all the bugs it claims to have fixed and introduced no regressions. then mark the bug as verification-done-$rel
+[16:41] <utkarsh2102> I am afraid that's not quite correct :(
+[16:41] <utkarsh2102> bandali: see https://wiki.ubuntu.com/SecurityTeam/UpdatePreparation :)
+[16:42] <rbasak> bandali: the uploader would then do validation> specifically, what would be considered an acceptable level of validation, and what would not? At that stage in the process, how could the uploader be sure that the validation they're performing will be considered acceptable by the SRU team?
+[16:42] <bandali> utkarsh2102, ack
+[16:42] <bandali> sil2100, once verified, the upload would then be released to users via -updates, potentially with phasing and monitoring that e.g. there are indeed no increased crash rates
+[16:44] <bandali> rbasak, the details would vary from one case to the next, but i believe at minimum the uploader would need to exercise the agreed upon test plan for the package being updated
+[16:45] <rbasak> OK. And if, after an SRU you prepared is released, you discover that it resulted in a serious regression, what should you do?
+[16:45] <utkarsh2102> re: +1 maint: once you've uploaded a package to the devel release, is there something else you should be doing?
+[16:47] <bandali> rbasak, if it's still in phasing, the phasing should be halted and a new SRU with the fix prepared. if it's ineed a serious/critical regression, one would need to prepare a new stop-gap upload effectively rolling the package back to previous version, while another upload could be prepared
+[16:48] <rbasak> bandali: OK, but what's the process to arrange these things?
+[16:49] <bandali> utkarsh2102, generally, i'd check if the devel upload contains fixes potentially relevant to existing stable releases and if so, prepare an SRU.  i'd also check if my fix for Ubuntu could be applied upstream in Debian, or perhaps even better, directly to the main upstream project, and forward my patch(es) to them accordingly. if that's not quite the answer you were looking for, would you please
+[16:49] <bandali> clarify?
+[16:51] <bandali> rbasak, as in, e.g. what version to use for an upload of the previous working version?
+[16:53] <rbasak> bandali: sorry no that's not what I'm asking. Imagine you've just heard about this serious regression and Jeremy and Seb are unavailable. As a core dev, your team is looking to you to sort things out. What's the established process to alert the SRU team?
+[16:54] <rbasak> You may understand that the SRU team will stop phasing and/or urgently review your revert upload, but how is it that you will get their attention to do this?
+[16:55] <utkarsh2102> bandali: my question is limited to the devel release you may upload to, once the upload is done, where does it go? what next steps you might want to work on to ensure the entire work's done?
+[16:56] <bandali> rbasak, for contacting the SRU team, i'd check https://wiki.ubuntu.com/StableReleaseUpdates#Contacting_the_SRU_team to see who is on rotation that day, and ping them in #ubuntu-release or directly to draw their attention to the matter
+[16:57] <teward> fyi guys I have a hard-stop in 3 minutes
+[16:58] <utkarsh2102> okay, I'll start to push this faster
+[16:58] <bandali> utkarsh2102, oh, thanks for the clarification. normally, the upload to devel would land immediately. but that won't be the case e.g. during one of the devel freezes (where the package would land in -proposed) or if the package is NEW
+[16:58] <bandali> and would need to be manually reviewed and approved by an AA
+[16:58] <rbasak> I'm not sure we can conclude today :-(
+[16:59] <teward> rbasak: i don't think we can either, but feel free to continue the meeting
+[16:59] <utkarsh2102> bandali: if I am not mistaken, the upload to devel don't just land to the -release pocket immediately.
+[16:59] <teward> just poke me when you need a vote
+[16:59] <utkarsh2102> it goes to -proposed and then to -release subsequently
+[16:59] <teward> (I won't be able to do much else here at that point though, I already have my info I need for a vote)
+[17:00] <bandali> utkarsh2102, oh? i thought they only went through -proposed e.g. during freezes, but sorry if i got that wrong
+[17:00] <utkarsh2102> do you know what's the process for an upload to move from -proposed to -release
+[17:00] <utkarsh2102> teward: if you have your vote ready, can I proxy that if we conclude in a bit?
+[17:00] <utkarsh2102> you could perhaps DM me and I can comment on your behald
+[17:00] <teward> utkarsh2102: i'll just leave it in paste so you can say "please vote" with a ping to me and i'll hit enter
+[17:01] <utkarsh2102> teward: works perfectly for me
+[17:01] <bandali> not sure off top my head, i'm afraid. but i'd imagine a member of ubuntu-release would shepherd it through?
+[17:01] <utkarsh2102> bandali: I am afraid not, it's the duty of the uploader to shepherd it
+[17:02] <utkarsh2102> and only contact the release team when you've tried all the obvious things that are blocking the migration
+[17:02] <rbasak> OK I was somewhere between "more information would help me vote" and "I think we have some more adminstrative matters to resolve first". But I'm afraid your answers continue to give me concern and so I'm a hard -1 now, and I don't see any point in dragging this on further.
+[17:02] <bandali> ack
+[17:02] <utkarsh2102> ok, are we ready to vote in that case?
+[17:02] <rbasak> I've been writing up more specifics to give you some guidance on what to work on here. I'll continue doing that. I'll be a few minutes.
+[17:03] <utkarsh2102> bandali: see https://wiki.ubuntu.com/ProposedMigration/. That's what I was looking for.
+[17:03] <utkarsh2102> the first point "Migrating packages from -proposed to release"
+[17:03] <utkarsh2102> anyway, sil2100: okay to vote?
+[17:03] <sil2100> Yes
+[17:03] <bandali> utkarsh2102, ah, yes of course. sorry
+[17:04] <utkarsh2102> #vote Amin Bandali to get Ubuntu Core Dev rights
+[17:04] <meetingology> Please vote on: Amin Bandali to get Ubuntu Core Dev rights
+[17:04] <meetingology> Public votes can be registered by saying +1, -1 or +0 in channel (for private voting, private message me with 'vote +1|-1|+0 #channelname')
+[17:04] <rbasak> -1 reasons to follow
+[17:04] <meetingology> -1 reasons to follow received from rbasak
+[17:04] <teward> -1 While I feel the development contributions are significant, I feel there is not enough knowledge about the various processes, requirements, etc. to properly give this individual unrestricted upload privileges. I encourage bandali to continue to review and learn the processes and do some uploads with extra sponsors and support and then at some point in the future apply again.
+[17:04] <meetingology> -1 While I feel the development contributions are significant, I feel there is not enough knowledge about the various processes, requirements, etc. to properly give this individual unrestricted upload privileges. I encourage bandali to continue to review and learn the processes and do some uploads with extra sponsors and support and then at some point in the future apply again. received from teward
+[17:04] <teward> *now devotes 98% attention to his day-job meeting with the bosses*
+[17:04] <teward> o/
+[17:06] <sil2100> -1 There seems to be still a lot that bandali needs to learn about the Ubuntu upload process. Also, I'd like to see more SRU work + more varied sponsors, if possible
+[17:06] <meetingology> -1 There seems to be still a lot that bandali needs to learn about the Ubuntu upload process. Also, I'd like to see more SRU work + more varied sponsors, if possible received from sil2100
+[17:07] <utkarsh2102> -1; whilst I am happy to see your involvement in the project and that you became a DD recently and that you've been doing great work, I think there are some Ubuntu specific processes to ramp up on - eg: SRU process, Proposed Migration, versioning to use when preparing SRUs, what happens when there's a regression
+[17:07] <meetingology> -1; whilst I am happy to see your involvement in the project and that you became a DD recently and that you've been doing great work, I think there are some Ubuntu specific processes to ramp up on - eg: SRU process, Proposed Migration, versioning to use when preparing SRUs, what happens when there's a regression received from utkarsh2102
+[17:07] <utkarsh2102> (https://wiki.ubuntu.com/StableReleaseUpdates#Regressions - what probably rbasak was looking for). Anyway, I think it'd be helpful to work with a core-dev for a bit and get clarity on these processes and I'd also recommend getting more sponsorships from people outside ~Desktop. I'd also recommend going via MOTU, et al. This helps in inspiring some
+[17:07] <utkarsh2102> confidence.
+[17:07] <utkarsh2102> #endvote
+[17:07] <meetingology> Voting ended on: Amin Bandali to get Ubuntu Core Dev rights
+[17:07] <meetingology> Votes for: 0, Votes against: 4, Abstentions: 0
+[17:07] <meetingology> Motion denied
+[17:08] <bandali> thanks all for your feedback and time
+[17:08] <utkarsh2102> I am sorry that the vote didn't go in favor. But I think we have some good feedback to work through and apply once again once you and your sponsors think it's time again! o/
+[17:08] <utkarsh2102> I think Robie is still finishing up his feedback..
+[17:08] <rbasak> Yes
+[17:09] <utkarsh2102> bandali: don't hesitate in asking DMB for help if you're ever stuck or need some advice or review, et al. ML is the best way if you'd like to reach us.
+[17:10] <utkarsh2102> I am also happy to help with some sponsorship provided my capacity! o/
+[17:10] <rbasak> Here's some specifc feedback:
+[17:10] <rbasak> 1) I'd like clarity on what exactly you're looking to unblock by getting core dev privileges, and then a clear track record of sponsorship for those specific things. Right now I'm very unclear on this and this hampers me from objectively considering your application. If you already have a suitable track record, there's no reason to wait - we can just see it as an admistrative matter to help us
+[17:10] <rbasak> better assess your existing application.
+[17:10] <rbasak> 2) SRU knowledge and experience: I'd like to see experience of "regular" SRUs but so far I haven't seen anything apart from a couple of microrelease updates which follow a slightly different process. If you already have a suitable track record, there's no reason to wait - we can just see it as an admistrative matter to help us better assess your existing application. However, some of your
+[17:10] <utkarsh2102> #action Utkarsh to send out a follow-up mail on the ML
+[17:10] <meetingology> ACTION: Utkarsh to send out a follow-up mail on the ML
+[17:10] <rbasak> SRU-relted answers missed the mark (eg. on versions and on flagging regressions). I feel that you should know these better - the answers are documented, or you improve your answers through experience.
+[17:10] <rbasak> 3) Proposed migration. "i thought they only went through -proposed e.g. during freezes, but sorry if i got that wrong". This is indeed wrong, and I think a hard requirement for any core dev to understand. I'm also confused on how you achieved doing +1 maintenance without this knowledge. This suggests to me that you're assuming incorrect things about Ubuntu from your knowledge of Debian without
+[17:10] <rbasak> appreciating the key points on how our development processes differ. Please continue learning this.
+[17:10] <rbasak> 4) That you worked on the poppler transition is good but looking at the actual uploads it's not clear to me if your contribution was driving the transition and that you understood the whole process, given your answer about proposed migration above. We didn't get to discussing this.
+[17:11] <rbasak> 5) The above list isn't exhaustive - we ran out of time to discuss further. See https://wiki.ubuntu.com/RobieBasak/DMB/CoreDev for my opinion and what I expect you to know.
+[17:11] <utkarsh2102> that's phenomenal advice, Robie. Thanks! o/
+[17:11] <bandali> thank you indeed for your detailed reply/feedback Robie, appreciate it
+[17:11] <utkarsh2102> since we're overtime, I'll stop here formally and end the meeting..
+[17:11] <utkarsh2102> #endmeeting
+[17:11] <meetingology> Meeting ended at 17:11:43 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-04-29-16.03.moin.txt
+[17:12] <utkarsh2102> ok, it's 10:40 PMÂ  here and I should run and have some food. Bye. o/
+[17:12] <rbasak> Thanks. Please do reach out if anything is unclear, and/or if you'd like to go through my expectations before re-applying. I'd really like you fly through next time - your actual technical ability looks great and would be valuable for us to have!
+[17:13] <rbasak> But the Ubuntu-specific stuff needs more clarity I think.
+[17:13] <rbasak> I hope the above feedback is clear enough. I don't consider it acceptable to give anyone a -1 without clear and specific feedback, but I did have to write it in a hurry. Please let me know if anything doesn't make sense.
+[17:14] <bandali> looking back, i believe i knew the correct answer to at least two of the above questions. not sure what came over me and i fully blanked on them...
+[17:15] <bandali> your feedback makes a lot of sense, and once again is very much appreciated. i'll take it to heart and know better, and work on what needs improving
+[17:15] <rbasak> I appreciate that it's difficult in realtime and individuals perform very differently in this very unrealistic situation. That's why I want a good track record, but we seemed to be missing that too :-/
+[17:15] <bandali> ack
+[17:16] <rbasak> For example if you had (for example, this isn't a hard requirement) five excellent SRUs with everything correct already recorded in comments in bugs, then I wouldn't have asked hard questions :)
+[17:17] <bandali> :) right
+=== sespiros_ is now known as sespiros

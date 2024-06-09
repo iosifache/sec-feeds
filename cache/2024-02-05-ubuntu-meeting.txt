@@ -1,0 +1,91 @@
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+=== handsome_feng_ is now known as handsome_feng
+=== teward_ is now known as teward
+=== JanC is now known as Guest8432
+=== JanC_ is now known as JanC
+[15:51] <utkarsh2102> hiho
+[16:00] <sil2100> o/
+[16:01] <rbasak> o/
+[16:01] <bdmurray_> o/
+=== bdmurray_ is now known as bdmurray
+[16:01] <utkarsh2102> hellu
+[16:02] <utkarsh2102> whilst we don't have anything on the agenda, I do have a misc
+[16:02] <utkarsh2102> so should I start?
+[16:02] <rbasak> Sure, thanks
+[16:02] <utkarsh2102> #startmeeting Developer Membership Board
+[16:02] <meetingology> Meeting started at 16:02:25 UTC.  The chair is utkarsh2102.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[16:02] <meetingology> Available commands: action, commands, idea, info, link, nick
+[16:02] <utkarsh2102> nothing on agenda, moving straight to AOB
+[16:02] <utkarsh2102> #topic AOB
+[16:03] <sil2100> I'd like to use to occassion to apologize for missing out so many DMB meetings recently
+[16:03] <utkarsh2102> we do not accept apologies, only beer
+[16:03] <utkarsh2102> or whiskey, for some people ;)
+[16:04] <sil2100> Especially apologize to all the applicants that had their applications handled while I was away
+[16:05] <utkarsh2102> hey! CPC has a packageset (ubuntu-cloud; cf: https://people.canonical.com/~ubuntu-archive/packagesets/noble/ubuntu-cloud). We'd like to revive it and the first step would be to polish it a bit. Would it be okay to drop some packages from the package and add some new via the usual process (mail devel-permissions@ with the updated list and collect
+[16:05] <utkarsh2102> +1s, et al). Would anyone have an objection?
+[16:05] <sil2100> I don't see why not, we can vote on the actual packageset changes via ML as usual
+[16:05] <bdmurray> I don't think it is necessary to review removals.
+[16:05] <rbasak> As long as the changes match the defined packageset description "Packages required to create, bootstrap, use or configure Ubuntu Cloud images and their derivatives" then we only require one DMB member to approve.
+[16:05] <bdmurray> Only additions.
+[16:05] <rbasak> Though please keep the record on the ML
+[16:06] <utkarsh2102> of course
+[16:07] <bdmurray> o/ one topic
+[16:07] <utkarsh2102> perfect, since there are no objections, I'll come back with the new set in some time on the list.
+[16:07] <utkarsh2102> yes, please
+[16:07] <bdmurray> me?
+[16:08] <bdmurray> We need to run an election in the next couple of months. When do we need to start working on that?
+[16:09] <bdmurray> 3 memberships in the board expire on 2024-03-29.
+[16:09] <rbasak> Ah - thank you for noticing!
+[16:09] <rbasak> More in June also
+[16:09] <utkarsh2102> yes
+[16:09] <rbasak> I have a schedule somewhere
+[16:09] <utkarsh2102> 3 in March and 4 in June :P
+[16:09] <utkarsh2102> the whole board essentially
+[16:10] <rbasak> https://git.launchpad.net/~ubuntu-dev/+git/election-tools/tree/README.DMB#n49
+[16:10] <utkarsh2102> it's a 1-month process, we should start mid Feb, at least
+[16:10] <rbasak> I cleaned up and documented the whole process over the past couple of elections.
+[16:10] <bdmurray> In the release team we use Day -28
+[16:11] <rbasak> bdmurray: feel free to adjust :)
+[16:11] <bdmurray> Obviously, I think that's a bit easier to read.
+[16:11] <rbasak> I guess maybe this way round makes more sense actually, as typically the election gets delayed so the variable end as at that end of the schedule, as opposed to Ubuntu releases where the release date typically doesn't change.
+[16:12] <rbasak> I'm happy to run the election again unless someone else wants to do it?
+[16:12] <bdmurray> The release date certianly *shoulndn't* change.
+[16:12] <rbasak> Technically it's run by the TB, but usually delegated to someone who doesn't necessarily have to be on the TB.
+[16:12] <utkarsh2102> rbasak: is it a lot of work? if not, I'd like to run once, just to see how it is :)
+[16:13] <bdmurray> Should somebody who might be running for a position conduct the election?
+[16:13] <rbasak> utkarsh2102: up to you to decide - it's documented :)
+[16:13] <rbasak> bdmurray: that question comes up every time but practically we don't usually have any other choice.
+[16:13] <utkarsh2102> coolio, i'll let you know in the next meeting then o/
+[16:14] <rbasak> bdmurray: I have no reason to distrust any of the people who might end up running it this time.
+[16:14] <utkarsh2102> bdmurray: I, for one, wouldn't be running for the position so that should be squared away
+[16:14] <utkarsh2102> in case I run :)
+[16:14] <bdmurray> I don't think its about our trust but the voters trust.
+[16:14] <utkarsh2102> in case I run => in case I conduct the elections
+[16:15] <rbasak> I don't think this is a productive thread of conversation unless we actually have someone meeting that criterion volunteering.
+[16:15] <bdmurray> Bazinga! Agreed though
+[16:16] <utkarsh2102> perfect, anything else, anyone?
+[16:17] <utkarsh2102> tick tick 3
+[16:17] <utkarsh2102> tick tick 2
+[16:17] <utkarsh2102> tick tick 1
+[16:17] <utkarsh2102> #endmeeting
+[16:17] <meetingology> Meeting ended at 16:17:29 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-02-05-16.02.moin.txt
+[16:17] <rbasak> Yb
+[16:17] <rbasak> Uh
+[16:17] <rbasak> Were we going to conclude what we're going to do about the election?
+[16:18] <utkarsh2102> rbasak: did we not discuss that?
+[16:18] <bdmurray> Utkarsh will review the tasks and decide in two weeks if he can take it on.
+[16:18] <utkarsh2102> that $someone will run it; I'll let you know by the next meeting if I will otherwise you can :)
+[16:18] <utkarsh2102> yep, that^
+[16:19] <rbasak> OK thanks
+[16:20] <utkarsh2102> perfect!
+[16:20] <utkarsh2102> have a great day, everyone! o/
+=== pushkarnk1 is now known as pushkarnk
+[16:20] <utkarsh2102> :wq!
+[16:20] <rbasak> What? All that work and he didn't save it? :-(
+[16:20] <rbasak> Oh, he force saved it :)
+[16:21] <bdmurray> I updated the agenda with election informaiton.
+=== rs20099 is now known as rs2009

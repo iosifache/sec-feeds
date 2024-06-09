@@ -1,0 +1,22 @@
+=== chris14_ is now known as chris14
+=== JanC is now known as Guest7855
+=== JanC_ is now known as JanC
+[10:49] <luna_> amurray: just listened to 222 while updating ubuntu boxes at work guessing 223 is out on Friday as usual?
+[11:32] <amurray> luna_: yeah 223 we not be out before friday
+[11:45] <luna_> alright then i know thanks :) 
+[14:48] <JanC> is it just me or is that bash fix really late?  :-/
+[14:56] <mdeslaur> it was rated low priority, but someone convinced us to bump it up
+[14:57] <mdeslaur> since, you know, running untrusted bash scripts pretty much already gives you code exec...
+[14:57] <mdeslaur> but I guess it's plausible that trusted scripts are handling untrusted data
+[14:59] <JanC> I'd say that is a certainty...
+[15:03] <JanC> there are entire "applications" written in bash...
+[15:06] <JanC> (unfortunately it's hard to find them with apt dependencies as bash is assumed installed...)
+[15:07] <JanC> but 'abcde' is an example
+[15:11] <mdeslaur> sure, I'd just be curious to see an actual example of a PoC for this that actually does something other than a DoS
+[15:12] <mdeslaur> it's a recursive parameter expansion until stack space runs out
+[15:13] <mdeslaur> anyway, we did reconsider the priority, and did fix it
+[15:14] <JanC> that might be quite difficult to come up with indeed (and maybe also involve bugs in other applications, as bash is often used to glue things together, as e.g. 'abcde' also does)
+=== JanC_ is now known as JanC
+[15:21] <JanC> oh, and thanks for explaining  :)
+[15:25] <mdeslaur> don't spend my 2c all at once :)
+=== sdeziel_ is now known as sdeziel
