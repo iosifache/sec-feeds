@@ -1,6 +1,6 @@
 import sys
 import typing
-from datetime import datetime, date, timedelta
+from datetime import datetime, date, timedelta, timezone, time
 from dataclasses import dataclass
 import requests
 import os
@@ -118,6 +118,9 @@ def generate_and_save_rss_feed(
         rss_entry.id(entry.name)
         rss_entry.title(entry.name)
         rss_entry.description(entry.content.replace("\n", "<br/>"))
+        rss_entry.published(
+            datetime.combine(entry.date, time(0, 0, 0, tzinfo=timezone.utc))
+        )
 
         logger.debug(f'Added entry with the title: "{entry.name}"')
 
