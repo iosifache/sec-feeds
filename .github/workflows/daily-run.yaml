@@ -19,7 +19,7 @@ jobs:
         run: poetry install
       - name: Update the feeds
         run: |
-          poetry run python3 generate.py
+          poetry run python3 generate.py 01.01.2024
       - name: Commit the changes
         run: |
           git add cache/ feeds/
