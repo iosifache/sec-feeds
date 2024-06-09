@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "ubusec-rss"
+version = "0.1.0"
+description = "RSS feed for security-related discussions on irclogs.ubuntu.com"
+authors = ["George-Andrei Iosif <hi@iosifache.me>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+loguru = "^0.7.2"
+requests = "^2.32.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
