@@ -11,8 +11,8 @@ from feedgen.feed import FeedGenerator
 
 SECURITY_CHANNELS = ["ubuntu-security", "ubuntu-meeting"]
 IRC_CHANNEL_URL_FORMAT = "https://irclogs.ubuntu.com/{}/{}/{}/%23{}.txt"
-CACHE_FOLDER = "cache"
-ATOM_FEED_PATH = "feed.xml"
+CACHE_FOLDER = "cache/ubuntu"
+ATOM_FEED_PATH = "feeds/ubuntu.xml"
 
 
 @dataclass

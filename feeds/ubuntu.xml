@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><id>ubuntu-security-feeds</id><title>Ubuntu Security Feeds</title><updated>2024-06-09T18:12:00.409554+00:00</updated><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><logo>https://assets.ubuntu.com/v1/a7e3c509-Canonical%20Ubuntu.svg</logo><entry><id>08.06.2024: ubuntu-security</id><title>08.06.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.491539+00:00</updated><content># UBUNTU-SECURITY
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><id>ubuntu-security-feeds</id><title>Ubuntu Security Feeds</title><updated>2024-06-09T18:22:31.323558+00:00</updated><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><logo>https://assets.ubuntu.com/v1/a7e3c509-Canonical%20Ubuntu.svg</logo><entry><id>08.06.2024: ubuntu-security</id><title>08.06.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.403445+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 
-</content></entry><entry><id>07.06.2024: ubuntu-security</id><title>07.06.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.491280+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>07.06.2024: ubuntu-security</id><title>07.06.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.403187+00:00</updated><content># UBUNTU-SECURITY
 
 [11:46] &lt;noob64&gt; Hey guys, I was just doing a system apt upgrade from terminal, and towards the end I got a kind of pop up that took up most of the screen for something related to UEFI and system configuration from boot, and it wanted me to insert a password of at least 8 characters. What is this, and why did it ask for this?
 [12:44] &lt;mdeslaur&gt; ...and he's gone
@@ -14,7 +14,7 @@
 [22:20] &lt;mdeslaur&gt; rouca: thanks, I'll take a look monday morning
 === sdeziel_ is now known as sdeziel
 
-</content></entry><entry><id>06.06.2024: ubuntu-security, ubuntu-meeting</id><title>06.06.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.490867+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>06.06.2024: ubuntu-security, ubuntu-meeting</id><title>06.06.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.402826+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === cpaelzer_ is now known as cpaelzer
@@ -322,12 +322,12 @@
 [22:51] &lt;mapreri&gt; damn, I didn't even read his message, I realized he was here only by looking at the "People present" section of the minutes u.u
 [22:51] &lt;mapreri&gt; ahah
 
-</content></entry><entry><id>05.06.2024: ubuntu-security</id><title>05.06.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.489854+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>05.06.2024: ubuntu-security</id><title>05.06.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.401803+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === crazybyte28 is now known as crazybyte2
 
-</content></entry><entry><id>04.06.2024: ubuntu-security, ubuntu-meeting</id><title>04.06.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.489437+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>04.06.2024: ubuntu-security, ubuntu-meeting</id><title>04.06.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.401436+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === cpaelzer_ is now known as cpaelzer
@@ -591,7 +591,7 @@
 [19:26] &lt;rbasak&gt; Thanks!
 [19:26] &lt;sil2100&gt; Thanks!
 
-</content></entry><entry><id>03.06.2024: ubuntu-security, ubuntu-meeting</id><title>03.06.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.488995+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>03.06.2024: ubuntu-security, ubuntu-meeting</id><title>03.06.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.401030+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === cpaelzer_ is now known as cpaelzer
@@ -614,7 +614,7 @@
 === cpete_ is now known as cpete
 === ebarretto_ is now known as ebarretto
 
-</content></entry><entry><id>02.06.2024: ubuntu-security, ubuntu-meeting</id><title>02.06.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.488544+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>02.06.2024: ubuntu-security, ubuntu-meeting</id><title>02.06.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.400610+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === chris14_ is now known as chris14
@@ -623,7 +623,7 @@
 
 === Mr_Pan_ is now known as Mr_Pan
 
-</content></entry><entry><id>01.06.2024: ubuntu-security, ubuntu-meeting</id><title>01.06.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.488237+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>01.06.2024: ubuntu-security, ubuntu-meeting</id><title>01.06.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.400320+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === chris14_ is now known as chris14
@@ -634,7 +634,7 @@
 === blackboxsw_ is now known as blackboxsw
 === not_phunyguy is now known as phunyguy
 
-</content></entry><entry><id>31.05.2024: ubuntu-security</id><title>31.05.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.487236+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>31.05.2024: ubuntu-security</id><title>31.05.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.400012+00:00</updated><content># UBUNTU-SECURITY
 
 [00:47] &lt;amurray&gt; thanks mcphail 
 === chris14_ is now known as chris14
@@ -644,7 +644,7 @@
 [07:57] &lt;brittluna&gt; amurray: alright thanks :)
 [11:44] &lt;brittluna&gt; updated and listened
 
-</content></entry><entry><id>30.05.2024: ubuntu-security, ubuntu-meeting</id><title>30.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.486934+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>30.05.2024: ubuntu-security, ubuntu-meeting</id><title>30.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.399720+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [11:28] &lt;amurray&gt; mcphail: apologies, I have some unwelcome news - the internal release process has ballooned and the earliest date I can get the associated team to commit to is the 1st of July - would this be acceptable for you? I realise this is a lot longer than you wanted to wait - please let me know your thoughts (I'm eod but will check in the morning tomorrow)
@@ -798,7 +798,7 @@
 [16:28] &lt;mkukri&gt; merging cryptsetup requires new openssl. unless someone else uploaded a cryptsetup the regression should be unrelated
 [16:44] &lt;adrien&gt; mkukri: ok, thanks
 
-</content></entry><entry><id>29.05.2024: ubuntu-security</id><title>29.05.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.485831+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>29.05.2024: ubuntu-security</id><title>29.05.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.399321+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === punkcoder7 is now known as punkcoder
@@ -806,7 +806,7 @@
 [21:12] &lt;LocutusOfBorg&gt; federicoquattrin, sure
 [21:20] &lt;LocutusOfBorg&gt; and uploaded
 
-</content></entry><entry><id>28.05.2024: ubuntu-security, ubuntu-meeting</id><title>28.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.485571+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>28.05.2024: ubuntu-security, ubuntu-meeting</id><title>28.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.399047+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === cpaelzer_ is now known as cpaelzer
@@ -994,7 +994,7 @@
 [15:02] &lt;cpaelzer&gt; thanks didrocks
 [15:03] &lt;didrocks&gt; cpaelzer: but yeah, probably a test dep
 
-</content></entry><entry><id>27.05.2024: ubuntu-security, ubuntu-meeting</id><title>27.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.485040+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>27.05.2024: ubuntu-security, ubuntu-meeting</id><title>27.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.398570+00:00</updated><content># UBUNTU-SECURITY
 
 [00:07] &lt;amurray&gt; mcphail: fyi I'm expecting this to be resolved in more like 7 days than a couple of weeks - so will keep pushing on things internally and let you know asap - again, apologies for all the delays on this 
 [00:12] &lt;amurray&gt; blahdeblah: yeah that is a great idea - it would be really interesting to do the analysis to (hopefully) show that since we rebase our kernels on the various stable trees etc that we do not suffer from this
@@ -1080,7 +1080,7 @@
 [17:37] &lt;mitchdz&gt; Hi everyone, sorry about the no-show. I calculated the wrong time from Ubuntu Fridge :(
 === ghost is now known as ghost345
 
-</content></entry><entry><id>26.05.2024: ubuntu-security</id><title>26.05.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.484744+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>26.05.2024: ubuntu-security</id><title>26.05.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.398297+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [22:35] &lt;NovaShadow&gt; hey, just wanted if you guys have ever successfully filtered outbound traffic with iptables. I'm struggling to get apt[-get] data in and out while not wholeheartedly permitting 80,443 traffic. +10 points if you've done so using -m owner --uid -_-
@@ -1093,7 +1093,7 @@
 [23:31] &lt;arraybolt3&gt; This is the Ubuntu Security Team's development and collaboration room, #ubuntu is the user technical support room.
 [23:31] &lt;NovaShadow&gt; fair, thank you for your suggestion
 
-</content></entry><entry><id>25.05.2024: ubuntu-security, ubuntu-meeting</id><title>25.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.484477+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>25.05.2024: ubuntu-security, ubuntu-meeting</id><title>25.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.398062+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [08:22] &lt;blahdeblah&gt; amurray: Thanks again as usual for the podcast - idea for future episode: analysis of https://ciq.com/whitepaper/vendor-kernels-bugs-stability/ as general advice, and as it pertains to Ubuntu LTS.
@@ -1109,7 +1109,7 @@
 === JanC is now known as Guest6253
 === JanC is now known as Guest5198
 
-</content></entry><entry><id>24.05.2024: ubuntu-security, ubuntu-meeting</id><title>24.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.483976+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>24.05.2024: ubuntu-security, ubuntu-meeting</id><title>24.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.397766+00:00</updated><content># UBUNTU-SECURITY
 
 [00:19] &lt;JanC&gt; it might not be a major or easy to exploit issue...
 [00:20] &lt;JanC&gt; (so not "critical")
@@ -1142,7 +1142,7 @@
 [10:23] &lt;adrien&gt; ogayot: ok, thanks; I only looked at one revdep ("google-something") and noticed it's at version 1.x and there's 2.x which is still updated; no idea about other revdeps though and it doesn't mean it's not more sensible to patch the package now and do the migration over a long timeframe (I'll see next week, I'm off until tuesday)
 === Mr_Pan_ is now known as Mr_Pan
 
-</content></entry><entry><id>23.05.2024: ubuntu-security, ubuntu-meeting</id><title>23.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.483625+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>23.05.2024: ubuntu-security, ubuntu-meeting</id><title>23.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.397429+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === wete_ is now known as wete
@@ -1294,7 +1294,7 @@
 [15:30] &lt;meetingology&gt; Meeting ended at 15:30:33 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-05-23-15.01.moin.txt
 [16:44] &lt;adrien&gt; ogayot: did you try to get some revdeps updated in debian?
 
-</content></entry><entry><id>22.05.2024: ubuntu-security, ubuntu-meeting</id><title>22.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.483118+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>22.05.2024: ubuntu-security, ubuntu-meeting</id><title>22.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.396973+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [07:58] &lt;LocutusOfBorg&gt; hello, is anybody trying or working to update openssl?
@@ -1317,7 +1317,7 @@
 === Wimpy_ is now known as Wimpy
 === cpete is now known as cpete_
 
-</content></entry><entry><id>21.05.2024: ubuntu-security, ubuntu-meeting</id><title>21.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.482524+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>21.05.2024: ubuntu-security, ubuntu-meeting</id><title>21.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.396526+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === hank_ is now known as hank
@@ -1414,11 +1414,11 @@
 [19:21] &lt;sil2100&gt; And amurray :)
 [19:21] &lt;sil2100&gt; See you next time o/
 
-</content></entry><entry><id>20.05.2024: ubuntu-security</id><title>20.05.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.481727+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>20.05.2024: ubuntu-security</id><title>20.05.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.396049+00:00</updated><content># UBUNTU-SECURITY
 
 === halloy6336 is now known as ssubedi
 
-</content></entry><entry><id>18.05.2024: ubuntu-security, ubuntu-meeting</id><title>18.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.480591+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>18.05.2024: ubuntu-security, ubuntu-meeting</id><title>18.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.395530+00:00</updated><content># UBUNTU-SECURITY
 
 === ubot3 is now known as ubottu
 === sespiros_ is now known as sespiros
@@ -1441,7 +1441,7 @@
 === Kamilion|ZNC is now known as Kamilion
 === Syzzopio`__ is now known as UNREAALou`ni
 
-</content></entry><entry><id>16.05.2024: ubuntu-security, ubuntu-meeting</id><title>16.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.477973+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>16.05.2024: ubuntu-security, ubuntu-meeting</id><title>16.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.394878+00:00</updated><content># UBUNTU-SECURITY
 
 === fauxpride- is now known as fauxpride
 
@@ -1453,16 +1453,16 @@
 === joalif_ is now known as joalif
 === jose_ is now known as jose
 
-</content></entry><entry><id>15.05.2024: ubuntu-security</id><title>15.05.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.477112+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>15.05.2024: ubuntu-security</id><title>15.05.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.394576+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [08:41] &lt;ricotz&gt; hello, could I get some guidance on how to handle the following security issue for mantic and noble? https://bugs.launchpad.net/ubuntu/+source/libreoffice/+bug/2065728 
 
-</content></entry><entry><id>14.05.2024: ubuntu-security</id><title>14.05.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.476179+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>14.05.2024: ubuntu-security</id><title>14.05.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.394303+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 
-</content></entry><entry><id>13.05.2024: ubuntu-security, ubuntu-meeting</id><title>13.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.475921+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>13.05.2024: ubuntu-security, ubuntu-meeting</id><title>13.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.394030+00:00</updated><content># UBUNTU-SECURITY
 
 [00:03] &lt;JanC&gt; hm, but arm64 packages aren't on many (most?) mirrors, nor are they on e.g. security.ubuntu.com, just only on ports.ubuntu.com, why is that?
 [00:04] &lt;JanC&gt; I remember 32-bit arm (armhf?) used to be on all the mirrors?
@@ -1480,7 +1480,7 @@
 
 === nicoz_ is now known as nicoz
 
-</content></entry><entry><id>12.05.2024: ubuntu-security, ubuntu-meeting</id><title>12.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.475463+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>12.05.2024: ubuntu-security, ubuntu-meeting</id><title>12.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.393604+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [19:03] &lt;xFCFFDFFFFEFFFAF&gt; 1405
@@ -1506,7 +1506,7 @@
 [08:27] &lt;KaiShiden&gt; inform inform inform!
 === nicoz_ is now known as nicoz
 
-</content></entry><entry><id>11.05.2024: ubuntu-security, ubuntu-meeting</id><title>11.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.473554+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>11.05.2024: ubuntu-security, ubuntu-meeting</id><title>11.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.393315+00:00</updated><content># UBUNTU-SECURITY
 
 === terminaldweller_ is now known as terminaldweller
 
@@ -1514,7 +1514,7 @@
 
 === nicoz_ is now known as nicoz
 
-</content></entry><entry><id>10.05.2024: ubuntu-security, ubuntu-meeting</id><title>10.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.473186+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>10.05.2024: ubuntu-security, ubuntu-meeting</id><title>10.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.393038+00:00</updated><content># UBUNTU-SECURITY
 
 [00:14] &lt;Unit193&gt; Debian confirmed/concluded that the one of the recent CVEs filed against tinyproxy is a duplicate of one already fixed in stable and in Ubuntu's LTS, https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1070395#12.  It'd be good if Ubuntu could mark CVE-2023-40533 as a duplicate of CVE-2022-40468 too.
 [00:14] -ubottu:#ubuntu-security- Debian bug 1070395 in src:tinyproxy "tinyproxy: CVE-2023-49606" [Grave, Fixed]
@@ -1536,7 +1536,7 @@
 
 === pushkarnk1 is now known as pushkarnk
 
-</content></entry><entry><id>09.05.2024: ubuntu-security, ubuntu-meeting</id><title>09.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.472890+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>09.05.2024: ubuntu-security, ubuntu-meeting</id><title>09.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.392753+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [15:40] &lt;mcphail&gt; Hi. Can I annoy you for news on disclosure for cve-2024-1724 ? I reported this back in Feb and it has been patched for some time now. Keen to stick out a blog article
@@ -1576,7 +1576,7 @@
 [15:18] &lt;meetingology&gt; Meeting ended at 15:18:01 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-05-09-15.06.moin.txt
 === dbungert1 is now known as dbungert
 
-</content></entry><entry><id>08.05.2024: ubuntu-security, ubuntu-meeting</id><title>08.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.472574+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>08.05.2024: ubuntu-security, ubuntu-meeting</id><title>08.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.392487+00:00</updated><content># UBUNTU-SECURITY
 
 === crazybyte25 is now known as crazybyte2
 === chris14_ is now known as chris14
@@ -1586,7 +1586,7 @@
 
 === pushkarnk1 is now known as pushkarnk
 
-</content></entry><entry><id>07.05.2024: ubuntu-security, ubuntu-meeting</id><title>07.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.472135+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>07.05.2024: ubuntu-security, ubuntu-meeting</id><title>07.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.392120+00:00</updated><content># UBUNTU-SECURITY
 
 === JanC_ is now known as JanC
 
@@ -1616,7 +1616,7 @@
 === JanC is now known as Guest6677
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>06.05.2024: ubuntu-security, ubuntu-meeting</id><title>06.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.471740+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>06.05.2024: ubuntu-security, ubuntu-meeting</id><title>06.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.391704+00:00</updated><content># UBUNTU-SECURITY
 
 === wete_ is now known as wete
 [18:28] &lt;rouca&gt; eslerm_: did you test the sendmail patch ?
@@ -1626,12 +1626,12 @@
 === nicoz_ is now known as nicoz
 === Mr_Pan_ is now known as Mr_Pan
 
-</content></entry><entry><id>05.05.2024: ubuntu-meeting</id><title>05.05.2024: ubuntu-meeting</title><updated>2024-06-09T18:12:00.471400+00:00</updated><content># UBUNTU-MEETING
+</content></entry><entry><id>05.05.2024: ubuntu-meeting</id><title>05.05.2024: ubuntu-meeting</title><updated>2024-06-09T18:22:31.391343+00:00</updated><content># UBUNTU-MEETING
 
 === bandali is now known as mab
 === mab is now known as bandali
 
-</content></entry><entry><id>04.05.2024: ubuntu-security, ubuntu-meeting</id><title>04.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.471138+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>04.05.2024: ubuntu-security, ubuntu-meeting</id><title>04.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.391066+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === wete_ is now known as wete
@@ -1643,7 +1643,7 @@
 === bandali is now known as mab
 === mab is now known as bandali
 
-</content></entry><entry><id>03.05.2024: ubuntu-security, ubuntu-meeting</id><title>03.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.470193+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>03.05.2024: ubuntu-security, ubuntu-meeting</id><title>03.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.390072+00:00</updated><content># UBUNTU-SECURITY
 
 === Fischer4 is now known as Fischer
 === ebarretto_ is now known as ebarretto
@@ -1655,7 +1655,7 @@
 === dviererbe1 is now known as dviererbe
 === ebarretto_ is now known as ebarretto
 
-</content></entry><entry><id>02.05.2024: ubuntu-security, ubuntu-meeting</id><title>02.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.469763+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>02.05.2024: ubuntu-security, ubuntu-meeting</id><title>02.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.389610+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 
@@ -1778,7 +1778,7 @@
 [15:36] &lt;mkukri&gt; juliank: i think i have done that, just forgot to update both pages, but this was long enough ago that i wouldnt go 100% on that, so will repeat it then tag
 === nicoz_ is now known as nicoz
 
-</content></entry><entry><id>01.05.2024: ubuntu-security, ubuntu-meeting</id><title>01.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.469339+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>01.05.2024: ubuntu-security, ubuntu-meeting</id><title>01.05.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.389189+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === chris14_ is now known as chris14
@@ -1787,7 +1787,7 @@
 
 === dviererbe1 is now known as dviererbe
 
-</content></entry><entry><id>30.04.2024: ubuntu-security, ubuntu-meeting</id><title>30.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.468999+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>30.04.2024: ubuntu-security, ubuntu-meeting</id><title>30.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.388840+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 
@@ -1917,7 +1917,7 @@
 [14:53] &lt;cpaelzer&gt; #endmeeting
 [14:53] &lt;meetingology&gt; Meeting ended at 14:53:00 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-04-30-14.34.moin.txt
 
-</content></entry><entry><id>29.04.2024: ubuntu-security, ubuntu-meeting</id><title>29.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.468584+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>29.04.2024: ubuntu-security, ubuntu-meeting</id><title>29.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.388424+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === chris14_ is now known as chris14
@@ -2144,12 +2144,12 @@
 [17:17] &lt;bandali&gt; :) right
 === sespiros_ is now known as sespiros
 
-</content></entry><entry><id>28.04.2024: ubuntu-security</id><title>28.04.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.468082+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>28.04.2024: ubuntu-security</id><title>28.04.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.387909+00:00</updated><content># UBUNTU-SECURITY
 
 [00:23] &lt;trippeh&gt; err wrong channel
 === chris14_ is now known as chris14
 
-</content></entry><entry><id>27.04.2024: ubuntu-security</id><title>27.04.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.467728+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>27.04.2024: ubuntu-security</id><title>27.04.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.387565+00:00</updated><content># UBUNTU-SECURITY
 
 === xFCFFDFFFFEFFFAF is now known as ignoratio
 === ignoratio is now known as ignorratio
@@ -2157,7 +2157,7 @@
 === ignORratio is now known as ignORratIo
 [23:42] &lt;trippeh&gt; first 100G switch upgraded to Ubuntu 24.04 :  )
 
-</content></entry><entry><id>26.04.2024: ubuntu-security</id><title>26.04.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.467404+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>26.04.2024: ubuntu-security</id><title>26.04.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.387269+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [11:32] &lt;mdeslaur&gt; teward: I've updated the CVE and have marked it as ignored
@@ -2166,7 +2166,7 @@
 [16:58] &lt;mdeslaur&gt; cool
 [18:10]  * arraybolt3 is still finding channels I accidentally dropped out of
 
-</content></entry><entry><id>25.04.2024: ubuntu-security, ubuntu-meeting</id><title>25.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.467128+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>25.04.2024: ubuntu-security, ubuntu-meeting</id><title>25.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.386985+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [04:58] &lt;luna_&gt; morning
@@ -2218,7 +2218,7 @@
 
 === dviererbe1 is now known as dviererbe
 
-</content></entry><entry><id>24.04.2024: ubuntu-security, ubuntu-meeting</id><title>24.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.466769+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>24.04.2024: ubuntu-security, ubuntu-meeting</id><title>24.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.386614+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === locutusofborg_ is now known as locutusofborg
@@ -2230,7 +2230,7 @@
 === dviererbe1 is now known as dviererbe
 === utkarsh51 is now known as utkarsh2102
 
-</content></entry><entry><id>23.04.2024: ubuntu-security, ubuntu-meeting</id><title>23.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.466272+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>23.04.2024: ubuntu-security, ubuntu-meeting</id><title>23.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.386118+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === JanC is now known as Guest4088
@@ -2406,12 +2406,12 @@
 [19:06] &lt;amurray&gt; cheers - you too - have a good night :)
 [19:06] &lt;seb128&gt; thanks :)
 
-</content></entry><entry><id>21.04.2024: ubuntu-security</id><title>21.04.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.465456+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>21.04.2024: ubuntu-security</id><title>21.04.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.385320+00:00</updated><content># UBUNTU-SECURITY
 
 [19:33] &lt;luna_&gt; https://discourse.ubuntu.com/t/upcoming-apparmor-security-update-for-cve-2016-1585/44268/1
 [19:33] -ubottu:#ubuntu-security- In all versions of AppArmor mount rules are accidentally widened when compiled. &lt;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1585&gt;
 
-</content></entry><entry><id>20.04.2024: ubuntu-security, ubuntu-meeting</id><title>20.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.465114+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>20.04.2024: ubuntu-security, ubuntu-meeting</id><title>20.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.384937+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 
@@ -2422,7 +2422,7 @@
 === dbungert1 is now known as dbungert
 === dbungert1 is now known as dbungert
 
-</content></entry><entry><id>19.04.2024: ubuntu-security, ubuntu-meeting</id><title>19.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.464411+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>19.04.2024: ubuntu-security, ubuntu-meeting</id><title>19.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.384235+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [12:57] &lt;luna_&gt; hey updating some Ubuntu LTS machines at work before the weekend
@@ -2433,7 +2433,7 @@
 === pushkarnk1 is now known as pushkarnk
 === Kilos-- is now known as Kilos
 
-</content></entry><entry><id>18.04.2024: ubuntu-security, ubuntu-meeting</id><title>18.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.463989+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>18.04.2024: ubuntu-security, ubuntu-meeting</id><title>18.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.383786+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === aph3x_ is now known as aph3x
@@ -2574,12 +2574,12 @@
 [16:31] &lt;jbicha&gt; mkukri: I'll take libsigc++-2.0
 [16:32] &lt;mkukri&gt; okay
 
-</content></entry><entry><id>17.04.2024: ubuntu-meeting</id><title>17.04.2024: ubuntu-meeting</title><updated>2024-06-09T18:12:00.463530+00:00</updated><content># UBUNTU-MEETING
+</content></entry><entry><id>17.04.2024: ubuntu-meeting</id><title>17.04.2024: ubuntu-meeting</title><updated>2024-06-09T18:22:31.383188+00:00</updated><content># UBUNTU-MEETING
 
 === dviererbe1 is now known as dviererbe
 === JanC is now known as Guest4570
 
-</content></entry><entry><id>16.04.2024: ubuntu-security, ubuntu-meeting</id><title>16.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.463099+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>16.04.2024: ubuntu-security, ubuntu-meeting</id><title>16.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.382769+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === aph3x_ is now known as aph3x
@@ -2831,7 +2831,7 @@
 [15:55] &lt;adrien&gt; https://code.launchpad.net/~adrien-n/ubuntu/+source/libtracefs/+git/libtracefs/+merge/464434
 [15:55] &lt;adrien&gt; and I'll call it EOD, at least until the PPA builds and the tests run
 
-</content></entry><entry><id>15.04.2024: ubuntu-security, ubuntu-meeting</id><title>15.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.462599+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>15.04.2024: ubuntu-security, ubuntu-meeting</id><title>15.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.382243+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === cpaelzer_ is now known as cpaelzer
@@ -2878,7 +2878,7 @@
 [19:48] &lt;bandali&gt; cheers
 [19:48] &lt;utkarsh2102&gt; :wq!
 
-</content></entry><entry><id>14.04.2024: ubuntu-security, ubuntu-meeting</id><title>14.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.461546+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>14.04.2024: ubuntu-security, ubuntu-meeting</id><title>14.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.381250+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [23:51] &lt;amurray&gt; stigo: thanks for the kind words re the podcast - glad to hear you enjoy it ð
@@ -2887,11 +2887,11 @@
 
 === pushkarnk1 is now known as pushkarnk
 
-</content></entry><entry><id>13.04.2024: ubuntu-security</id><title>13.04.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.461080+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>13.04.2024: ubuntu-security</id><title>13.04.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.380750+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 
-</content></entry><entry><id>12.04.2024: ubuntu-security, ubuntu-meeting</id><title>12.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.460761+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>12.04.2024: ubuntu-security, ubuntu-meeting</id><title>12.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.380421+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === guiverc2 is now known as guvierc
@@ -2925,7 +2925,7 @@
 === cpaelzer_ is now known as cpaelzer
 === pushkarnk1 is now known as pushkarnk
 
-</content></entry><entry><id>11.04.2024: ubuntu-security, ubuntu-meeting</id><title>11.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.460350+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>11.04.2024: ubuntu-security, ubuntu-meeting</id><title>11.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.379942+00:00</updated><content># UBUNTU-SECURITY
 
 [13:20] &lt;tomreyn&gt; sbeattie: did you get around to forward my errors.u.c XSS (2046565) internally? i still (bug filed 2023-12-15) haven't heard a single peep. please keep in mind the bug is private.
 [15:00] &lt;sbeattie&gt; tomreyn: I poked a little, but the xz tire fire and resulting mass rebuild of noble packages to compensate interfered. I'll nudge again.
@@ -3106,7 +3106,7 @@
 [15:48] &lt;juliank&gt; #endmeeting
 [15:48] &lt;meetingology&gt; Meeting ended at 15:48:02 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-04-11-15.00.moin.txt
 
-</content></entry><entry><id>10.04.2024: ubuntu-security, ubuntu-meeting</id><title>10.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.459847+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>10.04.2024: ubuntu-security, ubuntu-meeting</id><title>10.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.379355+00:00</updated><content># UBUNTU-SECURITY
 
 === guiverc2 is now known as guiverc
 === JanC is now known as Guest4162
@@ -3159,7 +3159,7 @@
 === JanC is now known as Guest4162
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>09.04.2024: ubuntu-security, ubuntu-meeting</id><title>09.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.459422+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>09.04.2024: ubuntu-security, ubuntu-meeting</id><title>09.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.378765+00:00</updated><content># UBUNTU-SECURITY
 
 === punkcoder4 is now known as punkcoder
 === chris14_ is now known as chris14
@@ -3535,7 +3535,7 @@
 [19:17] &lt;amurray&gt; thanks folks - thanks seb128 for chairing
 [19:17] &lt;rbasak&gt; Thanks all!
 
-</content></entry><entry><id>08.04.2024: ubuntu-security, ubuntu-meeting</id><title>08.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.459005+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>08.04.2024: ubuntu-security, ubuntu-meeting</id><title>08.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.378202+00:00</updated><content># UBUNTU-SECURITY
 
 [00:39] &lt;guiverc&gt; great &amp; most interesting podcast amurray (ubusec 224)
 [00:40] &lt;amurray&gt; thanks guiverc 
@@ -3555,7 +3555,7 @@
 === JanC is now known as Guest8501
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>07.04.2024: ubuntu-security, ubuntu-meeting</id><title>07.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.458643+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>07.04.2024: ubuntu-security, ubuntu-meeting</id><title>07.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.377897+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === JanC is now known as Guest8560
@@ -3571,7 +3571,7 @@
 === JanC_ is now known as JanC
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>06.04.2024: ubuntu-security, ubuntu-meeting</id><title>06.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.458317+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>06.04.2024: ubuntu-security, ubuntu-meeting</id><title>06.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.377605+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === JanC_ is now known as JanC
@@ -3582,7 +3582,7 @@
 === JanC_ is now known as JanC
 === sespiros_ is now known as sespiros
 
-</content></entry><entry><id>05.04.2024: ubuntu-security, ubuntu-meeting</id><title>05.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.457987+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>05.04.2024: ubuntu-security, ubuntu-meeting</id><title>05.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.377322+00:00</updated><content># UBUNTU-SECURITY
 
 [00:06] &lt;ahasenack_&gt; still somebody here? Another question. I'm checking an apparmor profile at package build time, using apparmor_parser, trying to detect (and avoid) syntax errors
 [00:06] &lt;ahasenack_&gt; so I call it like "apparmor_parser -K -T -Q &lt;file&gt;"
@@ -3639,7 +3639,7 @@
 === JanC_ is now known as JanC
 === NotEickmeyer is now known as Eickmeyer
 
-</content></entry><entry><id>04.04.2024: ubuntu-security, ubuntu-meeting</id><title>04.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.457575+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>04.04.2024: ubuntu-security, ubuntu-meeting</id><title>04.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.376929+00:00</updated><content># UBUNTU-SECURITY
 
 [04:56] &lt;sbeattie&gt; If RonDesmond comes back, please let him know we are investigating his oval report.
 === JanC_ is now known as JanC
@@ -3775,7 +3775,7 @@
 === jnsgruk92 is now known as jnsgruk
 [22:00] &lt;jnsgruk&gt; o/
 
-</content></entry><entry><id>03.04.2024: ubuntu-security, ubuntu-meeting</id><title>03.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.457205+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>03.04.2024: ubuntu-security, ubuntu-meeting</id><title>03.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.376524+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [21:49] &lt;RonDesmond&gt; Hello, I noticed the Ubuntu OVAL feed seems to have some discrepancies with the security page for CVE-2024-26597
@@ -3794,7 +3794,7 @@
 === pushkarnk1 is now known as pushkarnk
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>02.04.2024: ubuntu-security, ubuntu-meeting</id><title>02.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.456875+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>02.04.2024: ubuntu-security, ubuntu-meeting</id><title>02.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.376245+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [02:07] &lt;blahdeblah&gt; Thanks for all your work on the xz backdoor mitigation stuff folks.  Anyone know whether it's likely to result in commits from pre-5.6 versions being rolled back?
@@ -4027,7 +4027,7 @@
 === JanC is now known as Guest856
 === arraybolt3_ is now known as arraybolt3
 
-</content></entry><entry><id>01.04.2024: ubuntu-security, ubuntu-meeting</id><title>01.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.455738+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>01.04.2024: ubuntu-security, ubuntu-meeting</id><title>01.04.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.374954+00:00</updated><content># UBUNTU-SECURITY
 
 [04:23] &lt;NotEickmeyer&gt; tomreyn: snaps are built using jammy, so no, they would not be affected.
 [04:24] &lt;NotEickmeyer&gt; (Perhaps even focal)
@@ -4050,7 +4050,7 @@
 === arraybolt3_ is now known as arraybolt3
 === arraybolt3_ is now known as arraybolt3
 
-</content></entry><entry><id>31.03.2024: ubuntu-security, ubuntu-meeting</id><title>31.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.455278+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>31.03.2024: ubuntu-security, ubuntu-meeting</id><title>31.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.374521+00:00</updated><content># UBUNTU-SECURITY
 
 [01:20] &lt;mdeslaur&gt; teward: sure, still available as a launchpad artifact here https://launchpad.net/ubuntu/+source/xz-utils/5.6.0-0.2/+build/27848538
 [01:21] &lt;teward&gt; oh nice it's an RCE bug according to the deeper oss-security dive. Now i'm really curious what it's going to do.  *sets up a full system auditor too*
@@ -4079,7 +4079,7 @@
 === JanC is now known as Guest8317
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>30.03.2024: ubuntu-security, ubuntu-meeting</id><title>30.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.454866+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>30.03.2024: ubuntu-security, ubuntu-meeting</id><title>30.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.374123+00:00</updated><content># UBUNTU-SECURITY
 
 === wete_ is now known as wete
 === chris14_ is now known as chris14
@@ -4094,7 +4094,7 @@
 === JanC is now known as Guest7099
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>29.03.2024: ubuntu-security, ubuntu-meeting</id><title>29.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.454398+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>29.03.2024: ubuntu-security, ubuntu-meeting</id><title>29.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.373660+00:00</updated><content># UBUNTU-SECURITY
 
 === JanC is now known as Guest9843
 === JanC_ is now known as JanC
@@ -4184,7 +4184,7 @@
 === JanC is now known as Guest8342
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>28.03.2024: ubuntu-security, ubuntu-meeting</id><title>28.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.453964+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>28.03.2024: ubuntu-security, ubuntu-meeting</id><title>28.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.373252+00:00</updated><content># UBUNTU-SECURITY
 
 === JanC is now known as Guest6621
 === chris14_ is now known as chris14
@@ -4318,11 +4318,11 @@
 === JanC is now known as Guest2005
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>27.03.2024: ubuntu-security</id><title>27.03.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.453414+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>27.03.2024: ubuntu-security</id><title>27.03.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.372836+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 
-</content></entry><entry><id>26.03.2024: ubuntu-security, ubuntu-meeting</id><title>26.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.453013+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>26.03.2024: ubuntu-security, ubuntu-meeting</id><title>26.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.372528+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === JanC_ is now known as JanC
@@ -4566,7 +4566,7 @@
 [20:34] &lt;amurray&gt; yep I'll try to remember to wake up an hour earlier next time
 [20:35] &lt;amurray&gt; oh it will be 2 hours earlier since DST ends here too
 
-</content></entry><entry><id>25.03.2024: ubuntu-security, ubuntu-meeting</id><title>25.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.452559+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>25.03.2024: ubuntu-security, ubuntu-meeting</id><title>25.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.372147+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === JanC is now known as Guest5517
@@ -4593,7 +4593,7 @@
 === NotEickmeyer is now known as Eickmeyer
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>24.03.2024: ubuntu-security, ubuntu-meeting</id><title>24.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.452244+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>24.03.2024: ubuntu-security, ubuntu-meeting</id><title>24.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.371837+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === JanC_ is now known as JanC
@@ -4602,7 +4602,7 @@
 
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>23.03.2024: ubuntu-security, ubuntu-meeting</id><title>23.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.451886+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>23.03.2024: ubuntu-security, ubuntu-meeting</id><title>23.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.371436+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === JanC_ is now known as JanC
@@ -4613,7 +4613,7 @@
 === JanC_ is now known as JanC
 === xGrind-AFK is now known as xGrind
 
-</content></entry><entry><id>22.03.2024: ubuntu-security, ubuntu-meeting</id><title>22.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.451519+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>22.03.2024: ubuntu-security, ubuntu-meeting</id><title>22.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.371035+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === crazybyte6 is now known as crazybyte
@@ -4632,7 +4632,7 @@
 === pushkarnk1 is now known as pushkarnk
 === JanC is now known as Guest1840
 
-</content></entry><entry><id>21.03.2024: ubuntu-security, ubuntu-meeting</id><title>21.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.451234+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>21.03.2024: ubuntu-security, ubuntu-meeting</id><title>21.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.370723+00:00</updated><content># UBUNTU-SECURITY
 
 === amurray_ is now known as amurray
 === chris14_ is now known as chris14
@@ -4830,7 +4830,7 @@
 [16:12] &lt;juliank&gt; #endmeeting
 [16:12] &lt;meetingology&gt; Meeting ended at 16:12:30 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-03-21-15.03.moin.txt
 
-</content></entry><entry><id>20.03.2024: ubuntu-security, ubuntu-meeting</id><title>20.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.450903+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>20.03.2024: ubuntu-security, ubuntu-meeting</id><title>20.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.370335+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === JanC_ is now known as JanC
@@ -4846,7 +4846,7 @@
 === halves7 is now known as halves
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>19.03.2024: ubuntu-security, ubuntu-meeting</id><title>19.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.450614+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>19.03.2024: ubuntu-security, ubuntu-meeting</id><title>19.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.370059+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === chris14_ is now known as chris14
@@ -5094,7 +5094,7 @@
 [16:21] &lt;seb128&gt; slyon, thanks!
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>18.03.2024: ubuntu-security, ubuntu-meeting</id><title>18.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.450226+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>18.03.2024: ubuntu-security, ubuntu-meeting</id><title>18.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.369649+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === JanC is now known as Guest7855
@@ -5310,7 +5310,7 @@
 [20:19] &lt;rbasak&gt; I hope it is unambiguous and covers the edge cases. Please scrutinize!
 [21:32] &lt;teward&gt; i apologize i was not present rbasak and all. unexpected call into the office today for the whole day
 
-</content></entry><entry><id>17.03.2024: ubuntu-security, ubuntu-meeting</id><title>17.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.449747+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>17.03.2024: ubuntu-security, ubuntu-meeting</id><title>17.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.369125+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === chris14_ is now known as chris14
@@ -5321,11 +5321,11 @@
 
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>16.03.2024: ubuntu-security</id><title>16.03.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.449430+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>16.03.2024: ubuntu-security</id><title>16.03.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.368862+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 
-</content></entry><entry><id>15.03.2024: ubuntu-security, ubuntu-meeting</id><title>15.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.449139+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>15.03.2024: ubuntu-security, ubuntu-meeting</id><title>15.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.368593+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === Juesto is now known as Juest
@@ -5350,7 +5350,7 @@
 === JanC_ is now known as JanC
 === arraybolt3_wc is now known as arraybolt3
 
-</content></entry><entry><id>14.03.2024: ubuntu-security, ubuntu-meeting</id><title>14.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.448839+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>14.03.2024: ubuntu-security, ubuntu-meeting</id><title>14.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.368309+00:00</updated><content># UBUNTU-SECURITY
 
 [00:01] &lt;Juest&gt; hello, im guessing the refresh keys issue is fixed?
 === chris14_ is now known as chris14
@@ -5523,7 +5523,7 @@
 [16:09] &lt;adrien&gt; vorlon: libselinux is waiting on umockdev tests from 3 days ago
 [16:10] &lt;adrien&gt; (I joined here on my phone a bit later than I had wanted because I had used irc.freenode.net out of habit...)
 
-</content></entry><entry><id>13.03.2024: ubuntu-security, ubuntu-meeting</id><title>13.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.448465+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>13.03.2024: ubuntu-security, ubuntu-meeting</id><title>13.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.367924+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === chris14_ is now known as chris14
@@ -5537,7 +5537,7 @@
 === JanC is now known as Guest1062
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>12.03.2024: ubuntu-security, ubuntu-meeting</id><title>12.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.448123+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>12.03.2024: ubuntu-security, ubuntu-meeting</id><title>12.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.367620+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === jccgjw1 is now known as jccgjw
@@ -5774,7 +5774,7 @@
 [20:23] &lt;vorlon&gt; seb128, amurray: thank you!
 [20:24] &lt;amurray&gt; likewise :)
 
-</content></entry><entry><id>11.03.2024: ubuntu-security, ubuntu-meeting</id><title>11.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.447645+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>11.03.2024: ubuntu-security, ubuntu-meeting</id><title>11.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.367218+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === chris14_ is now known as chris14
@@ -5796,7 +5796,7 @@
 === JanC_ is now known as JanC
 === JanC is now known as Guest1241
 
-</content></entry><entry><id>10.03.2024: ubuntu-security, ubuntu-meeting</id><title>10.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.447238+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>10.03.2024: ubuntu-security, ubuntu-meeting</id><title>10.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.366812+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [12:36]  * luna_ is listening to this weeks podcast now and have updated the Ubuntu servers at work
@@ -5808,11 +5808,11 @@
 === JanC is now known as Guest6359
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>09.03.2024: ubuntu-security</id><title>09.03.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.446929+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>09.03.2024: ubuntu-security</id><title>09.03.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.366499+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 
-</content></entry><entry><id>08.03.2024: ubuntu-security, ubuntu-meeting</id><title>08.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.446668+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>08.03.2024: ubuntu-security, ubuntu-meeting</id><title>08.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.366221+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === JanC is now known as Guest2458
@@ -5948,7 +5948,7 @@
 === JanC is now known as Guest3720
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>07.03.2024: ubuntu-security, ubuntu-meeting</id><title>07.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.446262+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>07.03.2024: ubuntu-security, ubuntu-meeting</id><title>07.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.365826+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 
@@ -6332,7 +6332,7 @@
 [22:29] &lt;gschiano&gt; Really no worryies
 [22:32] &lt;ic3br34ker77&gt; my launchpad just in case, https://launchpad.net/~ic3br34ker hehe have a good one. see ya!
 
-</content></entry><entry><id>06.03.2024: ubuntu-security, ubuntu-meeting</id><title>06.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.445195+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>06.03.2024: ubuntu-security, ubuntu-meeting</id><title>06.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.364798+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [16:46] &lt;wuzamarine&gt; I am having issues with ufw and I was hoping to get a fresh set of eyes on it. https://ubuntuforums.org/showthread.php?t=2495670&amp;p=14181005#post14181005 I have a second issue that I have a feeling is very much connected  https://ubuntuforums.org/showthread.php?t=2495836&amp;p=14181365#post14181365 and help would be dearly appreciated.
@@ -6354,7 +6354,7 @@
 
 === flexiondotorg is now known as Wimpy
 
-</content></entry><entry><id>05.03.2024: ubuntu-security, ubuntu-meeting</id><title>05.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.444766+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>05.03.2024: ubuntu-security, ubuntu-meeting</id><title>05.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.364139+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === ChanServ changed the topic of #ubuntu-security to: Twitter: @ubuntu_sec || https://usn.ubuntu.com || https://wiki.ubuntu.com/SecurityTeam || https://wiki.ubuntu.com/Security/Features || Community: mdeslaur
@@ -6540,7 +6540,7 @@
 === JanC is now known as Guest3312
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>04.03.2024: ubuntu-security, ubuntu-meeting</id><title>04.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.444239+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>04.03.2024: ubuntu-security, ubuntu-meeting</id><title>04.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.363402+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === cpaelzer_ is now known as cpaelzer
@@ -6600,11 +6600,11 @@
 [16:16] &lt;utkarsh2102&gt; :wq!
 [16:38] &lt;seb128&gt; sorry for missing the meeting, that time of the day doesn't really work out for me :/
 
-</content></entry><entry><id>03.03.2024: ubuntu-security</id><title>03.03.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.442907+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>03.03.2024: ubuntu-security</id><title>03.03.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.362048+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 
-</content></entry><entry><id>02.03.2024: ubuntu-security, ubuntu-meeting</id><title>02.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.442575+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>02.03.2024: ubuntu-security, ubuntu-meeting</id><title>02.03.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.361648+00:00</updated><content># UBUNTU-SECURITY
 
 === JanC is now known as Guest2285
 === JanC_ is now known as JanC
@@ -6619,7 +6619,7 @@
 === JanC is now known as Guest3504
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>29.02.2024: ubuntu-security, ubuntu-meeting</id><title>29.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.442080+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>29.02.2024: ubuntu-security, ubuntu-meeting</id><title>29.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.361125+00:00</updated><content># UBUNTU-SECURITY
 
 === codingkoopa7 is now known as codingkoopa
 === chris14_ is now known as chris14
@@ -6726,7 +6726,7 @@
 [16:45] &lt;schopin&gt; yw
 === mwhudson_ is now known as mwhudson
 
-</content></entry><entry><id>28.02.2024: ubuntu-security, ubuntu-meeting</id><title>28.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.441719+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>28.02.2024: ubuntu-security, ubuntu-meeting</id><title>28.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.360684+00:00</updated><content># UBUNTU-SECURITY
 
 === d1b_ is now known as d1b
 === sdeziel_ is now known as sdeziel
@@ -6741,7 +6741,7 @@
 === pushkarnk1 is now known as pushkarnk
 === pushkarnk1 is now known as pushkarnk
 
-</content></entry><entry><id>27.02.2024: ubuntu-security, ubuntu-meeting</id><title>27.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.441425+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>27.02.2024: ubuntu-security, ubuntu-meeting</id><title>27.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.360366+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === JanC is now known as Guest5782
@@ -7085,7 +7085,7 @@
 [21:29] &lt;sil2100&gt; yw!
 [23:11] &lt;amurray&gt; sgmoore: re Kubuntu LTS - I agree with vorlon, resolving the packageset is not a blocker for LTS qualification, so will call for a vote via the mailing list today - let me know though how you go with manually defining the packageset as suggested by sil2100 / tsimonq2
 
-</content></entry><entry><id>26.02.2024: ubuntu-security, ubuntu-meeting</id><title>26.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.440923+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>26.02.2024: ubuntu-security, ubuntu-meeting</id><title>26.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.359882+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === tomreyn_ is now known as tomreyn
@@ -7099,7 +7099,7 @@
 === JanC is now known as Guest4767
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>25.02.2024: ubuntu-security, ubuntu-meeting</id><title>25.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.440632+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>25.02.2024: ubuntu-security, ubuntu-meeting</id><title>25.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.359549+00:00</updated><content># UBUNTU-SECURITY
 
 === JanC is now known as Guest8253
 === JanC_ is now known as JanC
@@ -7113,7 +7113,7 @@
 === JanC is now known as Guest1553
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>24.02.2024: ubuntu-security, ubuntu-meeting</id><title>24.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.440300+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>24.02.2024: ubuntu-security, ubuntu-meeting</id><title>24.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.359238+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === chris14_ is now known as chris14
@@ -7123,7 +7123,7 @@
 
 === JanC is now known as Guest407
 
-</content></entry><entry><id>23.02.2024: ubuntu-security, ubuntu-meeting</id><title>23.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.439346+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>23.02.2024: ubuntu-security, ubuntu-meeting</id><title>23.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.356221+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [09:01] &lt;ebarretto&gt; teward, oh did I get downvoted? lol I didn't see it. Thanks for vouching for me :) 
@@ -7133,7 +7133,7 @@
 
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>22.02.2024: ubuntu-security, ubuntu-meeting</id><title>22.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.438910+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>22.02.2024: ubuntu-security, ubuntu-meeting</id><title>22.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.355699+00:00</updated><content># UBUNTU-SECURITY
 
 === ebarretto_ is now known as ebarretto
 [12:55] &lt;Guest16&gt; Hi Ubuntu Security Team, As per https://ubuntu.com/security/CVE-2023-38430 , is it correct to say that CVE-2023-38430 is applicable only when ksmbd-tools package is installed?
@@ -7286,7 +7286,7 @@
 [16:49] &lt;meetingology&gt; Meeting ended at 16:49:34 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-02-22-16.02.moin.txt
 [16:49] &lt;juliank&gt; My apologies
 
-</content></entry><entry><id>21.02.2024: ubuntu-security, ubuntu-meeting</id><title>21.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.438356+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>21.02.2024: ubuntu-security, ubuntu-meeting</id><title>21.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.355162+00:00</updated><content># UBUNTU-SECURITY
 
 [03:28] &lt;eslerm&gt; @rouca, I've been able to verify that unpatched sendmail is affected by '\n.\r\n' and '\n.\n'
 [03:28] &lt;eslerm&gt; I need to retest if I missed anything in my notes tomorrow https://markesler.com/notes/smtp-smuggling/
@@ -7298,7 +7298,7 @@
 
 === pushkarnk1 is now known as pushkarnk
 
-</content></entry><entry><id>20.02.2024: ubuntu-security, ubuntu-meeting</id><title>20.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.438015+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>20.02.2024: ubuntu-security, ubuntu-meeting</id><title>20.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.354689+00:00</updated><content># UBUNTU-SECURITY
 
 [02:17] &lt;eslerm&gt; I setup sendmail on the vm, and configured it with a fastmail account
 [02:18] &lt;eslerm&gt; a local user can conntenct to sendmail over telnet and send emails to other local users using smtp commands
@@ -7528,7 +7528,7 @@
 [16:05] &lt;slyon&gt; thanks! o/
 === ppisati is now known as flag
 
-</content></entry><entry><id>19.02.2024: ubuntu-security, ubuntu-meeting</id><title>19.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.437558+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>19.02.2024: ubuntu-security, ubuntu-meeting</id><title>19.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.354244+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === JanC_ is now known as JanC
@@ -7739,7 +7739,7 @@
 [20:08] &lt;tsimonq2&gt; That was the catalyst for writing that reference document above, to get something solid started on this front, to benefit every applicant that comes after Vladimir.
 === _doko is now known as doko
 
-</content></entry><entry><id>18.02.2024: ubuntu-security, ubuntu-meeting</id><title>18.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.437156+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>18.02.2024: ubuntu-security, ubuntu-meeting</id><title>18.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.353558+00:00</updated><content># UBUNTU-SECURITY
 
 === JanC is now known as Guest2833
 === JanC_ is now known as JanC
@@ -7749,14 +7749,14 @@
 === JanC is now known as Guest2833
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>17.02.2024: ubuntu-security</id><title>17.02.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.436844+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>17.02.2024: ubuntu-security</id><title>17.02.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.353140+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [13:35] &lt;rouca&gt; eslerm: any news of sendmail ?
 [14:37] &lt;tsimonq2&gt; https://discourse.ubuntu.com/t/resources-for-development-related-tasks/42544 :)
 === wete_ is now known as wete
 
-</content></entry><entry><id>16.02.2024: ubuntu-security, ubuntu-meeting</id><title>16.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.436576+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>16.02.2024: ubuntu-security, ubuntu-meeting</id><title>16.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.352828+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === chris14_ is now known as chris14
@@ -7769,7 +7769,7 @@
 === JanC is now known as Guest6865
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>15.02.2024: ubuntu-security, ubuntu-meeting</id><title>15.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.436177+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>15.02.2024: ubuntu-security, ubuntu-meeting</id><title>15.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.352397+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [08:53] &lt;rouca&gt; eslerm: just send you a patch
@@ -7933,7 +7933,7 @@
 [16:48] &lt;ginggs&gt; vorlon: i think unity is due to nux FTBFS https://launchpad.net/ubuntu/+source/nux/4.0.8+18.10.20180623-0ubuntu5
 [16:49] &lt;vorlon&gt; ginggs: unity ftbfs without a build log, I've simply retried it
 
-</content></entry><entry><id>14.02.2024: ubuntu-meeting</id><title>14.02.2024: ubuntu-meeting</title><updated>2024-06-09T18:12:00.435757+00:00</updated><content># UBUNTU-MEETING
+</content></entry><entry><id>14.02.2024: ubuntu-meeting</id><title>14.02.2024: ubuntu-meeting</title><updated>2024-06-09T18:22:31.351591+00:00</updated><content># UBUNTU-MEETING
 
 === pushkarnk1 is now known as pushkarnk
 === pushkarnk1 is now known as pushkarnk
@@ -7942,7 +7942,7 @@
 === pushkarnk1 is now known as pushkarnk
 === pushkarnk1 is now known as pushkarnk
 
-</content></entry><entry><id>13.02.2024: ubuntu-security, ubuntu-meeting</id><title>13.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.435409+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>13.02.2024: ubuntu-security, ubuntu-meeting</id><title>13.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.351306+00:00</updated><content># UBUNTU-SECURITY
 
 === vx^ is now known as vx
 === JanC is now known as Guest8158
@@ -8335,7 +8335,7 @@
 [20:44] &lt;rbasak&gt; OK I'll add you to the invite list. Thanks!
 [20:44] &lt;tsimonq2&gt; &lt;3
 
-</content></entry><entry><id>12.02.2024: ubuntu-security, ubuntu-meeting</id><title>12.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.434327+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>12.02.2024: ubuntu-security, ubuntu-meeting</id><title>12.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.350210+00:00</updated><content># UBUNTU-SECURITY
 
 === JanC is now known as Guest4738
 === JanC_ is now known as JanC
@@ -8351,7 +8351,7 @@
 === JanC_ is now known as JanC
 === pushkarnk1 is now known as pushkarnk
 
-</content></entry><entry><id>11.02.2024: ubuntu-security, ubuntu-meeting</id><title>11.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.433206+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>11.02.2024: ubuntu-security, ubuntu-meeting</id><title>11.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.349115+00:00</updated><content># UBUNTU-SECURITY
 
 === JanC is now known as Guest4280
 === JanC_ is now known as JanC
@@ -8362,7 +8362,7 @@
 === JanC is now known as Guest4280
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>10.02.2024: ubuntu-security, ubuntu-meeting</id><title>10.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.432331+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>10.02.2024: ubuntu-security, ubuntu-meeting</id><title>10.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.348267+00:00</updated><content># UBUNTU-SECURITY
 
 [01:19] &lt;Juest&gt; sarnold: ^^
 [01:24] &lt;sarnold&gt; Juest: this is repeatable?? very weird
@@ -8381,7 +8381,7 @@
 === JanC is now known as Guest9448
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>09.02.2024: ubuntu-security, ubuntu-meeting</id><title>09.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.431883+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>09.02.2024: ubuntu-security, ubuntu-meeting</id><title>09.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.347834+00:00</updated><content># UBUNTU-SECURITY
 
 [08:13] &lt;luna&gt; a new podcast episode today?
 [08:46] &lt;luna&gt; got an answer on Mastodon its out now
@@ -8981,7 +8981,7 @@
 [15:50] &lt;Eickmeyer&gt; ð
 === adrien_ is now known as adrien
 
-</content></entry><entry><id>08.02.2024: ubuntu-security, ubuntu-meeting</id><title>08.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.431338+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>08.02.2024: ubuntu-security, ubuntu-meeting</id><title>08.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.347268+00:00</updated><content># UBUNTU-SECURITY
 
 === JanC is now known as Guest4770
 === crazybyte4 is now known as crazybyte
@@ -9133,7 +9133,7 @@
 === JanC_ is now known as JanC
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>07.02.2024: ubuntu-security, ubuntu-meeting</id><title>07.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.430464+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>07.02.2024: ubuntu-security, ubuntu-meeting</id><title>07.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.346320+00:00</updated><content># UBUNTU-SECURITY
 
 === JanC is now known as Guest1583
 === JanC_ is now known as JanC
@@ -9150,7 +9150,7 @@
 === pushkarnk1 is now known as pushkarnk
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>06.02.2024: ubuntu-security, ubuntu-meeting</id><title>06.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.429992+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>06.02.2024: ubuntu-security, ubuntu-meeting</id><title>06.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.345813+00:00</updated><content># UBUNTU-SECURITY
 
 === sarnold_ is now known as sarnold
 === chris14_ is now known as chris14
@@ -9363,7 +9363,7 @@
 [22:26] &lt;systemcall&gt; hi, i have installed ubuntu dual-boot along windows 11. i deactivated security boot, and bitlocking. ubuntu seems to start up but is frozen. no software is loaded. any known solution?
 [22:27] &lt;systemcall&gt; mouse frozen either
 
-</content></entry><entry><id>05.02.2024: ubuntu-security, ubuntu-meeting</id><title>05.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.429592+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>05.02.2024: ubuntu-security, ubuntu-meeting</id><title>05.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.345372+00:00</updated><content># UBUNTU-SECURITY
 
 === crazybyte7 is now known as crazybyte
 === teward_ is now known as teward
@@ -9470,7 +9470,7 @@
 [16:21] &lt;bdmurray&gt; I updated the agenda with election informaiton.
 === rs20099 is now known as rs2009
 
-</content></entry><entry><id>04.02.2024: ubuntu-security, ubuntu-meeting</id><title>04.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.428459+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>04.02.2024: ubuntu-security, ubuntu-meeting</id><title>04.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.344258+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === JanC_ is now known as JanC
@@ -9480,7 +9480,7 @@
 
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>03.02.2024: ubuntu-security, ubuntu-meeting</id><title>03.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.427995+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>03.02.2024: ubuntu-security, ubuntu-meeting</id><title>03.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.343798+00:00</updated><content># UBUNTU-SECURITY
 
 === JanC is now known as Guest1770
 === JanC_ is now known as JanC
@@ -9492,7 +9492,7 @@
 === pushkarnk1 is now known as pushkarnk
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>02.02.2024: ubuntu-security, ubuntu-meeting</id><title>02.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.427553+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>02.02.2024: ubuntu-security, ubuntu-meeting</id><title>02.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.343382+00:00</updated><content># UBUNTU-SECURITY
 
 [00:53] &lt;sarnold&gt; Juest: "safe to use", well, that's a good question. the security model of openpgp is based around validating the signatures on keys and building a chain of trust, etc
 [00:54] &lt;sarnold&gt; Juest: but most people weren't using the SKS keyservers that way, and when those were bombarded with junk signatures that would DOS gpg, evyerone sort of realized that we're asking more of the keyservers than we thought we were
@@ -9513,7 +9513,7 @@
 === JanC is now known as Guest3217
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>01.02.2024: ubuntu-security, ubuntu-meeting</id><title>01.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.427182+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>01.02.2024: ubuntu-security, ubuntu-meeting</id><title>01.02.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.343095+00:00</updated><content># UBUNTU-SECURITY
 
 [00:10] &lt;sarnold&gt; rbasak, schopin, teward, my understanding is that this google-guest-agent fix is especially important to get in via security ESM -- that way, unattended-upgrades will install it, and then the affected users will be able to log in to their machines again
 [13:46] &lt;Habbie&gt; looks like mailman on security-announce let something through
@@ -9810,7 +9810,7 @@
 [20:24] &lt;nuccitheboss&gt; Thank you Till!
 [20:24] &lt;nuccitheboss&gt; Thank you Rudra!
 
-</content></entry><entry><id>31.01.2024: ubuntu-security, ubuntu-meeting</id><title>31.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.426024+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>31.01.2024: ubuntu-security, ubuntu-meeting</id><title>31.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.341956+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [14:30] &lt;jdstrand&gt; allenpthuang: hey, thanks for the postfix update :)
@@ -9848,7 +9848,7 @@
 === mIk3_09 is now known as mIk3_08
 === arraybolt3_wc is now known as arraybolt3
 
-</content></entry><entry><id>30.01.2024: ubuntu-security, ubuntu-meeting</id><title>30.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.425483+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>30.01.2024: ubuntu-security, ubuntu-meeting</id><title>30.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.341544+00:00</updated><content># UBUNTU-SECURITY
 
 === JanC is now known as Guest5945
 === JanC_ is now known as JanC
@@ -10221,7 +10221,7 @@
 === arraybolt3_wc is now known as arraybolt3
 === shettysudhird is now known as sshetty
 
-</content></entry><entry><id>29.01.2024: ubuntu-security, ubuntu-meeting</id><title>29.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.424827+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>29.01.2024: ubuntu-security, ubuntu-meeting</id><title>29.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.341062+00:00</updated><content># UBUNTU-SECURITY
 
 === JanC_ is now known as JanC
 === chris14_ is now known as chris14
@@ -10247,7 +10247,7 @@
 === pushkarnk1 is now known as pushkarnk
 === pushkarnk1 is now known as pushkarnk
 
-</content></entry><entry><id>28.01.2024: ubuntu-security, ubuntu-meeting</id><title>28.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.424384+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>28.01.2024: ubuntu-security, ubuntu-meeting</id><title>28.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.340623+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === d1b_ is now known as d1b
@@ -10257,7 +10257,7 @@
 
 === sespiros_ is now known as sespiros
 
-</content></entry><entry><id>27.01.2024: ubuntu-security, ubuntu-meeting</id><title>27.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.423269+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>27.01.2024: ubuntu-security, ubuntu-meeting</id><title>27.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.339404+00:00</updated><content># UBUNTU-SECURITY
 
 [00:34] &lt;JanC&gt; SSH might not be using PAM...
 [00:34] &lt;JanC&gt; seems like Karl is gone though  :)
@@ -10271,7 +10271,7 @@
 === JanC is now known as Guest5525
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>26.01.2024: ubuntu-security, ubuntu-meeting</id><title>26.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.422885+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>26.01.2024: ubuntu-security, ubuntu-meeting</id><title>26.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.338616+00:00</updated><content># UBUNTU-SECURITY
 
 === NotEickmeyer is now known as Eickmeyer
 [05:03] &lt;luna&gt; amurray: when is the first episode of 2024 planned to be released of the podcast?
@@ -10294,7 +10294,7 @@
 === NotEickmeyer is now known as Eickmeyer
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>25.01.2024: ubuntu-security, ubuntu-meeting</id><title>25.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.422533+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>25.01.2024: ubuntu-security, ubuntu-meeting</id><title>25.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.338288+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === JanC_ is now known as JanC
@@ -10433,7 +10433,7 @@
 [16:49] &lt;meetingology&gt; Meeting ended at 16:49:02 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-01-25-16.01.moin.txt
 === pushkarnk1 is now known as pushkarnk
 
-</content></entry><entry><id>24.01.2024: ubuntu-security, ubuntu-meeting</id><title>24.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.422167+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>24.01.2024: ubuntu-security, ubuntu-meeting</id><title>24.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.337920+00:00</updated><content># UBUNTU-SECURITY
 
 === user03 is now known as gchound
 === wete_ is now known as wete
@@ -10467,7 +10467,7 @@
 === klebers_ is now known as klebers
 === nicoz_ is now known as nicoz
 
-</content></entry><entry><id>23.01.2024: ubuntu-security, ubuntu-meeting</id><title>23.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.421813+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>23.01.2024: ubuntu-security, ubuntu-meeting</id><title>23.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.337565+00:00</updated><content># UBUNTU-SECURITY
 
 === crazybyte7 is now known as crazybyte
 [13:22] &lt;allenpthuang&gt; hey jdstrand, re: postfix, I will work on updates based on those new versions next week. Thanks again for the heads up! :D
@@ -10517,7 +10517,7 @@
 === coreycb_ is now known as coreycb
 === bdmurray_ is now known as bdmurray
 
-</content></entry><entry><id>22.01.2024: ubuntu-security, ubuntu-meeting</id><title>22.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.421460+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>22.01.2024: ubuntu-security, ubuntu-meeting</id><title>22.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.337211+00:00</updated><content># UBUNTU-SECURITY
 
 === ChanServ changed the topic of #ubuntu-security to: Twitter: @ubuntu_sec || https://usn.ubuntu.com || https://wiki.ubuntu.com/SecurityTeam || https://wiki.ubuntu.com/Security/Features || Community: mdeslaur
 [14:49] &lt;jdstrand_&gt; hey, I see that postfix was updated in https://ubuntu.com/security/notices/USN-6591-1 (thanks!). I noticed there is a refined patch to use 'smtpd_forbid_bare_newline = normalize' which improves compatibility while still closing the issue: https://www.postfix.org/announcements/postfix-3.8.5.html. Is Ubuntu planning on updating for this?
@@ -10564,7 +10564,7 @@
 [19:12] &lt;utkarsh2102&gt; see y'all next to next week o/
 [21:52] &lt;teward&gt; no issues with skipping.  been busy today
 
-</content></entry><entry><id>21.01.2024: ubuntu-security, ubuntu-meeting</id><title>21.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.421039+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>21.01.2024: ubuntu-security, ubuntu-meeting</id><title>21.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.336763+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === crazybyte7 is now known as crazybyte
@@ -10574,11 +10574,11 @@
 
 === pushkarnk1 is now known as pushkarnk
 
-</content></entry><entry><id>20.01.2024: ubuntu-meeting</id><title>20.01.2024: ubuntu-meeting</title><updated>2024-06-09T18:12:00.420680+00:00</updated><content># UBUNTU-MEETING
+</content></entry><entry><id>20.01.2024: ubuntu-meeting</id><title>20.01.2024: ubuntu-meeting</title><updated>2024-06-09T18:22:31.336381+00:00</updated><content># UBUNTU-MEETING
 
 === Kilos- is now known as Kilos
 
-</content></entry><entry><id>19.01.2024: ubuntu-security, ubuntu-meeting</id><title>19.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.420450+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>19.01.2024: ubuntu-security, ubuntu-meeting</id><title>19.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.336166+00:00</updated><content># UBUNTU-SECURITY
 
 === ted_ is now known as ted
 === user03 is now known as gchound
@@ -10598,7 +10598,7 @@
 === bdmurray_ is now known as bdmurray
 === nicoz| is now known as nicoz
 
-</content></entry><entry><id>18.01.2024: ubuntu-security, ubuntu-meeting</id><title>18.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.420205+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>18.01.2024: ubuntu-security, ubuntu-meeting</id><title>18.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.335918+00:00</updated><content># UBUNTU-SECURITY
 
 === user03 is now known as gchound
 === user03 is now known as gchound
@@ -10754,7 +10754,7 @@
 [16:55] &lt;pushkarnk&gt; bfn \o
 [17:03] &lt;arraybolt3&gt; sarnold: where did you vanish to :P the Matrix Council meeting is active
 
-</content></entry><entry><id>17.01.2024: ubuntu-security, ubuntu-meeting</id><title>17.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.419883+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>17.01.2024: ubuntu-security, ubuntu-meeting</id><title>17.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.335585+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === JanC_ is now known as JanC
@@ -10766,7 +10766,7 @@
 
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>16.01.2024: ubuntu-security, ubuntu-meeting</id><title>16.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.419554+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>16.01.2024: ubuntu-security, ubuntu-meeting</id><title>16.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.335247+00:00</updated><content># UBUNTU-SECURITY
 
 === NotEickmeyer is now known as Eickmeyer
 
@@ -11147,7 +11147,7 @@
 [20:47] &lt;Eickmeyer&gt; seb128: And never apologize for being sick. I've had to say that to subordinates I've had in the past.
 [20:48] &lt;Eickmeyer&gt; (not that you're subordinate to me, but the point still stands)
 
-</content></entry><entry><id>15.01.2024: ubuntu-security, ubuntu-meeting</id><title>15.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.419173+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>15.01.2024: ubuntu-security, ubuntu-meeting</id><title>15.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.334873+00:00</updated><content># UBUNTU-SECURITY
 
 === arraybolt3 is now known as arraybolt3_tl
 === arraybolt3_wc is now known as arraybolt3
@@ -11165,7 +11165,7 @@
 === arraybolt3_wc is now known as arraybolt3
 === mateus-morais8 is now known as mateus-morais
 
-</content></entry><entry><id>14.01.2024: ubuntu-security, ubuntu-meeting</id><title>14.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.418053+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>14.01.2024: ubuntu-security, ubuntu-meeting</id><title>14.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.333741+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [13:21] &lt;DiogoConstantino&gt; hi all
@@ -11177,7 +11177,7 @@
 
 === JanC is now known as Guest3642
 
-</content></entry><entry><id>13.01.2024: ubuntu-security, ubuntu-meeting</id><title>13.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.417202+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>13.01.2024: ubuntu-security, ubuntu-meeting</id><title>13.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.332812+00:00</updated><content># UBUNTU-SECURITY
 
 === user03 is now known as gchound
 [01:09] &lt;sarnold&gt; tomreyn: I can't access https://launchpad.net/bugs/2046565 I get the "lost something?" page. are you sure you've got the right visibility flags and subscriptions on it?
@@ -11217,7 +11217,7 @@
 === JanC is now known as Guest9721
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>12.01.2024: ubuntu-security, ubuntu-meeting</id><title>12.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.416219+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>12.01.2024: ubuntu-security, ubuntu-meeting</id><title>12.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.331759+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 [17:34] &lt;tomreyn&gt; looks like leosilva has been community contact since Oct 10 - are they still?
@@ -11233,7 +11233,7 @@
 
 === mateus-morais2 is now known as mateus-morais
 
-</content></entry><entry><id>11.01.2024: ubuntu-security, ubuntu-meeting</id><title>11.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.415818+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>11.01.2024: ubuntu-security, ubuntu-meeting</id><title>11.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.331370+00:00</updated><content># UBUNTU-SECURITY
 
 === user03 is now known as gchound
 === chris14_ is now known as chris14
@@ -11368,7 +11368,7 @@
 [16:41] &lt;juliank&gt; #endmeeting
 [16:41] &lt;meetingology&gt; Meeting ended at 16:41:14 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-01-11-16.02.moin.txt
 
-</content></entry><entry><id>10.01.2024: ubuntu-security, ubuntu-meeting</id><title>10.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.414928+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>10.01.2024: ubuntu-security, ubuntu-meeting</id><title>10.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.330528+00:00</updated><content># UBUNTU-SECURITY
 
 === crazybyte0 is now known as crazybyte
 === Nokaji_ is now known as Nokaji
@@ -11378,7 +11378,7 @@
 === pushkarnk1 is now known as pushkarnk
 [15:38] &lt;ddstreet&gt; mapreri teward really sorry for the late notice, but i can't make mtg today
 
-</content></entry><entry><id>09.01.2024: ubuntu-security, ubuntu-meeting</id><title>09.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.414525+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>09.01.2024: ubuntu-security, ubuntu-meeting</id><title>09.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.330122+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === crazybyte9 is now known as crazybyte
@@ -11602,7 +11602,7 @@
 [16:31] &lt;cpaelzer&gt; thanks didrocks
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>08.01.2024: ubuntu-security, ubuntu-meeting</id><title>08.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.414116+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>08.01.2024: ubuntu-security, ubuntu-meeting</id><title>08.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.329731+00:00</updated><content># UBUNTU-SECURITY
 
 === JanC is now known as Guest7764
 === JanC_ is now known as JanC
@@ -11827,7 +11827,7 @@
 [17:18] &lt;teward&gt; and i'm going back to the metric ton of crap i have to deal with @ work
 === Droid is now known as Mekaneck
 
-</content></entry><entry><id>07.01.2024: ubuntu-security, ubuntu-meeting</id><title>07.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.413674+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>07.01.2024: ubuntu-security, ubuntu-meeting</id><title>07.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.329260+00:00</updated><content># UBUNTU-SECURITY
 
 === NotEickmeyer is now known as Eickmeyer
 === user03 is now known as gchound
@@ -11841,14 +11841,14 @@
 === JanC is now known as Guest2079
 === JanC_ is now known as JanC
 
-</content></entry><entry><id>06.01.2024: ubuntu-security</id><title>06.01.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.412598+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>06.01.2024: ubuntu-security</id><title>06.01.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.328004+00:00</updated><content># UBUNTU-SECURITY
 
 === user03 is now known as gchound
 === user03 is now known as gchound
 === user03 is now known as gchound
 === user03 is now known as gchound
 
-</content></entry><entry><id>05.01.2024: ubuntu-security, ubuntu-meeting</id><title>05.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.412186+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>05.01.2024: ubuntu-security, ubuntu-meeting</id><title>05.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.327654+00:00</updated><content># UBUNTU-SECURITY
 
 === user03 is now known as gchound
 === user03 is now known as gchound
@@ -11864,7 +11864,7 @@
 === paride1 is now known as paride
 === JanC is now known as Guest220
 
-</content></entry><entry><id>04.01.2024: ubuntu-security, ubuntu-meeting</id><title>04.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.411794+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>04.01.2024: ubuntu-security, ubuntu-meeting</id><title>04.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.327171+00:00</updated><content># UBUNTU-SECURITY
 
 === user03 is now known as gchpund
 === chris14_ is now known as chris14
@@ -11999,7 +11999,7 @@
 [16:55] &lt;arraybolt3&gt; typing's gonna be tricky with only one hand though
 [16:56]  * Eickmeyer takes arraybolt3's piece of pizza and eats it
 
-</content></entry><entry><id>03.01.2024: ubuntu-security, ubuntu-meeting</id><title>03.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.411387+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>03.01.2024: ubuntu-security, ubuntu-meeting</id><title>03.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.326054+00:00</updated><content># UBUNTU-SECURITY
 
 === user03 is now known as gchound
 === gchound is now known as ubuntu
@@ -12014,7 +12014,7 @@
 === arraybolt3 is now known as arraybolt3_tl
 === arraybolt3_tl is now known as arraybolt3
 
-</content></entry><entry><id>02.01.2024: ubuntu-security, ubuntu-meeting</id><title>02.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:12:00.410977+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>02.01.2024: ubuntu-security, ubuntu-meeting</id><title>02.01.2024: ubuntu-security, ubuntu-meeting</title><updated>2024-06-09T18:22:31.325041+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 === JanC_ is now known as JanC
@@ -12330,7 +12330,7 @@
 [20:36] &lt;amurray&gt; indeed - HNY!
 [20:36] &lt;vorlon&gt; happy new year, all
 
-</content></entry><entry><id>01.01.2024: ubuntu-security</id><title>01.01.2024: ubuntu-security</title><updated>2024-06-09T18:12:00.410411+00:00</updated><content># UBUNTU-SECURITY
+</content></entry><entry><id>01.01.2024: ubuntu-security</id><title>01.01.2024: ubuntu-security</title><updated>2024-06-09T18:22:31.324431+00:00</updated><content># UBUNTU-SECURITY
 
 === user03 is now known as gchound
 === chris14_ is now known as chris14
