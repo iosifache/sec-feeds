@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><id>ubuntu-security-feeds</id><title>Ubuntu Security Feeds</title><updated>2024-06-09T18:33:40.444588+00:00</updated><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><logo>https://assets.ubuntu.com/v1/a7e3c509-Canonical%20Ubuntu.svg</logo><entry><id>08.06.2024: ubuntu-security</id><title>08.06.2024: ubuntu-security</title><updated>2024-06-09T18:33:40.445535+00:00</updated><content># UBUNTU-SECURITY
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><id>ubuntu-security-feeds</id><title>Ubuntu Security Feeds</title><updated>2024-06-09T18:52:55.776319+00:00</updated><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><logo>https://assets.ubuntu.com/v1/a7e3c509-Canonical%20Ubuntu.svg</logo><entry><id>08.06.2024: ubuntu-security</id><title>08.06.2024: ubuntu-security</title><updated>2024-06-09T18:52:55.777455+00:00</updated><content># UBUNTU-SECURITY
 
 === chris14_ is now known as chris14
 
