@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "0 0 * * *"
 jobs:
-  update-readme:
+  daily-run:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
