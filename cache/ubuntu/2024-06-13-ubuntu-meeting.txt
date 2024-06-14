@@ -1,0 +1,185 @@
+[15:00] <bdrung> \o
+[15:00] <zhsj> o/
+[15:00] <ginggs> o/
+[15:00] <mclemenceau_> o/
+[15:00] <liushuyu> o/
+[15:00] <adrien> \o
+[15:00] <ogayot> o/
+[15:00] <Skia> o7
+[15:01] <mateus-morais> o/
+[15:01] <mkukri> o/
+[15:01] <tobhe> \o
+[15:01] <enr0n> o/
+[15:01] <dviererbe> o/
+[15:02] <xypron> \o
+[15:02] <vorlon> oâ¿
+[15:02] <bdmurray> o/
+[15:03] <juliank> o/
+[15:03] <dbungert> o/
+[15:03] <juliank> #startmeeting Weekly Ubuntu Foundations team
+[15:03] <meetingology> Meeting started at 15:03:07 UTC.  The chair is juliank.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:03] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:03] <juliank> #topic Lightning rounds
+[15:03] <juliank> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-2024-06-13/
+[15:03] <juliank> brb :D
+[15:05] <bdmurray> bdrung: Mantic isn't EoL yet!
+[15:06] <adrien> dbungert: I've seen launchpad reporting that a package is ready in my PPA and a build triggered after that would still us the previous version :/
+[15:06] <bdrung> bdmurray, let me check my clock. wait, let me check my timezone... ;)
+[15:06] <adrien> rmadison is a good idea; do you have a script around it to automate the wait?
+[15:07] <dbungert> rmadison script to trigger - no but that sounds useful
+[15:07] <bdrung> adrien, the build needs to be published before it can be used
+[15:08] <bdmurray> I wonder if bryce's PPA tools has something
+[15:08] <adrien> not that I know of; actually I was using ppa-dev-tools to wait on publishing which is the only wait I know of
+[15:08] <adrien> bdrung: yes, but in practice you need to wait for more than that
+=== pushkarnk1 is now known as pushkarnk
+[15:09] <vorlon> launchpad's definition of "published" is not the same as downloadable from the archive
+[15:09] <vorlon> so you can't use the api to answer this
+[15:09] <adrien> dbungert: ok, I don't have a need right now but I'll do that next time I need it, we'll see when that happens (I'm usually not fond of rmadison due to how slow it is :/ )
+[15:10] <adrien> at some point I thought I would chdist apt and poll for changes :D
+[15:10] <bdmurray> Its a perl script if anybody is feeling ambitious
+[15:11] <adrien> :scared:
+[15:14] <juliank> moving on
+[15:14] <juliank> #topic Release incoming bugs
+[15:14] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-oo-incoming-bug-tasks.html#foundations-bugs
+[15:14] <juliank> I think we talked about bug 1969394 last week
+[15:14] -ubottu:#ubuntu-meeting- Bug 1969394 in update-manager (Ubuntu) "'Settings & Livepatch' button opens 'settings' tab, not livepatch" [Low, Confirmed] https://launchpad.net/bugs/1969394
+[15:15] <juliank> Ah shoot I see now, the comment in there is from 2022
+[15:15] <vorlon> dbungert: "rebuild clicks" -> ubuntu-build
+[15:15] <juliank> How do we go about approaching this, this needs desktop design work
+[15:16] <juliank> But update-manager is our package
+[15:16] <bdrung> IMO this is a ticket for the desktop team
+[15:17] <juliank> I left a comment asking
+[15:17] <vorlon> the desktop team is not the design team
+[15:17] <vorlon> is it update-manager that needs to change?
+[15:18] <juliank> I think you also need software-properties-gtk change
+[15:18] <dbungert> vorlon: thanks!
+[15:18] <vorlon> dbungert: I posted about ubuntu-build on ubuntu-devel and nobody replied, so I'll be changing it soon to make --batch implicit and the only interface
+[15:18] <juliank> You need a separate button for livepatch and that needs then work to start software-properties with the livepatch tab directly?
+[15:18] <vorlon> (the non "batch" interface is blech)
+[15:19] <juliank> In any case we can circle back on this with desktop and/or design
+[15:19] <juliank> Let's see what they have to say
+[15:19] <juliank> bug 2069041
+[15:19] -ubottu:#ubuntu-meeting- Bug 2069041 in openssh (Ubuntu) "Changing Port in sshd_config and restarting ssh.service without effect" [Undecided, Triaged] https://launchpad.net/bugs/2069041
+[15:20] <juliank> This is a bit unfortunate
+[15:21] <juliank> enr0n: What does the daemon-reload do?
+[15:21] <enr0n> juliank: re-runs the generators
+[15:21] <vorlon> enr0n: you commented that a different command is necessary from the user to restart because you have to do a daemon-reload.  Is there no supported way that we could automatically retrigger the generator on a file change?
+[15:21] <juliank> enr0n: ah
+[15:21] <juliank> We could trigger the generator
+[15:21] <juliank> But we don't want to autoreload
+[15:21] <juliank> But you'd get a warning
+[15:21] <juliank> You'd need a unit to active on the path changed
+[15:22] <enr0n> I think the answer is basically no, there's not currently a way to make that automagic
+[15:22] <enr0n> You could do some things with path units etc., but all would involve having an ExecStart=systemctl daemon-reload somewhere, which I don't think is a good idea
+[15:22] <schopin> a good first step could be to mention that in the default config comments for the Ports option?
+[15:22] <tobhe> ^ thought the same
+[15:22] <vorlon> I mean, I can think of a way to do it, you can trigger units based on inotify events?
+[15:23] <juliank> enr0n: I guess my point is with the path unit; you then get a warning that the daemon-reload is needed from systemd
+[15:23] <enr0n> vorlon: Right, it's not a question of how to trigger the event, it
+[15:23] <vorlon> but yeah if you would just be wrapping daemon-reload, then eew
+[15:23] <enr0n> the problem is that you would be triggering daemon-reload everytime the config changed, without the admin knowing
+[15:23] <vorlon> so, in that case we should still prioritize the documentation change
+[15:24] <juliank> You can _manually_ trigger the generator, it writes the openssh.socket to the generator dir, and then systemd complains
+[15:24] <vorlon> comment in the default config file + added to the discourse post
+[15:24] <enr0n> Manually triggering the generator does not help. Still needs to be loaded into the manager
+[15:24] <enr0n> So yes, documentation change is best here.
+[15:24] <juliank> Yes the point aggain would have been it told you it's outdated
+[15:25] <enr0n> Okay, I will assign this to myself
+[15:25] <juliank> You know, systemd prints a message when you restart a unit that has changed on disk without reloading :)
+[15:25] <juliank> but config documentation probably is nicer in any case
+[15:26] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-nn-incoming-bug-tasks.html#foundations-bugs
+[15:26] <enr0n> juliank: yes, I know.
+[15:26] <juliank> bug 2066995
+[15:26] -ubottu:#ubuntu-meeting- Bug 2066995 in apport (Ubuntu) "apport-gtk keeps prompting to report crashes in a loop" [High, Confirmed] https://launchpad.net/bugs/2066995
+[15:26] <juliank> I guess this is in progress already, bdrung
+[15:27] <bdrung> yes, we have one fix but that might not be enough
+[15:27] <schopin> This is a compound issue, we fixed one bug but still don't know what causes the loop.
+[15:27] <juliank> hmm
+[15:27] <vorlon> yeah fwiw a chmod of /var/crash hasn't made the problem go away
+[15:27] <juliank> Well are we to a point where we can analyse it in a pulse?
+[15:28] <schopin> vorlon: it hasn't? Interesting.
+[15:28] <bdrung> vorlon, did you also chown the group afterwards?
+[15:29] <vorlon> the owning group is whoopsie
+[15:29] <juliank> Can we not try to debug it here?
+[15:29] <bdrung> for all files in /var/crash?
+[15:29] <juliank> I'll tag it
+[15:29] <bdrung> we need to find the reason since there were one other user reporting the same
+[15:29] <bdrung> so tagging is fine
+[15:30] <juliank> bug 2068933
+[15:30] -ubottu:#ubuntu-meeting- Bug 2068933 in apport (Ubuntu) "all reports with LaunchpadPrivate in them are tagged need-$arch-retrace" [Undecided, New] https://launchpad.net/bugs/2068933
+[15:30] <bdrung> you can tag that as well. that should be easy to fix
+[15:30] <juliank> doing so
+[15:30] <juliank> OK that's it for incoming bugs, mm only has the desktop ones, and jj, ff are empty
+[15:30] <juliank> #topic Team proposed-migration report
+[15:31] <juliank> #link https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses_by_team.html#foundations-bugs
+[15:31] <juliank> vorlon:
+[15:31]  * juliank is preparing for apt 2.9.5 which will fix the migration but can't seem to land the final feature missing :D
+[15:31]  * juliank also needs to re sortout fwupd-efi
+[15:32] <vorlon> juliank: fwupd-efi, we needed a sourceful upload, were you still taking that? ok
+[15:32] <vorlon> pyopenssl vs python-oauth2client
+[15:32] <adrien> needs a new package: https://gitlab.com/adrien-n/python-google-api-core
+[15:32] <vorlon> adrien: are you still working through this?  making progress?
+[15:32] <adrien> well, https://salsa.debian.org/adrien-n/python-google-api-core/
+[15:33] <vorlon> ah
+[15:33] <vorlon> does that just need sponsorship to oracular?
+=== pushkarnk1 is now known as pushkarnk
+[15:33] <adrien> various packages had not been updated for four years so there's a lot of debt
+[15:33] <adrien> I was thinking going through debian as that's the advised way AFAIK
+[15:33] <adrien> (since it's not packaged yet)
+[15:34] <adrien> and there was an ITP in debian (opened january 2023, not materialized yet)
+[15:34] <juliank> You already broke python-googleapi so let's go jfu it
+[15:34] <juliank> (to Ubuntu)
+[15:34] <vorlon> with my AA and release team hats I'm going to say this is a case you should upload directly to Ubuntu
+[15:34] <juliank> :D
+[15:35] <juliank> Yes, python3-googleapi in oracular release pocket is broken without it
+[15:35] <vorlon> unless python-googleapi is removeable instead
+[15:35] <adrien> good, let's do that then; I'll need minor adjustments to the changelog and maybe control files but I don't expect much
+[15:35] <vorlon> can I get a volunteer to sponsor adrien's package to the NEW queue?
+[15:35]  * juliank need it for reading emails
+[15:35]  * juliank volunteers
+[15:35] <vorlon> thanks
+[15:35] <adrien> well, I don't know how long it would take to fix by going through debian
+[15:35] <vorlon> gcc-13: dbungert has this in progress
+[15:35] <adrien> maintainer of python-googleapi has not been particularly fast on this
+[15:36] <vorlon> adrien: yes and that's why we shouldn't wait, for something that is on our todo list :)
+[15:36] <schopin> juliank: is that needed for lieer?
+[15:36] <adrien> yes
+[15:36] <vorlon> libsub-override-perl... hang on, what's happening here, didn't I see libsub-prototype-perl on component-mismatches for demotion?
+[15:36] <adrien> vorlon: let me see what I can prepare before EOD
+[15:36] <vorlon> hmm no it has always been in universe
+[15:37] <vorlon> cpete: so is the MIR for this still in progress?
+[15:37] <cpete_backup> vorlon: MIR is ready for review
+[15:37] <cpete_backup> I can take something else
+[15:38] <vorlon> is there someone who can move that MIR forward? I guess slyon isn't here in the meeting
+[15:39] <vorlon> cpete_backup: right, libsub-override-perl is listed on https://ubuntu-archive-team.ubuntu.com/component-mismatches-proposed.html for demotion
+[15:39] <vorlon> so... if I demote it then no MIR is needed
+[15:40] <cpete_backup> ...ah. TIL to check that
+[15:40] <vorlon> apt: juliank?
+[15:40] <vorlon> danilogondolfo: are you still working on git?
+[15:40] <vorlon> ah you mentioned ikiwiki-hosting in your report so I guess so :)
+[15:40] <danilogondolfo> vorlon, yes, I'm testing fixes for both regressions
+[15:42] <vorlon> ginggs: you had systemd last week, I still see a lot of autopkgtest regressions that persisted on retry, do you know what the story is here?
+[15:42] <vorlon> and does enr0n want to look at these
+[15:42] <vorlon> bdrung: dracut vs systemd, any progress on that one specifically?
+[15:42] <enr0n> vorlon: I am planning to upload systemd today, so yes I have this
+[15:42] <ginggs> there are a lot of "out of disk space" errors, and enr0n is planning another upload
+[15:43] <vorlon> ok
+[15:43] <bdrung> vorlon, yes, new dracut merged, found and addressed one bug, but still more to fix
+[15:43] <vorlon> zhsj: and I see you're still working on fakeroot
+[15:43] <zhsj> yes
+[15:43] <vorlon> libxml-libxml-perl is a desktop-owned lib transition
+[15:43] <vorlon> and openjdk-21 is just waiting for test results
+[15:44] <vorlon> so nothing new to assign out right now!
+[15:44] <vorlon> juliank:
+[15:44] <juliank> #topic AOB
+[15:44] <juliank> I just realized I wrote "to dumb", I meant to dump, but I will argue I meant "to dump in a dumb way" as a word play
+[15:44] <juliank> (https://salsa.debian.org/apt-team/apt/-/merge_requests/354 ftr)
+[15:44] -ubottu:#ubuntu-meeting- Merge 354 in apt-team/apt "edsp: Parse source version from the Source-Version field" [Merged]
+[15:47] <vorlon> mentioned in my status report and by email, but I'm OoO for 3 weeks starting Monday
+[15:47] <juliank> I think I'll just release apt 2.9.5 now, plenty of bug fixes, just no new features :(
+[15:47] <vorlon> so get in your last-minute panicked requests today
+[15:47] <bdmurray> I'll be OoO next week and tomorrow
+[15:55] <juliank> #endmeeting
+[15:55] <meetingology> Meeting ended at 15:55:33 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-06-13-15.03.moin.txt
+[16:40] <adrien> maybe a good way to find if a package is published is to try to curl it directly since its location is predictable, e.g. https://ppa.launchpadcontent.net/adrien/python-google-api-core/ubuntu/pool/main/p/python-google-api-core/python3-google-api-core_2.19.0-0ubuntu1_all.deb
+[16:43] <adrien> hah, my squid-deb-proxy has cached the 403 I had received for the repo when it wasn't setup yet!
