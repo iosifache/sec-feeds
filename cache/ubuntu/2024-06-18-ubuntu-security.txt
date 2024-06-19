@@ -1,0 +1,14 @@
+[01:13] <amurray> UnivrslSuprBox: thanks for the heads up - I've poked the canonical web team to take a look
+=== chris14_ is now known as chris14
+=== JanC is now known as Guest1606
+=== wete_ is now known as wete
+[12:37] <mdeslaur_> tsimonq2: argh, I need to rebuild all of these for jammy into the security pocket: bluedevil, breeze, kdeplasma-addons, kinfocenter, kscreen, kwin, plasma-desktop, plasma-discover, plasma-pa, plasma-thunderbolt, plasma-workspace, powerdevil, xdg-desktop-portal-kde
+[12:37] <mdeslaur_> tsimonq2: I'll let you know how it's doing, say, in 3 months
+[12:39] <mdeslaur_> ;)
+[12:45] <mdeslaur_> actually, maybe less than that
+=== cpaelzer_ is now known as cpaelzer
+[16:27] <tsimonq2> mdeslaur_: heh ;) thank you!
+[16:47]  * Eickmeyer spongebob narrator: *one eternity later*
+[16:52] <mdeslaur_> actual picture of me trying to figure out the kubuntu build dependencies https://imgflip.com/i/8u8zmm
+[20:43] <tsimonq2> mdeslaur_: LOL
+=== sdeziel_ is now known as sdeziel

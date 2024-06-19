@@ -1,0 +1,154 @@
+=== JanC is now known as Guest1606
+=== cpaelzer_ is now known as cpaelzer
+[13:58] <cpaelzer> FYI to the MIR folks in ~32 min, slyon will be so kind to handle the meeting controls as I'll be distracted in another meeting - thanks in advance.
+[14:30] <slyon> o/ I'll run the MIR meeting today, as paelzer is busy.
+[14:30] <slyon> #startmeeting Weekly Main Inclusion Requests status
+[14:30] <meetingology> Meeting started at 14:30:30 UTC.  The chair is slyon.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[14:30] <meetingology> Available commands: action, commands, idea, info, link, nick
+[14:30] <slyon> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( eslerm dviererbe )
+[14:30] <slyon> #topic current component mismatches
+[14:30] <slyon> Mission: Identify required actions and spread the load among the teams
+[14:30] <dviererbe> o/
+[14:30] <slyon> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[14:30] <slyon> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[14:31] <sarnold> good morning
+[14:31] <slyon> this looks all known, with some component-mismatches left in -proposed for jamespage
+[14:31] <slyon> that is: python-inflect and python-arrow
+[14:31] <jamespage> here
+[14:32] <slyon> we're still early in the cylce, so there should be enough time to get those resolved.
+[14:32] <jamespage> I have someone in my team who is going to prepare those MIR's
+[14:32] <sarnold> woot
+[14:32] <slyon> nice, thanks!
+[14:32] <slyon> #topic New MIRs
+[14:32] <slyon> Mission: ensure to assign all incoming reviews for fast processing
+[14:32] <slyon> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[14:32] <slyon> bug #2069308
+[14:32] -ubottu:#ubuntu-meeting- Bug 2069308 in xdg-terminal-exec (Ubuntu) "MIR xdg-terminal-exec" [Undecided, New] https://launchpad.net/bugs/2069308
+[14:33] <slyon> one new MIR for review, do we have volunteers?
+[14:34] <slyon> Also, this seems to be written by non-desktop people, to be owned by Desktop. Do we have agreement on this (cc seb128, jbicha, didrocks). If so â please state your consent on the LP bug.
+[14:35] <slyon> Looks like we have no volunteers for the review. So I can take it for next week (considering the owning team will be clarified by then).
+[14:35] <slyon> #topic Incomplete bugs / questions
+[14:35] <slyon> Mission: Identify required actions and spread the load among the teams
+[14:36] <slyon> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[14:36] <slyon> bug #2066272 has some smaller ask for jbicha around testing
+[14:36] -ubottu:#ubuntu-meeting- Bug 2066272 in libpanel (Ubuntu) "[MIR] libpanel" [Undecided, Incomplete] https://launchpad.net/bugs/2066272
+[14:36] <slyon> bug #2015538 â tracking update. Still needs someone doing the upstream work
+[14:36] -ubottu:#ubuntu-meeting- Bug 2015538 in dbus-broker (Ubuntu) "[MIR] dbus-broker" [Undecided, Incomplete] https://launchpad.net/bugs/2015538
+[14:37] <slyon> no other recent updates
+[14:37] <slyon> #topic Process/Documentation improvements
+[14:37] <slyon> Mission: Review pending process/documentation pull-requests or issues
+[14:37] <slyon> #link https://github.com/canonical/ubuntu-mir/pulls
+[14:37] <slyon> #link https://github.com/canonical/ubuntu-mir/issues
+[14:38] <slyon> https://github.com/canonical/ubuntu-mir/issues/59 is new
+[14:38] -ubottu:#ubuntu-meeting- Issue 59 in canonical/ubuntu-mir "Test rebuilds: What exactly do they mean and where are they?" [Open]
+[14:38] <jbicha> slyon: nteodosio is Ubuntu Desktop and yes, we approve of the xdg-terminal-exec MIR
+[14:38] <slyon> jbicha: cool. I wasn't aware!
+[14:39] <slyon> cpaelzer, didrocks: please give you comments on https://github.com/canonical/ubuntu-mir/issues/59 â I'll also add some details after the meeting (especially links to the test-rebuilds). So we might be able to improve that section.
+[14:39] -ubottu:#ubuntu-meeting- Issue 59 in canonical/ubuntu-mir "Test rebuilds: What exactly do they mean and where are they?" [Open]
+[14:39] <slyon> but we can do that async I guess.
+[14:40] <slyon> #topic MIR related Security Review Queue
+[14:40] <slyon> Mission: Check on progress, do deadlines seem doable?
+[14:40] <slyon> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[14:40] <slyon> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:40] <slyon> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:40] <slyon> Internal link
+[14:40] <slyon> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[14:40] <slyon> sarnold: how are things looking for MIR security reviews?
+[14:41] <sarnold> slyon: currently, a little sad :( no takers yet for provd or sysprof, and turnover may make it challenging to find time :(
+[14:42] <slyon> okay. Let's try keeping an close eye on that then. Currently, the queues look alright, so there's still a buffer. But we need to find capacity going forward.
+[14:43] <slyon> #topic Any other business?
+[14:43] <sarnold> none here
+[14:43]  * slyon feels like (almost) having a monologue :D
+[14:44] <slyon> okay. this was a quick meeting then, with little things being brought up. Let's hope people do not just realize towards the end of the cycle that they need their MIRs :)
+[14:44] <slyon> Let's get some 15 min back everyone. Thanks all o/
+[14:44] <sarnold> slyon: oh but it's a *good* monologue, right upthere with saint crispin's speech
+[14:44] <slyon> hehe
+[14:44] <sarnold> thanks slyon, all :)
+[14:44] <slyon> #endmeeting
+[14:44] <meetingology> Meeting ended at 14:44:51 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-06-18-14.30.moin.txt
+[19:00] <rbasak> o/
+[19:00] <amurray> o/
+[19:00] <sil2100> o/
+[19:01] <sil2100> I'll start in a moment
+[19:01] <sil2100> #startmeeting Ubuntu Technical Board
+[19:01] <meetingology> Meeting started at 19:01:33 UTC.  The chair is sil2100.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[19:01] <meetingology> Available commands: action, commands, idea, info, link, nick
+[19:01] <sil2100> #topic Apologies
+[19:01] <sil2100> As last time, vorlon sent apologies for the next few meetings
+[19:02] <sil2100> #topi Action review
+[19:02] <sil2100> Let me go through the list from last meeting
+[19:03] <sil2100> Action: rbasak to draft a proposal of the DMB-proposed inactivity expiration policy for TB ratification
+[19:03] <sil2100> rbasak: any progress?
+[19:03] <rbasak> This is pending finalisation of the snap implementation details. I'm making good progress on this. You'll see some updates in the doc, particularly in the area of behaviour on release upgrade.
+[19:03] <rbasak> Uh
+[19:03] <rbasak> Sorry, wrong answer.
+[19:03] <rbasak> No progress on the inactivity expiration policy, sorry.
+[19:03] <rbasak> I've been focused on the other thing ;)
+[19:04] <sil2100> Let's carry this one over and chat a bit about the third party repo bits
+[19:04] <sil2100> #action rbasak to draft a proposal of the DMB-proposed inactivity expiration policy for TB ratification
+[19:04] <meetingology> ACTION: rbasak to draft a proposal of the DMB-proposed inactivity expiration policy for TB ratification
+[19:04] <sil2100> So I don't see a carry-pover action item for the aforementioned topic
+[19:04] <rbasak> ACTION: rbasak to open wider discussion on third-party repo policy
+[19:04] <rbasak> That one
+[19:04] <sil2100> I did read through it after last meeting at least and in that stage the ready parts felt good for me
+[19:05] <sil2100> rbasak: that's not the up-to-date action list
+[19:05] <sil2100> https://new.ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-06-04-19.07.moin.txt
+[19:05] <rbasak> Ah OK
+[19:05] <rbasak> I think that should have been carried over
+[19:05] <sil2100> I think we forgot to update the Agenda page?
+[19:05] <sil2100> Let me add it now then!
+[19:05] <sil2100> #action rbasak to open wider discussion on third-party repo policy
+[19:05] <meetingology> ACTION: rbasak to open wider discussion on third-party repo policy
+[19:06] <sil2100> rbasak: does it need a re-read if I checked it right after last TB meeting?
+[19:06] <amurray> sorry I think I forgot to update the wiki after the last meeting
+[19:06] <sil2100> amurray: that's fine :) The meeting logs are actually always conveniently there
+[19:07] <rbasak> sil2100: if you care about specifics about the handling of snap channels on release upgrade. That's the only area of substantial change.
+[19:07] <rbasak> Note that it's still a draft at this stage. If you don't keep up, there will still be an opportunity to provide feedback before a final version.
+[19:08] <sil2100> ACK o/
+[19:08] <sil2100> Thank you!
+[19:08] <sil2100> Let's move on
+[19:08] <rbasak> Though I'm trying to get the substantial stuff settled asap.
+[19:08] <sil2100> Action: vorlon to look into scripting for packages in flavor-specific overlays
+[19:08] <sil2100> Let's carry over
+[19:08] <sil2100> #action vorlon to look into scripting for packages in flavor-specific overlays
+[19:08] <meetingology> ACTION: vorlon to look into scripting for packages in flavor-specific overlays
+[19:09] <sil2100> Next one as well as we don't seem to have seb128 around today o/
+[19:09] <sil2100> #action seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[19:09] <meetingology> ACTION: seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[19:09] <seb128> carry over please
+[19:09] <sil2100> Yay!
+[19:09] <seb128> I'm around, sorry I arrived a few minutes late and didn't want to disturbe the meeting which was already started :p
+[19:09] <sil2100> Good to have you around o/
+[19:09] <seb128> :)
+[19:09] <sil2100> Next one is for vorlon, so I'll also carry it over
+[19:10] <sil2100> Actually, let me take this one from Steve: vorlon to follow up on the Cinnamon 24.04 LTS Qualification re the number of contacts listed for the flavor
+[19:10] <sil2100> I'll try to tackle it while he's gone
+[19:10] <sil2100> #action sil2100 to follow up on the Cinnamon 24.04 LTS Qualification re the number of contacts listed for the flavor
+[19:10] <meetingology> ACTION: sil2100 to follow up on the Cinnamon 24.04 LTS Qualification re the number of contacts listed for the flavor
+[19:11] <sil2100> #topic Scan the mailing list archive for anything we missed (standing item)
+[19:11] <sil2100> #link https://lists.ubuntu.com/archives/technical-board/2024-June/thread.html
+[19:11] <sil2100> Nothing new there
+[19:11] <sil2100> I see we had a bit of spam in moderation
+[19:11] <sil2100> But nothing besides that
+[19:12] <sil2100> #topic Check up on community bugs and techboard bugs
+[19:12] <sil2100> I see no new bugs for us to act on
+[19:12] <sil2100> #topic Select a chair for the next meeting (next from https://launchpad.net/~techboard/+members)
+[19:13] <sil2100> Next meeting chair would be rbasak, with seb128 as reserve?
+[19:13] <sil2100> Is that fine with everyone?
+[19:13] <seb128> yes! :)
+[19:13] <sil2100> #agreed Next meeting chair: rbasak, backup: seb128
+[19:13] <meetingology> AGREED: Next meeting chair: rbasak, backup: seb128
+[19:13] <sil2100> #topic AOB
+[19:13] <sil2100> Anything to discuss?
+[19:14] <rbasak> ack
+[19:14] <seb128> not from me
+[19:14] <amurray> nothing from me
+[19:14] <sil2100> I suppose we should all keep a lookout for progress on the third party repository document
+[19:14] <sil2100> rbasak keep us posted!
+[19:15] <sil2100> And thank you for driving that!
+[19:15] <sil2100> Okay, if there's nothing else, and no outside requests or queries, let me end the meeting for today
+[19:15] <sil2100> #endmeeting
+[19:15] <meetingology> Meeting ended at 19:15:39 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-06-18-19.01.moin.txt
+[19:15] <sil2100> Thank you everyone!
+[19:15] <amurray> thanks sil2100
+[19:16] <seb128> thanks sil2100!
