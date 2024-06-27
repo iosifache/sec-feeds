@@ -1,0 +1,2 @@
+[08:59] <slyon> sarnold: FYI as a follow-up to yesterday's MIR meeting, there's already some high-level MIR documentation in the new packaging guide, which we can improve upon (if needed): https://canonical-ubuntu-packaging-guide.readthedocs-hosted.com/en/latest/explanation/main-inclusion-review/
+=== JanC is now known as Guest5624
