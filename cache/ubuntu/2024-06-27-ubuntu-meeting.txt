@@ -1,0 +1,144 @@
+=== JanC is now known as Guest4647
+[14:59] <zhsj> o/
+[15:00] <ginggs> o/
+[15:00] <dviererbe> o/
+[15:00] <upils> o/
+[15:00] <liushuyu> o/
+[15:00] <juliank> o/
+[15:00] <bdrung> \o
+[15:00] <ravikant_> o/
+[15:01] <pushkarnk> \o
+[15:01] <Skia> o7
+[15:01] <juliank> #startmeeting Weekly Ubuntu Foundations team
+[15:01] <meetingology> Meeting started at 15:01:30 UTC.  The chair is juliank.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:01] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:01] <juliank> #topic Lightning rounds
+[15:01] <ogayot> o/
+[15:01] <juliank> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-2024-06-27/
+[15:02] <slyon> o/
+[15:03] <cpete> o/
+[15:03] <tobhe> o/
+[15:04] <mkukri> o/
+[15:04] <adrien> \o (my ability to attend completely might be hampered today)
+[15:09] <bdmurray> o/
+[15:09] <dviererbe> skia: "maybe fixed" :D
+[15:11] <juliank> #topic Release incoming bugs
+[15:11] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-oo-incoming-bug-tasks.html#foundations-bugs
+[15:12] <juliank> bug 2065040
+[15:12] -ubottu:#ubuntu-meeting- Bug 2065040 in snapd (Ubuntu) "Drop UBUNTU_CODENAME from /etc/os-release. Use VERSION_CODENAME instead" [Undecided, New] https://launchpad.net/bugs/2065040
+[15:12] <Skia> dviererbe: yeah, time will tell :D
+[15:13] <juliank> bdrung: I don't agree with this, the <vendor>_CODENAME is super useful to have to guide downstreams, such that you can still look at UBUNTU_CODENAME there for tools
+[15:13] <juliank> e.g. PPAs continue to work on Mint and such
+[15:14] <juliank> I know there are several things using it for just that, but I don't remember which ones :)
+[15:14] <bdrung> that is an argument I cannot rebut
+[15:15] <juliank> I'm setting it to Opinion
+[15:15] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-nn-incoming-bug-tasks.html#foundations-bugs
+[15:16] <juliank> bug 2067672
+[15:16] -ubottu:#ubuntu-meeting- Bug 2067672 in OEM Priority Project "[SRU] Openssl copyright/changelog.Debian.gz file points at non-existent location" [High, Triaged] https://launchpad.net/bugs/2067672
+[15:16] <adrien> basically the question is: can this be accepted as an SRU for openssl?
+[15:16] <adrien> some people are bothered/annoyed or maybe see that as very problematic
+[15:16] <juliank> I don't think it should be released as a standalone SRU
+[15:16] <adrien> but still, that's openssl
+[15:17] <juliank> But it should be folded with the next openssl SRU or security update
+[15:17] <adrien> therefore it can be years
+[15:17] <bdrung> I would suggest combining it with the next security update
+[15:17] <juliank> So it can be uploaded now and staged in proposed
+[15:17] <schopin> It's marked as High prio by OEM.
+[15:17] <adrien> 3.0.x has been expectedly with fewer and fewer issues
+[15:17] <schopin> ANd I'm not sure how security would feel about shipping this in one of their upload. Someone should check with them?
+[15:18] <adrien> can do that
+[15:18] <schopin> (not volunteering)
+[15:18] <bdmurray> One consideration when making a decision like this is how many people have the package installed and the size of the package.
+[15:18] <adrien> note that we won't be shipping the same change in OO, even now
+[15:18] <adrien> it doesn't apply anymore IIRC (I should check nonetheless :) )
+[15:19] <schopin> bdmurray: I'd normally not consider this, but we're talking about the copyright file so maybe urgency is different in that case?
+[15:19] <bdmurray> schopin: That could be.
+[15:20] <juliank> The copyright file is still there it's just hard to find but we never end up actually breaking any license rules
+[15:20] <bdrung> one alternative: do the SRU now but keep it in -proposed until the next update comes around?
+[15:20] <juliank> Yes we should upload it and verify it
+[15:20] <adrien> IIRC people in the security team don't like updates lingering in proposed
+[15:21] <juliank> And add block-proposed-noble
+[15:21] <bdmurray> That's exactly what block-proposed-$ is for
+[15:21] <adrien> that goes back to checking with them
+[15:21] <juliank> adrien: This is the standard procedure to stage those updates.
+[15:21] <bdmurray> yes that
+[15:21] <juliank> In any case yes first of all we need to have a fixed oracular
+[15:21] <adrien> yes but it doesn't meant it's enjoyed by every party :D
+[15:22] <juliank> Otherwise someone will shout at the uploader
+[15:22] <adrien> oracular is fixed but differently
+[15:22] <juliank> In what sense?
+[15:23] <adrien> hmmm, maybe not actually
+[15:24] <bdrung> let's take that outside of this meeting. I'll discuss/sponsor the oracular fix afterwards (as last patch pilot action)
+[15:24] <juliank> the changelog says it links libssl-dev to openssl etc, but that's obviously not correct legally
+[15:24] <juliank> Anyway no other incoming bugs for us!
+[15:24] <juliank> #topic Team proposed-migration report
+[15:25] <juliank> #link https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses_by_team.html#foundations-bugs
+[15:25] <adrien> juliank: there's another issue: https://bugs.launchpad.net/ubuntu/+source/openssl/+bug/1297025
+[15:25] <bdrung> I am still on dracut vs systemd
+[15:25] -ubottu:#ubuntu-meeting- Launchpad bug 1297025 in openssl (Ubuntu) "Either the changelog.gz is missing or there is an erroneous link in the libssl1.0.0 package" [Medium, Triaged]
+[15:25] <adrien> bdrung: ok, thanks
+[15:26] <juliank>  17 packages needing attention, 12 packages not yet considered late
+[15:26] <juliank> pyopenssl is with adrien still
+[15:26] <tobhe> i've been looking into execnet for sphinx. the tests randomly fail on ppc64
+[15:26] <juliank> apport is with schopin sitll
+[15:27] <schopin> yes
+[15:27] <juliank> sphinx vs bugwarrior remains with liushuyu
+[15:27] <juliank> sphinx vs execnet with tobhe
+[15:27] <mkukri> tobhe: you can also trigger with migration-reference/0 and if that also fails it will migrate :D
+[15:27] <juliank> openssh is just waiting ignoring
+[15:28] <tobhe> mkukri: might be worth it. I did some research and saw that at least one of the tests was disabled in debian at some point until someone refactored things and turned it back on
+[15:28] <liushuyu> bugwarrior is waiting on https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1029032#15 (a new package needs to be added, and adrien is still waiting for a sponor in Debian)
+[15:28] <juliank> debhelper vs autopkgtest: bdmurray
+[15:28] -ubottu:#ubuntu-meeting- Debian bug 1029032 in wnpp "ITP: python-google-api-core -- Google API client core library" [Wishlist, Open]
+[15:29] <mkukri> tobhe: it's really simple, just put &trigger=migration-reference/0 at the end of the url
+[15:29] <juliank> dpkg bugs: bdrung did you have a quick check since you uploaded it if that's caused by dpkg in a trivial way to spot or something to distribute?
+[15:30] <bdrung> juliank, the failures caused by me are normally easy to spot: missing environment variables DEB_*
+[15:30] <juliank> bdrung: Yes, they all seem to be DEB_HOST_ARCH being undefined, so I'll uh leave that with you to fix up
+[15:31] <bdrung> yes, DEB_HOST_ARCH is caused by me. give them to me.
+[15:31] <juliank> vim has migrated
+[15:31] <schopin> bad bdrung, causing archive-wide breakage.
+[15:31] <schopin> ;)
+[15:32] <bdrung> ...says Mr. Archive Breaker :D
+[15:32] <juliank> libcgi-pm-perl cpete
+[15:32] <bdrung> we are a good team
+[15:32] <juliank> btrfs-progs: dbungert
+[15:32] <bdmurray> We should have an archive breaker trophy or something
+[15:32] <cpete> ack
+[15:32] <juliank> And that's all
+[15:32] <dbungert> juliank: I still have gcc-13, would you assign this to someone else?
+[15:32] <juliank> #topic AOB
+[15:33] <bdmurray> next Thursday is a holiday in the US
+[15:33] <bdmurray> Monday is a holiday in Canada
+[15:33] <juliank> dbungert: Oh it did not migrate so you are investigating the candidate status and update_output.txt?
+[15:33] <dbungert> correct
+[15:33] <bdrung> I don't think that we reached the level of last cycle (where we had armhf time_t and xzutils)
+[15:33] <juliank> ack
+[15:33] <juliank> So btrfs-progs: danilogondolfo
+[15:34] <danilogondolfo> juliank, ok, but it should migrate soon, the last test passed hehe
+[15:34] <juliank> So last time we started from the back, this time from the front, I guess next time we start from the middle?
+[15:34] <juliank> And then we like go wide, alternating up and down the list of people
+[15:34] <juliank> :D
+[15:35] <waveform> I vote hilbert curve...
+[15:35] <juliank> Gotta keep proposed-migration fair
+[15:35] <schopin> Or we use the ordering bot that we used to use for the status reports?
+[15:35] <juliank> Could also pick at random
+[15:35] <mkukri> we could keep statistics of historical assignments and automate the new ones based on that
+[15:35] <juliank> Indeed
+[15:36] <bdmurray> with a weighting for new hires
+[15:36] <juliank> mkukri: I take it you volunteer to write the statistics?
+[15:36] <bdmurray>  and people without upload rights
+[15:36] <juliank> :D
+[15:36] <schopin> You mean give more assignments the longer your tenure? I'm all for it :P
+[15:36] <juliank> I actually wonder if this is possible as a JIRA report, mclemenceau_, tag them all proposed migration and see who worked on how many in the past 4 weeks?
+[15:37] <adrien> I had to drop at the wrong time but it's possible to upload python-google-api-core in ubuntu directly with minor tweaks to the package I sent for inclusion in debian if anyone wants to do that
+[15:37] <mkukri> im not sure where to source the data, irc log sounds like a pain
+[15:37] <mkukri> but assuming jira is accurate it might be easy
+[15:37] <adrien> https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1029032#25
+[15:37] -ubottu:#ubuntu-meeting- Debian bug 1029032 in wnpp "ITP: python-google-api-core -- Google API client core library" [Wishlist, Open]
+[15:38] <juliank> cool
+[15:38] <juliank> I lost a bit track of that
+[15:40] <mclemenceau_> Ack juliank, I can definitely look into that. that seems possible
+[15:42] <juliank> cool
+[15:46] <juliank> #endmeeting
+[15:46] <meetingology> Meeting ended at 15:46:35 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-06-27-15.01.moin.txt
+=== dbungert1 is now known as dbungert
