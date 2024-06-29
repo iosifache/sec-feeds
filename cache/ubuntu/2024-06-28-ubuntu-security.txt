@@ -1,0 +1,11 @@
+=== chris14_ is now known as chris14
+=== LocutusO- is now known as LocutusOfBorg
+[17:06] <rouca> mdeslaur: any news of sendmail testing ?
+[17:08] <mdeslaur> rouca: I'm not aware of that, who were you discussing that with?
+[17:08] <rouca> mesler
+[17:09] <mdeslaur> eslerm: ^
+[17:10] <rouca> mdeslaur: I have fixed smurgling untlil buster
+[17:18] <eslerm> hi o/
+[17:18] <eslerm> I plant to work on this, a little behind
+[17:19] <eslerm> I'm on pto next week, but will have testing done over the weekend
+[17:21] <rouca> eslerm: is jessie backport is will do a release ASAP
