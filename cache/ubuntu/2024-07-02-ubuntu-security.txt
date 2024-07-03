@@ -1,0 +1,12 @@
+=== chris14_ is now known as chris14
+=== sdeziel_ is now known as sdeziel
+[18:20] <teward> mdeslaur: ack.  yay for 12 hours sleep last night :p
+[18:38] <tomreyn> regarding regresshion, should the USN point out that users should daemon-reload, or does it do so automatically?
+[18:39] <tomreyn> i'm happy to check the code myself unless you already know
+[18:40] <tomreyn> ^ please ignore, i doubt dameon-reload is needed because there is (most likely) no configuration change
+[18:44] <teward> *hands tomreyn a cofofee*
+[18:44] <teward> coffee*  ffs i can't type
+[18:45] <tomreyn> yes, i didn't get those 12 hours ;)
+[19:00] <teward> i'm still not 100% and barely type too xD
+[19:00] <teward> *sips the fresh coffee*
+[19:11] <tomreyn> :) get well soon

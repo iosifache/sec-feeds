@@ -1,0 +1,173 @@
+[14:30] <cpaelzer> huhu
+[14:30] <dviererbe> o/
+[14:31] <cpaelzer> #startmeeting Weekly Main Inclusion Requests status
+[14:31] <meetingology> Meeting started at 14:31:02 UTC.  The chair is cpaelzer.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[14:31] <slyon> heyo
+[14:31] <meetingology> Available commands: action, commands, idea, info, link, nick
+[14:31] <cpaelzer> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( eslerm dviererbe )
+[14:31] <cpaelzer> some already have said hi before the log started - hey o/
+[14:31] <joalif> Î¿/
+[14:31] <cpaelzer> while the rest follow thig highlight
+[14:31] <cpaelzer> let us look at the first agenda item as usual
+[14:31] <cpaelzer> #topic current component mismatches
+[14:31] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[14:31] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[14:31] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[14:32] <cpaelzer> ok, the openstack packages now see the stubs after we fixed the subscription last week
+[14:32] <cpaelzer> nothing else new there
+[14:32] <cpaelzer> #topic New MIRs
+[14:32] <cpaelzer> Mission: ensure to assign all incoming reviews for fast processing
+[14:32] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[14:32] <cpaelzer> uh, 4 of them
+[14:33] <cpaelzer> ok, the two easy cases first
+[14:34] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/libdisplay-info/+bug/2071396
+[14:34] -ubottu:#ubuntu-meeting- Launchpad bug 2071396 in libdisplay-info (Ubuntu) "[MIR] libdisplay-info" [Undecided, Confirmed]
+[14:34] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/jpeg-xl/+bug/2070882
+[14:34] -ubottu:#ubuntu-meeting- Launchpad bug 2070882 in jpeg-xl (Ubuntu) "[MIR] jpeg-xl" [Undecided, New]
+[14:34] <cpaelzer> normal cases, Desktop filing them
+[14:34] <cpaelzer> still plenty of time
+[14:34] <cpaelzer> slyon:  and joalif: one each?
+[14:34] <slyon> sure, I can take one!
+[14:34] <joalif> ok for me with any,  but not sure if I'll have it ready by next week, i'll be at the sprint
+[14:35] <cpaelzer> ok, as soon as it can get done
+[14:35] <cpaelzer> assigned them
+[14:35] <cpaelzer> now to the less obvious ones
+[14:35] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/linuxptp/+bug/2071717
+[14:35] -ubottu:#ubuntu-meeting- Launchpad bug 2071717 in linuxptp (Ubuntu) "[MIR] linuxptp" [Undecided, New]
+[14:35] <cpaelzer> this is tricky because of this
+[14:35] <cpaelzer> - The owning team should be the Server team
+[14:35] <cpaelzer> - The future owning team is not yet subscribed, but will subscribe to the package before promot
+[14:36] <sarnold> good morning
+[14:36] <cpaelzer> I guess myself as director of the server team should have heard about that at any time in the past
+[14:36] <cpaelzer> but I have not
+[14:36] <cpaelzer> so I think I need to grab that one and work with them that this is not "volunteer others at no proce or coordination"
+[14:37] <cpaelzer> also ptp, over ntp fine - but ntp is universe and chrony is in
+[14:37] <cpaelzer> arr, so many things to sort out
+[14:37] <sarnold> "albeit the maintenance of linuxptp itself would likely be done by the Industrial team"
+[14:37] <cpaelzer> fine
+[14:37] <sarnold> it might not be on the server team?
+[14:38] <cpaelzer> still you do not sign up others for commitment without asking do you? :-)
+[14:38] <sarnold>  - The owning team should be the Server team
+[14:38] <cpaelzer> let us get to the next
+[14:38] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/lenovo-wwan-unlock/+bug/2058192
+[14:38] <sarnold> oh lol yeah that's a bit much :)
+[14:38] -ubottu:#ubuntu-meeting- Launchpad bug 2058192 in OEM Priority Project "[MIR] lenovo-wwan-unlock" [Undecided, Confirmed]
+[14:38] <cpaelzer> similar interesting entry
+[14:38] <cpaelzer>  - The owning team will be canonical-mainstream and I have their acknowledgement for
+[14:39] <cpaelzer> oh, that is the new name for all the OEM packages and such
+[14:39] <slyon> this has been in the sponsorship queue for a while (patch pilot) and seems to be at a stage where it's ready for MIR now
+[14:39] <cpaelzer> ok, then that is less surprising
+[14:39] <cpaelzer> looking for a reviewer
+[14:39] <slyon> also, canonical-mainstream is a thing and has several packages under maintenance already
+[14:39] <cpaelzer> yep, sen that - was just not used to that name
+[14:39] <cpaelzer> +e
+[14:39] <slyon> ack
+[14:39] <cpaelzer> anyone up for grabbing that?
+[14:40] <slyon> we said one per reviewer per week, so maybe didrocks?
+[14:40] <sarnold> heh, zero entries in the directory for "mainstream"
+[14:40] <cpaelzer> ok, let us ask didrocks to do so - he said he reads logs
+[14:41] <cpaelzer> it still isn't easy - all the oem-* packages are special cases and no "normal" packages
+[14:41] <cpaelzer> the only other under their control so far is v4l2-relayd
+[14:41] <cpaelzer> which my scripts can't find a MIR bug for
+[14:42] <cpaelzer> so history will be interesting
+[14:42] <sarnold> https://bugs.launchpad.net/ubuntu/+bug/1958109
+[14:42] -ubottu:#ubuntu-meeting- Launchpad bug 1958109 in OEM Priority Project "[MIR] v4l2-relayd" [High, In Progress]
+[14:42] <ahresse> About linuxptp, we (Partner Engineering) ended up going with Industrial team mostly because they were already working around ptp. I guess if you think Server team should be responsible in the long term, let's discuss it on MM PTP channel?
+[14:42] <slyon> I remember being involved in that v4l2-relayd MIR
+[14:42] <slyon> can't recall the details, though
+[14:43] <cpaelzer> ok, it might help to show if it was discussed there if that team has established as owning team for packages
+[14:43] <cpaelzer> I've reached out to didrocks directly as well
+[14:43] <sarnold> ahresse: was that perhaps a copy-paste from a server-team MIR and not completely scrubbed?
+[14:43] <cpaelzer> going on here ...
+[14:44] <cpaelzer> #topic Incomplete bugs / questions
+[14:44] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[14:44] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[14:45] <ahresse> @snarnold, the initial MIR was started by me but we don't have enough bandwith in our team to actually maintain linuxptp. So we eneded up giving the responsibility to Industrial team. Indus team reviewed this MIR and should be the main POC for next steps.
+[14:45] <slyon> I remember waveform told he continued working on the nbd MIR, but the bug does not seem to be updated, yet. So he might not be fully ready
+[14:46] <cpaelzer> yep slyon
+[14:46] <cpaelzer> but he'll see the highlight and can fix that until next week
+[14:46] <waveform> correct, not ready yet I'm afraid, but it is in progress
+[14:46] <cpaelzer> ahresse: thanks for the answer, I think I need to talk to the industrial team to get this sorted then
+[14:46] <cpaelzer> the only new in there is
+[14:46] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/highway/+bug/2070807
+[14:46] -ubottu:#ubuntu-meeting- Launchpad bug 2070807 in highway (Ubuntu) "[MIR] highway" [Undecided, Incomplete]
+[14:47] <cpaelzer> which is soon coming, but not ready yet
+[14:47] <cpaelzer> all ok no action needed AFAICS
+[14:47] <cpaelzer> and related to the libxl we had above
+[14:47] <cpaelzer> #topic Process/Documentation improvements
+[14:47] <cpaelzer> Mission: Review pending process/documentation pull-requests or issues
+[14:47] <slyon> yes, still in stub stage.
+[14:47] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/pulls
+[14:47] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/issues
+[14:47] <cpaelzer> two old cases that are stalled
+[14:47] <cpaelzer> ok with that
+[14:48] <sarnold> ahresse: btw most irc clients will complete nicknames with a tab :) eg sar<tab> --> sarnold
+[14:48] <cpaelzer> the one we might be able to do something about is https://github.com/canonical/ubuntu-mir/issues/55
+[14:48] -ubottu:#ubuntu-meeting- Issue 55 in canonical/ubuntu-mir "end-of-cycle unexpected changes" [Open]
+[14:48] <dviererbe> Just out of interest what needs to be done to unstall https://github.com/canonical/ubuntu-mir/pull/17
+[14:48] -ubottu:#ubuntu-meeting- Pull 17 in canonical/ubuntu-mir "add re-reviews to the MIR process" [Open]
+[14:49] <cpaelzer> dviererbe: managers saying they have the capacity to even do 1% of it without a heart attack
+[14:49] <dviererbe> makes sense
+[14:49] <cpaelzer> on 55, as I said in the past
+[14:50] <cpaelzer> the ownership of this concrete case is sorted out between CPC and us
+[14:50] <cpaelzer> helping to reduce the nimbus state this was caused by
+[14:50] <cpaelzer> what is left open is what we should do about that in general
+[14:50] <slyon> wrt #55 I was wondering if we should have some mechanism to "flag" certain packages? e.g. using a tag on LP, that is regularly reviewed by the MIR team and responsilble teams are poked about outdated packages?
+[14:50] <cpaelzer> like more documentation, communication, rules on "how early things should be2
+[14:50] <slyon> I was stumbling upon tftp-hpa today, which seemed pretty unmaintainer and would be worth flagging (and poking the server team about ;-) )
+[14:51] <cpaelzer> outch :-)
+[14:51] <cpaelzer> TBH, just do a comment on a bug or create one - the owning team's process (whatever it is in detail) should pick that up
+[14:51] <cpaelzer> If we try to standardize on a tag we just need to convince everybody to care about the tag
+[14:52] <cpaelzer> if a team owns a package they are expected to watch bugs
+[14:52] <cpaelzer> so just creating/updating one should do it
+[14:52] <slyon> true
+[14:52] <sarnold> but this requires someone to notice the package might be stale
+[14:52] <cpaelzer> And with saying something like that we should also close out #55 for now IMHO
+[14:52] <cpaelzer> sarnold: true, but unless someone has a magic proposal how to do that ...
+[14:52] <sarnold> worthwhile we can :) but I think we should still be thikning about what part of our process could better spot packages that are losing favor
+[14:53] <cpaelzer> we can leave it open if you like, but I've not seen/hear anyone with capacity or a simple solution to do it
+[14:53] <sarnold> (I swear I'm a native english speaker, sheesh)
+[14:53] <cpaelzer> hehe
+[14:53] <cpaelzer> ok then, let us keep it open - but maybe state clearly that it is stuck for capacity and that a desire would be such a process as outlined by sarnold
+[14:54] <sarnold> wfm, thanks
+[14:54] <cpaelzer> #topic MIR related Security Review Queue
+[14:54] <cpaelzer> Mission: Check on progress, do deadlines seem doable?
+[14:54] <cpaelzer> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[14:54] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:54] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:54] <cpaelzer> Internal link
+[14:54] <cpaelzer> - ensure your teams items are prioritized among each other as you'd expect
+[14:54] <cpaelzer> - ensure community requests do not get stomped by teams calling for favors too much
+[14:54] <cpaelzer> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[14:54] <cpaelzer> sarnold: you said you lost some reviewing power - how are things going?
+[14:54] <sarnold> cpaelzer: not real well, I haven't had a chance to talk to our director about our resourcing in the last week
+[14:55] <sarnold> cpaelzer: no progress on any individual review, and no progress on the larger problem
+[14:55] <cpaelzer> he's back this week, have fun once time permits
+[14:55] <sarnold> exactly, 1:1 in a few hours :)
+[14:55] <cpaelzer> ok, waiting for that outcome then
+[14:55] <cpaelzer> #topic Any other business?
+[14:55] <cpaelzer> nothing here
+[14:55] <sarnold> none here
+[14:55] <dviererbe> Last week you discussed how the MIR could fit into the UPG
+[14:56] <slyon> sarnold: just an update from last weeks meeting regarding high level docs. dviererbe shared this: https://canonical-ubuntu-packaging-guide.readthedocs-hosted.com/en/latest/explanation/main-inclusion-review/
+[14:56] <sarnold> dviererbe, slyon, awesome :D thanks
+[14:57] <cpaelzer> nice
+[14:57] <cpaelzer> thanks dviererbe
+[14:57] <dviererbe> If you would like to see any changes than just open an issue or PR.
+[14:57] <cpaelzer> more and more of UPG takes shape, I appreciate seeing that
+[14:58] <cpaelzer> anything else to bring up?
+[14:58] <slyon> nothing else
+[14:58] <cpaelzer> ok then, A002193
+[14:58] <cpaelzer> 2
+[14:58] <cpaelzer> 4
+[14:58] <cpaelzer> 1
+[14:58] <cpaelzer> 4
+[14:58] <cpaelzer> 1
+[14:59] <cpaelzer> #endmeeting
+[14:59] <meetingology> Meeting ended at 14:59:02 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-07-02-14.31.moin.txt
+[14:59] <sarnold> lol <3
+[14:59] <joalif> thanks cpaelzer, all :)
+[14:59] <dviererbe> Thanks everyone! o/
+[14:59] <cpaelzer> thank you all
+[14:59] <sarnold> thanks cpaelzer, all :)
+[14:59] <slyon> thanks all!
