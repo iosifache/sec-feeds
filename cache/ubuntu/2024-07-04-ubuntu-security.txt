@@ -1,0 +1,10 @@
+[09:56] <LocutusOfBorg> hello, what is the plan for curl and http3?
+[09:56] <LocutusOfBorg> is it ok for security team to support, right?
+[09:57] <LocutusOfBorg> right now the build is blocked by nghttp3 and ngtcp2 needing to build and be accepted by ubuntu-archive
+[09:57] <LocutusOfBorg> but I guess they will both require a MIR in case we want http3 support in curl
+[09:57] <LocutusOfBorg> please let me know if your plan differs, because I'm quite sure this is a security topic to be discussed
+=== Juesto is now known as Juest
+[13:20] <mdeslaur> LocutusOfBorg: someone will have to file MIR bugs for those two components, yes....not sure if anyone has done yet, or is planning to
+[14:53] <mdeslaur> ricotz: https://ubuntu.com/security/notices/USN-6877-1
+[14:53] <mdeslaur> ricotz: thanks!
+[15:28] <ricotz> mdeslaur, :)
