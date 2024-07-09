@@ -1,0 +1,288 @@
+=== cpaelzer_ is now known as cpaelzer
+=== NotEickmeyer is now known as Eickmeyer
+[18:57] <tsimonq2> o/
+[18:58] <schopin> o/
+[18:59] <zhsj> o/
+[18:59] <bdrung> \o
+[19:00] <schopin> zhsj: isn't it the middle of the night for you?
+[19:00] <zhsj> yes
+[19:00] <schopin> ouch!
+[19:00] <zhsj> i wasn't aware it's such late
+[19:01] <bdrung> we should offer better timeslots for people in your timeslice of the globe
+[19:01] <rbasak> o/
+[19:01] <zhsj> the first one is on 16:00 UTC, which is better
+[19:01] <rbasak> Welcome!
+[19:02] <rbasak> I don't see everyone here though
+[19:02] <teward> o/
+[19:02] <bdmurray> o/
+[19:02] <rbasak> Utkarsh doesn't seem to be online
+[19:02] <bdrung> zhsj, you could still move your application to the next 16:00 UTC meeting and go to bed.
+[19:02] <rbasak> Any volunteers to chair please?
+[19:02] <tsimonq2> o/
+[19:02] <tsimonq2> #startmeeting
+[19:02] <meetingology> Meeting started at 19:02:55 UTC.  The chair is tsimonq2.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[19:02] <meetingology> Available commands: action, commands, idea, info, link, nick
+[19:03] <rbasak> Thank you!
+[19:04] <tsimonq2> #topic Shengjing Zhu Core Developer Application
+[19:04] <tsimonq2> zhsj: Welcome! Could you please introduce yourself and post a link to your application?
+[19:04] <zhsj> thanks.
+[19:04] <zhsj> Iâm Shengjing, working for Canonical and focusing on the Go toolchain in Ubuntu. I've been a Debian Developer since 2018 and involved in the Debian Go packaging team for many years and contributed many Go packages.
+[19:04] <zhsj> https://wiki.ubuntu.com/zhsj/CoreDeveloperApplication
+[19:04] <zhsj> this is my application
+[19:06] <tsimonq2> Thank you! Does anyone have questions for the applicant?
+[19:07] <utkarsh2102> \o
+[19:07] <rbasak> zhsj: o/
+[19:08] <rbasak> zhsj: do you have an example of an SRU that you've done that contains a regression analysis please?
+[19:09] <zhsj> zhsj: i didn't do many SRU, and no regression so far. so unfortunately i can't give your an example
+[19:09] <zhsj> rbasak:
+[19:11] <zhsj> but for regression about SRU, the process is documented at https://wiki.ubuntu.com/StableReleaseUpdates#Regressions
+[19:11] <rbasak> No, that's not what I'm asking
+[19:11] <rbasak> I'm asking about "Where problems could occur" from https://wiki.ubuntu.com/StableReleaseUpdates#Procedure
+[19:12] <zhsj> ok.
+[19:12] <rbasak> Could you show an example of where you have been thoughtful about what problems might have occurred, and adjusted the test plan accordingly, for example?
+[19:12] <zhsj> so for https://bugs.launchpad.net/ubuntu/+source/gobject-introspection/+bug/2065902
+[19:12] -ubottu:#ubuntu-meeting- Launchpad bug 2065902 in libkkc (Ubuntu Noble) "libkkc FTBFS on noble: can't resolve libraries to shared libraries: m" [Undecided, Triaged]
+[19:12] <zhsj> and https://bugs.launchpad.net/ubuntu/+source/llvm-toolchain-18/+bug/2064187
+[19:12] -ubottu:#ubuntu-meeting- Launchpad bug 2064187 in llvm-toolchain-18 (Ubuntu Oracular) "llvm-18-linker-tools does not include LLVMgold.so" [Undecided, Fix Released]
+[19:12] <rbasak> I don't think an FTBFS fix really allows to show a good example of that unfortunately.
+[19:12] <zhsj> maybe the second one
+[19:13] <rbasak> I'd like to see an example of a more "regular" SRU where you're changing code paths that users are already using
+[19:13] <rbasak> I don't think bug 2064187 is a good example of a quality SRU submission.
+[19:13] -ubottu:#ubuntu-meeting- Bug 2064187 in llvm-toolchain-18 (Ubuntu Oracular) "llvm-18-linker-tools does not include LLVMgold.so" [Undecided, Fix Released] https://launchpad.net/bugs/2064187
+[19:14] <zhsj> i see. but as i said in my application, i hope i can do more SRU in the future
+[19:14] <rbasak> OK. Next, do you have any examples of doing Ubuntu package merges?
+[19:15] <zhsj> yes, i have listed the merges on my applications on https://wiki.ubuntu.com/zhsj/CoreDeveloperApplication#Examples_of_my_work_.2F_Things_I.27m_proud_of
+[19:15] <rbasak> The "Merge" section in your application page seems to refer to merge proposals in Launchpad, rather than the Ubuntu "package merge" process which is a bit more specific.
+[19:16] <zhsj> ha, but when we doing merges with git-ubuntu, merge proposal are more nature
+[19:16] <rbasak> Sure. I just want to see examples
+[19:16] <rbasak> I found https://launchpad.net/ubuntu/+source/runc/1.1.12+ds1-2ubuntu1 but that was sponsored by kanashiro who didn't endorse you
+[19:17] <zhsj> do you mean merge with m-o-m?
+[19:17] <rbasak> I don't care how it's done. I just want to see examples of you doing it well.
+[19:17] <zhsj> yeah, i didn't ask everyone who only sponsors once to endorse
+[19:18] <zhsj> actually the runc one is through git-ubuntu iirc, i send the git patch to kanashiro
+[19:20] <rbasak> I found https://launchpad.net/ubuntu/+source/kmod/30+20230601-2ubuntu1 https://launchpad.net/ubuntu/+source/kmod/31+20240202-2ubuntu1 https://launchpad.net/ubuntu/+source/runc/1.1.12+ds1-2ubuntu1 and https://launchpad.net/ubuntu/+source/libgcrypt20/1.10.2-3ubuntu1, going backwards in history. The oldest there was sponsored by me.
+[19:21] <rbasak> The others were Dan, Nick and Lucas, none of whom have endorsed your application (and nor was I asked).
+[19:21] <bdmurray> I think he explained why he didn't ask people who only sponsored one thing
+[19:22] <rbasak> Unfortunately it means that nobody is speaking to his ability to do an entire category of work that is important to be an Ubuntu uploader at all.
+[19:22] <rbasak> zhsj: have you driven any transitions in Ubuntu?
+[19:23] <bdmurray> What would you like to seen then rbasak? Him to have multiple merges sponsored by multiple devs so they all feel comfortable endorsing him?
+[19:23] <rbasak> I have detailed my expectations at https://wiki.ubuntu.com/RobieBasak/DMB/CoreDev
+[19:23] <zhsj> i only drive the uncommon transitions in ubuntu, like every golang-default transition.
+[19:23] <rbasak> The last paragraph is relevant here I think.
+[19:24] <zhsj> but i have driven c library transition in debian
+[19:25] <rbasak> zhsj: have you touched any seeds? How well do you understand how seeds work?
+[19:25] <zhsj> i didn't touch seed yet.
+[19:25] <tsimonq2> zhsj: What drove your decision to apply directly to be a Core Developer instead of MOTU or PPU as a first step?
+[19:26] <teward> tsimonq2: get the hell out of my head i was just typing that
+[19:26] <tsimonq2> teward: ;)
+[19:26] <zhsj> tsimonq2: for PPU, i write in my application that i'm interested in all golang packages, which is more than 2k packages.
+[19:27] <zhsj> tsimonq2: for MOTU, because i also doing work like merges for many main packages.
+[19:28] <tsimonq2> zhsj: What is the difference between packages in Main vs Universe?
+[19:29] <zhsj> tsimonq2: the most difference is who can upload them and who is responsible for them. for main packages, canonical is committed to maintain it
+[19:29] <tsimonq2> zhsj: How would you ask for a Universe package to be put into Main?
+[19:30] <zhsj> the process is called MIR
+[19:30] <zhsj> it's documented at https://github.com/canonical/ubuntu-mir/blob/main/README.md
+[19:31] <rbasak> There's one MIR he's done that's documented on his application: https://bugs.launchpad.net/ubuntu/+source/dhcpcd/+bug/2019191
+[19:31] -ubottu:#ubuntu-meeting- Launchpad bug 2019191 in dhcpcd (Ubuntu) "[MIR] dhcpcd" [Undecided, Fix Released]
+[19:31] <bdrung> zhsj, what are the differences for C library transitions between Debian and Ubuntu?
+[19:31] <zhsj> rbasak: for seed, my understanding is it's about what will be shipped in ISO
+[19:32] <zhsj> bdrung: i think they are mostly same, as both share the same transition tracker. but debian has binNMU process, the corresponding thing for ubuntu is no-change rebuild
+[19:33] <zhsj> which is source full upload
+[19:33] <bdrung> zhsj, You wrote that if patches are got reviewed more actively, contributors would be more interested in becoming developers. What is your experience regarding sponsoring and did the sponsor time had an influence on becoming an Ubuntu developer?
+[19:34] <zhsj> that was my feeling before the restart of patch pilots
+[19:35] <rbasak> I'm busy writing up my thoughts.
+[19:35] <bdrung> zhsj, do you think that the current speed of the sponsor queue (with the patch pilots helping) is fast enough or should still be faster?
+[19:36] <zhsj> maybe only my experience with the patch pilots currently, the speed for SRU sponsor is slow
+[19:37] <teward> let me be more specific with bdrung's question
+[19:37] <teward> Excluding the time it takes for SRUs to actually be processed by the SRU team, is the rest of the sponsorship queue with patch pilots helping fast enough, or should it still be faster?
+[19:37] <teward> (CC hat on: There are multiple reasons that the SRU process is slower than standard sponsoring process that go far beyond the scope of DMB discussion, hence why i'm being more specific with the question)
+[19:38] <zhsj> yeah, i mean the sponsor time for SRU patch, not the entire process.
+[19:38] <teward> just checking ;)
+[19:38] <zhsj> it's only personal feeling thought
+[19:38] <zhsj> though*
+[19:38] <schopin> zhsj: let's say you find that a package is broken beyond repair and should probably be removed from the archive. What would you need to check and how would you go about the removal?
+[19:39] <bdrung> looking at http://sponsoring-reports.ubuntu.com/ a lot of old entries are SRUs. So that would bake your feeling.
+[19:39] <rbasak> The sponsorship queue is intended to foster community contributions. Canonical employees can "skip" the queue because they have no shortage of colleagues who can sponsor, and an employer who task their employed sponsors with priorities that matter to them. So I'm not sure that zhsj's experience is really representative of what we need from the sponsorship queue and/or patch piloting. In internal
+[19:39] <zhsj> schopin: i would check the reverse deps, with the help of tool `reverse-depends`
+[19:39] <rbasak> discussions I keep asking about how to stop the big Canonical sponsorships from clogging up the sponsorship queue.
+[19:40] <zhsj> schopin: than if nothing blocking, i will file a bug on lp, and subscribe ubuntu archive admin to ask them to remove
+[19:40] <rbasak> When we have a moment I have a long post ready to paste.
+[19:41] <tsimonq2> rbasak: Go ahead, unless you'd like to wait until after the vote.
+[19:42] <zhsj> schopin: and maybe need to block them from sync from debian as well after removal
+[19:42] <rbasak> It looks like the work you are doing is excellent. However, your track record seems narrow in scope compared to what I'd expect a core dev to know. In particular, when you become a core dev people look to you to sponsor anything, and this pressure is especially true for Canonical employees. I appreciate the difficulty in getting things sponsored, but equally I also expect core devs to have
+[19:42] <zhsj> or if it's broken in debian as well, ask debian to remove as well
+[19:43] <rbasak> demonstrated understanding across the wide range of things that core devs are expected to be able to sponsor into the archive.
+[19:43] <rbasak> I don't think it's unreasonable to ask Canonical employees seeking core dev to "do the rounds" and get that wide range of experience first. I have documented my expectations and advertised them for long enough that they should be well known to your peers and mentors at Canonical (https://wiki.ubuntu.com/RobieBasak/DMB/CoreDev). I've stood for the DMB multiple times on the platform that I stand by
+[19:43] <rbasak> these expectations. I think your application falls well short of what I've written there, particularly in the last paragraph.
+[19:43] <rbasak> Separately, I regret that we don't have a good process to unblock you _except_ to get core dev. Unfortunately that's a harder problem to solve but I acknowledge that it exists. In the meantime I think that asking you to build up a more comprehensive track record first is reasonable, and get endorsements that can speak to your abilities and understanding _across_ the various different aspects of
+[19:43] <rbasak> that. Please see my wiki page of expectations, and let me know if you have any specific questions.
+[19:43] <rbasak> Therefore, following my own written criteria, my vote would be -1 and I've seen no reason that an exception is warranted in this case.
+[19:43] <rbasak> I'm open to feedback / discussion. I understand this is frustrating to hear, including for some others on the DMB. But I really think that my expectations have been clear for years, that it would be better for Ubuntu for applicants from the Canonical Foundations team to simply meet them, and so I think it's appropriate for me to hold the line here. I don't see why it's difficult to meet these
+[19:43] <rbasak> expectations.
+[19:44] <utkarsh2102> out of curiosity, there's no Foundations packageset, no?
+[19:44] <tsimonq2> No.
+[19:44] <teward> utkarsh2102: no, but Foundations has a dedicated group of sponsors in it
+[19:44] <teward> who have coredev
+[19:44] <utkarsh2102> hm
+[19:45] <rbasak> This is probably aimed more at zhsj's colleagues and mentors than at zhsj himself, FWIW. I don't expect zhsj himself to have fully understood my expectations, but his core dev mentors and colleagues certainly should.
+[19:45] <rbasak> Unfortunately Foundations work doesn't really fit any packageset except for the '*' packageset
+[19:45] <teward> utkarsh2102: we also have to be careful because this would be one of the cases where I would expect there to be a golang packageset specifically for golang stuff
+[19:45] <rbasak> (ie. core dev)
+[19:45] <bdrung> looking at https://udd.debian.org/cgi-bin/ubuntu-sponsorships.cgi?render=html&sponsor=Benjamin+Drung&sponsor_search=name&sponsoree=Shengjing+Zhu&sponsoree_search=name I should have given my endorsement.
+[19:45] <teward> because Foundations includes '*'
+[19:45] <tsimonq2> Any further questions for zhsj before we move to a vote?
+[19:46] <utkarsh2102> aah, interesting :)
+[19:46] <zhsj> bdrung: i did't ask you because you are on the board, and afraid conflict of interest
+[19:46] <rbasak> conflict of interest> FWIW, I don't think that's a conflict of interest
+[19:46] <bdrung> me neither. I agree with rbasak
+[19:46] <tsimonq2> +1
+[19:47] <teward> yeah i don't see a CoI here
+[19:47] <rbasak> It's good for DMB members to have direct experience of work from applicants.
+[19:47] <zhsj> same for tsimonq2 and kanashiro who have sponsored me :/
+[19:47] <teward> Simon knows well enough whether to endorse someone or not
+[19:47] <bdrung> I did a lot of sync request, because they are quick to do. But on the UDD page there are other sponsoring as well.
+[19:48] <tsimonq2> #vote Add Shengjing Zhu to Ubuntu Core Developers
+[19:48] <meetingology> Please vote on: Add Shengjing Zhu to Ubuntu Core Developers
+[19:48] <meetingology> Public votes can be registered by saying +1, -1 or +0 in channel (for private voting, private message me with 'vote +1|-1|+0 #channelname')
+[19:48] <tsimonq2> #voters tsimonq2 rbasak bdmurray utkarsh2102 bdrung schopin teward
+[19:48] <meetingology> Current voters: bdmurray, bdrung, rbasak, schopin, teward, tsimonq2, utkarsh2102
+[19:48] <rbasak> -1 reasons as above
+[19:48] <meetingology> -1 reasons as above received from rbasak
+[19:49] <tsimonq2> -1 I would like to see more work in Main directly
+[19:49] <meetingology> -1 I would like to see more work in Main directly received from tsimonq2
+[19:49] <rbasak> Note that I haven't done the usual quizzing on specific knowledge areas like release cycle, milestones and exception process. I would expect to do that on a reapplication.
+[19:49] <teward> -1 My reasons echo rbasak's reasons - namely, I want nto see more work in Main but also I think there's a missing set of knowledge requisite for unsponsored uploads (such as pure SRU and pure package merging that ISN'T git-ubuntu patching)
+[19:49] <meetingology> -1 My reasons echo rbasak's reasons - namely, I want nto see more work in Main but also I think there's a missing set of knowledge requisite for unsponsored uploads (such as pure SRU and pure package merging that ISN'T git-ubuntu patching) received from teward
+[19:50] <teward> agreed with rbasak, specific knowledge would show on a reapplication provided the base knowledge expected of a core dev (unrestricted uploader) is met
+[19:51] <zhsj> hmm, for packaging merging, don't we advertise git-ubuntu?
+[19:51] <teward> git-ubuntu can do it, but git-ubuntu on its own isn't the *only* way of merging packages
+[19:51] <bdmurray> Sure but if the "best practice" is git-ubuntu why learn all the old ways?
+[19:51] <rbasak> Personally I only care that the applicant can produce a correct result that matches Ubuntu developers' expectations. I don't mind how it's done.
+[19:51] <teward> ^^
+[19:52] <schopin> -1 While zhsj does splendid work both in the golang ecosystem but also in the wider package set, I do feel his knowledge of Ubuntu processes isn't enough yet to warrant Core Dev. I'm especially interested in seeing more "garden variety" SRUs, as a Core Dev will be asked to sponsor those and will often need to push back.
+[19:52] <meetingology> -1 While zhsj does splendid work both in the golang ecosystem but also in the wider package set, I do feel his knowledge of Ubuntu processes isn't enough yet to warrant Core Dev. I'm especially interested in seeing more "garden variety" SRUs, as a Core Dev will be asked to sponsor those and will often need to push back. received from schopin
+[19:52] <utkarsh2102> -1; zhsj is a Go expert and I can rely on him to fix anything and everything around that, so I absolutely love that. Thank you for that, Shengjing. As others have noted, it'd be nice to work with a mentor and work on main packages and have them endorse you (whether they're from DMB or not!) and also advice you to touch on all the other areas like
+[19:52] <meetingology> -1; zhsj is a Go expert and I can rely on him to fix anything and everything around that, so I absolutely love that. Thank you for that, Shengjing. As others have noted, it'd be nice to work with a mentor and work on main packages and have them endorse you (whether they're from DMB or not!) and also advice you to touch on all the other areas like received from utkarsh2102
+[19:52] <utkarsh2102> the release cycle, milestones, exceptions, schedules, regular SRU work, et al. As much as I'd like to +1 on Go* stuff, I am afraid we don't have a way to do that right now. :(
+[19:52] <teward> when i say pure package merges, I mean a full merge.  a-la Version in Ubuntu is 1.2.x, version in Debian is 1.6.x and has extreme changes and there's a substantial delta between U and D anyways
+[19:52] <teward> resolving those deltas is the core thing in a merge.
+[19:52] <teward> whether you use git=ubuntu, do it manually, whatever.
+[19:52] <teward> whether you use git-ubuntu, use MoM, do it manually, whatever.
+[19:52] <rbasak> Ah - as opposed to git-ubuntu MPs that merely add delta. I think that was just a misunderstanding.
+[19:52] <teward> blah i forget this is IRC and not Element RIP
+[19:53] <bdrung> +0 I am torn apart. I like to see more endorsements from your sponsors.
+[19:53] <meetingology> +0 I am torn apart. I like to see more endorsements from your sponsors. received from bdrung
+[19:53] <teward> rbasak: correct.
+[19:53] <schopin> I haven't looked at it too closely but I would have thought console-setup qualifies as a complex merge?
+[19:53] <teward> it may, but i'd like to see more than 1 example of complex merging
+[19:54] <teward> at least, that's one of the things I don't see enough evidence to support full knowledge/experience in (outside of golang)
+[19:54] <tsimonq2> bdmurray: Do you have a vote?
+[19:54] <teward> this does bring up a question though i'll propose on devel permissions list separately (RE: golang and stuff)
+[19:54] <bdmurray> I'm a +0 too
+[19:54] <tsimonq2> #endvote
+[19:54] <meetingology> Voting ended on: Add Shengjing Zhu to Ubuntu Core Developers
+[19:55] <meetingology> Votes for: 0, Votes against: 5, Abstentions: 1
+[19:55] <meetingology> Motion denied
+[19:55] <teward> s/Abstentions: 1/Abstentions: 2/
+[19:55] <teward> (because meetingology is annoying and expects the vote to come first in the text)
+[19:55] <rbasak> zhsj: please don't take this as a criticism of your existing work. That looks excellent!
+[19:55] <utkarsh2102> I think that's the right syntax to follow; it's not too hard to follow that. :)
+[19:55] <teward> i agree your current work is very very good!
+[19:55] <utkarsh2102> absolutely!
+[19:56] <teward> don't take it as a criticsm of the current work, we're just wanting to see more in other sections
+[19:56] <schopin> I'm pretty sure we're all in agreement on that :)
+[19:56] <teward> indeed
+[19:56] <tsimonq2> zhsj: Thank you for putting your application forward, and for taking the time to be here! Hopefully we can see a re-application from you soon.
+[19:56] <tsimonq2> +1
+[19:56] <bdmurray> Also that you for showing up in the middle of your night.
+[19:56] <teward> agreed
+[19:56] <bdmurray> s/that/thank/
+[19:56] <bdrung> +1
+[19:56] <rbasak> If it helps, when I mentored Utkarsh we targetted my wiki doc specifically. The result was https://wiki.ubuntu.com/UtkarshGupta/CoreDevApplication
+[19:57] <rbasak> If you can make your application look like that one, you'll get a +1 from me :)
+[19:57] <tsimonq2> #topic devel-permissions
+[19:57] <tsimonq2> https://lists.ubuntu.com/archives/devel-permissions/
+[19:57] <teward> *coughs* #subtopic Kubuntu PackageSet
+[19:58] <utkarsh2102> yes, that's on me
+[19:58] <teward> utkarsh2102: i assume that it's being handled then?
+[19:58] <tsimonq2> Yeah, I'm looking to see if there's anything else.
+[19:58] <utkarsh2102> so I'm in middle of replying to Scarlett
+[19:58] <teward> since they were prodding us for > 1month
+[19:59] <rbasak> It might be in Utkarsh's email but volunteers to help with the automatic packageset script would be very much appreciated.
+[19:59] <tsimonq2> That sounds interesting.
+[19:59] <tsimonq2> #link https://lists.ubuntu.com/archives/devel-permissions/2024-July/002535.html
+[19:59] <utkarsh2102> yes, this slipped out for last 2 weeks because I wasn't sure I'll make it to the new board + being added to the DMB LP team officially. So I wanted to make sure I am on DMB officially when I reply to her
+[19:59] <rbasak> It's been rotting for years, and nobody trusts it any more. If it would be sorted out, that'd make these requests much easier to handle.
+[20:00] <rbasak> And it doesn't need an DMB member to work on that. Only review of code changes and actual execution need to be the DMB.
+[20:00] <utkarsh2102> since the last meeting, everybody was automatically removed from the board
+[20:00] <utkarsh2102> including me
+[20:00] <utkarsh2102> so Mitch's ACL is also left for ubuntu-server packageset
+[20:00] <utkarsh2102> which I'll do, too
+[20:00] <tsimonq2> https://launchpad.net/~developer-membership-board/+members you're still there?
+[20:00] <utkarsh2102> today
+[20:00] <tsimonq2> ah
+[20:00] <rbasak> automatically removed> ah, sorry. I didn't think anyone was blocked, else I'd have happily extended people again.
+[20:00] <utkarsh2102> yes but that's reinstated now, I wasn't a member last and last to last week
+[20:01] <tsimonq2> #action Utkarsh to follow up with Scarlett re: Kubuntu packageset updates
+[20:01] <meetingology> ACTION: Utkarsh to follow up with Scarlett re: Kubuntu packageset updates
+[20:01] <teward> rbasak: what's the script currently written in?
+[20:01] <teward> also where's the code
+[20:01] <rbasak> Python
+[20:01] <rbasak> Looking
+[20:01] <teward> so it's just ugly python and needs rewritten xD
+[20:01] <tsimonq2> #action Utkarsh to follow up on Mitch's ubuntu-server packageset
+[20:01] <meetingology> ACTION: Utkarsh to follow up on Mitch's ubuntu-server packageset
+[20:01] <tsimonq2> #topic AOB
+[20:01] <tsimonq2> rbasak: I'd be happy to take a look as well.
+[20:02] <teward> tsimonq2: i think you and I just volunteered to tackle it xD
+[20:02] <teward> yay collaboration!
+[20:02] <bdrung> I am not sure if I am interested in seeing this Python code.
+[20:02] <tsimonq2> hahahaha
+[20:02] <schopin> I don't know about everyone's TZ, but would anyone object to move the earlier time slot 1h earlier? Because asking applicants to attend in the middle of the night is not great.
+[20:03] <utkarsh2102> it's 1:30 AM right now for me
+[20:03] <rbasak> tsimonq2: here it is: https://git.launchpad.net/~developer-membership-board/+git/packageset
+[20:03] <utkarsh2102> so def +1 for moving a bit earlier :)
+[20:03] <teward> actually I would love to move our meeting a bit earlier
+[20:03] <schopin> utkarsh2102: I was actually thinking of the *other* time slot, sorry :/
+[20:03] <teward> at least this time slot up
+[20:03] <rbasak> I'm running out of time. My dinner's getting cold :-(
+[20:04] <utkarsh2102> ah, crap
+[20:04] <teward> we can move it to email
+[20:04] <schopin> I can move this discussion to the ML.
+[20:04] <utkarsh2102> yeah
+[20:04] <teward> yeop
+[20:04] <bdrung> having the both timeslots more than 3 hours apart makes a lot of sense to have better TZ coverage
+[20:04] <rbasak> I'm open to changing the meeting times FWIW
+[20:04] <teward> and i have a thing i got to get to for FT job so
+[20:04] <rbasak> If somebody wants to drive that
+[20:04] <utkarsh2102> !me
+[20:04] <ubottu> Hi! I'm #ubuntu-meeting's favorite infobot. You can search my brain at https://ubottu.com/factoids.cgi | General info and channels at https://wiki.ubuntu.com/IRC/Bots | Make a clone of me, see !botclone
+[20:04] <tsimonq2> I think schopin volunteered :)
+[20:04] <tsimonq2> or utkarsh2102 *shrug* :)
+[20:04] <teward> *pushes ubottu into the void*
+[20:04] <utkarsh2102> I said not me :P
+[20:05] <tsimonq2> #topic schopin to email the list about adjusting meeting times
+[20:05] <schopin> I guess it's fair :)
+[20:05] <tsimonq2> #action schopin to email the list about adjusting meeting times
+[20:05] <meetingology> ACTION: schopin to email the list about adjusting meeting times
+[20:05] <tsimonq2> We're over time o/
+[20:05] <tsimonq2> #endmeeting
+[20:05] <meetingology> Meeting ended at 20:05:29 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-07-08-19.02.moin.txt
+[20:05] <rbasak> Oh did we have someone take the action to close out the application?
+[20:05] <rbasak> https://wiki.ubuntu.com/DeveloperMembershipBoard/KnowledgeBase#Actions_after_an_unsuccessful_application
+[20:06] <rbasak> Perhaps one of the new members would like to take that?
+[20:06] <teward> rbasak: i'll take that and nreply that it was unsuccessful
+[20:06] <rbasak> Thanks!
+[20:06] <teward> or we can let someoen else
+[20:06] <tsimonq2> Sorry, I'm a little bit rusty ;)
+[20:06] <teward> i need to find the original application in my 10k+ messages
+[20:06] <rbasak> Call it yours unless someone else volunteers?
+[20:07] <teward> yup
+[20:07] <teward> i am already writing it up now
+[20:07] <teward> so it's mine anyways
+[20:08] <schopin> Anything else? I'm hungry too.
+[20:08] <bdrung> schopin, dinner that late?
+[20:09] <schopin> Hence the hunger
+[20:10] <bdrung> We already ended the meeting. So let's release the hungry dragons!
+[20:10] <teward> FOOD TIME
+[22:08] <rbasak> Oh sorry I'd already left to eat :)
