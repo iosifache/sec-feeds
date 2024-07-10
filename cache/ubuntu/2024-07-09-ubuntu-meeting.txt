@@ -1,0 +1,147 @@
+[14:30] <sarnold> good morning
+[14:30] <didrocks> hey!
+[14:30] <cpaelzer> uh, tuesday
+[14:30] <cpaelzer> getting ready
+[14:31] <cpaelzer> #startmeeting Weekly Main Inclusion Requests status
+[14:31] <meetingology> Meeting started at 14:31:20 UTC.  The chair is cpaelzer.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[14:31] <meetingology> Available commands: action, commands, idea, info, link, nick
+[14:31] <cpaelzer> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( eslerm dviererbe )
+[14:31] <cpaelzer> #topic current component mismatches
+[14:31] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[14:31] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[14:31] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[14:31] <cpaelzer> 3 new sets
+[14:31] <cpaelzer> and a bunch of known ones
+[14:32] <slyon> o/
+[14:32] <cpaelzer> usidks2 -> exfatprogs
+[14:32] <cpaelzer> Desktop needs to think about what they want
+[14:32] <cpaelzer> jbicha: are you around and could make that happen?
+[14:32] <cpaelzer> rustc-1.76 -> fonts-open-sand/highlight.js
+[14:32] <cpaelzer> you might say it is foundations
+[14:32] <cpaelzer> but this smells
+[14:33] <cpaelzer> like a -doc package
+[14:33] <cpaelzer> that was forgotten to be added to auto-exclude
+[14:33] <slyon> https://git.launchpad.net/~ubuntu-core-dev/ubuntu-seeds/+git/ubuntu/commit/?id=b278dfbe5072555b101b23f64100b88619109d4f
+[14:33] -ubottu:#ubuntu-meeting- Commit b278dfb in ~ubuntu-core-dev/ubuntu-seeds/+git/ubuntu "Extra-Exclude: exclude rust-1.76-doc HEAD oracular"
+[14:33] <didrocks> not the first time from rustc IIRC, and yes, that was the -doc package
+[14:33] <cpaelzer> hehe :-) like this
+[14:33] <slyon> we might need to demote rust-1.76-doc, though
+[14:33] <slyon> not sure if the seed change is enough
+[14:33] <cpaelzer> IIRC if nothing holds it it would be auto-demoted
+[14:33] <slyon> ok. let's wait and see
+[14:34] <cpaelzer> otherwise let me know
+[14:34] <slyon> ack
+[14:34] <cpaelzer> next is curl -> nghttp3 / ngtcp2
+[14:34] <slyon> https://launchpad.net/ubuntu/+source/curl/8.8.0-3ubuntu3
+[14:34] <slyon> we are dropping this.
+[14:34] <cpaelzer> wow - did we reach http3, I'm so outdated
+[14:34] <cpaelzer> ok, already resolved
+[14:34] <cpaelzer> thanks
+[14:34] <slyon> I discussed it with foundations this morning. We might re-enable http3 at some point in the future (once it lands in OpenSSL)
+[14:34] <cpaelzer> going on
+[14:34] <cpaelzer> #topic New MIRs
+[14:35] <cpaelzer> Mission: ensure to assign all incoming reviews for fast processing
+[14:35] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[14:35] <cpaelzer> empty
+[14:35] <cpaelzer> \o/
+[14:35] <didrocks> weird at this point of the cycle
+[14:35] <didrocks> Iâm fearing August now :)
+[14:35] <sarnold> so weird
+[14:35] <cpaelzer> Some reviews of last week have been handed out last week
+[14:35] <cpaelzer> some concluded, some still ongogin AFAICS
+[14:35] <cpaelzer> so it isn't that there is nothing going on
+[14:35] <cpaelzer> #topic Incomplete bugs / questions
+[14:35] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[14:35] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[14:35] <slyon> jbicha: FYI bug #2071396 is looking mostly good, but we'd want to have the most recent version v0.2.0
+[14:36] -ubottu:#ubuntu-meeting- Bug 2071396 in libdisplay-info (Ubuntu) "[MIR] libdisplay-info" [Undecided, Incomplete] https://launchpad.net/bugs/2071396
+[14:36] <cpaelzer> thanks jbicha, waiting for you to call it ready
+[14:36] <slyon> sarnold: I wasn't sure if we need security review on this ^
+[14:36] <cpaelzer> also https://bugs.launchpad.net/ubuntu/+source/highway/+bug/2070807 is known but not yet ready
+[14:36] <slyon> see comment #0
+[14:36] -ubottu:#ubuntu-meeting- Launchpad bug 2070807 in highway (Ubuntu) "[MIR] highway" [Undecided, Incomplete]
+[14:37] <cpaelzer> sarnold: it parses media files, that needs security
+[14:37] <slyon> I decieded we don't need security update, as they are mostly parsing EDID data from trusted sources (kernel)
+[14:37] <cpaelzer> oh is that all they do ...
+[14:37] <cpaelzer> reading more ...
+[14:37] <sarnold> slyon: yeah, I'm also not sure .. I think I'd expect the kernel to just hand over raw blobs without inspection.. but if they've already got fuzzing in place, that's very impressive, and our capacity issues this cycle suggests that we ought to try to steer things away from us where it makes sense
+[14:37] <slyon> yeah mostly sysfs data
+[14:38] <didrocks> yeah, I would say from the comment as itâs only sysfs info, it shouldnât need?
+[14:38] <didrocks> and yeah fuzzing <3
+[14:38] <cpaelzer> oh you are on libdisplay-info still
+[14:38] <didrocks> yeah, sorry cpaelzer :)
+[14:38] <sarnold> yeah, I type so slow, heh
+[14:38] <cpaelzer> I was on the src:highway already
+[14:38] <slyon> Right, they have fuzzing in place for their parser. Seems solid overall.
+[14:39] <slyon> I think we can stay with no security review
+[14:39] <didrocks> thatâs why you are managing people, ahead of us :p
+[14:39] <cpaelzer> that src:highway I expect needing a security review once it is ready in general
+[14:39] <sarnold> :D
+[14:39] <sarnold> yes, highway feels like it needs security review, jpegs are reachable via more than "plug in a device" :)
+[14:39] <cpaelzer> although, it is just "Efficient and performance-portable SIMD wrapper "
+[14:39] <cpaelzer> so it does not know it deals with image files
+[14:40] <sarnold> heh
+[14:40] <cpaelzer> up to you to decide once it is ready
+[14:40] <cpaelzer> but still, uncontrolled source usually means better have a look to be safe
+[14:40] <cpaelzer> going on here ...
+[14:40] <cpaelzer> #topic Process/Documentation improvements
+[14:40] <cpaelzer> Mission: Review pending process/documentation pull-requests or issues
+[14:40] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/pulls
+[14:40] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/issues
+[14:40] <cpaelzer> cleaned of all but the long waiting cases
+[14:40] <cpaelzer> and those got an update why they are stuck
+[14:41] <cpaelzer> #topic MIR related Security Review Queue
+[14:41] <cpaelzer> Mission: Check on progress, do deadlines seem doable?
+[14:41] <cpaelzer> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[14:41] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:41] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:41] <cpaelzer> Internal link
+[14:41] <cpaelzer> - ensure your teams items are prioritized among each other as you'd expect
+[14:41] <cpaelzer> - ensure community requests do not get stomped by teams calling for favors too much
+[14:41] <cpaelzer> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[14:41] <sarnold> "restart to keep using firefox" sheesh
+[14:42] <sarnold> alas, no progress in the last week, and given my interview schedule this week, unlikely any progress this week, either :(
+[14:42] <sarnold> our director is keenly aware of our capacity problems
+[14:43] <sarnold> hiring and onboarding new people takes immense time .. so .. this might be a repeating story for a while.
+[14:43] <cpaelzer> "our director is keenly aware of our capacity problems" is what we wanted to hear
+[14:43] <cpaelzer> thanks
+[14:43] <cpaelzer> #topic Any other business?
+[14:44] <sarnold> his advice was to get in the most important pieces early
+[14:44] <didrocks> nothing for me
+[14:44] <slyon> nothing here
+[14:44] <sarnold> nothing here
+[14:44] <cpaelzer> I know there will be a big MIR not yet in the queue soon
+[14:44] <jbicha> .
+[14:44] <cpaelzer> to satisfy sarnold missing more activity
+[14:45] <didrocks> lucky him :)
+[14:45] <sarnold> oh boy oh boy! just like old times :)
+[14:45] <jbicha> except for highway needing an autopkgtest, I consider it ready for review. Sorry I didn't get to that last week
+[14:45] <cpaelzer> about a package new to the archive and aiming to go to main in all releases soon
+[14:45] <cpaelzer> something hwlib from the cert team, but it was not yet ready for review today
+[14:45] <cpaelzer> but FYI for now
+[14:46] <sarnold> new toys!
+[14:46] <cpaelzer> yep
+[14:46] <cpaelzer> ok, all looks good
+[14:47] <cpaelzer> and jbicha, no need to excuse. You know it is needed and you prep it right away - that is good and nothing to excuse :-)
+[14:47] <cpaelzer> ok, with that I think we can close for today
+[14:47] <slyon> thanks cpaelzer, all!
+[14:47] <sarnold> thanks cpaelzer, all :)
+[14:47] <didrocks> thanks you all!
+[14:48] <cpaelzer> https://oeis.org/A000332
+[14:48] <cpaelzer> 35
+[14:48] <cpaelzer> 15
+[14:48] <cpaelzer> 5
+[14:48] <cpaelzer> 1
+[14:48] <cpaelzer> 0
+[14:48] <cpaelzer> 0
+[14:48] <cpaelzer> 0
+[14:48] <cpaelzer> 0
+[14:48] <cpaelzer> #endmeeting
+[14:48] <meetingology> Meeting ended at 14:48:23 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-07-09-14.31.moin.txt
+[14:48] <sarnold> :D
+[14:48] <didrocks> you need to check your stop condition!
+[14:48] <slyon> haha
+[14:48] <cpaelzer> I wondered if you are scared how many zeros will follow
+[14:48] <didrocks> (run a perf tool :D)
+[14:49] <sarnold> cpaelzer: I was! :)
+[14:50] <sarnold> these comments are fascinating, excellent nerdsnipe here
