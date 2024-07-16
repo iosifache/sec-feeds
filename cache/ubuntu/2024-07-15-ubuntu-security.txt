@@ -1,0 +1,6 @@
+=== chris14_ is now known as chris14
+=== cplfidgvnekaibts is now known as papmqjazclroccek
+=== papmqjazclroccek is now known as georgiag
+[16:08] <rouca> mdeslaur: I was not recontacted for imagemagick on your side
+[16:09] <rouca> mdeslaur: for php-cas thanks 
+[16:41] <mdeslaur> rouca: I've pinged in our private channel, thanks
