@@ -1,0 +1,118 @@
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+=== sudip_ is now known as sudip
+=== pushkarnk1 is now known as pushkarnk
+=== dbungert1 is now known as dbungert
+[14:59] <adrien> \o
+[14:59] <pushkarnk> o/
+[14:59] <bdrung> \o
+[14:59] <upils> o/
+[14:59] <Skia> o7
+[14:59] <zhsj> o/
+[15:00] <cpete> o/
+[15:00] <ravikant_> o/
+[15:00] <mateus-morais> o/
+[15:01] <slyon> o/
+[15:01] <ginggs> o/
+[15:02] <mclemenceau> o/
+[15:02] <dbungert> o/
+[15:02] <juliank> o/
+[15:02] <ogayot> o/
+[15:02] <juliank> #startmeeting Weekly Ubuntu Foundations team
+[15:02] <meetingology> Meeting started at 15:02:53 UTC.  The chair is juliank.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:02] <juliank> #topic Lightning rounds
+[15:02] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:03] <juliank> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-2024-07-18/
+[15:05] <tobhe> o/
+[15:05] <mkukri> o/
+=== pushkarnk1 is now known as pushkarnk
+=== rkratky__ is now known as rkratky
+[15:16] <juliank> #topic Release incoming bugs
+[15:16] <juliank> oo is empty
+[15:16] <juliank> (well the bug in tehre is for desktop)
+[15:16] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-nn-incoming-bug-tasks.html#foundations-bugs
+[15:17] <juliank> bug 2043820
+[15:17] -ubottu:#ubuntu-meeting- Bug 2043820 in firefox (Ubuntu Noble) "Unable to contact snap store on Xubuntu from Jammy to Noble" [High, Confirmed] https://launchpad.net/bugs/2043820
+[15:17] <juliank> This is targeted to the point release now
+[15:17] <juliank> #21 complains about broken resolved
+[15:18] <enr0n> Yeah I have not had time to look in detail at this but its on my radar
+[15:19] <juliank> bug 2073278
+[15:19] -ubottu:#ubuntu-meeting- Bug 2073278 in ubuntu-release-upgrader (Ubuntu) "I cant update to the newest version of ubuntu 24,04 LTS" [Undecided, New] https://launchpad.net/bugs/2073278
+[15:20] <bdmurray> 2024-07-16 18:05:11,520 DEBUG denylist expr '^postgresql-.*[0-9][0-9].*' matches 'postgresql-12'
+[15:20] <enr0n> ravikant_ and I looked at this one earlier, and we saw at least a few other upgrades failing for similar reasons (postgresql- being on removal denylist)
+[15:20] <bdmurray> 2024-07-16 18:05:11,520 DEBUG The package 'postgresql-12' is marked for removal but it's in the removal deny list
+[15:21] <bdmurray> Yes
+[15:21] <enr0n> I think the denylist is wrong? postgresql-12 is focal only IIUC, so it seems correct for this to be removed assuming the new one is installed
+[15:21] <juliank> Ah yes there was another one I believe
+[15:21]  * bdrung has to reboot his machine.
+[15:21] <enr0n> but I need to look at the git history for that denylist entry
+[15:21] <bdmurray> I have some familiarity with it
+[15:21] <bdmurray> or had
+[15:21] <bdmurray> ;-)
+[15:22] <juliank> Well yes this needs to go
+[15:22] <enr0n> This probably needs to go before the point release too. I imagine a lot of users would hit this
+[15:23] <bdmurray> It didn't used to be safe to upgrade postgres due to potential data loss
+[15:24] <juliank> bdmurray: well then we should tell the user instead of just logging it to main.log
+[15:24] <bdmurray> Oh, I do know this
+[15:24] <bdmurray> bug 1825563
+[15:24] -ubottu:#ubuntu-meeting- Bug 1825563 in ubuntu-release-upgrader (Ubuntu) "automatically removed packages includes postgresql-10 which can result in cluster dropping" [High, Fix Released] https://launchpad.net/bugs/1825563
+[15:24] <juliank> Anyway tagged todo
+[15:24] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-jj-incoming-bug-tasks.html#foundations-bugs
+[15:25] <juliank> bug 2067361
+[15:25] -ubottu:#ubuntu-meeting- Bug 2067361 in python3.10 (Ubuntu) "Programs using netrc with containing an entry without a password fail with an exception 'malformed machine entry <> terminated by '''" [Medium, New] https://launchpad.net/bugs/2067361
+[15:25] <juliank> this seems to be a sponsorship request for python3.10
+[15:25] <enr0n> Yeah I tagged this when I was on patch pilot. I thought foundations would want to be aware of / review any potential python3.10 SRU
+[15:26] <juliank> doko:
+[15:28] <enr0n> or ginggs ^ (trying to ping Samir but he is not on IRC or I don't know his nick)
+[15:30] <ravikant_> samirkamerkar^
+[15:32] <juliank> slyon: bug 2067361
+[15:32] -ubottu:#ubuntu-meeting- Bug 2067361 in python3.10 (Ubuntu) "Programs using netrc with containing an entry without a password fail with an exception 'malformed machine entry <> terminated by '''" [Medium, New] https://launchpad.net/bugs/2067361
+[15:32] <juliank> samirkamerkar: ^
+[15:32] <ginggs> I can take this and chat with doko
+[15:33] <samirkamerkar> Thanks ginggs
+[15:34] <juliank> Alright
+[15:34] <juliank> Let's move on
+[15:34] <juliank> #topic Team proposed-migration report
+[15:35] <adrien> I need to leave unfortunately; I've made more progress on oauth2client for pyopenssl: beancount is waiting sponsorship, fence-agents and cinder should be good next week (well, cinder already doesn't depend on it anymore but there's some fallout); pydrive2 will remain but my plan is to either port it or somehow vendor oauth2client there
+[15:35] <juliank> pyopenssl is still with adrien
+[15:35] <juliank> cu o/
+[15:35] <juliank> apport is with schopin
+[15:35] <adrien> and certbot should be dropped soon I guess
+[15:35] <juliank> bpf* are with mkukri
+[15:35] <mkukri> yep they are :/
+[15:36] <juliank>  glibc blocking linux-meta (6.8.0-31.31 to 6.10.0-15.15) for 12 days , schopin were you looking into that?
+[15:36] <schopin> yes, every time glibc is a candidate there's something new that fails.
+[15:37] <juliank> glibc blocking linux-meta schopin
+[15:38] <juliank> dash mwhudson
+[15:38] <juliank> boost* blocking cmake xypron
+[15:39] <ravikant_> I think dash is with dviererbe
+[15:39] <juliank> glibc migration we leave to schopin
+[15:39] <juliank> ravikant_: that was an older dash
+[15:39] <ravikant_> ack
+[15:39] <schopin> dviererbe did the merge for it though.
+[15:39] <juliank> Dominik Viererbe
+[15:39] <juliank> dash/0.5.12-6ubuntu6 proposed-migration
+[15:39] <juliank> Foundations Pulse 2024#14
+[15:40] <juliank> Done
+[15:40] <juliank> oh
+[15:40] <juliank> ok so dash: dbungert
+[15:40] <juliank> sigh
+[15:40] <dbungert> ack
+[15:40] <juliank> dash: dviererbe
+[15:40] <juliank> no dbungert no
+[15:40] <dbungert> lol
+[15:40] <juliank> gcc-14-cross we just leave with doko
+[15:41] <juliank> bpftrace goes to spyros
+[15:41] <tobhe> \o/
+[15:42] <schopin> tobhe: why so cheerful? Clamouring for an assignment?
+[15:43] <juliank> mkukri: to consult with spyros
+[15:43] <juliank> setuptools vpa1977
+[15:44] <juliank> and that's all
+[15:44] <juliank> #topic AOB
+[15:44] <ogayot> I'll be off tomorrow and Monday
+[15:44] <bdmurray> I'm in and out the next couple of days.
+[15:45] <Skia> I'm off next Monday
+[15:50] <bdmurray> juliank: I think that's it
+[15:50] <juliank> #endmeeting
+[15:50] <meetingology> Meeting ended at 15:50:59 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-07-18-15.02.moin.txt
+[15:52] <doko> juliank: yes, the gcc-* packages will get updates with the gcc-defaults changes anyway
