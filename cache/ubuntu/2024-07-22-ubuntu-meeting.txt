@@ -1,0 +1,160 @@
+=== blackboxsw_away is now known as blackboxsw
+=== pushkarnk1 is now known as pushkarnk
+[16:00] <bdrung> \o
+[16:00] <schopin> o/
+[16:00] <rbasak> o/
+[16:02] <mkukri> o/
+[16:03] <bdrung> tsimonq2, your list on https://wiki.ubuntu.com/mkukri/BootPpuApplication might be wrong. for example, ayatana-indicator-datetime 23.6.0-1 is from Mike Gabriel.
+[16:03] <mkukri> i think that was a sync from debian
+[16:04] <mkukri> shows up as "sru" on the sponsorship miner for some reason
+[16:04] <mkukri> (and actual srus dont list sru on there)
+[16:04] <bdrung> found it (it was a sync): https://bugs.launchpad.net/ubuntu/+source/ayatana-indicator-datetime/+bug/2045041
+[16:04] -ubottu:#ubuntu-meeting- Launchpad bug 2045041 in ayatana-indicator-datetime (Ubuntu) "Sync ayatana-indicator-datetime 23.6.0-1 (universe) from Debian unstable (main)" [Wishlist, Fix Released]
+[16:06] <teward> o/  (I'm 5 minutes late due to having to kick my internet what'd I miss?)
+[16:06] <schopin> not much :)
+[16:07] <rbasak> I guess I'll chair since nobody else is?
+[16:07] <rbasak> #startmeeting Developer Membership Board
+[16:07] <meetingology> Meeting started at 16:07:14 UTC.  The chair is rbasak.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[16:07] <meetingology> Available commands: action, commands, idea, info, link, nick
+[16:07] <rbasak> #topic Review of previous action items
+[16:07] <rbasak> Utkarsh to review the tasks for a DMB election and decide if he can take that on. If not we should choose somebody to run the election.
+[16:07] <rbasak> The election happaned, so I guess that can be dropped?
+[16:07] <rbasak> #topic teward follow up to get all application process wiki/docs to explain the process to be able to edit wiki pages, for applicants who don't yet have wiki edit access (carried over)
+[16:08] <teward> that still needs to persist, but i'm never getting enough cycles to do it (support welcome!)
+[16:08] <rbasak> #undo
+[16:08] <meetingology> Removing item from minutes: TOPIC
+[16:08] <rbasak> #action teward follow up to get all application process wiki/docs to explain the process to be able to edit wiki pages, for applicants who don't yet have wiki edit access (carried over)
+[16:08] <meetingology> ACTION: teward follow up to get all application process wiki/docs to explain the process to be able to edit wiki pages, for applicants who don't yet have wiki edit access (carried over)
+[16:08] <rbasak> #topic Package Set/Per Package Uploader Applications
+[16:08] <rbasak> #subtopic 2024-07-22 Mate Kukri Boot PPU Application
+[16:08] <rbasak> mkukri: welcome!
+[16:08] <mkukri> hello
+[16:08] <rbasak> #link https://wiki.ubuntu.com/mkukri/BootPpuApplication
+[16:09] <rbasak> Any questions for mkukri on his application?
+[16:10] <schopin> None from me.
+[16:11] <rbasak> In addition to my usual questions which I can ask later, there are a couple of things that come to mind for a PPU request for these packages.
+[16:11] <rbasak> First, to be clear, this is a reasonable thing to request.
+[16:12] <rbasak> However, notably this is new ground for us. I'm not aware that we've approved many (any?) PPU for core packages such as these.
+[16:12] <rbasak> So one question for the DMB: is PPU appropriate for these packages at all?
+[16:13] <rbasak> Second question: I appreciate mkukri documenting the very special publication process for these packages in his application. But, don't these need AA approval to land? I see no endorsements from AAs who have reviewed these.
+[16:14] <teward> I think the reason we consider things "core" is why Core Developer exists.  On the sole basis that one wrong move on these core packages, and there can be major problems.
+[16:14] <rbasak> juliank's endorsement says: "Given the way these updates are published with external signing PPAs, and Mate already having access to request signing and unembargo those we already trust him arguably more than the PPU" - so what's the story there? Has an AA already granted mkukri some level of access for these?
+[16:14] <mkukri> i believe the signing is done via ~canonical-signing-jobs and a private signing PPA. i have submitted many signing requests myself via that
+[16:15] <mkukri> i think after that the packages get binary copied to the archive. i am not aware of extra AA approval after that, but i could be wrong (as obviously those copies were dont by juliank to this point)
+[16:15] <teward> I agree with Robie, wouldn't that binary copy need special AA handling?
+[16:15] <rbasak> So on my second question, I'm not comfortable approving PPU without an AA coming along and agreeing that this makes sense to do, and that they're happy with mkukri's handling of the special process in terms of review submissions, etc.
+[16:16] <rbasak> I know that special AA handling is required for SRUs. I'm not sure about the development release.
+[16:16] <rbasak> It may be that it isn't required, but I think it should be regardless!
+[16:17] <bdrung> I looked at https://launchpad.net/ubuntu/+source/grub2/+publishinghistory as an example. I see entries like "Copied from ubuntu oracular in Ubuntu UEFI build PPA by Julian Andres Klode"
+[16:18] <mkukri> grub2 isnt signed
+[16:18] <rbasak> If it's going via the unapproved queue (whether for source or binaries) then my understanding of Launchpad's model is that it would say that regardless. I don't know of a publicly accessible audit log of queue accepts.
+[16:18] <mkukri> the signed ones are copied from here https://launchpad.net/~ubuntu-uefi-team/+archive/ubuntu/proposed-public
+[16:19] <rbasak> How would the other DMB members like to proceed?
+[16:20] <schopin> Regarding the first question, I think it's similar to the kernel, both in terms of the huge impact it can have but also the very specific expert knowledge needed.
+[16:21] <schopin> You don't need to understand how to handle library transitions to be a good maintainer of the boot stack, and the SRU process for it is very specific.
+[16:21] <rbasak> The kernel has an advantage that it is well abstracted from everything else though. With these packages there are deep interactions that extend well beyond these packages.
+[16:22] <rbasak> So no need to understand library transitions, no, but I get the impression differently deep packaging knowledge is needed.
+[16:22] <schopin> Just for context later on, we're talking about the following packages: grub2, grub2-unsigned, grub2-signed, shim, shim-signed, ubuntu-boot-test, python-uefivars, efivar, efibootmgr
+[16:23] <bdrung> rbasak, do we have a list of PPU sets and which contain packages from main?
+[16:23] <rbasak> I can't think of a way to extract that quickly unfortunately.
+[16:25] <bdrung> rbasak, do you have the reference to all PPU sets that we have?
+[16:25] <rbasak> The best way I think think of is to iterate over ~ubuntu-dev and/or ~ubuntu-uploaders and run edit-acl over each person.
+[16:26] <rbasak> For packagesets we have https://ubuntu-archive-team.ubuntu.com/packagesets/
+[16:26] <rbasak> But that doesn't cover PPU
+[16:26] <rbasak> There's no concept of a "PPU set". Just what individual ACLs have been granted to individuals.
+[16:27] <bdrung> thanks. bookmarked. With "PPU set" I meant more or less package sets - or the superset of package sets and individual PPUs.
+[16:29] <schopin> rbasak: I fail to understand how these packages have that much more interactions with the rest of the system than the kernel, really.
+[16:29] <rbasak> The only recent "core" type package we granted PPU to was livecd-rootfs. In that case I was also doubtful about the appropriateness to grant it to a non-core-dev, and asked for a peer review commitment from a core dev in mitigation, which was agreed. However I was later pressured to retract that request.
+[16:29] <teward> rbasak: pressured from where?
+[16:29] <rbasak> I can't think of any other relevant existing permissions.
+[16:30] <rbasak> teward: by other Ubuntu developers, privately, who thought it was an unreasonable "restriction" given that the DMB had agreed that this person could have PPU to livecd-rootfs.
+[16:30] <rbasak> However it wasn't formally a restriction by the DMB in my understanding - just a request.
+[16:32] <rbasak> schopin: well for example I had a long discussion with mkukri and others recently about bug 1635181. That to me is a complex packaging interaction with cloud images.
+[16:32] -ubottu:#ubuntu-meeting- Bug 1635181 in grub2 (Ubuntu) "Curtin sneaks config into /etc/default/grub.d/" [Undecided, Triaged] https://launchpad.net/bugs/1635181
+[16:33] <rbasak> schopin: usually PPU has been for leaf packages where if a PPU uploader were to make a decision about that kind of bug, it wouldn't impact anything but the users of that leaf package.
+[16:33] <mkukri> i cannot disagree with the "complex interactions" thing either
+[16:33] <rbasak> But here, decisions made there would have much wider reach - to every cloud user.
+[16:34] <teward> and with the requested set in this request, *every* user
+[16:34] <teward> cloud or otherwise (just putting that as a point of statement/fact)
+[16:34] <rbasak> To be clear, I'm not judging mkukri's abilities here. My interactions with him have been excellent.
+[16:35] <rbasak> But the *principle* of granting PPU at all for "core" packages is what I'm questioning. It wouldn't be a "leaf" activity like it is for regular PPU requests.
+[16:36] <schopin> I'm not saying there aren't complex interactions, mind you, it's just the kernel comparison that strike me.
+[16:37] <rbasak> I think the DMB needs to decide whether PPU for these packages is suitable at all, or not.
+[16:37] <rbasak> I think I'm still willing to be persuaded otherwise. I do think it's a problem that needs addressing.
+[16:38] <rbasak> As developers are getting more specialised within Canonical now, we're getting PPU requests whereas previously they'd just have become core devs without particuarly setting out to achieve that just because their work was more broad.
+[16:38] <schopin> Is it a decision that can be taken by the DMB though?
+[16:38] <rbasak> I think so
+[16:38] <bdrung> I looked for similar cases in https://ubuntu-archive-team.ubuntu.com/packagesets/oracular/ that could be an argument for core package PPUs, but found none except the kernel case.
+[16:39] <rbasak> It's up to the DMB to decide whether to grant PPU or not. If the DMB were to decide that some packages aren't suitable to ever have PPU, then from a governance perspective I think that would be valid.
+[16:39] <teward> based on my understanding of the layout of the permissions, DMB is given the task to decide on membership rights, etc. including what packages we can grant individual PPUs on or not.  Since it's a delegated permission from the TB to the DMB.  That's my understanding of the delegation
+[16:39] <teward> (and therefore governance)
+[16:39] <teward> s/permissions/delegation of powers/
+[16:39] <mkukri> i think for the early boot part, the kernel is the best comparison. for the complex collection of arcane userspace scripts and utilities, there is probably none
+[16:40] <rbasak> Another view might be that for core packages, we expect candidates to have a wide set of experience over the archive, and therefore it's reasonable and we actually _want_ applicants to have "done the rounds" before applying. I realise that this imposes some more work, but I don't think it'd be a bad thing.
+[16:41] <rbasak> mkukri: unfortunately I see the packages as a combination of both.
+[16:41] <rbasak> mkukri: if you were to need to patch the upstream code to fix a bug, then I think your application makes it clear that it'd be appropriate for you to upload without requiring further core dev review.
+[16:42] <rbasak> mkukri: but the packaging has complexity beyond that, with very widespread ramifications, which arguably should be reviewed by someone with wide experience. Which could be you, but that would require a core dev application to demonstrate.
+[16:43] <mkukri> i am not disputing the fact the grub uploads need review, i think grub uploads by coredevs should *also* be reviewed by at least another person
+[16:44] <rbasak> Ideas have been floated around an alternative path which focuses on peer review rather than granting access to individuals to upload subsets of the archive "without supervision", which is what the ACLs we have today do.
+[16:44] <rbasak> I really like the idea but don't have the capacity to drive it right now :-/
+[16:45] <rbasak> So how do we proceed?
+[16:45] <rbasak> I think it'd be nice to have DMB consensus on this point, rather than doing it piecemeal through votes on every PPU application.
+[16:45] <rbasak> So I can start a thread on the ML I guess?
+[16:46] <schopin> Yes, I think deferring to the ML would be best.
+[16:46] <bdrung> I haven't made up my mind about whether or not DMB should grant PPU rights on core package or not.
+[16:46] <rbasak> However, if you want to proceed anyway, I would not stop you (but my vote would be -1 for the reasons above - nothing to do with mkukri's application itself, but that I see this as a new category of request for which we do not have consensus on how to handle)
+[16:48] <bdrung> We should agree on granting / not granting PPU rights on core package before discussing mkukri's application
+[16:48] <rbasak> OK, so let me start an ML thread, and then I guess we'll need to defer reviewing mkukri's application until after either 1) we've reached consensus; or 2) DMB members want to skip that and move to a vote regardless. I favour the former, to be clear; I'm just making sure to state the latter option to make sure that there's no doubt from a governance perspective.
+[16:49] <rbasak> Does that sound OK to everyone?
+[16:49] <bdrung> yes
+[16:49] <schopin> Yes.
+[16:50] <rbasak> #action rbasak to start a ML thread to find consensus on whether to allow PPU applications for "core" packages
+[16:50] <meetingology> ACTION: rbasak to start a ML thread to find consensus on whether to allow PPU applications for "core" packages
+[16:50] <rbasak> Sorry mkukri that we couldn't handle your request in this meeting.
+[16:50] <rbasak> #topic Outstanding mailing list requests to assign
+[16:50] <bdrung> i'll have a comment for mkukri. let me write it down.
+[16:51] <rbasak> mkukri: on my second question above, I wonder if you could please get an endorsement from an AA who has handled your uploads? I know that they do for SRUs at least. That would give me confidence in a future review of your application.
+[16:52] <rbasak> schopin: the "DMB Meeting hours revision" thread looks like it's still outstanding. Are you planning to drive that?
+[16:52] <schopin> Depending on the process, mkukri might not *know* which AA handled his upload.
+[16:52] <rbasak> Indeed.
+[16:52] <mkukri> i have had essentially zero personalized interaction with AAs despite having produced almost all the GRUB uploads in ubuntu over the last ~11 months. beyond regular SRU review i am not entirely sure about their part in this to be perfectly honest
+[16:52] <rbasak> But he has colleagues who can help him figure that out :)
+[16:53] <rbasak> mkukri: it was probably the SRU team members who are also AAs who accepted your SRU into -proposed and made that initial template bug comment
+[16:54] <schopin> He does, but it seems weird to require endorsement from them in these circumstances.
+[16:54] <rbasak> I don't see any other outstanding ML threads.
+[16:54] <mkukri> i think there is a major bottleneck in the SRU process w.r.t grub, and we have even complained about this on the ML
+[16:54] <mkukri> it seems like essentially no one besides vorlon touches shim/grub srus
+[16:54] <schopin> rbasak: re the Hours thing, I was hoping I'd get more input, especially from bdmurray given his TZ.
+[16:55] <schopin> I'll try nudging the ball forward.
+[16:55] <rbasak> Thanks!
+[16:55] <rbasak> I wrote up https://wiki.ubuntu.com/StableReleaseUpdates/Grub after a discussion with Steve
+[16:55] <rbasak> However I cannot do any more without documentation or training from someone who does know the process.
+[16:56] <bdrung> mkukri, I looked at https://bugs.launchpad.net/ubuntu/+source/bpftrace/+bug/2073485 this morning and at https://bugs.launchpad.net/ubuntu/+source/bpftrace/+bug/2060766 from your application. They could have more documentation. Patches that disable failing test could state the reason (e.g. test env kernel too old, etc) or point to a bug report that reports the failures to get them fixed in the future. The latter package
+[16:56] <bdrung> changes d/rules without stating the reason in d/changelog.
+[16:56] -ubottu:#ubuntu-meeting- Launchpad bug 2073485 in bpftrace (Ubuntu) "bpftrace autopkgtest failure" [Undecided, New]
+[16:56] -ubottu:#ubuntu-meeting- Launchpad bug 2060766 in bpftrace (Ubuntu) "Can't run bpftrace , ERROR: too many arguments" [Critical, Fix Released]
+[16:56] <mkukri> i am admiteddly not an expert in the bpf tooling and i picked bpfcc and bpftrace up to get them to shape enough for canonical's effort to mir them for noble
+[16:57] <rbasak> #topic Open TB bugs
+[16:57] <mkukri> unfortunately the bpf expert has not shown up as of yet to take over :)
+[16:57] <rbasak> #info No open TB bugs
+[16:57] <rbasak> #topic Select a chair for the next meeting (next from https://launchpad.net/~developer-membership-board/+members)
+[16:57] <rbasak> Well I wasn't nominated chair, and just did it because nobody else was.
+[16:57] <rbasak> Shall I pick one randomly?
+[16:57] <rbasak> Excluding me...
+[16:58] <schopin> Do we have a script for the meeting?
+[16:58] <rbasak> It's Utkarsh (he's not here).
+[16:58] <rbasak> And let me pick a backup randomly
+[16:58] <bdrung> IIRC we did some kind of round robin for the chair 10 years ago.
+[16:58] <rbasak> That's teward
+[16:59] <rbasak> Round robin didn't work because what would happen is that the chair would be absent for multiple meetings and then nobody knew who would chair instead.
+[16:59] <teward> blah i hate it when the internet is unstable (just got my net back)
+[16:59] <schopin> teward: you've been randomly chosen as backup chair for next meeting.
+[16:59] <rbasak> Unless there are objections, based on my random choices to get this restarted, I'm picking Utkarsh as chair, and teward is he is absent.
+[16:59] <teward> ah ok
+[16:59] <rbasak> if he is absent
+[17:00] <bdrung> fine with that
+[17:00] <rbasak> #info Utkarsh will chair with Thomas as backup
+[17:00] <rbasak> #topic AOB
+[17:00] <rbasak> AOB?
+[17:00] <rbasak> #endmeeting
+[17:00] <meetingology> Meeting ended at 17:00:59 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-07-22-16.07.moin.txt
