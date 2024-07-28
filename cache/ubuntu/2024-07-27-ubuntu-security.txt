@@ -1,0 +1,3 @@
+=== chris14_ is now known as chris14
+[05:07] <Juest> thanks JanC, but technically the protocol does not allow for complete elimination of public keys, right?
+[11:13] <rbasak> Juest: I agree with JanC - in a rare event you could ask for manual intervention and that seems reasonable to me. AFAIK, the protocol does not allow for it, but I am not familiar with the protocol!
