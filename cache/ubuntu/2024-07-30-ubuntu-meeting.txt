@@ -1,0 +1,148 @@
+[14:29] <jbicha> o/
+[14:31] <didrocks> hey o/
+[14:32] <didrocks> I think people are either at events or busy with meetings, letâs get cracking a small and everyone can read the scrollback as suited
+[14:32] <didrocks> #startmeeting Weekly Main Inclusion Requests status
+[14:32] <meetingology> Meeting started at 14:32:33 UTC.  The chair is didrocks.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[14:32] <meetingology> Available commands: action, commands, idea, info, link, nick
+[14:32] <sarnold> good morning
+[14:32] <didrocks> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( eslerm dviererbe )
+[14:32] <didrocks> #topic current component mismatches
+[14:32] <didrocks> Mission: Identify required actions and spread the load among the teams
+[14:32] <didrocks> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[14:32] <didrocks> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[14:33] <didrocks> it seems the only untracked one is dkms -> gcc-13. I donât think we are going to miss it before release :)
+[14:34] <didrocks> up to foundation, but with the holidays we donât have representative, doko: this is probably on you and it seems just some AA work for gcc promotion (dkms -> gcc-13)
+[14:34] <didrocks> #topic New MIRs
+[14:34] <didrocks> Mission: ensure to assign all incoming reviews for fast processing
+[14:34] <didrocks> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[14:35] <didrocks> Iâm moving back libdisplayinfo to NEW and reassigned to slyon once he is back
+[14:36] <didrocks> and so, we have 3 of them being NEW
+[14:36] <didrocks> https://bugs.launchpad.net/ubuntu/+source/libimobiledevice-glue/+bug/2074086
+[14:36] -ubottu:#ubuntu-meeting- Launchpad bug 2074086 in libimobiledevice-glue (Ubuntu) "MIR libimobiledevice-glue" [Undecided, New]
+[14:37] <didrocks> I am happy to take it, that will be one less on the list
+[14:37] <didrocks> https://bugs.launchpad.net/ubuntu/+source/ubuntu-x13s-settings/+bug/2074078
+[14:37] -ubottu:#ubuntu-meeting- Launchpad bug 2074078 in ubuntu-x13s-settings (Ubuntu) "[MIR] ubuntu-x13s-settings" [Undecided, New]
+[14:38] <didrocks> it seems an easy one. As I think everyone else is away, but Iâm going to assume cpaelzer is happy to take this simple configuration package from the description :)
+[14:39] <sarnold> :)
+[14:39] <didrocks> otherwise, I will blame the MIR description report :p
+[14:39] <didrocks> last one is https://bugs.launchpad.net/ubuntu/+source/isa-support/+bug/2073895
+[14:39] -ubottu:#ubuntu-meeting- Launchpad bug 2073895 in isa-support (Ubuntu) "[MIR] isa-support" [Undecided, New]
+[14:40] <didrocks> unsure if the "TBD - create the MIR request" is actually cpaelzer not updating the comment to the description
+[14:40] <didrocks> apart from the TBDSRC, the rest seems like a ready MIR
+[14:40] <sarnold> mostly, there's still a 'TBDSRC' in there, heh
+[14:40] <cpaelzer> thanks for running this didrocks
+[14:41] <cpaelzer> I'm partially here now
+[14:41] <cpaelzer> reading backlog
+[14:41] <didrocks> cpaelzer: yw! I did a partial MIR assignement to you ;)
+[14:41] <sarnold> '  x86-64 architecture, corresponding to x86-65 psABI v1." from the package description
+[14:42] <cpaelzer> I'm happy to take the one you wanted to pass me
+[14:42] <sarnold> "we've got 64 bits at home, why do you need 65 bits?"
+[14:42] <didrocks> cpaelzer: already done!
+[14:42] <cpaelzer> is that https://bugs.launchpad.net/ubuntu/+source/ubuntu-x13s-settings/+bug/2074078 - yeah I see
+[14:42] -ubottu:#ubuntu-meeting- Launchpad bug 2074078 in ubuntu-x13s-settings (Ubuntu) "[MIR] ubuntu-x13s-settings" [Undecided, New]
+[14:42] <cpaelzer> will you be able to take https://bugs.launchpad.net/ubuntu/+source/isa-support/+bug/2073895 as a trade?
+[14:42] -ubottu:#ubuntu-meeting- Launchpad bug 2073895 in isa-support (Ubuntu) "[MIR] isa-support" [Undecided, New]
+[14:42] <didrocks> and so, on isa-support, letâs see next week if we can volounteer any victim to review it
+[14:42] <didrocks> cpaelzer: I did take libimobiledevice-glue as the one for this week
+[14:43] <cpaelzer> arrr
+[14:43] <didrocks> depending on the bribing, I can trade! :)
+[14:43] <cpaelzer> fine, 1 sec
+[14:43] <cpaelzer> we nkow slyon is on debconf
+[14:43] <didrocks> yep
+[14:43] <cpaelzer> But joalif: jamespage: if you read this later and you have a bit of time, https://bugs.launchpad.net/ubuntu/+source/isa-support/+bug/2073895 should be really trivial
+[14:43] <cpaelzer> if it would not violate rules I'm tempted to self-approve :-)
+[14:44] <cpaelzer> but there are reasons we have more than one set of eyes - maybe my assumptions are not right
+[14:44] <didrocks> cpaelzer: more seriously if isa-support is urgent, Iâm happy to take it instead of the other one which I think can wait for another week
+[14:44] <cpaelzer> It is not more urgent than others
+[14:44] <cpaelzer> it is more the (hopeful) triviality which makes me wonder if it should wait
+[14:44] <cpaelzer> So I wanted to raise it with joalif and jamespage in case they see the ping later
+[14:45] <jamespage> I've seen your ping
+[14:45] <cpaelzer> didrocks: please feel free to go on here
+[14:45] <cpaelzer> I wanted to ask, but not force anyone as of now.
+[14:45] <didrocks> I just apt sourced it
+[14:45] <didrocks> indeed, itâs easy
+[14:45] <didrocks> Iâm taking it too to unblock you
+[14:45] <cpaelzer> thank you
+[14:46] <didrocks> ok, letâs move on
+[14:46] <didrocks> #topic Incomplete bugs / questions
+[14:46] <cpaelzer> ack
+[14:46] <didrocks> Mission: Identify required actions and spread the load among the teams
+[14:46] <didrocks> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[14:47] <didrocks> ok, it seems jamespage spammed us :)
+[14:47] <didrocks> to clear the proposed-migration map!
+[14:47] <cpaelzer> hehe
+[14:47] <cpaelzer> that is fine
+[14:48] <didrocks> the rest looks ok to me and there is nothing pending on us as far as I can see
+[14:48] <cpaelzer> they also seem to be quick cases once openstack is convinced they are ready (=> New state) I do not expect much surprises
+[14:48] <cpaelzer> ack
+[14:48] <didrocks> correct, it seems that it wonât be the final rush on that side at least before FF
+[14:48] <didrocks> #topic Process/Documentation improvements
+[14:48] <didrocks> Mission: Review pending process/documentation pull-requests or issues
+[14:49] <didrocks> #link https://github.com/canonical/ubuntu-mir/pulls
+[14:49] <didrocks> #link https://github.com/canonical/ubuntu-mir/issues
+[14:49] <didrocks> https://github.com/canonical/ubuntu-mir/issues/61 is a valid question
+[14:49] -ubottu:#ubuntu-meeting- Issue 61 in canonical/ubuntu-mir "The package does deal with exotic hardware, it is present at TBD" [Open]
+[14:50] <cpaelzer> indeed
+[14:50] <cpaelzer> let us just sync that we both would agree, brainstorm examples here
+[14:50] <cpaelzer> if we do roughly agree, I can create a PR at some calm moment
+[14:50] <cpaelzer> I can think of
+[14:50] <cpaelzer> 1. Ubuntu compute center at location X
+[14:51] <sarnold> "present in testflinger", "present in the taipei testing lab, talk with $name on $team, manager $name"
+[14:51] <cpaelzer> 2. can be accessed at cloud provider foo via machine type bar
+[14:51] <cpaelzer> ack to your list sarnold
+[14:51] <didrocks> I think the confusion could be also that the "it" may refer to the package
+[14:51] <sarnold> "engineering sample in $name's home on $team, manager $name"
+[14:51] <didrocks> instead of the hardware
+[14:51] <sarnold> good point
+[14:52] <cpaelzer> indeed
+[14:52] <cpaelzer> we can fix this in one go
+[14:52] <cpaelzer> thank you both, let me make a PR once I find 10 minutes with that as the start
+[14:52] <didrocks> but I agree too with the examples, that would be good illustrations and shows what the "it" refers too (probably 2 sentences)
+[14:52] <didrocks> thanks cpaelzer!
+[14:52] <cpaelzer> BTW I'm not too happy at the "home HW" maybe i should order them by "ok'ness' :-)
+[14:53] <didrocks> heh :-)
+[14:53] <sarnold> good idea
+[14:53] <didrocks> another fun topic, security!
+[14:53] <sarnold> "it is present on amazon"  :)
+[14:53] <didrocks> ahah, with this referral code ofc :p
+[14:53] <sarnold> lol
+[14:53] <cpaelzer> lol
+[14:53] <didrocks> #topic MIR related Security Review Queue
+[14:53] <didrocks> Mission: Check on progress, do deadlines seem doable?
+[14:53] <didrocks> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:54] <didrocks> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:54] <didrocks> Internal link
+[14:54] <didrocks> - ensure your teams items are prioritized among each other as you'd expect
+[14:54] <sarnold> alas no progress here :( it's been a very busy week so I've not pushed further on our resourcing issues :(
+[14:54] <didrocks> - ensure community requests do not get stomped by teams calling for favors too much
+[14:54] <didrocks> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[14:54] <didrocks> (sorry, it seems my weechat client is really lagging in multi-lines)
+[14:54] <sarnold> weechat is trying to keep you from being kicked off -- it might be a bit overzealous about it, but its heart is in the right place. there might be a setting for that :)
+[14:55] <didrocks> sarnold: ack, I know the feeling here too :( as cpaelzer said, as long as itâs known by the chain management, this is what we can do
+[14:55] <didrocks> sarnold: yeah, I will not blame it after more than 14 years of good services since I moved from irssi :p
+[14:55] <sarnold> didrocks: certainly aburrage knows
+[14:55] <sarnold> wow
+[14:55] <sarnold> weechat still feels like a very new thing to me
+[14:56] <didrocks> pitti sold me to it! (moved from bip + irssi to weechat)
+[14:56] <didrocks> #topic Any other business?
+[14:56] <sarnold> none here
+[14:56] <didrocks> nothing for me either
+[14:56] <cpaelzer> thank you didrocks for driving this while all are at the virtual sprint!
+[14:56] <cpaelzer> nothing else from server
+[14:57] <didrocks> cpaelzer: no pb! However, you wonât have any special not so random number suite today :p
+[14:57] <didrocks> so, going classicâ¦
+[14:57] <didrocks> 5
+[14:57] <didrocks> 4
+[14:57] <didrocks> 3
+[14:57] <didrocks> 2
+[14:57] <didrocks> 1
+[14:57] <didrocks> #endmeeting
+[14:57] <meetingology> Meeting ended at 14:57:38 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-07-30-14.32.moin.txt
+[14:57] <sarnold> thanks didrocks, all :)
+[14:57] <cpaelzer> yeah, thank you all!
+[14:57] <didrocks> see you next week, thanks all! :)
+[15:01] <sarnold> didrocks:  irc.server_default.anti_flood https://weechat.org/files/doc/weechat/stable/weechat_user.en.html#weechat_options  -- the default is 2000 ms, which feels like an eternity. probably 500ms would be safe enough.
+[15:03] <didrocks> sarnold: thanks for looking! :)
+[15:20] <joalif> cpaelzer: re https://bugs.launchpad.net/ubuntu/+source/isa-support/+bug/2073895 i'm going on PTO next week for  2 weeks, and I don't have cycles to do it this week :/
+[15:20] -ubottu:#ubuntu-meeting- Launchpad bug 2073895 in isa-support (Ubuntu) "[MIR] isa-support" [Undecided, New]
+[17:03] <cpaelzer> no problem joalif, didrocks already picked it by now. Enjoy your time off !
