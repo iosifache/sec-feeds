@@ -1,0 +1,10 @@
+=== chris14_ is now known as chris14
+=== fauxpride- is now known as fauxpride
+=== itu is now known as Guest1627
+=== Guest1627 is now known as itu
+=== Juesto is now known as Juest
+=== crazybyte28 is now known as crazybyte2
+[21:35] <UnivrslSuprBox> I'm still often getting errors when trying to browse around ubuntu.com/security/notices. For example, HTTP 500 on https://ubuntu.com/security/notices?order=newest&release=noble&details=&offset=10 (which might resolve itself if it manages to generate the page once, I suppose)
+[21:35] <sarnold> yeah, it's a very sad service
+[21:35] <sarnold> expect it to be bad for a while
+[21:36] <sarnold> if you want to relive the 90s, but this time with git, https://git.launchpad.net/ubuntu-cve-tracker/tree/active  and ..../ignored and ..../retired  may be helpful
