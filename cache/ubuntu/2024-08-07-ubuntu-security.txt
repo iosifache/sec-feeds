@@ -1,0 +1,14 @@
+=== chris14_ is now known as chris14
+=== gcwtwaljradkmgyx is now known as ufarlwiqamcfjglv
+=== ufarlwiqamcfjglv is now known as georgiag
+[21:19] <JanC> the CrowdStrike post mortem is interesting reading...
+[21:25] <tomreyn> does it say more than just "it's all deltas fault"?
+[21:26] <JanC> basically, their in-kernel interpreter that runs regex patterns over certain inputs had no input validation
+[21:27] <tomreyn> ah, that sounds entirely sane
+[21:29] <JanC> https://www.crowdstrike.com/wp-content/uploads/2024/08/Channel-File-291-Incident-Root-Cause-Analysis-08.06.2024.pdf
+[21:32] <tomreyn> well, at least they provided details, that's more than most other companies this size would have done.
+[21:34] <JanC> I wonder how many more bugs there are in that thing
+=== hwpplaye` is now known as hwpplayer1
+=== chris14_ is now known as chris14
+=== hams2 is now known as hams
+[23:56] <sarnold> the whole thing felt like "we were focusing on features and not quality" to me .. my guess is there's loads more where that one came from
