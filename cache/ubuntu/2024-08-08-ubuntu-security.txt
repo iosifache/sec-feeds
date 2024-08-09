@@ -1,0 +1,7 @@
+=== chris14_ is now known as chris14
+=== JanC is now known as Guest9089
+[08:12] <ricotz> hello, please take a look at https://bugs.launchpad.net/ubuntu/+source/libreoffice/+bug/2076130
+[08:13] -ubottu:#ubuntu-security- Launchpad bug 2076130 in libreoffice (Ubuntu Jammy) "CVE-2024-6472" [High, In Progress]
+[09:24] <rouca> dear ubuntu security did you receive my mail about mariadb-10.1
+[09:45] <sudhackar> hey rouca, I see it my inbox. But I am not working on mariadb patching
+[20:20] <hwpplayer1> sarnold: hello
