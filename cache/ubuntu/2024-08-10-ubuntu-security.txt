@@ -1,0 +1,11 @@
+=== chris14_ is now known as chris14
+=== crazybyte29 is now known as crazybyte2
+=== arif-ali_ is now known as arif-ali
+[22:04] <hwpplayer1> what is the start point for Ubuntu Security and to volunteer as an Ubuntu official member/community member
+[22:04] <hwpplayer1> I decided to learn red team offensive security
+[22:05] <hwpplayer1> I am into low level programming, kernelspace, Assembly, C/C++, etc
+[22:05] <hwpplayer1> Thanks
+[22:07] <hwpplayer1> sarnold: hey
+[22:16] <hwpplayer1> okay I wrote an email 
+[22:17] <hwpplayer1> to the security@ubuntu.com
+[22:33] <hwpplayer1> I'll be back later
