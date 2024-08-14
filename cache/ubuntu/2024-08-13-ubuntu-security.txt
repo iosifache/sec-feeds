@@ -1,0 +1,4 @@
+=== darosior9 is now known as darosior
+[04:12] <sudhackar> rouca: thanks for the mail. I'll try your patches today
+[07:51] <rouca> sudhackar: thanks
+[09:52] <rouca> sudhackar: just pushed a fix

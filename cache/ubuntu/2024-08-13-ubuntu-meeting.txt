@@ -1,0 +1,132 @@
+[14:29] <sarnold> good morning
+[14:33] <slyon> o/ do we have quorum today?
+[14:33] <slyon> seems like c_paelzer is on PTO
+[14:33] <sarnold> heya slyon, it's feeling pretty quiet, heh
+[14:34] <slyon> if it's just the two of us, we should consider skipping the meeting today
+[14:35] <sarnold> agreed, I don't think we'd get enough value out of it for the time
+[14:35] <sarnold> it's been five minutes, I propose we try again next week
+[14:35] <slyon> ACK.
+[14:35] <sarnold> thanks slyon :) o/
+=== dbungert1 is now known as dbungert
+[17:37] <jbicha> slyon: I left a comment on bug 2066269 . Maybe you have time to check this week?
+[17:37] -ubottu:#ubuntu-meeting- Bug 2066269 in sysprof (Ubuntu) "[MIR] sysprof" [Undecided, New] https://launchpad.net/bugs/2066269
+[19:00] <rbasak> o/
+[19:00] <amurray> o/
+[19:05]  * vorlon waves
+[19:07] <amurray> vorlon, according to the agenda it looks like you are on backup for chair, and since seb doesn't seem to be around, would you be happy to kick things off?
+[19:09] <vorlon> yes, marshalling myself to do so, sorry
+[19:10] <vorlon> want to stick another item on the agenda first, one sec :)
+[19:10] <vorlon> #startmeeting
+[19:10] <meetingology> Meeting started at 19:10:53 UTC.  The chair is vorlon.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[19:10] <meetingology> Available commands: action, commands, idea, info, link, nick
+[19:11] <vorlon> #apologies
+[19:11] <vorlon> seb128 and sil2100 absent; no apologies noted on the mailing list
+[19:11] <vorlon> [topic] apologies
+[19:11] <vorlon> #topic action review
+[19:11] <vorlon> ACTION: rbasak to draft a proposal of the DMB-proposed inactivity expiration policy for TB ratification
+[19:11] <vorlon> rbasak: ?
+[19:11] <rbasak> Carry over please
+[19:12] <rbasak> I've been focused on my other item
+[19:12] <vorlon> [action] rbasak to draft a proposal of the DMB-proposed inactivity expiration policy for TB ratification
+[19:12] <meetingology> ACTION: rbasak to draft a proposal of the DMB-proposed inactivity expiration policy for TB ratification
+[19:12] <rbasak> This is done
+[19:12] <vorlon> [action] rbasak to open wider discussion on third-party repo policy
+[19:12] <meetingology> ACTION: rbasak to open wider discussion on third-party repo policy
+[19:12] <vorlon> eh oops
+[19:12] <rbasak> We have one item of beedback
+[19:12] <rbasak> feeback
+[19:12] <vorlon> #undo
+[19:12] <meetingology> Removing item from minutes: ACTION
+[19:12] <vorlon> ACTION: rbasak to open wider discussion on third-party repo policy
+[19:12] <rbasak> I'll follow up on Discourse
+[19:12] <vorlon> rbasak: you're saying this is the action that's done?
+[19:12] <vorlon> [link] https://discourse.ubuntu.com/t/technical-board-feedback-requested-draft-policy-on-third-party-software-sources-included-by-ubuntu/46849
+[19:12] <rbasak> Yes
+[19:12] <vorlon> ok
+[19:13] <rbasak> If there's no further feedback, I expect to ask the TB to ratify the draft soon
+[19:13] <vorlon> my late-added agenda item is related to this, but we'll get to that :)
+[19:13] <vorlon> ACTION: vorlon to look into scripting for packages in flavor-specific overlays
+[19:13] <vorlon> carry over
+[19:13] <vorlon> [action] vorlon to look into scripting for packages in flavor-specific overlays
+[19:13] <meetingology> ACTION: vorlon to look into scripting for packages in flavor-specific overlays
+[19:13] <vorlon> ACTION: seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[19:13] <vorlon> carry over
+[19:13] <vorlon> [action] seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[19:13] <meetingology> ACTION: seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[19:13] <vorlon> ACTION: sil2100 to follow up on the Cinnamon 24.04 LTS Qualification re the number of contacts listed for the flavor
+[19:13] <vorlon> carry over
+[19:13] <vorlon> [action] sil2100 to follow up on the Cinnamon 24.04 LTS Qualification re the number of contacts listed for the flavor
+[19:13] <meetingology> ACTION: sil2100 to follow up on the Cinnamon 24.04 LTS Qualification re the number of contacts listed for the flavor
+[19:14] <vorlon> ACTION: vorlon to follow up on Ubuntu Mate lead contact by email
+[19:14] <vorlon> I believe I got this done and there was a satisfactory resolution with answers from the Mate folks
+[19:14] <vorlon> looks like that's all the actions from last time
+[19:14] <vorlon> #topic seeded snaps policy, snap channels, and things moving fast?
+[19:14] <vorlon> so, related to the draft policy :)
+[19:16] <vorlon> it appears that Oliver, on behalf of the Ubuntu Desktop team, has been pushing hard to get some changes made to how snaps are seeded on the Ubuntu image; using snap tracks that would align to major upstream versions of the software included in a given Ubuntu release, as opposed to the policy we've had up to now which is effectively latest/stable/ubuntu-XX.YY
+[19:16] <rbasak> That's part of the draft policy
+[19:16] <vorlon> I can see the motivation for such a change, and it's mentioned in the draft policy
+[19:17] <rbasak> Sorry I'll let you finish
+[19:17] <vorlon> however, when I looked at draft policy, this seemed to be covered only in an appendix which was not part of what I recalled having been asked to review as part of the normative language to be adopted by the TB
+[19:18] <vorlon> and things are going full speed ahead, with Oliver working with sil2100 to actually make changes to the snap channels used in the install media for 24.04.1
+[19:18] <vorlon> (which was originally scheduled for this week and is now pushed out 2 weeks)
+[19:18] <vorlon> so I wanted to flag this and see if it was my misunderstanding, that I hadn't spent appropriate time on the appendix, or if others had a similar disconnect?
+[19:19] <rbasak> I think there's possibly a misunderstanding here.
+[19:19] <rbasak> Let me try describing my perspective.
+[19:19] <rbasak> Principle 1 of the draft policy (in the main text, not an appendix) requires stability of behaviour.
+[19:20] <rbasak> As written, that rules out things like firefox following a "latest" snap track
+[19:21] <rbasak> So therefore, setting aside exceptions for the moment, the implementation of Principle 1 in snaps *requires* the following of a snap track that isn't "latest", but instead some track that is mapped from an Ubuntu release.
+[19:21] <rbasak> "latest" then is only used when the TB grants an exception, or a historical one is implied, such as for Firefox
+[19:22] <rbasak> Therefore, I don't see a need for changing the main body of the text. The appendix describes how snaps implement the principles as well as how an exception to principle 1 is handled.
+[19:22] <vorlon> understood
+[19:22] <rbasak> </perspective>
+[19:22] <rbasak> How does that fit with your concern?
+[19:24] <rbasak> FWIW, when I spoke to Oliver about this, his concern was the current _inability_ to use not-latest snap tracks in the current implementation.
+[19:24] <vorlon> I personally think that latest/stable/<branch> does not give a guarantee either direction and that it would not be against the intent of this policy to use it, especially given that the <branch> exists to be an escape hatch
+[19:24] <rbasak> But what he wanted to achieve seemed exactly aligned with our draft.
+[19:24] <vorlon> and I want to unblock this as an option for them
+[19:24] <vorlon> I'm not sure if I think it should go in the normative text
+[19:25] <vorlon> but there's 3 of us here which means provided amurray agrees that this plan is fine, I think we can move forward?
+[19:25] <rbasak> I think it's OK, if the latest track is expected to be stable in behaviour and meeting Principle 1, to consider use of the latest track to be compliant with the draft policy.
+[19:25] <vorlon> I just didn't want it to happen by accident in case my misunderstanding of the draft was shared
+[19:26] <rbasak> didn't want it to happen by accident> define "it", please?
+[19:27] <amurray> so my understanding is that the desktop team is not using latest here but versioned tracks like '1' or '2' etc - but I also think the current policy doesn't preclude the use of latest - and nor should it - but I think this should very much be an exception, as I suspect it could be easy to accidentally abuse it
+[19:27] <vorlon> rbasak: that we were changing the de facto policy for seeded snaps on the images, based on a bit of the draft that you had written and of course endorse but that I wasn't sure the rest of the TB had actually read
+[19:27] <vorlon> (read and considered)
+[19:27] <rbasak> Ah, OK
+[19:28] <vorlon> amurray: today it's actually using latest, they want to move to versioned tracks effective 24.04.1
+[19:28] <rbasak> I was under the impression that the TB were OK with the direction, so didn't see the need to ask for anything to be held pending ratification
+[19:29] <amurray> vorlon - yes, sorry I should have clarified - I meant the desktop team is planning to use versioned tracks - and by abuse it I mean that if a publisher uses latest they would potentially be more likely to ship new features / introduce regressions etc
+[19:29]  * vorlon nods
+[19:29] <amurray> but in this case the use of a branch along with latest should make this less of a risk
+[19:29] <vorlon> ok then I think that's enough to move forward with, thanks
+[19:30] <rbasak> Are there any changes you'd like to make to the draft on this point?
+[19:30] <vorlon> it's likely that sil2100, having been the one moving forward with implementation, also agrees with this but I hadn't had a chance to talk to him about it yet :)
+[19:30] <vorlon> rbasak: not at this time but I'm going to try to give it a look later today, thanks
+[19:30] <rbasak> ack. Thanks!
+[19:30] <vorlon> (no action for the meeting because if I don't get to it it doesn't need to become a meeting nag point)
+[19:31] <vorlon> #agreed use of explicit tracks instead of 'latest' for seeded snaps, as described in Appendix A of https://discourse.ubuntu.com/t/technical-board-feedback-requested-draft-policy-on-third-party-software-sources-included-by-ubuntu/46849/1, is acceptable
+[19:31] <meetingology> AGREED: use of explicit tracks instead of 'latest' for seeded snaps, as described in Appendix A of https://discourse.ubuntu.com/t/technical-board-feedback-requested-draft-policy-on-third-party-software-sources-included-by-ubuntu/46849/1, is acceptable
+[19:31] <vorlon> #topic Scan the mailing list archive for anything we missed (standing item)
+[19:31] <amurray> thanks for raising this issue vorlon, I think it was good to clarify it :)
+[19:32] <vorlon> https://lists.ubuntu.com/archives/technical-board/2024-August/ completely nonexistent
+[19:32] <vorlon> so I guess we're in the clear here
+[19:32] <vorlon> #topic Check up on community bugs and techboard bugs
+[19:32] <vorlon> [link] https://bugs.launchpad.net/ubuntu-community/+bugs?field.assignee=techboard
+[19:32] <vorlon> 0
+[19:32] <vorlon> [link] https://bugs.launchpad.net/techboard
+[19:33] <vorlon> maybe the first of these, about the snap policy, should be moved to 'fix committed'? :)
+[19:33] <vorlon> otherwise, nothing new, so moving on
+[19:33] <rbasak> :)
+[19:33] <vorlon> #topic Select a chair for the next meeting (next from https://launchpad.net/~techboard/+members)
+[19:33] <rbasak> I don't mind. I'll mark it Fix Released when it gets ratified.
+[19:34] <vorlon> looks like seb128 with sil2100 as backup
+[19:36] <vorlon> #agreed seb128 as next chair with sil2100 as backup
+[19:36] <meetingology> AGREED: seb128 as next chair with sil2100 as backup
+[19:36] <vorlon> #topic AOB
+[19:36] <vorlon> anything else?
+[19:36] <amurray> nothing from me
+[19:36] <rbasak> Nothing from me.
+[19:37] <vorlon> #endmeeting
+[19:37] <meetingology> Meeting ended at 19:37:33 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-08-13-19.10.moin.txt
+[19:37] <vorlon> rbasak, amurray: thanks!
+[19:37] <amurray> thanks for chairing vorlon
