@@ -1,0 +1,82 @@
+[15:01] <ravikant_> o/
+[15:01] <mkukri> o/
+[15:01] <cpete> o/
+[15:01] <ginggs> o/
+[15:01] <mateus-morais> o/
+[15:01] <zhsj> o/
+[15:03] <juliank> o/
+[15:04] <slyon> o/
+[15:04] <juliank> #startmeeting Weekly Ubuntu Foundations team
+[15:04] <meetingology> Meeting started at 15:04:27 UTC.  The chair is juliank.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:04] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:04] <juliank> #topic Lightning rounds
+[15:04] <juliank> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-2024-08-15/
+[15:07] <mclemenceau> o/
+[15:08] <bdmurray> Hmm, I don't think I've seen this wiki page on mirrors
+[15:10] <bdmurray> dbungert: shouldn't you have use â4 minutes ?
+[15:11] <bdmurray> Or â ?
+[15:11] <dbungert> your unicode skills exceed my own
+[15:13] <juliank> #topic Release incoming bugs
+[15:13] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-oo-incoming-bug-tasks.html#foundations-bugs
+[15:14] <juliank> bug 2075183 is in universe but of high interest to Ubuntu QA I suppose
+[15:14] -ubottu:#ubuntu-meeting- Bug 2075183 in python-amqplib (Ubuntu) "Produced binary package for Oracular is Python2 only" [Undecided, New] https://launchpad.net/bugs/2075183
+[15:15] <juliank> I'd like to argue Skia found it so Skia can fix it
+[15:16] <bdmurray> ð
+[15:16] <juliank> Heh
+[15:16] <waveform> oh dear, his unicode skills include emojis...
+[15:16] <juliank> I think it might get lost
+[15:16] <juliank> if unassigned
+[15:16] <juliank> But oh well
+[15:17] <juliank> Tagged
+[15:17] <juliank> All other incoming lists are empty
+[15:17] <bdmurray> It was reported upstream so maybe ...
+[15:17] <juliank> Including the unknown ones not having anything for us
+[15:17] <juliank> #topic Team proposed-migration report
+[15:17] <juliank> #link https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses_by_team.html#foundations-bugs
+[15:18] <juliank> glibc blocking linux-meta remains with schopin
+[15:19] <juliank> systemd blocking linux-meta: enr0n
+[15:19] <juliank> (Yes I know this might be a linux bug but investigation)
+[15:20] <juliank> initramfs-tools blocking  iproute2: vpa1977
+[15:21] <juliank> systemd blocking iproute2: pushkarnk
+[15:21] <juliank> No wait
+[15:21] <juliank> I guess consult with enr0n
+[15:22] <juliank> libxs-parse-keyword-perl remains with waveform
+[15:22] <juliank> libheif remains with chriscoulson
+[15:23] <juliank> glibc: schopin for the time being
+[15:23] <juliank> man-db vs apparmor: vorlon
+[15:24] <juliank> man-db vs linuxptp/4.2-1ubuntu1: uralt
+[15:26] <juliank> sorry
+[15:26] <juliank> man-dbg vs dgit/11.10: uralt
+[15:26] <juliank> man-db vs firejail: dbungert
+[15:26] <dbungert> ack
+[15:26] <juliank> man-db vs lintian: liushuyu
+[15:28] <juliank> man-db vs streamlink: mateus-morais
+[15:28] <mateus-morais> ack
+[15:29] <juliank> germinate: juliank
+[15:30] <juliank> apt blocking valgrind: juliank
+[15:30] <juliank> this passes but needs a retry for race condition
+[15:30] <juliank> oh that's with ginggs
+[15:32] <juliank> boost1.83 blocking python3-defaults: rkratky
+[15:33] <juliank> python3-defaults vs sphinx/7.4.7-2: danilogondolfo
+[15:33] <danilogondolfo> ack
+[15:33] <juliank> python3-defaults vs wesnoth-1.18/1:1.18.2-1: ravikant_
+[15:33] <ravikant_> juliank: ack
+[15:34] <juliank> boost1.83 blocking {bzip2,icu} seem the same boost failure
+[15:34] <rkratky> juliank: ack
+[15:35] <juliank> rkratky: So I think all the boost1.83 tests just need retrying, so you can just collect all the triggers as retry-autopkgtest-regressions tends to do, and retry them all
+[15:36] <juliank> there is a newer boost that migrated
+[15:38] <juliank> dbus vs wesnoth  upils (potentially same as ravikant_'s issue)
+[15:38] <juliank> icu vs  mysql-8.0/8.0.39-1  paride
+[15:39] <juliank> dbus vs wesnoth: bdmurray
+[15:39] <juliank> sorry
+[15:39] <juliank> dbus vs wesnoth: bdrung
+[15:39] <dbungert> juliank: if you want to give me one more, ginggs already ran the man-db vs firejail retest and it passed
+[15:39] <rkratky> juliank: thanks
+[15:40] <juliank> dbungert: Pick yourself from the grey list :)
+[15:40] <juliank> #topic AOB
+[15:40] <bdmurray> It finished during the meeting? \o/
+[15:41] <dbungert> it did finish during the meeting
+[15:41] <waveform> I'll be out next week
+[15:42] <juliank> #endmeeting
+[15:42] <meetingology> Meeting ended at 15:42:34 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-08-15-15.04.moin.txt
+=== ahasenack__ is now known as ahasenack
