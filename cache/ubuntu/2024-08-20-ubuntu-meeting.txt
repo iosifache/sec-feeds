@@ -1,0 +1,144 @@
+=== Bashing-om is now known as Guest1212
+=== Bashing-1m is now known as Bashing-om
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+[14:30] <jbicha> o/
+[14:30] <slyon> o/
+[14:30] <jamespage> o/
+[14:31] <slyon> c_paelzer is out today, so let me run the meeting...
+[14:31] <slyon> #startmeeting Weekly Main Inclusion Requests status
+[14:31] <meetingology> Meeting started at 14:31:10 UTC.  The chair is slyon.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[14:31] <meetingology> Available commands: action, commands, idea, info, link, nick
+[14:31] <sarnold> good morning
+[14:31] <slyon> Ping for MIR meeting - didrocks joalif slyon sarnold c_paelzer jamespage ( eslerm dviererbe )
+[14:31] <slyon> #topic current component mismatches
+[14:31] <slyon> Mission: Identify required actions and spread the load among the teams
+[14:31] <slyon> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[14:31] <slyon> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[14:31] <dviererbe> o/
+[14:32] <slyon>  dkms vs gcc-13 is new and for the kernel team to look into
+[14:32] <Skia> Hi! If you have any questions regarding the MIR for `retry`, let me know, I'm around :-)
+[14:32] <slyon> x11-utils vs luit is new (only a Recommends, so we might be able to just drop/dowgrade it to Suggests), it's for the desktop team, so I'd like to ask didrocks for investigation
+[14:33] <slyon> the other ones seem to be known/in-progress. Thanks jamespage for getting all the openstack MIRs started!
+[14:33] <slyon> #topic New MIRs
+[14:33] <slyon> Mission: ensure to assign all incoming reviews for fast processing
+[14:33] <slyon> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[14:33] <jamespage> I have a question in those for later
+[14:33] <slyon> ko
+[14:33] <slyon> ok*
+[14:34] <slyon> I'll take a look at bug #2066272 after the meeting (CC jbicha), to verify if my requirement was met
+[14:34] -ubottu:#ubuntu-meeting- Bug 2066272 in libpanel (Ubuntu) "[MIR] libpanel" [Undecided, New] https://launchpad.net/bugs/2066272
+[14:35] <slyon> bug #2073783
+[14:35] -ubottu:#ubuntu-meeting- Bug 2073783 in exfatprogs (Ubuntu) "[MIR] exfatprogs" [Undecided, New] https://launchpad.net/bugs/2073783
+=== pushkarnk1 is now known as pushkarnk
+[14:36] <slyon> this is new and for the desktop team, I can probably take it for review
+[14:36] <slyon> bug #2076381
+[14:36] -ubottu:#ubuntu-meeting- Bug 2076381 in retry (Ubuntu) "[MIR] retry" [Undecided, New] https://launchpad.net/bugs/2076381
+[14:37] <slyon> This is also new and for canonical-ubuntu-qa (related to foundations). joalif do you have capacity to take that?
+[14:38] <sarnold> does canonical-ubuntu-qa have sufficient capacity to take on new ownership?
+[14:38] <slyon> Skia: ^ ?
+[14:38] <Skia> yes, this would be part of what we already do in maintaining autopkgtest
+[14:39] <sarnold> ack, thanks
+[14:39] <slyon> I see no other MIR bugs assigned to joalif, currently. So I'm passing it to her. Please unassign yourself if you feel like you can't handle it.
+[14:39] <Skia> Please note that the MIR also concern Jammy and Noble
+[14:39] <Skia> because of the SRU exception for autopkgtest
+[14:40] <sarnold> thanks for pointing it out :) 700 lines of hopefully-good-quality C is probably no real risk for previous release support
+[14:40] <slyon> Skia: we've been doing retroactive MIRs in the past. The versions are very close (v1.0.4 & v1.0.5) so I don't see an issue with that
+[14:40] <Skia> okay, good to hear
+[14:40] <slyon> we'd usually first handle devel/oracular, and then double-check the delta to the LTS
+[14:41] <slyon> Skia: you might need to poke us about it from time to time, as it might fall through the reporting cracks when it's resolved for devel/oracular ;-)
+[14:41] <slyon> #topic Incomplete bugs / questions
+[14:41] <slyon> Mission: Identify required actions and spread the load among the teams
+[14:41] <slyon> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[14:42] <sarnold> .. and I don't know what the actual mechanism is to get it published to main in the previous releases.
+[14:42] <Skia> slyon: noted :-)
+[14:42] <slyon> sarnold: it's usually the normal MIR + (potential) security review. Then poking an AA to get it promoted
+[14:42] <sarnold> slyon: is a new upload necessary?
+[14:43] <slyon> sarnold: I don't think so, as long as the MIR review doesn't find any issues. Otherwise, we'd need an SRU before being able to promote it
+[14:43] <slyon> bug #2072620 is the only bug with recent updates
+[14:43] -ubottu:#ubuntu-meeting- Bug 2072620 in referencing (Ubuntu) "[MIR] referencing" [Undecided, Incomplete] https://launchpad.net/bugs/2072620
+[14:44] <slyon> ^ tracking update from jamespage. Is this the bug you wanted to talk about?
+[14:44] <jamespage> actually its bug 2072621
+[14:44] -ubottu:#ubuntu-meeting- Bug 2072621 in rpds-py (Ubuntu) "[MIR] rpds-py" [Undecided, In Progress] https://launchpad.net/bugs/2072621
+[14:44] <slyon> okay. Let's wait for AOB then..
+[14:44] <jamespage> referencing just needs a bit of work to get a test suite running - working with python modules team in debian for that
+[14:44] <slyon> ACK, thanks for the update. Moving on.
+[14:44] <slyon> #topic Process/Documentation improvements
+[14:44] <sarnold> slyon: hmm, is there an easy way to find the packages that "are in main" but don't have a new upload since the move, and thus only have .../universe/... paths on the archives?
+[14:44] <slyon> Mission: Review pending process/documentation pull-requests or issues
+[14:45] <slyon> #link https://github.com/canonical/ubuntu-mir/pulls
+[14:45] <slyon> #link https://github.com/canonical/ubuntu-mir/issues
+[14:45] <sarnold> oh wow you're really on top of things today :D
+[14:46] <slyon> sarnold: I don't know... We don't need new uploads when moving things from universe->main in devel. So I'd assume the AA tooling taking care of everything.
+[14:46] <slyon> (sorry, I want to save some time for AOB :P)
+[14:47] <sarnold> *nod*
+[14:47] <slyon> I merged https://github.com/canonical/ubuntu-mir/pull/62 earlier today. Thanks for everybody who reviewed!
+[14:47] -ubottu:#ubuntu-meeting- Pull 62 in canonical/ubuntu-mir "Clarify exotic hardware requirements" [Merged]
+[14:47] <slyon> I created https://github.com/canonical/ubuntu-mir/pull/64 earlier today, addressing a valid issue reported by eslerm (thanks!)
+[14:47] -ubottu:#ubuntu-meeting- Pull 64 in canonical/ubuntu-mir "exceptions: copy OEM document" [Open]
+[14:48] <slyon> Please everybody take a look at ^ and give your comments on GitHub, so we can get it landed soon.
+[14:48] <slyon> #topic MIR related Security Review Queue
+[14:48] <slyon> Mission: Check on progress, do deadlines seem doable?
+[14:48] <slyon> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[14:48] <slyon> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:48] <slyon> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:48] <slyon> Internal link
+[14:48] <slyon> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[14:48] <slyon> sarnold: what's the status on your side?
+[14:48] <jbicha> I'm curious about whether the Security team thinks it is likely for libimobiledevice-glue to complete its Security Review before 24.10 is released
+[14:48] <jbicha> This isn't to bump its priority (same priority as several other desktop pkgs), but because it is part of an incomplete transition we inherited from Debian autosync.
+[14:48] <jbicha> So if it lands for 24.10, we can leave things as they are. If it is unlikely to land, then we could work to undo the transition for 24.10 and redo it next cycle.
+[14:48] <joalif> slyon: I was at another meeting, I'll take care of the MIR
+[14:49] <slyon> thx joalif!
+[14:50] <jbicha> (you could also look into it and get back to me about it)
+[14:50] <slyon> I see a bunch of security review piling up, especially for the desktop team.
+[14:50] <sarnold> heh yeah i'll have ot do that :( the included copies of crypto code is slightly worrying
+[14:50] <sarnold> so much :(
+[14:51] <slyon> maybe c_paelzer can help raising severity for getting new security reviewers once he's back from PTO..
+[14:51] <slyon> But they'd also need to be trained first :(
+[14:51] <sarnold> we did make some progress on sysprof, but otherwise it's a real challenge to get time from folks due to deadlines from $elsewhere
+[14:52] <slyon> ACK. So jbicha please coordinate with sarnold directly when you need to shuffle the desktop security review priority/order.
+[14:52] <slyon> #topic Any other business?
+[14:52] <slyon> jamespage: wanted to talk about bug #2072621
+[14:52] -ubottu:#ubuntu-meeting- Bug 2072621 in rpds-py (Ubuntu) "[MIR] rpds-py" [Undecided, In Progress] https://launchpad.net/bugs/2072621
+[14:52] <jbicha> nothing else from me :)
+[14:52] <jamespage> ah yes
+[14:52] <jamespage> so...
+[14:53] <jamespage> package is a python wrapper around rust (similar to python-crytography)
+[14:54] <jamespage> I was trying to figure out how this fits into the agreed standards for Rust packages - am I reading the rules right in that the Rust dependencies should be vendored into the package?
+=== pushkarnk1 is now known as pushkarnk
+[14:54] <sarnold> yes
+[14:55] <jamespage> so to confirm that's different from static linking from rust packages via BD's
+[14:55] <slyon> yes, that's been common practice for the Rust ecosystem. Because non-venored dependencies have been unfeasible for now (although it would be nicer/prefered)
+[14:56] <jamespage> ok I was looking for prior art to follow - python-cryptography is similar
+[14:57] <sarnold> is that newly rustic?
+[14:57] <jamespage> rpds-py? its in the dependency chain for jsonschema updates coming from debian
+[14:57] <sarnold> I wonder if that started doing rust after it was in main, and perhaps never got real attention to it after a transition
+[14:57] <jamespage> replacement for pyrsistent which is in main (but scheduled for demoition)
+[14:58] <slyon> If the dependency tree is small enough, it would still be nicer to do static linking from rust packages BD's, but we might not have all the correct verions in the archive and it might need lots of additional MIR paperwork for each of the BDs. So vendoring it all into the python package is the more streamlined approach
+[14:58] <sarnold> sorry, I meant the python-cryptography -- I'm curious if it actually serves as a good example of what we decided on
+[14:58] <jamespage> it did switch once in main yes
+[14:58] <jamespage> its small
+[14:58] <jamespage> https://www.irccloud.com/pastebin/nivxTBBl/
+[14:59] <jamespage> that does pull in a load of other librust-*-dev packages
+[14:59] <slyon> ^ that's the problem
+[15:00] <jamespage> infact more than a few - loads
+[15:00] <jamespage> ok so I need to vendor in what's needed
+[15:00] <slyon> we'd need to work through the whole tree of librust-*-dev packages, doing MIRs. Which was deemed infeasible in the past.
+[15:00] <slyon> ACK. Vendoring is the way forward here.
+[15:01] <sarnold> did we have a nice discussion somewhere of the best way to approach that problem?
+[15:01] <slyon> jamespage: there's been some discussion about how to best trim the set of vendored dependnecies to a minimum, I think this is the starting point: https://github.com/canonical/ubuntu-mir/issues/51
+[15:01] -ubottu:#ubuntu-meeting- Issue 51 in canonical/ubuntu-mir "cargo vendor adds unnecessary crates" [Closed]
+[15:02] <jamespage> thanks for all of the pointers :)
+[15:02] <slyon> Do we have anything else for AOB?
+[15:02] <sarnold> nothing here
+[15:03] <slyon> 3.2.1
+[15:03] <slyon> thanks all! o/
+[15:03] <sarnold> thanks slyon, all :)
+[15:03] <slyon> #endmeeting
+[15:03] <meetingology> Meeting ended at 15:03:26 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-08-20-14.31.moin.txt
+[15:03] <jamespage> thanks slyon
+[15:10] <slyon> jbicha: thanks for working on libpanel! MIR +1, https://bugs.launchpad.net/ubuntu/+source/libpanel/+bug/2066272/comments/5
+[15:10] -ubottu:#ubuntu-meeting- Launchpad bug 2066272 in libpanel (Ubuntu) "[MIR] libpanel" [Undecided, In Progress]
+[15:11] <slyon> feel free to get the dependency in or get it seeded.
