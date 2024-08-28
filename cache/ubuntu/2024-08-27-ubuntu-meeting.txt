@@ -1,0 +1,236 @@
+[14:27]  * cpaelzer is warming the MIR campfire
+[14:29] <sarnold> good morning
+[14:29] <didrocks> I will be 5 minutes late but I am around
+[14:30] <jbicha> good morning
+[14:31] <cpaelzer> ok didrocks
+[14:31] <cpaelzer> #startmeeting Weekly Main Inclusion Requests status
+[14:31] <meetingology> Meeting started at 14:31:07 UTC.  The chair is cpaelzer.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[14:31] <meetingology> Available commands: action, commands, idea, info, link, nick
+[14:31] <slyon> hey o/
+[14:31] <cpaelzer> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( and regular guests: eslerm dviererbe jbicha)
+[14:31] <cpaelzer> hello, most said hi before the log got started :-)
+[14:31] <cpaelzer> #topic current component mismatches
+[14:31] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[14:31] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[14:31] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[14:32] <cpaelzer> ok, this is much less than it was
+[14:32] <cpaelzer> yay
+[14:32] <cpaelzer> let us talk about them one by one
+[14:32] <cpaelzer> y11-utils -> luit
+[14:32] <slyon> I'm not sure if didrocks got the memo from last week about x11-utils and did some investigation? It's just a Recommends, so we might be able to drop it..
+[14:32] <sarnold> heh, i'm just now noticing it's in my focal x11-utils
+[14:32] <cpaelzer> ok, so you did look into that from when I was PTO-chilling
+[14:33] <sarnold> it might be something that's been in main all along?
+[14:33] <cpaelzer> sarnold: you mean it ewas broken out and might be the same source
+[14:33] <sarnold> yeah
+[14:33] <sarnold> I was just curious what it was, and noticed it's in my ancient focal, heh
+[14:33] <cpaelzer> also the history suggests that
+[14:33] <cpaelzer> https://launchpad.net/ubuntu/+source/luit
+[14:33] <cpaelzer> starting at 2.0.20221018 isn't how "new" software would start
+[14:34] <cpaelzer> anyway, maybe didrocks and or jbicha can have a look as that is very Desktop'y
+[14:34] <sarnold> hah, with an epoch back in gutsy https://launchpad.net/ubuntu/+source/luit/+changelog
+[14:34] <cpaelzer> jbicha: you are here already - do you have an immediate opinion on it?
+[14:35] <cpaelzer> we will go on for now ...
+[14:35] <didrocks> slyon: just back from holidays. I think jbicha will have a look for it once he is around
+[14:35] <cpaelzer> welcome back didrocks
+[14:35] <cpaelzer> next: dkms -> gcc-13
+[14:35] <cpaelzer> gone in -proposed
+[14:36] <cpaelzer> https://launchpad.net/ubuntu/+source/dkms/3.0.11-1ubuntu14
+[14:36] <slyon> ACK, thanks
+[14:36] <cpaelzer>   * control: Migrate to gcc-14.
+[14:36] <cpaelzer> so, no action here
+[14:36] <jbicha> the x11-utils changelog says that luit was split out from x11-utils to a separate package
+[14:36] <cpaelzer> ok, that confirms our theory jbicha - thanks
+[14:36] <cpaelzer> would you file a minimal (no need to go the full process way) MIR bug for it please?
+[14:36] <jbicha> ok
+[14:36] <cpaelzer> say it was split out and refer to the original MIR bug if it can be found
+[14:37] <cpaelzer> that ought to be enough to promite it with the required paper trail
+[14:37] <cpaelzer> now looking at -proposed
+[14:37] <cpaelzer> jbicha: feel free to ping me about it then, so I can act and resolve it
+[14:37] <cpaelzer> everything else in here already has MIR bugs, some already approved
+[14:37] <cpaelzer> no need to act here, unless if they show up in the queue for us
+[14:38] <cpaelzer> #topic New MIRs
+[14:38] <cpaelzer> Mission: ensure to assign all incoming reviews for fast processing
+[14:38] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[14:38] <cpaelzer> and they are not
+[14:38] <cpaelzer> so they must not yet be ready i guess
+[14:38] <cpaelzer> #topic Incomplete bugs / questions
+[14:38] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[14:38] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[14:38] <cpaelzer> wow, the most recent last update is 6th of June
+[14:38] <cpaelzer> so nothing here for us either
+[14:39] <cpaelzer> Looking at excused today I expected this to be more crazy
+[14:39] <cpaelzer> ... he said and it got more crazy
+[14:39] <slyon> haha
+[14:39] <sarnold> hehehe
+[14:39] <cpaelzer> #topic Process/Documentation improvements
+[14:39] <cpaelzer> Mission: Review pending process/documentation pull-requests or issues
+[14:39] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/pulls
+[14:39] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/issues
+[14:39] <cpaelzer> https://github.com/canonical/ubuntu-mir/pull/64 can be merged
+[14:39] -ubottu:#ubuntu-meeting- Pull 64 in canonical/ubuntu-mir "exceptions: copy OEM document" [Open]
+[14:40] <slyon> cpaelzer: ACK. Once you approve, too. it should be ready to be merged
+[14:40] <joalif> s
+[14:40] <cpaelzer> give me more than a second for that
+[14:40] <slyon> :)
+[14:40] <cpaelzer> but I'll do so in another time of day soon
+[14:40] <cpaelzer> which will close #63
+[14:40] <cpaelzer> and #35 is meant to stay
+[14:40] <cpaelzer> leaving #65
+[14:40] <cpaelzer> https://github.com/canonical/ubuntu-mir/issues/65
+[14:40] -ubottu:#ubuntu-meeting- Issue 65 in canonical/ubuntu-mir "Document Rust vendoring" [Open]
+[14:41] <cpaelzer> I see, this was about moving
+[14:41] <slyon> This is very similar to the previous one. Moving from wiki to github..
+[14:41] <cpaelzer> I agree, the question is this "needs help" label or will you do so once you get to it?
+[14:41] <slyon> I can take an action item to do it, just didn't have the time to prepare anything yet
+[14:41] <cpaelzer> ok, this isn't urgent
+[14:41] <cpaelzer> thanks
+[14:41] <cpaelzer> BTW, I think since the rust rules were done enough time has passed to re-evaluate them
+[14:42] <cpaelzer> just to make sure they are still the right rules
+[14:42] <cpaelzer> What would you prefer for that, an engineering sprint debate to get the temperature check and distributing tasks to find out things from there?
+[14:42] <slyon> we might be able to do that as part of the PR that I'll prepare for this
+[14:42] <cpaelzer> slyon: the discussion could indeed be part of the PR
+[14:43] <cpaelzer> if we all are close to "need to stay as is" it will work well
+[14:43] <cpaelzer> but if we end up as "all has to change" it will delay things a lot
+[14:43] <slyon> depending on how the PR discussion goes, we could schedule something for the next engineering sprint
+[14:43] <cpaelzer> in the latter case, we will want to land an unmodified version and split out the discussions
+[14:43] <cpaelzer> Ack
+[14:43] <slyon> ack
+[14:43] <cpaelzer> seems we are in line on that
+[14:43] <cpaelzer> let us see what we find along the related PR then
+[14:43] <cpaelzer> #topic MIR related Security Review Queue
+[14:43] <cpaelzer> Mission: Check on progress, do deadlines seem doable?
+[14:43] <cpaelzer> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[14:43] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:43] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:43] <cpaelzer> Internal link
+[14:43] <cpaelzer> - ensure your teams items are prioritized among each other as you'd expect
+[14:43] <cpaelzer> - ensure community requests do not get stomped by teams calling for favors too much
+[14:43] <cpaelzer> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[14:44] <cpaelzer> sarnold: very front loaded
+[14:44] <cpaelzer> and we are at the time of the year where loaded is bad as it impies slipping
+[14:44] <sarnold> we're currently onboarding two new folks to the MIR process
+[14:44] <cpaelzer> or is all of that "can happen any time"
+[14:44] <cpaelzer> wow - gz to onboarding two
+[14:44] <sarnold> which is of course encouraging, but also not yet capacity to plow through them
+[14:44] <cpaelzer> Can you make ~1 per person per week happen?
+[14:45] <sarnold> probably not
+[14:45] <slyon> sarnold: https://bugs.launchpad.net/ubuntu/+source/rpds-py/+bug/2072621 and https://bugs.launchpad.net/ubuntu/+source/exfatprogs/+bug/2073783 need new "sec-*" tags
+[14:45] <cpaelzer> 3 now, 3 next, 2 next would cover them all
+[14:45] -ubottu:#ubuntu-meeting- Launchpad bug 2072621 in rpds-py (Ubuntu) "[MIR] rpds-py" [Undecided, New]
+[14:45] -ubottu:#ubuntu-meeting- Launchpad bug 2073783 in exfatprogs (Ubuntu) "[MIR] exfatprogs" [Undecided, New]
+[14:45] <cpaelzer> ok, +2
+[14:45] <sarnold> slyon: ah thanks, i'm extremely far behind on my email :(
+[14:45] <cpaelzer> we ahve 3 weeks 'til beta freeze
+[14:45] <cpaelzer> hence I'm asking for that pace
+[14:46] <cpaelzer> sarnold: what would be needed to change "probably not" into something better?
+[14:46] <cpaelzer> do your new people need to sleep?
+[14:46] <cpaelzer> :-P
+[14:46] <sarnold> cpaelzer: sleep *and* eat! go figure
+[14:47] <cpaelzer> ok, go for that then please :-)
+[14:47] <sarnold> cpaelzer: I'll ask to see if our $otherproject can spare some of the folks who have done these before
+[14:47] <cpaelzer> nothing we can do for now other than acknowledging the situation
+[14:47] <cpaelzer> thanks for trying that approach sarnold
+[14:47] <cpaelzer> you'll have some favors from the receiving teams then
+[14:47] <cpaelzer> #topic Any other business?
+[14:47] <slyon> nothign from my side
+[14:47] <didrocks> nothing either for me
+[14:47] <sarnold> nothing here
+[14:48] <cpaelzer> nor from me
+[14:48] <cpaelzer> which means we are kind of done
+[14:49] <cpaelzer> today we go out with the last 5 of the happy numbers
+[14:49] <cpaelzer> 19
+[14:49] <cpaelzer> 13
+[14:49] <cpaelzer> 10
+[14:49] <cpaelzer> 7
+[14:49] <cpaelzer> 1
+[14:49] <cpaelzer> bye
+[14:49] <cpaelzer> #endmeeting
+[14:49] <meetingology> Meeting ended at 14:49:36 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-08-27-14.31.moin.txt
+[14:49] <sarnold> thanks cpaelzer, all :)
+[14:50] <slyon> thanks!
+[14:50] <didrocks> thanks!
+[19:00] <rbasak> o/
+[19:00] <sil2100> o/
+[19:00]  * amurray waves
+[19:01] <rbasak> I don't see seb128 around
+[19:01] <rbasak> sil2100 was backup chair according to https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-08-13-19.10.html
+[19:02] <rbasak> But maybe we need to let him off? :)
+[19:02] <sil2100> eh, yes please, typing with one hand is terrible
+[19:03] <sil2100> And voice-to-chat isn't that much faster
+[19:03] <rbasak> #startmeeting Technical Board
+[19:03] <meetingology> Meeting started at 19:03:29 UTC.  The chair is rbasak.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[19:03] <meetingology> Available commands: action, commands, idea, info, link, nick
+[19:03] <rbasak> #topic Apologies
+[19:04] <rbasak> #info No apologies were sent
+[19:04] <rbasak> #topic Action review
+[19:04] <rbasak> ACTION: rbasak to draft a proposal of the DMB-proposed inactivity expiration policy for TB ratification
+[19:04] <rbasak> This still needs carrying over. I had been focused on the next item, which is nearing its end
+[19:04] <rbasak> #action rbasak to draft a proposal of the DMB-proposed inactivity expiration policy for TB ratification
+[19:04] <meetingology> ACTION: rbasak to draft a proposal of the DMB-proposed inactivity expiration policy for TB ratification
+[19:05] <rbasak> ACTION: rbasak to open wider discussion on third-party repo policy
+[19:05] <rbasak> Done
+[19:05] <rbasak> ACTION: vorlon to look into scripting for packages in flavor-specific overlays
+[19:05] <rbasak> vorlon isn't here so I'll carry this over
+[19:05] <rbasak> #action vorlon to look into scripting for packages in flavor-specific overlays
+[19:05] <meetingology> ACTION: vorlon to look into scripting for packages in flavor-specific overlays
+[19:05] <rbasak> ACTION: seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[19:05] <rbasak> seb128 isn't here so I'll carry over
+[19:05] <rbasak> #action seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[19:05] <meetingology> ACTION: seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[19:05] <rbasak> ACTION: sil2100 to follow up on the Cinnamon 24.04 LTS Qualification re the number of contacts listed for the flavor
+[19:05] <rbasak> sil2100: ?
+[19:05] <rbasak> Was this discussed last time?
+[19:07] <sil2100> Still on it! I started writing the email but then context switched
+[19:07] <sil2100> Carry over please
+[19:07] <rbasak> #action sil2100 to follow up on the Cinnamon 24.04 LTS Qualification re the number of contacts listed for the flavor
+[19:07] <meetingology> ACTION: sil2100 to follow up on the Cinnamon 24.04 LTS Qualification re the number of contacts listed for the flavor
+[19:07] <rbasak> (vorlon) seeded snaps policy, snap channels, and things moving fast?
+[19:08] <rbasak> I think this topic was resolved last time but vorlon isn't here to confirm. Anyway the item I added next is where we are now:
+[19:08] <rbasak> #topic Consider moving to ratify the draft Draft policy on third party software sources included by Ubuntu
+[19:08] <rbasak> #link https://discourse.ubuntu.com/t/technical-board-feedback-requested-draft-policy-on-third-party-software-sources-included-by-ubuntu/46849
+[19:08] <rbasak> That link carries the latest version of the draft.
+[19:08] <rbasak> I think we've had enough feedback now. Are we OK to move to ratify it?
+[19:08] <rbasak> Any objections before putting it to a vote?
+[19:09] <amurray> none from me
+[19:09] <rbasak> #vote Move to ratify the draft version currently at https://discourse.ubuntu.com/t/technical-board-feedback-requested-draft-policy-on-third-party-software-sources-included-by-ubuntu/46849
+[19:09] <meetingology> Please vote on: Move to ratify the draft version currently at https://discourse.ubuntu.com/t/technical-board-feedback-requested-draft-policy-on-third-party-software-sources-included-by-ubuntu/46849
+[19:09] <meetingology> Public votes can be registered by saying +1, -1 or +0 in channel (for private voting, private message me with 'vote +1|-1|+0 #channelname')
+[19:09] <rbasak> +1
+[19:09] <meetingology> +1 received from rbasak
+[19:09] <amurray> +1
+[19:09] <meetingology> +1 received from amurray
+[19:10] <sil2100> +1
+[19:10] <meetingology> +1 received from sil2100
+[19:10] <rbasak> Thanks!
+[19:10] <rbasak> #endvote
+[19:10] <meetingology> Voting ended on: Move to ratify the draft version currently at https://discourse.ubuntu.com/t/technical-board-feedback-requested-draft-policy-on-third-party-software-sources-included-by-ubuntu/46849
+[19:10] <meetingology> Votes for: 3, Votes against: 0, Abstentions: 0
+[19:10] <meetingology> Motion carried
+[19:10] <rbasak> #action rbasak to document the third party software sources policy somewhere appropriate
+[19:10] <meetingology> ACTION: rbasak to document the third party software sources policy somewhere appropriate
+[19:11] <rbasak> Thanks to everyone involved for your time on this! It's nice to see it wrapped up.
+[19:11] <rbasak> #topic Scan the mailing list archive for anything we missed (standing item)
+[19:11] <rbasak> #info No outstanding mailing list items
+[19:11] <rbasak> #topic Check up on community bugs and techboard bugs
+[19:12] <rbasak> #info No open community bugs
+[19:12] <rbasak> Bug 2015920 can remain open until I've documented the new policy
+[19:12] -ubottu:#ubuntu-meeting- Bug 2015920 in techboard "Third party repository policy is not well defined" [Undecided, Triaged] https://launchpad.net/bugs/2015920
+[19:12] <rbasak> #info No techboard bugs that need attention
+[19:12] <amurray> sounds fair - thanks for all your work leading that third party software sources policy rbasak - great to get it finally done
+[19:12] <rbasak> (and the other bug we have an action item for)
+[19:13] <rbasak> #topic Select a chair for the next meeting (next from https://launchpad.net/~techboard/+members)
+[19:13] <rbasak> I suggest relieving sil2100 from chairing duties for now.
+[19:13] <rbasak> So the next chair should be seb128 with amurray as backup I think.
+[19:14] <amurray> ack
+[19:14] <rbasak> #info The next chair will be seb128 with amurray as backup
+[19:14] <sil2100> I hope that in 2 weeks I'll be able to use my right hand to some extent
+[19:14] <sil2100> Even still in the cast
+[19:14] <rbasak> Sure, but might as well take it easy :)
+[19:14] <rbasak> #topic AOB
+[19:14] <rbasak> AOB?
+[19:15] <rbasak> #endmeeting
+[19:15] <meetingology> Meeting ended at 19:15:27 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-08-27-19.03.moin.txt
+[19:15] <rbasak> Thanks all!
+[19:15] <amurray> thanks rbasak
+=== blackboxsw is now known as blackboxsw_away
