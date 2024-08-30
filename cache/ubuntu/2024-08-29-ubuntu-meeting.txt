@@ -1,0 +1,123 @@
+=== amypenguin0 is now known as amypenguin
+[14:59] <dbungert> o/
+[15:00] <ogayot> o/
+[15:00] <dviererbe> o/
+[15:00] <zhsj> o/
+[15:01] <andersson123> o/
+[15:01] <juliank> o/
+[15:01] <cpete> o/
+[15:01] <juliank> #startmeeting Weekly Ubuntu Foundations team
+[15:01] <meetingology> Meeting started at 15:01:33 UTC.  The chair is juliank.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:01] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:01] <juliank> #topic Lightning rounds
+[15:01] <juliank> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-2024-08-29
+[15:02] <adrien> \o
+[15:02] <ginggs> o/
+[15:04] <schopin> o/
+[15:05] <slyon> o/
+[15:10] <juliank> #topic Release incoming bugs
+[15:10] <juliank> quite a few bugs today
+[15:10] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-oo-incoming-bug-tasks.html#foundations-bugs
+[15:10] <juliank> bug 2077940
+[15:10] -ubottu:#ubuntu-meeting- Bug 2077940 in software-properties (Ubuntu) "setuptools v72 removed the test command" [High, Confirmed] https://launchpad.net/bugs/2077940
+[15:11] <juliank> Now this should be resolved in the new dh-python as all other setup.py test failures however it seems they removed it rather than fixing it to run unittest discover
+[15:12] <juliank> i.e. technically this builds now
+[15:12] <waveform> would that only cover things using unittest, not other frameworks like pytest/nose/etc?
+[15:12] <schopin> Better than doing nothing, I guess?
+[15:12] <juliank> If you build-depend on a framework, that is automatically picked up
+[15:13] <juliank> But I'm running a build now and we can revisit this later :D
+[15:13] <juliank> Oh this also needs fixing for the autopkgtests regardless, they also use setup.py test
+[15:13] <juliank> oh and that's where it was detected, I thought it was a rebuild
+[15:14] <juliank> tagged
+[15:14] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-nn-incoming-bug-tasks.html#foundations-bugs
+[15:14] <juliank> bug 2041830
+[15:14] -ubottu:#ubuntu-meeting- Bug 2041830 in gdb (Ubuntu) "/usr/bin/gdb:6:dump_core:internal_vproblem:internal_verror:internal_error_loc:objfile::text_section_offset" [Undecided, New] https://launchpad.net/bugs/2041830
+[15:17] <juliank> That's like a how much do we care for our debugging toolchain to work for .text free libraries
+[15:17] <juliank> i.e. data .so
+[15:17] <juliank> upstream doesn't have a patch for it either
+[15:18] <r41k0u> there was an RFC - https://sourceware.org/pipermail/gdb-patches/2020-May/168767.html, but I don't think this was merged
+[15:18] <juliank> I'm inclined to decline this and tag is rls-nn-notfixing
+[15:19] <enr0n> that seems reasonable
+[15:19] <waveform> libicudata is fairly widely used ... perhaps worth patching libicudata to at least make gdb useable with its rev-deps?
+[15:19] <juliank> Could add an empty .txt section perhaps
+[15:19] <juliank> .text
+[15:20] <juliank> Add a dummy function in a c file and link it in
+[15:21] <adrien> does it still happen with current libicudata?
+[15:21] <juliank> I
+[15:21] <schopin> Does it matter?
+[15:21] <juliank> I will add an icu task for further investigation
+[15:21] <adrien> if it doesn't, we don't need to patch the library (and I would expect it doesn't)
+[15:23] <r41k0u> The libicudata triggering this issue is bundled with teamviewer, so we can't change it
+[15:23] <adrien> do we know the version of libicudata that teamviewer ships?
+[15:23] <schopin> ANd I don't feel like SRU-ing a non-trivial patchset for that particular software.
+[15:24] <juliank> We can check if our icu has the same issue perhaps
+[15:24] <adrien> on sourceware, Qathy says "this issue seams to be triggered by libicudata.so.64, as with *very* similar source code using libicudata.so.59 I don't experience the issue."
+[15:24] <waveform> indeed -- we should check if this actually affects our archive package. If so, probably worth patching, if not, leave it
+[15:24] <juliank> fixing gdb for third-party binaries is pointless as they won't have debugging symbols anyway
+[15:25] <schopin> The GDB bug seems to imply that you need to add a specific flag on Ubuntu.
+[15:25] <schopin> Well, not implies, says so outright.
+[15:25] <adrien> we're at libicudata 74 :D
+[15:25] <juliank> let's move on
+[15:25] <juliank> (I did not untag it)
+[15:26] <juliank> bug 2077712
+[15:26] -ubottu:#ubuntu-meeting- Bug 2077712 in shadow (Ubuntu) "lastlog does not capture all logins" [Undecided, New] https://launchpad.net/bugs/2077712
+[15:26] <juliank> Curiously we do not have a pam_lastlog.so
+[15:29] <juliank> tagged won't fix
+[15:29] <juliank> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-jj-incoming-bug-tasks.html#foundations-bugs
+[15:29] <juliank> bug 1987679
+[15:29] -ubottu:#ubuntu-meeting- Bug 1987679 in os-prober (Ubuntu) "os-prober leaves filesystems (lvm-thin, lvm snap) mounted" [Medium, Confirmed] https://launchpad.net/bugs/1987679
+[15:34] <samirkamerkar> exit
+[15:37] <juliank> #topic Team proposed-migration report
+[15:37] <juliank> #link https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses_by_team.html#foundations-bugs
+[15:37] <ogayot> technically unrelated but I'm surprised to see that os-prober got synced from Debian on oracular
+[15:38] <schopin> for those wondering, we ended up assigning the os-prober to mkukri
+[15:38] <juliank> only two handful of things
+[15:38] <juliank> um migrations
+[15:38] <schopin> ugh, setuptools...
+[15:39] <juliank> libxs-parse-keyword-perl remains with ogayot
+[15:39] <juliank> dracut remains with ginggs
+[15:39] <juliank> twisted remains with dviererbe
+[15:39] <juliank> * danilogondolfo
+[15:39] <ravikant_> please leave wireless-tools to me
+[15:39] <juliank> wireless-tools remains with ravikant_
+[15:40] <ginggs> when will bdrung be back?  can we reassign dracut to him please?
+[15:40] <juliank> I never reassign I just repeat the previous assignment
+[15:40] <juliank> ginggs: I suggest discussing that with ravikant_ in private
+[15:41] <ravikant_> bdrung is out sick.
+[15:41] <slyon> danilogondolfo: shouldn't twisted be resolved via the bunch of syncs that we did? Do we need to trigger some additional tests?
+[15:42] <juliank> but maybe it can wait
+[15:42] <juliank> libobject-pad-perl remains with dbungert
+[15:42] <juliank> libselinux, libsemanage are merely waiting
+[15:42] <juliank> setuptools is a mess
+[15:42] <danilogondolfo> slyon, those syncs resolved 3 other excuses. There is one last excuse cause by some gstreamer depds missing for libervia-backend. And the problem seems to only happen with the new twisted...
+[15:43] <slyon> I see.
+[15:43] <juliank> setuptools is mostly down to setup.py test being removed and the autopkgtests calling that
+[15:43] <juliank> so the patch is repkacing $python setup.py test with $python -m unittest discover
+[15:44] <juliank> setuptools vs guessit r41k0u
+[15:45] <juliank> setuptools vs isodate: levihackerman
+[15:46] <juliank> setuptools vs macsyfinder: chrisccoulson
+[15:46] <juliank> setuptools vs mailman-hyperkitty sespiros
+[15:46] <juliank> setuptools vs manuel mwhudson
+[15:46] <juliank> setuptools vs pocketsphinx-python paride
+[15:47] <juliank> setuptools vs prometheus-xmpp-alerts tobhe
+[15:47] <juliank> setuptools vs pylint: andersson123
+[15:48] <juliank> setuptools vs python-mpegdash: rkratky
+[15:48] <juliank> setuptools vs python-precis-i18n: adrien
+[15:50] <juliank> setuptools vs python-stopit: uralt
+[15:51] <juliank> setuptools vs python-svg.path: pushkarnk
+[15:51] <juliank> setuptools vs ros2-colcon-core: waveform
+[15:52] <juliank> setuptools vs scikit-build: slyon
+[15:53] <juliank> setuptools vs software-properties: I tagged the bug already
+[15:53] <juliank> setuptools vs supervisor: vpa1977
+[15:55] <juliank> setuptools vs tryton-client zhsj
+[15:56] <juliank> setuptools vs tryton-proteus: mateus-morais
+[15:56] <juliank> And that wraps up the migration
+[15:56] <juliank> #topic AOB
+[15:56] <juliank> Hurry up it's late!
+[15:56] <r41k0u> the libicudata we maintain has a .text section - also found this: https://sourceware.org/pipermail/gdb-patches/2020-May/168733.html
+[15:57] <juliank> so we can close that bug
+[15:57] <juliank> or rather tag it notfixing
+[15:58] <r41k0u> right
+[16:00] <juliank> I added an apport task and tagged that todo
+[16:01] <juliank> #endmeeting
+[16:01] <meetingology> Meeting ended at 16:01:10 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-08-29-15.01.moin.txt
