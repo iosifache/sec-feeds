@@ -1,0 +1,269 @@
+[15:00] <adrien> \o
+[15:00] <dbungert> o/
+[15:00] <zhsj> o/
+[15:00] <ginggs> o/
+[15:00] <ogayot> o/
+[15:01] <liushuyu> o/
+[15:01] <ravikant_> o/
+[15:01] <mateus-morais> o/
+[15:01] <bdrung> \o
+[15:01] <dviererbe> o/
+[15:02] <enr0n> o/
+[15:02] <dbungert> #startmeeting Weekly Ubuntu Foundations team
+[15:02] <meetingology> Meeting started at 15:02:17 UTC.  The chair is dbungert.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:02] <dbungert> #topic Lightning rounds
+[15:02] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:02] <dbungert> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-2024-09-05/47785/2
+[15:03] <juliank> oh thanks dbungert I'm in the u-r-u mantic->noble testing
+[15:04] <dbungert> sure thing
+[15:04] <slyon> o/
+[15:06] <bdrung> i like the "Fun with flags" in ginggs report :D
+[15:07] <ginggs> it wasn't much fun
+[15:11] <dbungert> #topic Release incoming bugs
+[15:11] <dbungert> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-oo-incoming-bug-tasks.html#foundations-bugs
+[15:11] <dbungert> LP: #2078449
+[15:11] -ubottu:#ubuntu-meeting- Launchpad bug 2078449 in ubuntu-release-upgrader (Ubuntu) "If packages are marked hold, we should tell the user and not upgrade by default" [Undecided, New] https://launchpad.net/bugs/2078449
+[15:12] <enr0n> juliank: you opened that one
+[15:13] <vorlon> I thought the current behavior is already that it doesn't upgrade
+[15:13] <vorlon> it just doesn't explain why
+[15:13] <vorlon> (I have a package on my system that I hold, and had to un-hold most recently for mantic->noble)
+[15:13] <schopin> juliank: do you happen to have references to the 2 or 3 bugs mentioned?
+[15:15] <dbungert> will tag it for investigation
+[15:15] <adrien> he mentioned libpipewire-0.3-0t64 I think
+[15:15] <dbungert> https://bugs.launchpad.net/ubuntu/+bug/2078555
+[15:15] -ubottu:#ubuntu-meeting- Launchpad bug 2078555 in systemd (Ubuntu) "Upgrading from 22.04 to 24.04.01 breaks dnsmasq" [High, Confirmed]
+[15:15] <juliank> Sorry
+[15:15] <adrien> or maybe I mix things up, not entirely sure
+[15:15] <juliank> schopin: I failed to record them
+[15:16] <schopin> that's OK, I guess we can look through them manually.
+[15:17] <vorlon> I think LP: #2078555 is wontfix.  systemd-resolved only binds to a specific address to allow for other local resolvers
+[15:17] -ubottu:#ubuntu-meeting- Launchpad bug 2078555 in systemd (Ubuntu) "Upgrading from 22.04 to 24.04.01 breaks dnsmasq" [High, Confirmed] https://launchpad.net/bugs/2078555
+[15:18] <schopin> Still, it feels like a bug that it re-enabled itself?
+[15:18] <juliank> So I looked at it and we have a quirk to install it explciitÃ¶y
+[15:18] <juliank> data/DistUpgrade.cfg.jammy
+[15:18] <juliank> 37:PostUpgradeInstall=systemd-resolved
+[15:19] <vorlon> it should be installed
+[15:19] <vorlon> I guess if the correct package interfaces were used to disable it, and those didn't translate because of the move to a new package, that's a bug
+[15:19] <vorlon> I don't think it's a high-priority bug tho
+[15:19] <slyon> Right, we've had a bunch of bugreports where sd-resolved was missing (after it was split out as a separate package), I guess that's why we have the quirk now
+[15:20] <dbungert> triaged-medium no foundations todo?
+[15:20] <vorlon> ^ +1
+[15:20] <dbungert> k
+[15:20] <dbungert> https://bugs.launchpad.net/ubuntu/+source/ubuntu-release-upgrader/+bug/2078436
+[15:20] -ubottu:#ubuntu-meeting- Launchpad bug 2078436 in ubuntu-release-upgrader (Ubuntu) "Reject upgrades if packages are installed in a higher version than the target release" [Undecided, New]
+[15:20] <juliank> Oh yeah because systemd is upgraded first and then systemd-resolved is installed, the old data is gone
+[15:21] <juliank> So yes, about half of the upgrade bugs are people having newer versions of pipewire installed
+[15:21] <juliank> Newer versions in 22.04 than available in noble
+[15:21] <juliank> So if we do that it cuts down bug triage accordingly
+[15:24] <dbungert> tagging todo
+[15:24] <dbungert> https://bugs.launchpad.net/ubuntu/+source/ubuntu-release-upgrader/+bug/2078619
+[15:24] <schopin> Doesn't feel like a high-prio item either (although people doing u-r-u triage might disagree)
+[15:24] -ubottu:#ubuntu-meeting- Launchpad bug 2078619 in ubuntu-release-upgrader (Ubuntu) "stale mirror prevents upgrades" [Undecided, New]
+[15:26] <schopin> To put on the roadmap for 25.04?
+[15:26] <enr0n> yeah that's another common issue. Seems like we could do better for sure.
+[15:27] <dbungert> we're contending with similar mirror problems in subiquity, and looking at using mirror+ to help, maybe we want that here?
+[15:27] <bdrung> Printing an error message to the user instead of crashing would be useful.
+[15:27] <vorlon> 'mirror+'?
+[15:27] <dbungert> apt-transport-mirror
+[15:28] <ogayot> apt-transport-mirror (mirror+file:/)
+[15:28] <juliank> mirror+file:/ is magic
+[15:28] <cpete> hey ogayot I think we found a mirror to test
+[15:28] <vorlon> I mistrust magic
+[15:28] <dbungert> hah
+[15:28] <juliank> Anyhow the question here is if we fail to set the mirror, should we just try archive.ubuntu.com
+[15:28] <juliank> There is some fallback already, but it doesn't handle all cases
+[15:29] <schopin> Here the mirror itself is stale, do we have the necessary data to detect that?
+[15:29] <ogayot> cpete: I'll play around with it :)
+[15:29] <bdrung> Probably better include the user here to allow them to pick a new mirror.
+[15:29] <juliank> schopin: In the sense that it does not contain the new release, yes
+[15:29] <vorlon> was this an official mirror at the time the user configured it?
+[15:29] <schopin> Ah. Yes, of course -_-
+[15:29] <juliank> For the other case, once my valid-until change lands we can enable it for -updates too
+[15:29] <vorlon> or do they have a broken local mirror config
+[15:29] <vorlon> I'm not sure I approve of more magic here in general
+[15:30] <vorlon> trying to fall back to archive.u.c could also fail in the case of a corporate network; it's not like there's a guaranteed "fix"
+[15:30] <juliank> It's still better than aborting and telling the user to file a bug
+[15:30] <enr0n> hm good point, I can't remember off the top off my head if we check if the current mirror has been removed from the official mirror list
+[15:31] <enr0n> but I see this with non-local mirrors often
+[15:31] <vorlon> juliank: yes, we should not tell them to file a bug :)
+[15:31] <juliank> In any case we need to do something
+[15:31] <dbungert> tagging todo
+[15:32] <juliank> We can just tell them to pick a new mirror if we don't find the base-files
+[15:32] <dbungert> https://bugs.launchpad.net/ubuntu/+source/linux-gcp/+bug/2078720
+[15:32] -ubottu:#ubuntu-meeting- Launchpad bug 2078720 in ubuntu-release-upgrader (Ubuntu) "Upgrading from jammy to noble results in a linux-headers package being in a broken state" [Undecided, Triaged]
+[15:32] <juliank> Julian has fixes ready
+[15:32] <juliank> I guess we don't need to tag it todo really
+[15:33] <schopin> Is Julian talking about himself at the third person? :P
+[15:34] <schopin> s/at/in
+[15:34] <adrien> the cat is named Julian
+[15:35] <vorlon> dbungert: ?
+[15:35] <juliank> We are talking about ourselves in various persons
+[15:36] <dbungert> https://bugs.launchpad.net/ubuntu/+source/ubuntu-release-upgrader/+bug/2078589
+[15:36] -ubottu:#ubuntu-meeting- Launchpad bug 2078589 in ubuntu-release-upgrader (Ubuntu) "fight: desktop-base vs kubuntu-settings-desktop vs fontconfig-common:" [Undecided, Confirmed]
+[15:36] <juliank> This needs a long spike
+[15:36] <juliank> This is breaking quite a bunch of kubuntu and ubuntu studio flavor upgrades
+[15:38] <vorlon> so take it?
+[15:38] <dbungert> tagging
+[15:38] <juliank> Yes
+[15:38] <dbungert> https://bugs.launchpad.net/ubuntu/+source/ubuntu-release-upgrader/+bug/2078378
+[15:38] -ubottu:#ubuntu-meeting- Launchpad bug 2078378 in ubuntu-release-upgrader (Ubuntu) "No mirror configured after sources.list rewriting" [Undecided, Triaged]
+[15:39] <schopin> do we have a repro for this?
+[15:39] <juliank> The sources.list looked correct here
+[15:39] <juliank> schopin: The tarball should reproduce it
+[15:39] <enr0n> I think this is saying the mirror is out of date too
+[15:40] <enr0n> hmm maybe not
+[15:40] <juliank> No, we did not rewrite the jammy entry for some reason only jammy-updates
+[15:40] <juliank> all of them exist on the mirror
+[15:41] <juliank> But I did not investigate why it was only rewriting some
+[15:41] <dbungert> think we should tag this one as well
+[15:41] <juliank> +1
+[15:41] <dbungert> I want to cut off there, for proposed-migration
+[15:41] <dbungert> #topic Team proposed-migration report
+[15:41] <dbungert> #link https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses_by_team.html#foundations-bugs
+[15:41] <dbungert> vorlon:
+[15:41] <juliank> We have like 3 packages
+[15:42] <enr0n> fwiw, for the previous bug, it
+[15:42] <vorlon> libselinux/libsemanage just waiting for ruby-defaults
+[15:42] <enr0n> is because it's not an official mirror. So I guess there is logic for that
+[15:42] <vorlon> setuptools, were these assigned out already?
+[15:43] <vorlon> sl-modem uh cough
+[15:45] <juliank> I wanted to ping tj aalton on this but got distracted by u-r-u
+[15:46] <vorlon> setuptools vs guessit: r41k0u
+[15:46] <vorlon> setuptools vs isodate: adrien
+[15:46] <vorlon> setuptools vs macsyfinder still with chriscoulson
+[15:47] <vorlon> setuptools vs mailman-hyperkitty with bdrung
+[15:47] <vorlon> setuptools vs manuel with mwhudson
+[15:47] <vorlon> setuptools vs prometheus-xmpp-alerts with tobhe
+[15:47] <bdrung> setuptools should retry against the fixed mailman-hyperkitty that I uploaded
+[15:47] <vorlon> setuptools vs pylint with andersson123
+[15:48] <vorlon> setuptools vs python-mpegdash with rkratky
+[15:48] <vorlon> setuptools vs stopit: I'll take
+[15:48] <vorlon> setuptools vs python-svg.path: ginggs
+[15:49] <ginggs> vorlon: are you reassigning some of these?
+[15:49] <vorlon> ginggs: no just restating
+[15:49] <vorlon> setuptools vs software-properties: this was created last week but is unassigned?
+[15:49] <r41k0u> is setuptools vs guessit not done? - https://tracker.debian.org/news/1561888/accepted-guessit-380-3-source-into-unstable/
+[15:49] <vorlon> so xypron
+[15:49] <pushkarnk> I've got an MP up for setuptools vs python-svg.path
+[15:49] <r41k0u> I think it is resolved by a debian sync
+[15:50] <vorlon> r41k0u: unstable is not oracular-proposed, and it's only resolved once tests get rerun in Ubuntu showing that they now pass
+[15:50] <vorlon> r41k0u: so this probably just needs tests rerun
+[15:50] <bdrung> i'll have a look at the python-svg.path MP
+[15:50] <ginggs> vorlon: juliank said there's already a card for software-properties
+[15:50] <pushkarnk> thanks bdrung
+[15:50] <vorlon> ginggs: yes but it was unassigned
+[15:51] <ginggs> vorlon: no, another one.  juliank do you have it?
+[15:51] <vorlon> finally, sl-modem vs dkms: mkukri
+[15:52] <juliank> I do not have it yet I am focusing on upgrade bugs
+[15:52] <vorlon> dbungert: that's all
+[15:52] <vorlon> now who uploaded ubiquity, it's time to remove that package from oracular
+[15:52] <dbungert> #topic AOB
+[15:52] <ginggs> juliank: i mean the number of the jira card
+[15:52] <juliank> yes I know
+[15:52] <vorlon> waveform: ^^ please turn your ubiquity upload into a removal request :)
+[15:53] <juliank> this is bug https://bugs.launchpad.net/ubuntu/+source/software-properties/+bug/2077940
+[15:53] -ubottu:#ubuntu-meeting- Launchpad bug 2077940 in software-properties (Ubuntu Oracular) "setuptools v72 removed the test command" [High, Triaged]
+[15:53] <juliank> that maps to FR-8752
+[15:54] <ginggs> juliank: thanks
+[15:54] <dbungert> seems like we're done
+[15:54] <dbungert> #endmeeting
+[15:54] <meetingology> Meeting ended at 15:54:55 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-09-05-15.02.moin.txt
+[20:00] <Bashing-om> kil
+[20:00] <Bashing-om> kil
+[20:02] <Bashing-om> zmef: :D
+[20:02] <zmef> hiya
+[20:03] <zmef> i was just reading your wiki page
+[20:04] <Bashing-om> zmef: Presently awaiting the board members to make their appearances :D
+[20:04] <zmef> no worries at all sir
+[20:04] <zmef> happy to even be here
+[20:04] <Bashing-om> zmef: I been around for a while now in the real world.
+[20:05] <zmef> have you updated your box since making that wiki post?
+[20:06] <zmef> you are probably on a command line client as we chat here today eh?
+[20:06] <Bashing-om> zmef: Recently upgraded to a Asus box with 32 Gigs of onboard ram :D
+[20:06] <zmef> swet
+[20:06] <zmef> sweet
+[20:06] <zmef> i just got a new box recently too
+[20:06] <zmef> been limping along with an old diy box for years
+[20:07] <zmef> i wasn't really much of a user for the past 10 years or so
+[20:07] <Bashing-om> zmef: to be honest - cut my teeth on the command line and have never been too comfortable with the GUI.
+[20:07] <zmef> just recently fell back into the hobby after being laid off
+[20:07] <zmef> i've heard that plenty of times
+[20:08] <zmef> i'm a bit long in the tooth myself
+[20:08] <zmef> im a gui guy
+[20:08] <zmef> of course, i love the command line, but i'm progressive
+[20:08] <Bashing-om> zmef: How did you happen to upgrade your box ?
+[20:08] <zmef> what can i say
+[20:08] <zmef> i started attending school
+[20:09] <zmef> a cybersecurity bootcamp at first
+[20:09] <zmef> now im finishing my degree
+[20:09] <zmef> my daughter and her signifigant other came over, and they clowned my computer with its measley 8 gigs of ram
+[20:10] <zmef> so i upgraded to 16, but was still unable to run virtualized systems since to cpu was ancient
+[20:11] <zmef> i feel like 32 gigs of ram i can do anything now
+[20:11] <zmef> Bashing-om: how did you get involved in the newsletter?
+[20:12] <Bashing-om> zmef: Way baxk when I instlled a *ONE* Gig expansion board - was in high cotton !
+[20:12] <zmef> lol
+[20:13] <zmef> i remember getting an external 56k modem, the excitement i felt! i was 13
+[20:13] <Bashing-om> zmef: UWN: When the last editors burned out - I got volunteered to take up the task :D
+[20:14] <zmef> i see
+[20:14] <zmef> i recently decided to become more active in the ubuntu community after attempting to join the Illinois LoCo
+[20:15] <zmef> i was bumbed to see hardly anyone active
+[20:15] <zmef> messaged the leader and he had moved away, so i asked if i could take the lead
+[20:16] <zmef> made me take a pic at a midwest cultural icon
+[20:16] <Bashing-om> zmef: Still not enough showed up today for quorum - getting past concerned :(
+[20:16] <zmef> i read that was a possibility
+[20:16] <zmef> people have lives, it's a whole thing
+[20:17] <zmef> my whole household recently succumbed to a bug of soem sort so we are self quarantined
+[20:18] <zmef> been hacking away all day!
+[20:18] <Bashing-om> zmef: I have followed your Illinois LoCo adventure on Discourse - impressive your preserverance:)
+[20:19] <Bashing-om> zmef: Let's not do the Covid thing - real bad news that !
+[20:19] <zmef> i'm excited for this event, Software Freedom Day, the local ham club puts on the Midwest Superfest
+[20:19] <zmef> a big nerd swap meet
+[20:20] <zmef> years ago i would set up a table there for my local Linux user group
+[20:21] <zmef> decided to go ahead and do it again
+[20:21] <Bashing-om> zmef: Good prep == Good preformance - we covered it in the NewsLetter :P
+[20:21] <zmef> indeed
+[20:21] <zmef> myself, i always plan to fail
+[20:21] <zmef> then, you either succeed or things go to plan
+[20:21] <zmef> either way it's a win!
+[20:22] <zmef> i am a work in progress in this practice of life
+[20:22] <zmef> ;-)
+[20:22] <Bashing-om> zmef: Me - I plan in the event of failure  >> Plan B :P
+[20:22] <zmef> backups are always smart
+[20:23] <zmef> "two is one" and all that fuss
+[20:24] <Bashing-om> zmef: In my former life I did learn the lessons of good back up - the hard way ! .. Now a days I keep 3 backups !
+[20:26] <zmef> i can't tell a lie, i rarely back up anything
+[20:26] <zmef> including my tech!
+[20:27] <zmef> my digital life can disapear. deep down i'm an analog guy ;-)
+[20:28] <Bashing-om> zmef: You will pay the price - just wait till you loose your wedding pics - "In the dog house now " !
+[20:28] <zmef> lol
+[20:28] <zmef> those are all in albums
+[20:29] <zmef> besides, material life is fleeting. holding on to it all only leads to pain. i love and let go,...when i can
+[20:29] <zmef> and i stay in the dog haus bru
+[20:29] <zmef> me and ole rover
+[20:30] <Bashing-om> zmef: Get our age and one realizes that all is fleeting. King Solomon said it right !
+[20:30] <zmef> i'm currently in a zoom where a brilliant fellow by the name of hal pomerranz is teaching linux to beginers. really great stuff. guy is super smart.
+[20:31] <zmef> what he say? cut that baby in half?
+[20:31] <zmef> lol
+[20:32] <Bashing-om> ^ got to the boytom of things, huh ?
+[20:32] <Bashing-om> bottom*
+[20:33] <zmef> you are a fun guy
+[20:34] <zmef> glad we got this chance to chat
+[20:35] <Bashing-om> zmef: Looks as if there is a failure to communicate - no meeting this day - how do you want to proceed ? In a hurry to see if your application is accepted ?
+[20:36] <zmef> Naw, I am assuming it won't. Gotta start somewhere though.
+[20:36] <zmef> I ain't rushing nothing
+[20:36] <zmef> :-)
+[20:38] <Bashing-om> zmef: reschedule for October meeting times ? sound doable ?
+[20:38] <zmef> for sure! thanks Bashing-om
+[20:40] <Bashing-om> zmef: Just so you are aware - I could push this to the mailing list for voting - but I do not feel that your chanaces there are as good as would be here.
+[20:40] <zmef> oh, ok. thanks for that.
+[20:42] <Bashing-om> zmef: Then - here in a bit or so _ will reset your appointment to the 3rd of October - same time slot.
+[20:43] <zmef> i will set it up as soon as octobers slots are listed
+[20:44] <zmef> perhaps the 22:00 UTC meeting
+[20:44] <Bashing-om> zmef: Ack - Be a bit before I get A-round-2-it :P
+[20:45] <Bashing-om> zmef: The board is now in your debt - how ever you want to set it up :P
+[20:46] <zmef> lol
+[20:46] <zmef> been a hoot man
+[20:46] <zmef> thanks
+[20:47] <Bashing-om> zmef: Is a problem in that only 3 of us showed up to render your honors !
+[20:49] <Bashing-om> Releasing this channel ATT for other meetings // zmef take care see ya soonest.
+[20:50] <zmef> bye
