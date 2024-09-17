@@ -1,0 +1,289 @@
+[07:05] <aciba> Hello team, when is today's meeting supposed to happen? I do not see it in the Ubuntu Fridge calendar.
+[16:00] <bdrung> \o
+[16:00] <fheimes> o/
+[16:00] <rbasak> o/
+[16:00] <aciba> o/
+[16:01] <utkarsh2102> o/
+[16:11] <bdrung> Where is the other half of the DMB?
+[16:11] <rbasak> I'm wondering what we need to do.
+[16:12] <rbasak> teward, tsimonq2, bdmurray: do we need to move the meeting time or something?
+[16:13] <bdrung> Should we start the meeting anyway to get it rolling (and carry it over to email for the other DMB members to vote)?
+[16:13] <rbasak> Agreed
+[16:13] <fheimes> +1   :-)
+[16:14] <rbasak> Actually I believe there's a rule that if someone's appearing for a second time then those here can make a final decision
+[16:15] <rbasak> I think that's the case for fheimes, right?
+[16:15] <fheimes> @rbasak: yes (even here the 3rd time)
+[16:15] <rbasak> https://wiki.ubuntu.com/DeveloperMembershipBoard/KnowledgeBase#Voting_and_Quorum
+[16:15] <rbasak> So let's use that and get to a decision on your application today
+[16:15] <aciba> Mine too, it is my second time
+[16:20] <bdrung> https://wiki.ubuntu.com/DeveloperMembershipBoard/KnowledgeBase#Voting_and_Quorum does not say anything about changed rules for appearing the second time. Only inactive members will reduce the quorum requirement. "Any DMB member who fails to attend 6 consecutive scheduled DMB meetings (during a period no shorter than 12 weeks) shall be considered inactive"
+[16:20] <rbasak> Oh, OK
+[16:21] <rbasak> "at the next scheduled meeting, the vote will pass with only a majority of present members"
+[16:21] <rbasak> That's not my reading though?
+[16:21] <bdrung> But we should hold the meeting anyway. E.g. if we vote +3 in total, we would just need one more member to vote +1 on the ML to get the application approved.
+[16:21] <rbasak> Yes we should proceed anyway
+[16:22] <bdrung> Oh, I missed the part. So we need to vote this time and won't reach quorum. Then we can vote next time with just the majority of present members.
+[16:23] <utkarsh2102> +1
+[16:23] <utkarsh2102> I think we should really start
+[16:24] <bdrung> Who wants to chair. The agenda still says @utkarsh2102
+[16:26] <rbasak> utkarsh2102: ?
+[16:26] <utkarsh2102> can someone do that today?
+[16:26] <utkarsh2102> i have so many things going on
+[16:26] <utkarsh2102> I can take the next ones
+[16:27] <rbasak> #startmeeting Developer Membership Board
+[16:27] <meetingology> Meeting started at 16:27:32 UTC.  The chair is rbasak.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[16:27] <meetingology> Available commands: action, commands, idea, info, link, nick
+[16:27] <rbasak> #topic Package Set/Per Package Uploader Applications
+[16:27] <rbasak> #subtopic PPU application for s390-tools by Frank Heimes at DMB meeting 2024-09-16 (will also join meeting on 2024-09-02, just in case there is remaining time, if not it's also fine).
+[16:28] <rbasak> fheimes: o/
+[16:28] <fheimes> hi \o
+[16:28] <fheimes> shall I introduce myself quickly?
+[16:28] <rbasak> Sure, thanks.
+[16:29] <fheimes> Ok, I'm Frank (fheimes) and work at Canonical's Partner Engineering department (formerly known as hardware enablement) and the Partner I take care of is IBM, with their Z platform (s390x) and their IBM Power family (ppc64el)
+[16:30] <fheimes> Prior to my time at Canonical I worked at IBM's R&D lab in Germany in the area of Linux, esp. Linux on s390x.
+[16:30] <fheimes> So, I take care about s390x hw enablement duties, I do quite some work in the s390x space, hence me applying for PPU for s390-tools (package set, consists of two packages).
+[16:30] <teward> rbasak: sorry for lateness.  (had an IRL emergency problem)
+[16:31] <rbasak> OK, questions for fheimes then please.
+[16:31] <rbasak> Where can the release schedule be found, and on what date was the freeze for Oracular?
+[16:32] <fheimes> that can be found on discourse, there are release schedule pages for all Ubuntu releases, let me quickly find it ...
+[16:32] <fheimes> https://discourse.ubuntu.com/t/oracular-oriole-release-schedule
+[16:33] <fheimes> FF was on Aug 15th
+[16:33] <rbasak> fheimes: OK. And if it's after feature freeze, Oracular has 2.34.0-0ubuntu2 and s390x-tools upstream release 2.34.1, what do you need to check to verify that an upload to Oracular will not violate feature freeze?
+[16:33] <fheimes> today was beta and hwe freeze
+[16:34] <fheimes> well, there are several things (I guess)
+[16:34] <fheimes> one thing to check is if the new release is a bug fix release only
+[16:35] <fheimes> (there is a high chance with a x.y.1)
+[16:35] <fheimes> if it incl. new features, that are urgently needed and it would violate the FF, then a FFe can be thought of
+[16:36] <fheimes> if a new version incl. new features AND bug fixes and some fixes are needed, then they need to be cherry-picked -- the package can no longer be simply version bumped after the FF
+[16:37] <fheimes> I hope I covered what you were looking for?
+[16:37] <rbasak> Yes thanks. Typing question next question...
+[16:37] <rbasak> If you upload and it gets "stuck in proposed", who is expected to resolve the situation?
+[16:38] <fheimes> well, it's primarily me
+[16:39] <rbasak> OK. And how would you approach that - for example where's the documentation for dealing with this situation?
+[16:39] <fheimes> I'll should check and shepared the package through the process and should see when it gets stuck, but I will also get a notification in case it's stuck for a certain amount of time
+[16:40] <fheimes> I would first of all look at launchpad, trying to find out why it's stuck (FTBFS, missing approval)
+[16:41] <fheimes> britney is another source, actually the update excuses page, like:
+[16:41] <fheimes> https://ubuntu-archive-team.ubuntu.com/proposed-migration/oracular/update_excuses.html#s390-tools
+[16:42] <rbasak> Do you get dep8 results for s390-tools in practice?
+[16:42] <fheimes> there are many docs where someone can find more info on what to do, for example in case of an SRU: https://people.canonical.com/~ubuntu-archive/pending-sru.html
+[16:42] <rbasak> I see the packaging doesn't ship tests (I think?) but maybe you get rdep dep8 tests triggered?
+[16:43] <fheimes> @rbasak: the status on that is what I can see here: https://ubuntu-archive-team.ubuntu.com/proposed-migration/oracular/update_excuses.html#s390-tools
+[16:44] <rbasak> There's nothing there at the moment though because it isn't pending migration right now
+[16:44] <fheimes> and I can often find directly the reason there (failt to build, missing approval etc)
+[16:44] <fheimes> yes, that's correct atm there is nothing there (was just an example in case its stuck)
+[16:44] <utkarsh2102> question: what if it's not there (update_excuses.html) and the package has still not migrated?
+[16:45] <utkarsh2102> where will you look?
+[16:45] <utkarsh2102> or what will you do?
+[16:45] <fheimes> and failed tests of dependent packages can be identified and if needed, retriggered (in different ways) or tests fixed (if needed)
+[16:46] <fheimes> this is a good doc on this: https://wiki.ubuntu.com/ProposedMigration#How_to_re-run_autopkgtests_with_dependencies_on_other_packages_in_the_proposed_pocket that I sometimes refer to
+[16:47] <rbasak> Thanks. I have no further questions!
+[16:47] <rbasak> Does anyone else have any further questions for fheimes?
+[16:47] <utkarsh2102> my question^
+[16:47] <bdrung> fheimes, have you considered adding dep8 tests to s390-tools?
+[16:48] <fheimes> so far I got cases where things fauiled to migrate (https://people.canonical.com/~ubuntu-archive/proposed-migration/) via LP itself, and update excuses
+[16:48] <utkarsh2102> ok, gotcha
+[16:48] <utkarsh2102> fine, it's okay
+[16:48] <rbasak> Sorry I thought he was answering it in his subsequent messages
+[16:49] <rbasak> OK, are we all ready to vote?
+[16:49] <fheimes> yes, I have considered that - there is a local version that I havebut it's difficult to trigger that automatically, since special hw access is needed, that is no always possible in KVM
+[16:49] <utkarsh2102> yes, ready to vote
+[16:49] <bdrung> i am ready to vote as well
+[16:50] <rbasak> #vote Grant fheimes PPU for s390-tools and s390-tools-signed
+[16:50] <meetingology> Please vote on: Grant fheimes PPU for s390-tools and s390-tools-signed
+[16:50] <meetingology> Public votes can be registered by saying +1, -1 or +0 in channel (for private voting, private message me with 'vote +1|-1|+0 #channelname')
+[16:50] <rbasak> +1
+[16:50] <meetingology> +1 received from rbasak
+[16:50] <bdrung> +1
+[16:50] <meetingology> +1 received from bdrung
+[16:50] <fheimes> (for example test on s390x hw cryptography can only be run if the hw got passed throught to a KVM instance, and ensuring that in PS is barely possible ...)
+[16:50] <rbasak> Sorry I was just checking the application page for the exact set of package names, and then started pondering about the -signed PPA business.
+[16:50] <fheimes> oh ...
+[16:50] <rbasak> But I think it's probably irrelevant for initial PPU.
+[16:50] <utkarsh2102> +1; Frank has a lot of experience with the package and I think I trust him to be an excellent in taking care of the package.
+[16:50] <meetingology> +1; Frank has a lot of experience with the package and I think I trust him to be an excellent in taking care of the package. received from utkarsh2102
+[16:50] <bdmurray> +1
+[16:50] <meetingology> +1 received from bdmurray
+[16:51] <utkarsh2102> omg, bdmurray, hiiiiiiiiiiiiiiii!
+[16:51] <rbasak> teward: are you available to vote?
+[16:51] <teward> yes i am 1 minute
+[16:51] <utkarsh2102> rbasak: we already have 4 votes
+[16:51] <teward> +1
+[16:51] <meetingology> +1 received from teward
+[16:51] <utkarsh2102> ah nice
+[16:51] <utkarsh2102> perfect!
+[16:51] <rbasak> Yeah but people should have the opportunity to register if they dissent :)
+[16:51] <teward> rbasak: voted.  sorry but like 2 minutes ago I get a call from CEO at DAYJOB
+[16:52] <teward> and that's one of those "Always Answer" cases
+[16:52] <rbasak> (and it's nice when they also +1)
+[16:52] <rbasak> #endvote
+[16:52] <meetingology> Voting ended on: Grant fheimes PPU for s390-tools and s390-tools-signed
+[16:52] <meetingology> Votes for: 5, Votes against: 0, Abstentions: 0
+[16:52] <meetingology> Motion carried
+[16:52] <utkarsh2102> fheimes: hey, congratulations! <3
+[16:52] <rbasak> Congratulations fheimes!
+[16:52] <pleia2> congrats fheimes :)
+[16:52] <utkarsh2102> rbasak: can you add his acl and I can take care of the announcement?
+[16:52] <rbasak> Any volunteers for the action items to enact this?
+[16:52] <aciba> congrats fheimes
+[16:52] <rbasak> ack
+[16:52] <utkarsh2102> coolio
+[16:52] <rbasak> #action utkarsh2102 to announce fheimes' successful application
+[16:52] <meetingology> ACTION: utkarsh2102 to announce fheimes' successful application
+[16:52] <fheimes> Many thx ! I'm excited and happy !
+[16:52] <rbasak> #action rbasak to add fheimes PPU ACL
+[16:52] <meetingology> ACTION: rbasak to add fheimes PPU ACL
+[16:53] <bdrung> congratulations
+[16:53] <utkarsh2102> I know we are running out of time but can we look at aciba, too?
+[16:53] <rbasak> I have a hard stop
+[16:53] <bdrung> fheimes, I missed to ask one very important question since you stated that you live in the SchwÃ¤bische Alb: What is a Muggeseggele?
+[16:53] <utkarsh2102> teward, bdrung, bdmurray?
+[16:53] <teward> i have no objection
+[16:53] <bdrung> ;-)
+[16:53] <bdrung> no objections
+[16:53] <utkarsh2102> rbasak: but are you okay with cloud-init PPU?
+[16:53] <fheimes> oh, hey pleia2 !
+[16:53] <rbasak> I'm OK if you'd like to continue anyway. If you can please ask the usual questions then I'll check back later and vote if needed.
+[16:54] <rbasak> On the matter of cloud-init PPU, I believe Chad already has PPU for cloud-init?
+[16:54] <aciba> Chad and James have
+[16:54] <utkarsh2102> i think he does
+[16:54] <utkarsh2102> yes
+[16:54] <fheimes> @bdrung I'm living here, but didn't grew up here, but nevertheless it is a very small unit ;-)
+[16:55] <rbasak> I'd like to see that ML thread concluded with DMB consensus on the topic, but maybe it's best to follow existing precedent for cloud-init in the meantime
+[16:55] <rbasak> Seeing as aciba has already been let down
+[16:55] <utkarsh2102> i don't understand what that means
+[16:55] <rbasak> And because it'd be a separate matter as to whether cloud-init is considered "core".
+[16:55] <bdrung> fheimes, I was born in Baden-WÃ¼rttemberg, but grew up in Berlin.
+[16:56] <utkarsh2102> are you okay with us continuing?
+[16:56] <rbasak> I think it is probably "core", but cloud-init has been working well enough with PPU recently, especially as any changes have to effectively pass an SRU reviewer anyway.
+[16:56] <rbasak> are you okay with us continuing> yes
+[16:56] <utkarsh2102> great!
+[16:57] <rbasak> #chair utkarsh2102 bdrung bdmurray teward
+[16:57] <meetingology> Current chairs: bdmurray, bdrung, rbasak, teward, utkarsh2102
+[16:57] <rbasak> I need to step away imminently so someone else will need to take over chairing
+[16:57] <utkarsh2102> bdrung: are you okay to chair?
+[16:58] <bdrung> okay
+[16:58] <bdrung> #subtopic PPU application for cloud-init by Alberto Contreras at DMB meeting 2024-09-16 (as 2024-09-02 did not happen).
+[16:58] <utkarsh2102> \o/
+[16:59] <aciba> o/
+[16:59] <bdrung> #link https://wiki.ubuntu.com/AlbertoContreras/DeveloperPerPackageUploadApplication
+[16:59] <bdrung> aciba, do you quickly want to introduce yourself?
+[16:59] <aciba> yes
+[16:59] <aciba> I am Alberto Contreras, I have been working for Canonical during the last ~2.5 years as part of the Canonical Public Cloud (CPC) team focused on cloud-init on cloud-specific features / fixes.
+[17:00] <aciba> I would like to apply to get upload permissions for cloud-init.
+[17:00] <aciba> More about myself and the application: https://wiki.ubuntu.com/AlbertoContreras/DeveloperPerPackageUploadApplication
+[17:01] <bdrung> Thanks. Questions for aciba please.
+[17:04] <bdrung> aciba, you list LP #2045582 as first entry under areas of work. What went well there and what did you learn there?
+[17:04] -ubottu:#ubuntu-meeting- Launchpad bug 2045582 in cloud-init (Ubuntu Mantic) "sru cloud-init (23.4 update) Focal, Jammy, and Mantic" [Undecided, Fix Released] https://launchpad.net/bugs/2045582
+[17:05] <utkarsh2102> aciba: question - after you answer the above, what happens if the verification of the SRU fails? what do we do then?
+[17:06] <aciba> the sru process, having the package in -proposed allowed other developers to test that new version and detect a couple of bugs prior to releasing it, iirc
+[17:07] <aciba> so we detected a couple of bugs and proposed a new version of the package with those bugs fixed to be SRUed
+[17:09] <bdrung> thanks. perfect transition to utkarsh2102's question
+[17:10] <aciba> if the verification fails in a valid way, we need to hold that version and fix it
+[17:10] <aciba> proposing a new version including the fix or fixes
+[17:10] <aciba> as we did in #2045582
+[17:10] <aciba> we need to add the tags as verification failed to the lp bug
+[17:11] <utkarsh2102> perfect, thanks
+[17:11] <utkarsh2102> aciba: what freezes do you need to keep in mind before uploading?
+[17:12] <aciba> feature freeze, documentation freeze, beta freeze, final freeze, they are doucmented here: https://discourse.ubuntu.com/t/oracular-oriole-release-schedule/36460
+[17:12] <utkarsh2102> great
+[17:12] <bdrung> aciba, when you upload a package to the archive, which steps are taken until the package hits the release pocket?
+[17:13] <aciba> typically: unnapproved queue > -proposed > -updates
+[17:14] <aciba> those steps are outlined here: https://canonical-sru-docs.readthedocs-hosted.com/en/latest/howto/standard/
+[17:14] <bdrung> aciba, and in case of uploads to oracular?
+[17:15] <aciba> it depends on the time of the release cycle we are at
+[17:16] <aciba> prior to feature freeze, it goes directly to the release pockets
+[17:16] <aciba> after feature freeze but prio to the release, it requires a ffe and goes directly to the release pocket after the ffe has cleared
+[17:17] <aciba> before release it follows the normal SRU process
+[17:17] <aciba> that is: unnapproved queue > -proposed > -updates
+[17:18] <bdrung> did you mean s/before release/after release/?
+[17:18] <aciba> yes, sorry
+[17:19] <bdrung> aciba, there is a step in between the upload and release pocket on the development series.
+[17:20] <aciba> it goes to the unpproved queue, but it gets automatically accepted under certain circumstances,
+[17:21] <bdrung> aciba, and what about autopkgtest?
+[17:21] <aciba> they are run when the package hits -proposed, every reverse dependency's dep8 test on the package get executed
+[17:22] <aciba> on can see the results in the update excuses page
+[17:22] <aciba> and the SRU drive must monitor and take care of them
+[17:22] <aciba> s/drive/driver/
+[17:23] <bdrung> aciba, are autopkgtest only run for SRU uploads and not for development release uploads?
+[17:24] <aciba> the rdeps ones yes, I belive the ones associated with the package itself do run on every build
+[17:27] <bdrung> package uploads to the development release and up in -proposed first.
+[17:28] <bdrung> s/and/end/
+[17:28] <aciba> then yes, autopkgtest run for development release uploads
+[17:29] <bdrung> Do you need a FFe for every upload after the feature freeze (and before the release)?
+[17:30] <aciba> no, for example, if there is a new upstream version that contains only bug fixes, then a new upload containing that does not require and ffe
+[17:30] <aciba> before the release, the SRU process holds
+[17:30] <bdrung> s/before/after/?
+[17:30] <aciba> s/after/before/ again
+[17:31] <aciba> sorry I am a bit nervous
+[17:31] <bdrung> thanks for being honest here (written text does not convey things like that)
+[17:32] <aciba> exceptions to the FFe process can be found here: https://wiki.ubuntu.com/FeatureFreeze and https://wiki.ubuntu.com/FreezeExceptionProcess
+[17:33] <bdrung> Any questions from my DMB fellows?
+[17:35] <utkarsh2102> not from me
+[17:35] <teward> none here
+[17:35] <bdrung> aciba, You list https://github.com/canonical/cloud-init/commit/57bb32388 as one example. Anything one should be aware of when (re)moving files in /etc?
+[17:35] -ubottu:#ubuntu-meeting- Commit 57bb323 in canonical/cloud-init "d/cloud-init.postinst: change priority of hotplug rules"
+[17:38] <aciba> it should not changer behavior, it should not remove config files created by the user
+[17:39] <aciba> it should aviod user intervention
+[17:39] <aciba> s/aviod/avoid
+[17:41] <aciba> does that satisfy your question?
+[17:41] <bdrung> aciba, if upstream decides to drop a file in /etc can the package just remove the file in /etc on upgrade?
+[17:43] <aciba> drop the file how?
+[17:43] <aciba> at runtime?
+[17:44] <aciba> bdrung
+[17:44] <bdrung> drop = delete / not ship it in the file in the release tarball
+[17:44] <aciba> yes, the package maint scripts can delete a config file when it is not need anymore
+[17:45] <aciba> but it depends in a case by case basis  I think
+[17:45] <bdrung> aciba, and in case the file was modified by the user?
+[17:45] <aciba> we should minimize user disruption
+[17:46] <aciba> and if the user modified the file, the maint scripts shouldn't remove the file
+[17:46] <bdrung> perfect thanks. i was aiming for the helpers from https://manpages.ubuntu.com/manpages/noble/en/man1/dpkg-maintscript-helper.1.html to be used to handle that.
+[17:47] <bdrung> I am done with my questions.
+[17:47] <bdrung> Everyone ready for voting?
+[17:47] <utkarsh2102> yes
+[17:47] <utkarsh2102> teward, bdmurray?
+[17:47] <bdmurray> I have no questions.
+[17:48] <utkarsh2102> bdrung: i think we should proceed
+[17:48] <utkarsh2102> it's wayyyyy over time
+[17:49] <utkarsh2102> teward will follow up
+[17:49] <teward> no questions
+[17:49] <utkarsh2102> there :)
+[17:49] <bdrung> #vote Grant Alberto Contreras (aciba) PPU for cloud-init
+[17:49] <meetingology> Please vote on: Grant Alberto Contreras (aciba) PPU for cloud-init
+[17:49] <meetingology> Public votes can be registered by saying +1, -1 or +0 in channel (for private voting, private message me with 'vote +1|-1|+0 #channelname')
+[17:49] <teward> (you already asked if we had more questions and I didn't)
+[17:51] <utkarsh2102> writing a review..
+[17:53] <utkarsh2102> +1; I think Alberto has quite a lot of experience with cloud-init & its internals. I think they'd be a great addition as an uploader of the package. Yes, there were some answers which weren't completely clear but that's okay, I think those are smaller and can be learned on the fly. Alberto, I'd ask you to exercise your upload rights with caution &
+[17:53] <meetingology> +1; I think Alberto has quite a lot of experience with cloud-init & its internals. I think they'd be a great addition as an uploader of the package. Yes, there were some answers which weren't completely clear but that's okay, I think those are smaller and can be learned on the fly. Alberto, I'd ask you to exercise your upload rights with caution & received from utkarsh2102
+[17:53] <utkarsh2102> please don't hesitate to ask before uploading or whenever in doubt. More reviews, better the upload is. So please keep in mind all those things when you upload. ;)
+[17:54] <utkarsh2102> bdrung, bdmurray, teward?
+[17:55] <bdrung> +1 I concur what utkarsh2102 wrote
+[17:55] <meetingology> +1 I concur what utkarsh2102 wrote received from bdrung
+[17:55] <teward> +!
+[17:55] <teward> oops
+[17:55] <teward> +1
+[17:55] <meetingology> +1 received from teward
+[17:55] <bdmurray> +1
+[17:55] <meetingology> +1 received from bdmurray
+[17:56] <utkarsh2102> #endvote
+[17:56] <meetingology> Voting ended on: Grant Alberto Contreras (aciba) PPU for cloud-init
+[17:56] <meetingology> Votes for: 4, Votes against: 0, Abstentions: 0
+[17:56] <meetingology> Motion carried
+[17:56] <utkarsh2102> yay!
+[17:56] <utkarsh2102> aciba: congratulations! <3
+[17:56] <aciba> wow, many thanks, I will take care and ask when in doubt
+[17:56] <utkarsh2102> aciba: super! thank you!
+[17:57] <bdrung> aciba, congrats. asking when in doubt is the correct mindset. nobody knows everything.
+[17:57] <utkarsh2102> #action rbasak to add aciba to the right place & utkarsh2102 to announce the successful application
+[17:57] <meetingology> ACTION: rbasak to add aciba to the right place & utkarsh2102 to announce the successful application
+[17:57] <utkarsh2102> ok, I'm going to call if off. It was a pretty long meeting :)
+[17:57] <utkarsh2102> thank you so much for chairing, bdrung.
+[17:57] <aciba> much appreciated, have a good day o/
+[17:57] <bdrung> exactly
+[17:57] <utkarsh2102> you were great! o/
+[17:58] <utkarsh2102> #endmeeting
+[17:58] <meetingology> Meeting ended at 17:58:05 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-09-16-16.27.moin.txt
+[17:59] <bdrung> now I have to recharge after 360 and this meeting.
+[18:35] <teward> now for late lunch
+=== not_phunyguy is now known as phunyguy
+=== arif-ali_ is now known as arif-ali
+=== lucyllewy_ is now known as lucyllewy
