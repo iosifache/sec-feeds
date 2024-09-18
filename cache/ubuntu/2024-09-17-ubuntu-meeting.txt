@@ -1,0 +1,100 @@
+[14:32] <sarnold> good morning
+[14:32] <slyon> o/
+[14:32] <slyon> c_paelzer seems not available... let me prepare a few tabs.
+[14:33] <slyon> #startmeeting Weekly Main Inclusion Requests status
+[14:33] <meetingology> Meeting started at 14:33:27 UTC.  The chair is slyon.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[14:33] <meetingology> Available commands: action, commands, idea, info, link, nick
+[14:33] <slyon> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( eslerm dviererbe )
+[14:33] <slyon> #topic current component mismatches
+[14:33] <slyon> Mission: Identify required actions and spread the load among the teams
+[14:33] <slyon> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[14:33] <slyon> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[14:34] <slyon> looks much cleaner! and all known. with bug #2072621 blocked on security review.
+[14:34] -ubottu:#ubuntu-meeting- Bug 2072621 in rpds-py (Ubuntu) "[MIR] rpds-py" [Undecided, New] https://launchpad.net/bugs/2072621
+[14:34] <slyon> #topic New MIRs
+[14:34] <slyon> Mission: ensure to assign all incoming reviews for fast processing
+[14:34] <slyon> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[14:35] <slyon> bug #2069308
+[14:35] -ubottu:#ubuntu-meeting- Bug 2069308 in xdg-terminal-exec (Ubuntu) "MIR xdg-terminal-exec" [Undecided, Confirmed] https://launchpad.net/bugs/2069308
+[14:35] <slyon> this looks mostly ready, but MIR requirement #1 should be looked at (https://bugs.launchpad.net/ubuntu/+source/xdg-terminal-exec/+bug/2069308/comments/4) CC jbicha nteodosio
+[14:35] <sarnold> nice to have a comment from vladirmir
+[14:36] <slyon> indeed!
+[14:36] <slyon> bug #2070025
+[14:36] -ubottu:#ubuntu-meeting- Bug 2070025 in wsdd (Ubuntu) "[MIR] wsdd" [Undecided, New] https://launchpad.net/bugs/2070025
+[14:36] <jbicha> the component-mismatches reported haven't updated in almost a week
+[14:37] <sarnold> uhoh
+[14:37] <slyon> uh oh.. so we might be up for some surprise
+[14:38] <slyon> wsdd got security ACK, but cpaelzer had a bunch of MIR requirements, that I'm not clear if they got resolved. Maybe he can check and comment on that after the meeting
+[14:38] <jbicha> I can handle 1 and 2 for xdg-terminal-exec. We won't be promoting it to main for oracular though
+[14:39] <slyon> thanks!
+[14:39] <nteodosio> jbicha, there is https://salsa.debian.org/freedesktop-team/xdg-terminal-exec/-/merge_requests/1.
+[14:39] -ubottu:#ubuntu-meeting- Merge 1 in freedesktop-team/xdg-terminal-exec "Swap the 'xterm | x-terminal-emulator' depends." [Opened]
+[14:40] <slyon> bug #2080965
+[14:40] -ubottu:#ubuntu-meeting- Bug 2080965 in architecture-properties (Ubuntu) "[MIR] architecture-properties" [Low, New] https://launchpad.net/bugs/2080965
+[14:40] <jbicha> oops I wasn't subscribed to merge request notifications at that time
+[14:40] <slyon> I guess I can take architecture-properties
+[14:41] <slyon> bug #2080062
+[14:41] -ubottu:#ubuntu-meeting- Bug 2080062 in libspelling (Ubuntu) "[MIR] libspelling" [Medium, New] https://launchpad.net/bugs/2080062
+[14:41] <slyon> joalif: Could you take that for MIR review? ^
+[14:43] <slyon> #topic Incomplete bugs / questions
+[14:43] <slyon> Mission: Identify required actions and spread the load among the teams
+[14:43] <slyon> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[14:43] <slyon> nothing new in the list
+[14:43] <slyon> #topic Process/Documentation improvements
+[14:43] <slyon> Mission: Review pending process/documentation pull-requests or issues
+[14:43] <slyon> #link https://github.com/canonical/ubuntu-mir/pulls
+[14:43] <slyon> #link https://github.com/canonical/ubuntu-mir/issues
+[14:44] <slyon> https://github.com/canonical/ubuntu-mir/issues/67
+[14:44] -ubottu:#ubuntu-meeting- Issue 67 in canonical/ubuntu-mir "Flowchart seems a bit broken" [Open]
+[14:44] <slyon> thanks for reporting this sarnold! I could not reproduce on my end, but pinged dviererbe about it. I don't think it's super urgent.
+[14:45] <slyon> https://github.com/canonical/ubuntu-mir/pull/66
+[14:45] -ubottu:#ubuntu-meeting- Pull 66 in canonical/ubuntu-mir "Import Rust vendoring document" [Open]
+[14:46] <slyon> Thanks for all your input on this so far. I integrated most of it today.
+[14:46] <slyon> sarnold: I left a comment for you here https://github.com/canonical/ubuntu-mir/pull/66#discussion_r1763003517
+[14:47] <sarnold> ah thanks
+[14:47] <slyon> I really like the <name>.orig-vendor.tar.xz approach suggested by the foundations/toolchain people and used by s390-tools. I'll double-check that and try to update the docs accordingly by next week.
+[14:47] <slyon> So I'll keep this a pending for now
+[14:47] <slyon> #topic MIR related Security Review Queue
+[14:48] <slyon> Mission: Check on progress, do deadlines seem doable?
+[14:48] <slyon> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[14:48] <slyon> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:48] <slyon> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:48] <slyon> Internal link
+[14:48] <slyon> - ensure community requests do not get stomped by teams calling for favors too much
+[14:48] <slyon> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[14:48] <sarnold> there's some progress lately :) and some packages are in progress <3
+[14:49] <slyon> sarnold: we've seen a bunch of finished security reviews this week. Is velocity picking up?
+[14:49] <sarnold> yes, thankfully :) we still have large deadlines with other projects so it may not represent a new consistency but it's an improvement at the moment
+[14:50] <sarnold> the lenovo wwan one is weird enough that we want that to go through the weird OEM packages process
+[14:50] <sarnold> https://bugs.launchpad.net/ubuntu/+source/lenovo-wwan-unlock/+bug/2058192
+[14:50] -ubottu:#ubuntu-meeting- Launchpad bug 2058192 in OEM Priority Project "[MIR] lenovo-wwan-unlock" [Critical, Confirmed]
+[14:51] <slyon> who would we need to ping about this?
+[14:51] <sarnold> very good question :)
+[14:52] <slyon> sarnold: can you check back with the reporter (dirksu) about this?
+[14:52]  * joalif arrived late to the party
+[14:53] <sarnold> slyon: I think they've got even less experience, heh :/
+[14:53] <joalif> slyon ack, I can take it
+[14:53] <slyon> thx joalif
+[14:54] <slyon> sarnold: hm. so that "oem-packages-process" would be needed for what exactly? I see the package itself is already in Oracular
+[14:54] <slyon> (multiverse)
+[14:54] <sarnold> slyon: the idea / hope is to move it to http://oem.archive.canonical.com/dists/ instead
+[14:55] <slyon> In which case we could avoid the MIR/security review?
+[14:55] <sarnold> well, it's a binary blob, there's not a lot to review :(
+[14:56] <sarnold> but yeah, it probably wouldn't need another look from anyone else here once it's over there
+[14:56] <slyon> right. Well I have no idea about the OEM archive. Can you maybe add a comment to the LP bug and set it to "Incomplete", so we can bringt it up next time and the package owners have time to react to that comment in the meantime?
+[14:57] <slyon> Oh there is a comment already
+[14:58] <slyon> And they seem to be fine. I'll ping sil2100 about it in that case. He might be in the known
+[14:58] <sarnold> thanks
+[14:58] <slyon> #topic Any other business?
+[14:59] <sarnold> I thought I had one but can't remember it now :(
+[14:59] <slyon> we still have 1 min left to think about it ;-)
+[14:59] <sarnold> lol
+[14:59] <sarnold> if the last half hour didn't bring it to the forefront I don't think anothe ten sceonds will help ..
+[15:00] <slyon> heh
+[15:00] <slyon> alright then. thanks all!
+[15:00] <sarnold> thanks slyon :)
+[15:00] <slyon> #endmeeting
+[15:00] <meetingology> Meeting ended at 15:00:21 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-09-17-14.33.moin.txt
+[15:32] <cpaelzer> thank you slyon, yes I'll have a look at wsdd
+[15:33] <slyon> thanks!
+=== fenris_ is now known as fenris
