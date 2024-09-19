@@ -1,0 +1,2 @@
+[07:34] <cpaelzer> done assigned bug 2070025 for a thought of him to sarnold - hope to go through that in next meeting then to conclude the current state
+[07:34] -ubottu:#ubuntu-meeting- Bug 2070025 in wsdd (Ubuntu) "[MIR] wsdd" [Undecided, New] https://launchpad.net/bugs/2070025
