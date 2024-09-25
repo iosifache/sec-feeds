@@ -1,0 +1,229 @@
+[14:30]  * slyon lightning the MIR camp fire o/
+[14:30] <sarnold> good morninig
+[14:31] <slyon> c_paelzer is busy today. So let me run the meeting.
+[14:31] <slyon> #startmeeting Weekly Main Inclusion Requests status
+[14:31] <meetingology> Meeting started at 14:31:14 UTC.  The chair is slyon.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[14:31] <meetingology> Available commands: action, commands, idea, info, link, nick
+[14:31] <slyon> Ping for MIR meeting - didrocks joalif slyon sarnold c_paelzer jamespage ( eslerm dviererbe )
+[14:31] <slyon> #topic current component mismatches
+[14:31] <slyon> Mission: Identify required actions and spread the load among the teams
+[14:31] <slyon> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[14:31] <slyon> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[14:32] <slyon> the component-mismatches report is still outdated. Last run was about a week ago. sil2100 is coordinating with IS to get it resolved.
+[14:32] <jamespage> o/
+[14:32] <slyon> There's not much we can do. No news in the old reports.
+[14:32] <slyon> #topic New MIRs
+[14:32] <slyon> Mission: ensure to assign all incoming reviews for fast processing
+[14:32] <slyon> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[14:32] <slyon> the review queue is empty.
+[14:32] <slyon> #topic Incomplete bugs / questions
+[14:33] <slyon> Mission: Identify required actions and spread the load among the teams
+[14:33] <slyon> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[14:33] <slyon> bug #2080965 is basically ready
+[14:33] -ubottu:#ubuntu-meeting- Bug 2080965 in architecture-properties (Ubuntu) "[MIR] architecture-properties" [Low, Incomplete] https://launchpad.net/bugs/2080965
+[14:33] <slyon> but waiting for some -dev packages exclusion discussion (more on that later)
+[14:34] <slyon> (no security review needed)
+[14:34] <slyon> bug #2058192
+[14:34] -ubottu:#ubuntu-meeting- Bug 2058192 in OEM Priority Project "[MIR] lenovo-wwan-unlock" [Critical, Confirmed] https://launchpad.net/bugs/2058192
+[14:35] <slyon> eslerm suggested this package should move to the OEM archive. I talked to sil2100 but he couldn't help a lot. We need to coordinate with the OEM team directly, then he can drop it from multiverse/restricted (if desired).
+[14:35] <slyon> The updates on the LP bug suggest that the OEM team might be interested in keeping it in the primary archive, still.
+[14:36] <cpaelzer> hey, sorry for all the roadmap to blast over MIR meetings
+[14:36] <cpaelzer> BTW I've followed up on wsdd as you pinged me last week - thanks
+[14:37] <sarnold> wsdd https://bugs.launchpad.net/ubuntu/+source/wsdd/+bug/2070025
+[14:37] -ubottu:#ubuntu-meeting- Launchpad bug 2070025 in wsdd (Ubuntu) "[MIR] wsdd" [Undecided, In Progress]
+[14:37] <slyon> let me ask them to address the comments made by didrocks on the bug report, as that would be a minimal requirement for main/restricted inclusion
+[14:39] <didrocks> thanks slyon :)
+[14:40] <slyon> comment added.
+[14:40] <slyon> thanks for moving wsdd forward, cpaelzer !
+[14:41] <slyon> I also moved this one forward, which is now ready for a seed change https://bugs.launchpad.net/ubuntu/+source/xdg-terminal-exec/+bug/2069308 (cc jbicha)
+[14:41] -ubottu:#ubuntu-meeting- Launchpad bug 2069308 in xdg-terminal-exec (Ubuntu) "MIR xdg-terminal-exec" [Undecided, In Progress]
+[14:41] <slyon> #topic Process/Documentation improvements
+[14:41] <slyon> Mission: Review pending process/documentation pull-requests or issues
+[14:41] <slyon> #link https://github.com/canonical/ubuntu-mir/pulls
+[14:41] <slyon> #link https://github.com/canonical/ubuntu-mir/issues
+[14:42] <slyon> sarnold: could you confirm this is working for you? https://github.com/canonical/ubuntu-mir/pull/68 then we could merge it
+[14:42] -ubottu:#ubuntu-meeting- Pull 68 in canonical/ubuntu-mir "Fix visually broken flowchart (#67)" [Open]
+[14:42] <sarnold> oo moment..
+[14:42] <slyon> I wasn't able to continue on the Rust docs, https://github.com/canonical/ubuntu-mir/pull/66 â would love to adopt/recommend the s390-tools way of doing it, but didn't get to it this week between all the other stuff
+[14:42] -ubottu:#ubuntu-meeting- Pull 66 in canonical/ubuntu-mir "Import Rust vendoring document" [Open]
+[14:44] <slyon> which leaves us with only one (new) issue: https://github.com/canonical/ubuntu-mir/issues/69 and I'd love to see senior MIR people chime in on this (cc cpaelzer didrocks jamespage)
+[14:44] -ubottu:#ubuntu-meeting- Issue 69 in canonical/ubuntu-mir "Do we benefit from having the dev binary packages promoted?" [Open]
+[14:44] <slyon> I had some discussions about this with seb128 today, after the architecture-properties MIR in https://launchpad.net/bugs/2080965
+[14:44] -ubottu:#ubuntu-meeting- Launchpad bug 2080965 in architecture-properties (Ubuntu) "[MIR] architecture-properties" [Low, Incomplete]
+[14:45] <cpaelzer> why is that even a big problem?
+[14:45] <cpaelzer> the "by default" is only the auto-include meant to cover things that are usually not picked up by direct dependencies
+[14:45] <cpaelzer> that is the set of -doc and -dev
+[14:45] <cpaelzer> but AFAIK it was always ok to opt-out by adding an extra-exclude
+[14:46] <slyon> we have a case of libglib2.0-dev depending on a new "architectures-properties" tool that mostly a helper script for cross-building
+[14:46] <cpaelzer> Surely this comes from a time when the support on universe was not yet as good, community not as mature and pro did not yet exist to cover universe
+[14:46] <cpaelzer> back than it was more important to move those to main if it was possible
+[14:47] <cpaelzer> but if there are conflicts and problems, and really the only thing that puts the -dev/-doc into main is the auto-incliude
+[14:47] <cpaelzer> then just go for adding an exclude
+[14:47] <cpaelzer> If I understand correctly, the question is "do we still want to try to promote these by default" right?
+[14:48] <slyon> right. I guess that's true for "normal" packages. But "Demoting libglib2.0-dev isn't easy because it's a low level libraries that most other desktop dev libraries depends on." So the desktop team would need to maintain a long-tail of -dev exclusions
+[14:48] <slyon> or get their -dev dependencies included in "main"
+[14:48] <slyon> correct cpaelzer
+[14:48] <cpaelzer> If other things "really" depend on it (not just the auto-inclusion), then yes it should stay in main IMHO
+[14:49] <cpaelzer> about the issue of maintaining long tails
+[14:49] <cpaelzer> we faced similar issues in server when some packages had too much content in a few packages
+[14:49] <cpaelzer> like 50 plugins of which only 2 really were prime time
+[14:49] <cpaelzer> there we ended up splitting the package
+[14:50] <cpaelzer> and the one that stayed in main has much more reasonable dependencies than the former huge super-package
+[14:50] <cpaelzer> I do not know the libglib2.0-dev situation, but could something like that help there too?
+[14:50] <didrocks> cpaelzer: smell like a similar story than gstreamer plugins :)
+[14:50] <slyon> I need to check the germinate output to see what exactly is pulling in libglib2.0-dev.
+[14:51] <didrocks> slyon: Iâm afraid you will end up with a long list of -dev packages depending on libglib2.0-dev
+[14:51] <didrocks> gtk being one, for instance
+[14:51] <slyon> But do I understand correctly, that you suggest instead of doing the MIR for a new build-tool dependency we should rather work with Extra-Excludes?
+[14:52] <cpaelzer> the one that is accoutned for in germinate is libaccountsservice-dev  , but there might be more than that as didrocks says
+[14:52] <didrocks> yeah, germinate will only points to the "first" one that it founds IIRC
+[14:52] <cpaelzer> correct
+[14:52] <didrocks> you "fix" it, then goes to the nextâ¦
+[14:52] <slyon> right.
+[14:53] <cpaelzer> slyon: If that -dev package has no deep purpose or reason on it's own to be in main - AND only is in for auto-include. Then an auto-exclude is ok AFAIK
+[14:53] <cpaelzer> there are -dev which contain tools that are needed, others are actually always linked in so they are actually active code, ... - these would not qualify
+[14:53] <cpaelzer> but if it really is a normal -dev mostly having headers but not more
+[14:53] <cpaelzer> then an exclude if it causes pain might be ok
+[14:54] <didrocks> and agreed
+[14:54] <cpaelzer> but one would need to work back the chain e.g. the aforementioned libaccountsservice-dev
+[14:54] <cpaelzer> and add them all
+[14:54] <cpaelzer> ensuring that NONE of them has a deeper purpose
+[14:54] <cpaelzer> -doc is a similar story BTW
+[14:55] <cpaelzer> often pulling in weird tools to build yet another special markdown language
+[14:55] <didrocks> another approach is to patch so that architectures-properties can be downgraded to a suggests
+[14:55] <slyon> Yes... https://bugs.launchpad.net/ubuntu/+source/architecture-properties/+bug/2080965 might have a deeper purpose potentially, it provides the "architecture-is-64bit" or "architecture-is-big-endian" meta packages. but OTOH we didn't need it in main up to now
+[14:55] -ubottu:#ubuntu-meeting- Launchpad bug 2080965 in architecture-properties (Ubuntu) "[MIR] architecture-properties" [Low, Incomplete]
+[14:55] <didrocks> as itâs "only" for cross-arch builds from what you discussed?
+[14:55] <jbicha> https://git.launchpad.net/~ubuntu-core-dev/ubuntu-seeds/+git/ubuntu/commit/?id=4c41750b is an approximation of the number of excludes you would need
+[14:55] -ubottu:#ubuntu-meeting- Commit 4c41750 in ~ubuntu-core-dev/ubuntu-seeds/+git/ubuntu "Extra-Exclude: drop the sysprof exclusions"
+[14:56] <slyon> it also provides a wrapper around qemu-user to execute cross-architecture tests for example
+[14:56] <jbicha> it's incomplete because it would take me a few rounds with an archive admin to ensure we got everything
+[14:56] <sarnold> the "Build-Dependencies not necessarily in main" thing was kinda intended to help us keep sphinx and the like from getting messy
+[14:58] <slyon> Okay. ovearll it seems like there's no consensus for changing the defaults to exclude -dev packages. And we should rather work out the issues case-by-case. Do we want to vote on this?
+[14:59] <slyon> Maybe we can do that on Github, so we can move on with the meeting.
+[14:59] <slyon> #topic MIR related Security Review Queue
+[14:59] <slyon> Mission: Check on progress, do deadlines seem doable?
+[14:59] <slyon> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[14:59] <slyon> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:59] <slyon> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:59] <slyon> Internal link
+[14:59] <slyon> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[14:59] <slyon> sarnold: are you still keeping up the pace?
+[15:01] <sarnold> sorry, distracted ..
+[15:01] <slyon> I see rpds-py is now in progress (cc jamespage)
+[15:02] <jamespage> \o/
+[15:02] <sarnold> the velocity is not what it was, but yes, progress is still being made on some packages
+[15:02] <slyon> Okay. We're over time already. So do we have anything else?
+[15:02] <slyon> https://github.com/canonical/ubuntu-mir/issues/67
+[15:02] -ubottu:#ubuntu-meeting- Issue 67 in canonical/ubuntu-mir "Flowchart seems a bit broken" [Closed]
+[15:02] <cpaelzer> at least that, thanks
+[15:03] <slyon> #topic Any other business?
+[15:03] <slyon> (sorry, wrong paste-buffer above)
+[15:03] <sarnold> sigh, I thought I had something, but i've gone blank. :/
+[15:04] <cpaelzer> not from me
+[15:04] <slyon> sarnold: next time you remember it, create an issue on the ubuntu-mir github. so you don't have to remember it :)
+[15:04] <cpaelzer> lol
+[15:04] <sarnold> lol
+[15:05] <slyon> :P
+[15:05] <cpaelzer> thanks slyon for driging in these roadmappy times
+[15:05] <cpaelzer> umm "driving"
+[15:05] <slyon> if nothing else, thats all, folks!
+[15:05] <sarnold> thanks slyon, all :)
+[15:05] <slyon> #endmeeting
+[15:05] <meetingology> Meeting ended at 15:05:24 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-09-24-14.31.moin.txt
+[19:00] <sil2100> o/
+[19:00] <amurray> o/
+[19:01] <seb128> o/
+[19:01] <sil2100> Looks like amurray is to chair today according to the Agenda?
+[19:02] <amurray> #startmeeting Ubuntu Technical Board
+[19:02] <meetingology> Meeting started at 19:02:00 UTC.  The chair is amurray.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[19:02] <meetingology> Available commands: action, commands, idea, info, link, nick
+[19:02] <amurray> #topic Apologies
+[19:02] <sil2100> I would like to apologize for my absence last time
+[19:02] <rbasak> o/
+[19:02] <sil2100> I was supposed to appear, but somehow I ended up distracted enough to miss it...
+[19:02] <amurray> thanks sil2100 - no worries
+[19:03] <amurray> no apologies that I can see for todays meeting
+[19:03] <amurray> #topic Action review
+[19:03] <amurray> ACTION: vorlon to look into scripting for packages in flavor-specific overlays
+[19:04] <amurray> looks like vorlon is not around - will carry-over
+[19:04] <amurray> #action vorlon to look into scripting for packages in flavor-specific overlays
+[19:04] <meetingology> ACTION: vorlon to look into scripting for packages in flavor-specific overlays
+[19:04] <amurray> ACTION: seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[19:04] <seb128> carry-over please
+[19:05] <amurray> #action seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[19:05] <meetingology> ACTION: seb128 to continue working with SRU, AA, Release, Backporters and Security teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[19:05] <rbasak> On the above...
+[19:05] <rbasak> Note that the SRU team documentation now includes a section on that, so I think this is done for the SRU team.
+[19:05] <rbasak> I guess I should link to it from the wiki
+[19:06] <amurray> Similarly I have documented the process for the Security team as well and linked to it from the TB page on the wiki
+[19:06] <amurray> #undo
+[19:06] <meetingology> Removing item from minutes: ACTION
+[19:06] <sil2100> I think we need to do the same for the Release team. I have a general draft of Release membership onboarding that I could extend to that, but we still need to define all of it from the Release team
+[19:06] <sil2100> The onboarding document for now is internal for internal onboarding processes, but there's actually no reason for it to not become public
+[19:06] <seb128> I need to do  the same for the archive admins
+[19:07] <amurray> ok lets keep the Release Team and AA teams on the action item them
+[19:07] <sil2100> Let me add it to the next release meeting agenda
+[19:07] <sil2100> Ok done, I'll discuss it with the team
+[19:07] <amurray> #action seb128 to continue working with AA and Release teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[19:07] <meetingology> ACTION: seb128 to continue working with AA and Release teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[19:07] <seb128> thanks
+[19:08] <amurray> ACTION: sil2100 to follow up on the Cinnamon 24.04 LTS Qualification re the number of contacts listed for the flavor
+[19:08] <seb128> nice to see some change on that item, it has been carried over for ever :)
+[19:08] <sil2100> I have a question regarding that one
+[19:08] <sil2100> So when I started drafting an e-mail, I actually wanted to find some context of this one, but I guess I didn't search well enough
+[19:09] <sil2100> https://wiki.ubuntu.com/UbuntuCinnamon/24.04/LTS-Proposal
+[19:09] <sil2100> Is the problem we're trying to ask about that there's too many contacts listed?
+[19:09] <sil2100> Because originally I thought the problem was that there were not enough
+[19:10] <sil2100> What is the original ask here, apologies for asking
+[19:10] <amurray> hmm I am not sure either - am trying to see if I can find anything but so far am coming up blank
+[19:12] <seb128> https://irclogs.ubuntu.com/2024/04/09/%23ubuntu-meeting.html#t19:12
+[19:12] <seb128> it's coming from here
+[19:12] <sil2100> To be fair, the Cinnamon situation is a bit weird. Basically during Beta we had trouble getting in touch with the main flavor lead, but indeed the rest of listed people were able to act on the flavor
+[19:13] <sil2100> Okay, so it is the fact of 'too many contacts'. The list doesn't include 10 people though, just 4 through name
+[19:13] <sil2100> And I think mentioning 'members of ubuntucinnamon-dev' is a natural thing to say?
+[19:14] <sil2100> But okay, let's carry over my item. What I'll do is send a message to Cinnamon asking them about current contact information
+[19:14] <sil2100> And making sure that all the contacts that are listed can action on the actual flavor
+[19:14] <amurray> thanks sil2100
+[19:14] <sil2100> And can be made accountable
+[19:14] <sil2100> Thank you for the context o/
+[19:14] <seb128> it seems reasonable to me as well, I'm unsure to understand the original concern, maybe just dropping the reference to the team would be enough?
+[19:15] <seb128> thanks!
+[19:15] <amurray> #action sil2100 to follow up on the Cinnamon 24.04 LTS Qualification to ensure the listed contacts can action the flavor
+[19:15] <meetingology> ACTION: sil2100 to follow up on the Cinnamon 24.04 LTS Qualification to ensure the listed contacts can action the flavor
+[19:15] <amurray> ACTION: rbasak to document the third party software sources policy somewhere appropriate
+[19:16] <rbasak> o/
+[19:16] <rbasak> I created https://launchpad.net/ubuntu-governance-docs
+[19:16] <rbasak> Getting some help from a technical author within Canonical for the infrastructure pieces
+[19:16] <rbasak> But this is still in progress
+[19:16] <rbasak> Please carry over
+[19:16] <sil2100> \o/
+[19:16] <amurray> nice - thanks rbasak
+[19:17] <amurray> #action rbasak to document the third party software sources policy somewhere appropriate
+[19:17] <meetingology> ACTION: rbasak to document the third party software sources policy somewhere appropriate
+[19:17] <amurray> #topic Scan the mailing list archive for anything we missed (standing item)
+[19:17] <amurray> #link https://lists.ubuntu.com/archives/technical-board/2024-September/thread.html
+[19:17] <amurray> nothing there
+[19:17] <amurray> #topic Check up on community bugs and techboard bugs
+[19:17] <amurray> #link https://bugs.launchpad.net/ubuntu-community/+bugs?field.assignee=techboard
+[19:18] <amurray> #link https://bugs.launchpad.net/techboard
+[19:18] <amurray> LP: #2015920 can probably be closed out soon rbasak
+[19:18] -ubottu:#ubuntu-meeting- Launchpad bug 2015920 in techboard "Third party repository policy is not well defined" [Undecided, Triaged] https://launchpad.net/bugs/2015920
+[19:19] <rbasak> Agreed. I was going to get it documented first so was just waiting on that so I could post a link in the bug on closing it.
+[19:19] <amurray> sounds good
+[19:19] <amurray> #topic Select a chair for the next meeting (next from https://launchpad.net/~techboard/+members)
+[19:20] <amurray> looks like rbasak  and seb128
+[19:20] <amurray> #agreed next meeting chair: rbasak, backup: seb128
+[19:20] <meetingology> AGREED: next meeting chair: rbasak, backup: seb128
+[19:20] <rbasak> ack
+[19:20] <amurray> #topic AOB
+[19:20] <sil2100> Nothing from me
+[19:21] <seb128> not from me
+[19:21] <amurray> nor from me
+[19:21] <amurray> looks like we are done then - thanks folks
+[19:21] <amurray> #endmeeting
+[19:21] <meetingology> Meeting ended at 19:21:56 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-09-24-19.02.moin.txt
+[19:21] <sil2100> Thank you o/
+[19:22] <seb128> thanks!
+[19:22] <rbasak> Thanks!
+=== nicoz_ is now known as nicoz
