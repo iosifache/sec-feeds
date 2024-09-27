@@ -1,0 +1,70 @@
+=== Juesto is now known as Juest
+=== hwpplayer1 is now known as pinkychocolate
+=== pinkychocolate is now known as hwpplayer1
+[16:11] <laki> Hey, I have a question regarding vulnerabilities on ubuntu. For example, for https://ubuntu.com/security/CVE-2022-3597 the security advisory notes the "4.4.0-6ubuntu1" version as the fix version in Ubuntu lunar, and "4.4.0-4ubuntu3.1" as the fix version for Ubuntu kinetic. However, https://answers.launchpad.net/ubuntu/lunar/amd64/libtiff5-dev/4.4.0-4ubuntu3.1 lists that the
+[16:11] -ubottu:#ubuntu-security- LibTIFF 4.4.0 has an out-of-bounds write in _TIFFmemcpy in libtiff/tif_unix.c:346 when called from extractImageSection, tools/tiffcrop.c:6826, allowing attackers to cause a denial-of-service via a crafted tiff file. For users that compile libtiff from sources, the fix is available with commit 236b7191. <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-3597>
+[16:11] <laki> "4.4.0-4ubuntu3.1" version was released in Ubuntu lunar. Does that mean that for Ubuntu lunar the version "4.4.0-4ubuntu3.1" is vulnerable to the CVE, while for ubuntu kinetic the same version fixes the vulnerability?
+[16:11] <laki> Also, more generalized - does it ever occur that the same source package version can be considered vulnerable on one distro version, but not the other? If so, can you provide any examples?
+[16:16] <mdeslaur> the 4.4.0-4ubuntu3.1 package never made it's way out of lunar-proposed, so it was never actually in lunar before it got replaced https://launchpad.net/ubuntu/+source/tiff/+publishinghistory?batch=75&memo=75&start=75
+[16:16] <mdeslaur> laki: different distros build software with different build options and different patches, it's quite possible a vulnerability affets one distro but not another for the same version
+[16:20] <laki> Thank you. So I should disregard the Proposed pocket, understood. I can ask the same thing regarding CVE-2023-4693. Here, it notes that for noble the 1.199 version is the fix version, while for mantic the version 1.197 is the fix version. However, from what I can tell, the version 1.197 was released in noble in the Release pocket. Does that mean that 1.197 is vulnerable on noble, but not
+[16:20] -ubottu:#ubuntu-security- An out-of-bounds read flaw was found on grub2's NTFS filesystem driver. This issue may allow a physically present attacker to present a specially crafted NTFS file system image to read arbitrary memory locations. A successful attack allows sensitive data cached in memory or EFI variable values to be leaked, presenting a high Confidentiality risk. <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4693>
+[16:20] <laki> on mantic?
+[16:21] <laki> I'm sorry for the barrage of questions, but I'm trying to understand how it all fits together. But yeah, it's what I assumed regarding build options, and different linked libraries which might make the vulnerability a non-issue. However, can one source package version contain different patches on different distro releases? I assumed not?
+[16:27] <laki> Also, from the top off your head, do you perchance have an example of a vulnerability which was not applicable on one distro, but not the other, for the same version?
+=== Juesto is now known as Juest
+[18:43] <Habbie> somewhat hope i'm not the first to post this here - https://xcancel.com/evilsocket/status/1839361276813902240
+[18:44] <Habbie> instead of 30 sept to distros@openwall and 6 oct public, he's going all out in 75 minutes with the announced 'CVSS 9.9 RCE in a lot of systems'
+[18:53] <sbeattie> Habbie: thanks, we are aware.
+[18:53] <Habbie> good. i knew you were aware of things before this tweet, to be clear :)
+[18:54] <sbeattie> Yeah, to be explicit, we are aware of the CRD change.
+[18:54] <Habbie> CR.. Disclosure? i don't know the acronym
+[18:56] <sbeattie> yeah, disclosure
+[18:57] <sbeattie> Or actually, Coordinated Release Date.
+[18:58] <Habbie> ah right
+[18:58] <Habbie> i filed a security issue with a project today, was going to tell distros about it tomorrow, but i'll wait one hour now to see if there's still any point in it :>
+=== Juesto is now known as Juest
+[20:00] <tomreyn> can anyone comment on this? i head there will be full disclosure within 10 minutes? https://threadreaderapp.com/thread/1838169889330135132.html
+[20:01] <tomreyn> s/ head / hear /
+[20:01] <clarkb> the writeup is on their website now
+[20:01] <tomreyn> thanks, got it
+[20:07] <mdeslaur> publishing updates now
+[20:08] <tomreyn> so one wants to check for non-firewalled cups-browsed on 631/udp
+[20:10] <Habbie> yes
+[20:10] <Habbie> just systemctl disable --now it
+[20:10] <Habbie> you don't need to discover printers today :)
+[20:25] <mdeslaur> Don't feed stray printers!
+[20:27] <Habbie> mdeslaur, what if they really need cat fuel
+[21:54] <JanC> https://www.evilsocket.net/2024/09/26/Attacking-UNIX-systems-via-CUPS-Part-I/
+[21:54] <mdeslaur> usns are being published now
+[21:58] <JanC> just wanted to link to the actual disclosure mentioned earlier for those who didn't see it yet  :)
+[21:59] <JanC> is there a reason why this is running all the time BTW?
+[22:04] <mdeslaur> you mean the open port?
+[22:04] <JanC> the whole daemon?
+[22:05] <mdeslaur> well, if you want to see network printers, it needs to listen to dns-sd messages
+[22:05] <JanC> sounds like this is something that (at least by default) should only be running on-demand while you have a printer dialog open or the like?
+[22:05] <mdeslaur> the open port was for a legacy cups sharing service...these updates disable that
+[22:06] <mdeslaur> yes, ideally the printer dialogs should use the new cups 2.x apis for doing it on demand instead of having a daemon create local printers, unfortunately all the different printer dialogs (gtk, qt, etc.) haven't implemented that yet (AFAIK)
+[22:06] <JanC> ugh
+[22:06] <mdeslaur> browsed was supposed to be a stop-gap measure
+[22:07] <JanC> it seems like browsed can shut down automatically after a time-out
+[22:15] <JanC> would be nice if it could somehow be started "on-demand" & shut down after a time-out when it's no longer used/needed
+[22:15] <JanC> just to minimise exposure   :)
+[23:04] <mdeslaur> the auto-startup and shutdown is to only be active when avahi is active, but avahi is always running, so it wouldn't get us much
+[23:05] <mdeslaur> the print dialogs in the various toolkits need to integrate proper cups browsing support so we stop creating local printers for no reason, that's the proper fix
+[23:06] <mdeslaur> of course the browsers now also have their own print dialogs
+[23:06] <mdeslaur> so I guess they need fixing too
+[23:07] <mdeslaur> so.many.print.dialogs
+[23:14] <JanC> based on the comments in cups-browsed.conf it can shut down when there are no jobs or queues also
+[23:16] <JanC> mdeslaur: there are probably applications with custom ones too   :)
+[23:18] <mdeslaur> so you would have to make sure your printer is turned on before you turn on your computer? if you do the opposite it would shutdown and the printer would never get created?
+[23:18] <JanC> that's where the "launch when needed" comes into play   :)
+[23:18] <mdeslaur> ah, except how do you know when you need it?
+[23:19] <JanC> like, when you open a print dialog or the printer setup panel 
+[23:19] <mdeslaur> yeah, so if we do that, might as well just use the cups api to do that and bypass the browse daemon entirely
+[23:20] <mdeslaur> I guess it might be simpler *shrug*
+[23:20] <JanC> well, sounds like triggering it at that point might be easier, but dunno
+[23:20] <JanC> at least as a temporary thing until it's fixed properly
+[23:21] <JanC> and/or to fix custom print dialogs  :)
+[23:23] <JanC> maybe browsed shouldn't be running as root also...
+[23:24] <JanC> all of cups really
