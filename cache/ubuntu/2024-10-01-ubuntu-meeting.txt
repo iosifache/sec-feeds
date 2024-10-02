@@ -1,0 +1,159 @@
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+=== JanC_ is now known as JanC
+=== JanC is now known as Guest9494
+[14:31] <jbicha> o/
+[14:31] <cpaelzer_> o/
+[14:31] <cpaelzer_> just a sec
+[14:32] <sarnold> good morning
+[14:32] <joalif> o/
+[14:32] <cpaelzer_> #startmeeting Weekly Main Inclusion Requests status
+[14:32] <meetingology> Meeting started at 14:32:41 UTC.  The chair is cpaelzer_.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[14:32] <meetingology> Available commands: action, commands, idea, info, link, nick
+[14:32] <cpaelzer_> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( eslerm dviererbe )
+[14:33] <dviererbe> o/
+[14:33] <cpaelzer_> almost everyone said hi while I was still fetchign the commands
+[14:33] <cpaelzer_> so let us go on
+[14:33] <cpaelzer_> #topic current component mismatches
+[14:33] <cpaelzer_> Mission: Identify required actions and spread the load among the teams
+[14:33] <cpaelzer_> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[14:33] <cpaelzer_> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[14:33] <cpaelzer_> nothing entirely new
+[14:33] <cpaelzer_> which is good given the time in the cycle
+[14:33] <cpaelzer_> going on ...
+[14:34] <cpaelzer_> #topic New MIRs
+[14:34] <cpaelzer_> Mission: ensure to assign all incoming reviews for fast processing
+[14:34] <cpaelzer_> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[14:34] <cpaelzer_> a few things unblocked and looked for a reviewer
+[14:34] <cpaelzer_> https://bugs.launchpad.net/ubuntu/+source/highway/+bug/2070807
+[14:34] -ubottu:#ubuntu-meeting- Launchpad bug 2070807 in highway (Ubuntu) "[MIR] highway" [Undecided, New]
+[14:34] <cpaelzer_> https://bugs.launchpad.net/ubuntu/+source/rpds-py/+bug/2072621
+[14:34] -ubottu:#ubuntu-meeting- Launchpad bug 2072621 in rpds-py (Ubuntu) "[MIR] rpds-py" [Undecided, New]
+[14:34] <cpaelzer_> https://bugs.launchpad.net/ubuntu/+source/linuxptp/+bug/2071717
+[14:34] -ubottu:#ubuntu-meeting- Launchpad bug 2071717 in linuxptp (Ubuntu) "[MIR] linuxptp" [Undecided, New]
+[14:34] <cpaelzer_> actually
+[14:34] <cpaelzer_> at least for the last I know this has gone back to new
+[14:34] <cpaelzer_> due to security review being done
+[14:34] <cpaelzer_> so let us look into what exactly those cases need
+[14:35] <cpaelzer_> 2071717 has security ack now
+[14:35] <cpaelzer_> but I have not yet seen any response to my 2 mandatory and 5 recommended tasks
+[14:35] <cpaelzer_> so I'd assign that to the reporter and mark incomplete
+[14:38] <cpaelzer_> https://bugs.launchpad.net/ubuntu/+source/rpds-py/+bug/2072621
+[14:38] -ubottu:#ubuntu-meeting- Launchpad bug 2072621 in rpds-py (Ubuntu) "[MIR] rpds-py" [Undecided, New]
+[14:38] <cpaelzer_> ack by Slyon, with conditions
+[14:38] <cpaelzer_> security ack
+[14:38] <cpaelzer_> https://bugs.launchpad.net/ubuntu/+source/rpds-py/+bug/2072621/comments/7
+[14:38] <cpaelzer_> says
+[14:38] <cpaelzer_> 've implemented the required changes and added a bug subscriber as requested.
+[14:39] <cpaelzer_> and exactly as james already said
+[14:39] <cpaelzer_> slyon: would you like todo the honours from the MIR team perspective and add your final approval now that we've had a security review please!
+[14:39] <cpaelzer_> that is the way we usually do (let the one having the request to judge)
+[14:39] <cpaelzer_> I assigned it to slyon to represent that as he is not around today
+[14:40] <cpaelzer_> jamespage:  if that is ASAP Oracular - we might need to pick someone else to do that, let us know in that case
+[14:40] <cpaelzer_> last
+[14:40] <cpaelzer_> https://bugs.launchpad.net/ubuntu/+source/highway/+bug/2070807
+[14:40] -ubottu:#ubuntu-meeting- Launchpad bug 2070807 in highway (Ubuntu) "[MIR] highway" [Undecided, New]
+[14:40] <jbicha> Desktop won't be promoting jpeg-xl/highway until 25.04 cycle
+[14:41] <cpaelzer_> thank you
+[14:41] <cpaelzer_> I'd assign to you until all is in place then?
+[14:41] <jbicha> ok
+[14:42] <cpaelzer_> #topic Incomplete bugs / questions
+[14:42] <cpaelzer_> Mission: Identify required actions and spread the load among the teams
+[14:42] <cpaelzer_> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[14:44] <jamespage> cpaelzer_: I'd like to get that in for oracular if poss - just needs someone other than me to ack the MIR :)
+[14:44] <cpaelzer_> https://bugs.launchpad.net/ubuntu/+source/lenovo-wwan-unlock/+bug/2058192
+[14:44] -ubottu:#ubuntu-meeting- Launchpad bug 2058192 in OEM Priority Project "[MIR] lenovo-wwan-unlock" [Critical, Confirmed]
+[14:45] <sarnold> lenovo-wwan-unlock is a weird one, we don't move packages to restricted often, I'm not sure what precedents we've got to compare against
+[14:46] <cpaelzer_> me neither
+[14:46] <cpaelzer_> but the recent updates there are between slyon and them and I'd keep it with him for context awareness
+[14:46] <cpaelzer_> jamespage: I've seen you , I'll have a look tomorrow
+[14:46] <sarnold> the security team really can't do much with it because it's a big binary blob, except for hoping that it's what the users would actually want. and a distro package putting things into /opt is weird, dunno about that.
+[14:47] <cpaelzer_> architecture-properties is an ongoing discussion and was here last weeks meeting
+[14:47] <sarnold> but if that's how that hardware manufacturer has chosen to make things work, and there's no foss way to make it work, maybe it's not the end of the world to put it into restricted.
+[14:47] <cpaelzer_> I've been part of some discusison, nothing to re-act today on architecture-properties
+[14:48] <cpaelzer_> yes sarnold, definetly not the normal foss pockets
+[14:48] <cpaelzer_> is there any way to at least know if they are valid
+[14:48] <sarnold> heh, as in, *test* it and see that it does what it says it does?
+[14:48] <cpaelzer_> a blob where you at least know who it is from is a bit less evil than random-blob
+=== JanC_ is now known as JanC
+[14:49] <cpaelzer_> no more like at least a strong chain of trust that allows e.g. the SRU team on an update to know this is not the next xz-utils but "official"
+[14:49] <sarnold> it lives on https://github.com/lenovo/lenovo-wwan-unlock -- how much do we trust that that's actually lenovo folks?
+[14:49] <cpaelzer_> yep, questions like this is what I mean
+[14:50] <cpaelzer_> but there are enough things open on the case that we neither can't nor should final decide right now
+[14:50] <cpaelzer_> for progress I'd go on, ...
+[14:50] <cpaelzer_> #topic Process/Documentation improvements
+[14:50] <cpaelzer_> Mission: Review pending process/documentation pull-requests or issues
+[14:50] <cpaelzer_> #link https://github.com/canonical/ubuntu-mir/pulls
+[14:50] <cpaelzer_> #link https://github.com/canonical/ubuntu-mir/issues
+[14:51] <cpaelzer_> I've participated in discussions about https://github.com/canonical/ubuntu-mir/issues/69
+[14:51] -ubottu:#ubuntu-meeting- Issue 69 in canonical/ubuntu-mir "Do we benefit from having the dev binary packages promoted?" [Open]
+[14:51] <cpaelzer_> the rest is even older
+[14:51] <cpaelzer_> nothing new to act
+[14:51] <cpaelzer_> #topic MIR related Security Review Queue
+[14:51] <cpaelzer_> Mission: Check on progress, do deadlines seem doable?
+[14:51] <cpaelzer_> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[14:51] <cpaelzer_> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:51] <cpaelzer_> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:51] <cpaelzer_> Internal link
+[14:51] <cpaelzer_> - ensure your teams items are prioritized among each other as you'd expect
+[14:51] <cpaelzer_> - ensure community requests do not get stomped by teams calling for favors too much
+[14:51] <cpaelzer_> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[14:51] <cpaelzer_> I've seen things land, so thank you sarnold and friends
+[14:52] <cpaelzer_> sarnold: linuxptp was done but stays in TODO ?
+[14:52] <sarnold> probably just an oversight
+[14:53] <cpaelzer_> np
+=== cpaelzer_ is now known as cpaelzer
+[14:53] <cpaelzer> is the rest looking reasonable to you sarnold?
+[14:53] <sarnold> yes, the rest of it looks about like what I'd expect
+[14:55] <cpaelzer> great
+[14:55] <cpaelzer> #topic Any other business?
+[14:55] <dviererbe> Would you be interested in migrating the existing MIR documentation to the newer Canonical ReadTheDocs style?
+[14:55] <dviererbe> See for example, the SRU documentation (currently also gets migrated): https://canonical-sru-docs.readthedocs-hosted.com/en/latest/
+[14:55] <cpaelzer> nothing from me (too busy to remember)
+[14:56] <sarnold> I'd like to kick lenovo-wwan-unlock closer to its resolution if we can
+[14:56] <cpaelzer> dviererbe:  I was indirectly part of the SRU migration and would like that to be the same in general
+[14:56] <cpaelzer> dviererbe: there is a problem i see though
+[14:56] <cpaelzer> dviererbe: this all comes with diataxis which is nice for huge things to split by structure
+[14:57] <cpaelzer> dviererbe: but this will end up being a doc page looking very lonely with 2x howto (the templates) and 1x reference (the rest)
+[14:57] <cpaelzer> dviererbe: thereby I feel this isn't a good candidate
+[14:57] <cpaelzer> dviererbe: happy to be convinced, not against it just not seeing the worth in this case
+[14:57] <sarnold> dviererbe: unsure. what we've got now fits our needs nicely and I don't see a huge benefit to moving, beyond making it easier to find if that's a thing with read the docs, but it doeswn't feel like that is
+[14:57] <cpaelzer> dviererbe: I'd feel more like all (SRU + MIR + AA doce + ...) to converge on one "archive operations" or so
+[14:58] <cpaelzer> dviererbe: is that just an idea of yours or are you driving such with others?
+[14:58] <sarnold> diataxising these sounds like a lot of pain for negative gain
+[14:58] <dviererbe> It's just an idea from me
+[14:58] <cpaelzer> in this case yes, pain no gain
+[14:58] <dviererbe> I see your concers with diataxis
+[14:58] <cpaelzer> ok, so for now the two people speaking up say "maybe better not"
+[14:59] <cpaelzer> my proposal would be the mentioned level up of SRU into archive-operations docs
+[14:59] <cpaelzer> there it will then fit together
+[14:59] <dviererbe> my intention was to bring more consistency into our documentation
+[14:59] <sarnold> a good goal :)
+[14:59] <cpaelzer> ack
+[14:59] <cpaelzer> but not at making it worse
+[14:59] <cpaelzer> we could write 4x more content, then it would not look awkward
+[14:59] <cpaelzer> but what would that be?
+[15:00] <cpaelzer> here is the thing
+[15:00] <cpaelzer> can we make it stay single-page but render in the same style?
+[15:00] <cpaelzer> that would work for this case
+[15:00] <cpaelzer> dviererbe: if you do not happen to know I can ask Sally, but you might already know
+[15:00] <dviererbe> I think the idea of a combined SRU/MIR/AA doc is interesting
+[15:01] <dviererbe> single page is probably okay for the TA's, but they are instructed to enforce diataxis, so they probably will say no
+[15:01] <cpaelzer> I'll chase that down dviererbe
+[15:01] <dviererbe> ack
+[15:01] <cpaelzer> sarnold: you wanted to talk about https://bugs.launchpad.net/ubuntu/+source/lenovo-wwan-unlock/+bug/2058192
+[15:01] -ubottu:#ubuntu-meeting- Launchpad bug 2058192 in OEM Priority Project "[MIR] lenovo-wwan-unlock" [Critical, Confirmed]
+[15:01] <cpaelzer> do we have time for that?
+[15:02] <sarnold> dunno :/
+[15:02] <sarnold> but a nudge even towards resolutions feels like it'd be nice
+[15:03] <cpaelzer> that is too much for me to handle right now
+[15:03] <sarnold> ack
+[15:03] <cpaelzer> should we try to use next meeting for just that to ahve a better chance at progress?
+[15:04] <cpaelzer> ah sorry, I really would want to get this closer - but I fel unable right now and so might others who have likely dropped off since we are after time :-/
+[15:04] <cpaelzer> closing with a sad face instead of nice numbers
+[15:04] <cpaelzer> #endmeeting
+[15:04] <sarnold> aww
+[15:04] <dviererbe> Thank you everyone!
+[15:04] <sarnold> thanks cpaelzer, dviererbe, all :)
+[15:05] <sarnold> #endmeeting
+[15:05] <meetingology> Meeting ended at 15:05:16 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-10-01-14.32.moin.txt
