@@ -1,0 +1,163 @@
+=== pushkarnk1 is now known as pushkarnk
+=== pushkarnk1 is now known as pushkarnk
+[15:00] <upils> o/
+[15:00] <ogayot-> o/
+[15:00] <mkukri> o/
+[15:00] <uralt> o/
+[15:00] <liushuyu> o/
+[15:00] <dviererbe> o/
+[15:00] <pushkarnk> o/
+[15:00] <ginggs> o/
+[15:00] <adrien> \o
+[15:00] <cpete> o/
+[15:01] <Skia> o7
+[15:01] <dbungert> o/
+[15:01] <dbungert> #startmeeting Weekly Ubuntu Foundations team
+[15:01] <meetingology> Meeting started at 15:01:58 UTC.  The chair is dbungert.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:01] <dbungert> #topic Lightning rounds
+[15:02] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:02] <dbungert> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-2024-10-03/48493
+[15:06] <adrien> Skia: nice hole you had to dig into
+[15:06] <Skia> adrien: which one? I feel I've digged into holes the whole week XD
+[15:07] <adrien> retry specifically ;-)
+[15:07] <Skia> yay, that was a long but nice journey :-)
+[15:10] <dbungert> #topic Release incoming bugs
+[15:10] <dbungert> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-oo-incoming-bug-tasks.html#foundations-bugs
+[15:10] <dbungert> http://launchpad.net/bugs/2078464
+[15:10] -ubottu:#ubuntu-meeting- Launchpad bug 2078464 in update-notifier (Ubuntu) "Erroneous 'restart required' messages during distro-upgrade" [Undecided, Triaged]
+[15:14] <dbungert> tagging
+[15:14] <dbungert> #link http://reports.qa.ubuntu.com/reports/rls-mgr/rls-nn-incoming-bug-tasks.html#foundations-bugs
+[15:14] <dbungert> http://launchpad.net/bugs/2078579
+[15:14] -ubottu:#ubuntu-meeting- Launchpad bug 2078579 in ubuntu-release-upgrader (Ubuntu) "Holding Back libpcap0.8t64:amd64 rather than change libibverbs1:amd64" [Undecided, Triaged]
+[15:16] <enr0n> juliank seems to have a handle on this. Let's leave the tag so he can discuss next week
+[15:16] <dbungert> http://launchpad.net/bugs/2081323
+[15:16] -ubottu:#ubuntu-meeting- Launchpad bug 2081323 in ubuntu-release-upgrader (Ubuntu) "Local-only mirror disabled; no mirror left" [Undecided, Triaged]
+[15:18] <dbungert> let's revisit next time
+[15:18] <dbungert> http://launchpad.net/bugs/2083068
+[15:18] -ubottu:#ubuntu-meeting- Launchpad bug 2083068 in glib2.0 (Ubuntu) "Broken libglib2.0-dev:i386 Depends on python3:i386 < none | 3.12.3-0ubuntu2 @un uH >" [Undecided, Triaged]
+[15:20] <dbungert> think this needs fixed in glib
+[15:20] <dbungert> MM, JJ, FF are empty
+[15:20] <dbungert> #topic Team proposed-migration report
+[15:20] <dbungert> #link https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses_by_team.html#foundations-bugs
+[15:20] <dbungert> lintian is with cpete
+[15:22] <dbungert> just waiting on risc-v build for llvm-toolchain
+[15:23] <dbungert> llvm-toolchain-19 more correctly
+[15:24] <vorlon> takes 5 days to build on riscv64; that puts us dangerously into the zone when we're supposed to be mastering final candidate images for the release
+[15:24] <vorlon> so this will wind up blocked in -proposed and only allowed in if we have to respin the world for other reasons
+[15:27] <dbungert> no action on the rest of the report other than retest clicks
+[15:27] <dbungert> #topic AOB
+[15:29] <dbungert> #endmeeting
+[15:29] <meetingology> Meeting ended at 15:29:27 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-10-03-15.01.moin.txt
+=== Kilos-- is now known as Kilos
+=== Kilos-- is now known as Kilos
+[18:41] <Kilos> WildMan: you here
+[18:44] <Kilos> genii: hi
+[18:47] <genii> Hi Kilos, they were enquiring about you in #ubuntu-za recently, glad to see you online
+[18:48] <Kilos> been having many long power outages
+[18:48] <Kilos> genii: and long time no coffee
+[18:48]  * genii slides Kilos a topped up mug of strong Arabica
+[18:49] <Kilos> lol TY my friend
+[18:49] <genii> melodie specifically was the one asking if we'd seen you
+[18:49] <Kilos> oh yes she visits every now and again
+[18:50] <Kilos> she promotes free software to oulying villages in south africa
+[18:58] <Kilos> or the whole of africa iirc
+[19:06] <Kilos> WildMan: did you get the invite
+[19:07] <WildMan> Kilos, no I did not
+[19:08] <mapreri> but try /join now
+[19:08] <mapreri> after the invite, istr sometimes that just works
+=== WildMan is now known as Wild_Man
+[19:09] <mapreri> right, that
+[19:09] <mapreri> because in the ACL you are with the _ :3
+=== utkarsh47 is now known as utkarsh2102
+[19:59] <lucyllewy-> *starts getting set up for the Ubuntu Membership board meeting*
+[19:59] <local_optimum> howdy folks :) Ive turned up for my membership interview, not sure how this works but let me know what i need to do when the time is right
+[19:59] <Kilos> hi local_optimum
+[19:59] <Wild_Man> Hi local_optimum
+[19:59] <lucyllewy-> local_optimum, thanks, we're just getting ready, and we'll get going shortly
+[20:00] <local_optimum> no worries
+[20:01] <lucyllewy-> can the membership board members raise your hands to get a count of active participants before I fire the starting gun
+[20:01] <Kilos> Here
+[20:01] <mapreri> o/
+[20:01] <Wild_Man> o/
+[20:01] <Bashing-om> here
+[20:02] <Kilos> Bashing-om: wake up
+[20:02] <Kilos> oops sorry
+[20:02] <lucyllewy-> *giggles*
+[20:02] <Bashing-om> Kilos: I am trying to keep up :P
+[20:03] <Kilos> hehe
+[20:03] <lucyllewy-> I think that's enough for Quorum so we can get going... gimme a second to fire the command
+[20:03] <lucyllewy-> #startmeeting Ubuntu Membership Board
+[20:03] <meetingology> Meeting started at 20:03:27 UTC.  The chair is lucyllewy-.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[20:03] <meetingology> Available commands: action, commands, idea, info, link, nick
+[20:03] <lucyllewy-> #chair lucyllewy-
+[20:03] <meetingology> Current chairs: lucyllewy-
+[20:03] <lucyllewy-> Hello and welcome to the Ubuntu Membership Review Board meeting for 3rd October 2024. The wiki page for the Review Boards is available here: https://wiki.ubuntu.com/Membership/Boards
+[20:03] <lucyllewy-> We will attempt to get through all the applicants that have added themselves to that list, or posted a thread to the Ubuntu Discourse, before today's meeting. If we are unable to make it through the complete list due to time constraints, then at the next meeting we will pick up where we left off.
+[20:03] <lucyllewy-> The format for the meeting is as follows: We will go through the list of applicants one by one, by date of application (FIFO).
+[20:03] <lucyllewy-> Each applicant should introduce themselves (1-5 sentences) and provide links to their Ubuntu Wiki page or Ubuntu Discourse thread. After the introduction, the members of the Membership Review Board will review the pages and, if needed, ask the applicant further questions.
+[20:03] <lucyllewy-> During this time, it is encouraged for other members of the community to show their support for the applicant. Do not be alarmed if the members of the Membership Review Board are quiet during this time; they are reading wiki/launchpad/forum/other pages and deciding how they are going to vote.
+[20:03] <lucyllewy-> When the board is ready to vote, they will publicly vote in the channel with either +1, 0, or -1 (for membership, abstain, and against membership, respectively). If most of the voting board members vote +1, then the applicant is now an official Ubuntu member! (Feel free congratulate them!)
+[20:03] <lucyllewy-> Now, with any further ado, let's get started with the first applicant...
+[20:04] <lucyllewy-> First up (only applicant today) is Oliver Smith ( local_optimum ). Hi, Oliver, can you introduce yourself to the board members and share the links to your application post and your launchpad profile
+[20:06] <local_optimum> Fantastic, thank you very much, it's great to be here finally. It was recently my third anniversary of working on Ubuntu at Canonical and I felt it was well overdue to apply after all this time. I've been an Ubuntu user for a while and joined Canonical because it felt like part of my core values to ensure that a private open source operating system should be able to compete in the mainstream space.
+[20:07] <local_optimum> I joined as the Product Manager for Ubuntu Desktop, working closely with the engineering teams, expanded my remit to cover Ubuntu Server as well and have since taken over as interim engineering director of the Desktop team. I feel this is a nice endorsement of my engagement with the developers and community to be able to contribute in this way.
+[20:07] <local_optimum> My membership application is here: https://discourse.ubuntu.com/t/oliver-smith-membership-application/48277
+[20:08] <local_optimum> launchpad is here: https://launchpad.net/~local-optimum
+[20:08] <local_optimum> happy to dive into detail on any of these items :) hopefully i am not an unfamiliar face
+[20:09] <lucyllewy-> awesome. thank you. While the board members review your application and come up with any questions they want to ask I will make sure the question on the Code of Conduct is asked for formalities...
+[20:09] <lucyllewy-> You have signed the Code of Conduct. Do you affirm that you have read and understood the whole document, and do you agree to be bound by the terms for the duration of your membership should it be granted?
+[20:09] <local_optimum> I have signed it (prior to starting my role in the first place) and agree to be bound by it :)
+[20:09] <lucyllewy-> coolbeans.
+[20:10] <lucyllewy-> Board members, ask any questions you might have, and let me know when you're ready to vote.
+[20:10] <lucyllewy-> I think I am good to go with the information already provided and the glowing testimonials
+[20:11] <Wild_Man> Me too, excellent testimonials and work done
+[20:12] <mapreri> indeed, today's application looks very well done, full of endorsements as well (those have been getting rare in recent timesâ¦)
+[20:13] <Bashing-om> local_optimum: In the event that Canonical employment is terminated, what is your vision to continue contributing to Ubuntu ?
+[20:15] <local_optimum> A good question, Ubuntu is a core part of my life and that's not going to change in terms of the ways I use it as a platform for most of my personal projects, I enjoy writing up the work I do and sharing it on my blog as I think there are lack of approachable guides that bring a lot of the different use-cases together. I would certainly hope to continue to be involved in community discussions, I can't
+[20:15] <local_optimum> imagine losing touch with the relationships I've built over the last few years. And to be honest I'd probably be able to contribute more code/snaps/applications to the ecosystem as it would certainly free-up some time. I have some v poorly maintained snaps I'd love to go back to.
+[20:16] <lucyllewy-> that's a good answer <3
+[20:16] <Kilos> well said
+[20:16] <Bashing-om> +1
+[20:16] <lucyllewy-> anyone else have any more questions or are we ready to vote?
+[20:17] <mapreri> hear hear indeed.   I'm good :)
+[20:17] <Kilos> none here ty
+[20:17] <Wild_Man> ready
+[20:17] <Bashing-om> ready 2
+[20:17] <lucyllewy-> #vote Oliver Smith's Ubuntu Membership application
+[20:17] <meetingology> Please vote on: Oliver Smith's Ubuntu Membership application
+[20:18] <meetingology> Public votes can be registered by saying +1, -1 or +0 in channel (for private voting, private message me with 'vote +1|-1|+0 #channelname')
+[20:18] <lucyllewy-> #voters lucyllewy- Wild_Man mapreri Kilos Bashing-om
+[20:18] <meetingology> Current voters: Bashing-om, Kilos, Wild_Man, lucyllewy-, mapreri
+[20:18] <Kilos> +1
+[20:18] <meetingology> +1 received from Kilos
+[20:18] <Bashing-om> +1
+[20:18] <meetingology> +1 received from Bashing-om
+[20:18] <Wild_Man> +1
+[20:18] <meetingology> +1 received from Wild_Man
+[20:18] <mapreri> +1 aye!
+[20:18] <meetingology> +1 aye! received from mapreri
+[20:18] <lucyllewy-> +1 Very thorough application, I love the glowing testimonials, and you are clearly committed to the community. I wholeheartedly give my +1
+[20:18] <meetingology> +1 Very thorough application, I love the glowing testimonials, and you are clearly committed to the community. I wholeheartedly give my +1 received from lucyllewy-
+[20:18] <lucyllewy-> #endvote
+[20:18] <meetingology> Voting ended on: Oliver Smith's Ubuntu Membership application
+[20:18] <meetingology> Votes for: 5, Votes against: 0, Abstentions: 0
+[20:19] <meetingology> Motion carried
+[20:19] <lucyllewy-> Congratulations Oliver!
+[20:19] <lucyllewy-> just gimme a second to post some info for you
+[20:19] <Kilos> Congrats local_optimumkeep up the good work . I am happy to have you on board
+[20:19] <local_optimum> Awesome, thanks very much all :) it genuinely is a real personal achievement to become a member and means a lot.
+[20:19] <Wild_Man> Congratulations local_optimum
+[20:19] <Bashing-om> local_optimum: \o/ - congrats!
+[20:19] <lucyllewy-> Congratulations to all the new members. Don't forget to check the perks at https://wiki.ubuntu.com/Membership#The_Perks and once you've been added to the members group remember to apply for your certificate at https://forms.canonical.com/certificate/ (1/2)
+[20:19] <lucyllewy-> Your @ubuntu.com email address will go live within 48 hours. Do NOT set it as your primary launchpad.net email address because that will cause emails to loop forever and you'll never receive them! (2/2)
+[20:20] <lucyllewy-> With that I can end the meeting... Thank you for coming everyone <3 I look forward to seeing those of you who are coming to the Ubuntu Summit in three weeks
+[20:20] <local_optimum> See you there!
+[20:20] <mapreri> local_optimum: now do remember the promised beers in 3 weeks! :P
+[20:21] <local_optimum> all bribes to be paid in full ;)
+[20:21] <Kilos> thanks for chairing lucyllewy-
+[20:21] <lucyllewy-> #endmeeting
+[20:21] <meetingology> Meeting ended at 20:21:11 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-10-03-20.03.moin.txt
+[20:21] <mapreri> thank you all for coming!
+[20:22] <Kilos> so great to see the ubuntu spirit flying high
+[20:22] <local_optimum> Take care folks!
+[20:22] <Kilos> you too ty
