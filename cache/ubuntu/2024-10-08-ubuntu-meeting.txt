@@ -1,0 +1,157 @@
+=== pushkarnk1 is now known as pushkarnk
+[14:29] <cpaelzer> o/
+[14:30] <dviererbe> o/
+[14:30] <slyon> o/
+[14:32] <cpaelzer> let me get this started
+[14:32] <cpaelzer> #startmeeting Weekly Main Inclusion Requests status
+[14:32] <meetingology> Meeting started at 14:32:54 UTC.  The chair is cpaelzer.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[14:32] <meetingology> Available commands: action, commands, idea, info, link, nick
+[14:32] <cpaelzer> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( eslerm dviererbe )
+[14:33] <cpaelzer> last week we expected this one might be quick (so late in the cycle) and we use the time to discuss the blob case in wwan unlock
+[14:33] <cpaelzer> let us see if the assumption holds true
+[14:33] <cpaelzer> #topic current component mismatches
+[14:33] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[14:33] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[14:33] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[14:33] <cpaelzer> yep, easy as intended
+[14:33] <sarnold> good morning
+[14:34] <cpaelzer> #topic New MIRs
+[14:34] <cpaelzer> Mission: ensure to assign all incoming reviews for fast processing
+[14:34] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[14:34] <cpaelzer> none
+[14:34] <cpaelzer> #topic Incomplete bugs / questions
+[14:34] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[14:34] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[14:35] <cpaelzer> nothing super new, and the expected https://bugs.launchpad.net/ubuntu/+source/lenovo-wwan-unlock/+bug/2058192 we will try to talk about later
+[14:35] -ubottu:#ubuntu-meeting- Launchpad bug 2058192 in OEM Priority Project "[MIR] lenovo-wwan-unlock" [Critical, Confirmed]
+[14:35] <cpaelzer> #topic Process/Documentation improvements
+[14:35] <cpaelzer> Mission: Review pending process/documentation pull-requests or issues
+[14:35] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/pulls
+[14:35] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/issues
+[14:35] <slyon> I worked on https://github.com/canonical/ubuntu-mir/pull/66 today, which should be ready for merging now
+[14:35] -ubottu:#ubuntu-meeting- Pull 66 in canonical/ubuntu-mir "Import Rust vendoring document" [Open]
+[14:35] <cpaelzer> rust is old and on slyon  who provided https://github.com/canonical/ubuntu-mir/pull/66
+[14:36] <cpaelzer> yeah - the same :-)
+[14:36] <cpaelzer> I only had a glance, but enough others - especially the rust folks said yes
+[14:36] <cpaelzer> so I'm happy to merge if no one wants to stop me
+[14:37] <slyon> I'm now recommending the approach used in s390-tools, using a .orig-rust-vendor.tar.xz tarball for vendored crates
+[14:37] <slyon> providing an example for automation via debian/rules
+[14:37] <cpaelzer> only if upstream is providing that?
+[14:37] <slyon> unrelated to upstream.
+[14:37] <cpaelzer> or also otherwise us creating it in a DFSG repackage kind of step?
+[14:38] <slyon> yes
+[14:38] <cpaelzer> ok with me
+[14:38] <slyon> is mostly us creating it, because upstream/debian doesn't rely too much on vendoring
+[14:38] <cpaelzer> Since you had a closer look slyon, did anyone bring up that the ecosystem is maybe more mature and we should change to no-vendoring or at least reduced-vendoring?
+[14:39] <slyon> No news on this, yet.
+[14:39] <cpaelzer> thanks
+[14:39] <slyon> I'll try to catch a few Toolchain people at the next sprint (again) to discuss this topic
+[14:39] <cpaelzer> ok, I've read through and will merge - we can further improve from here but this is (much) better than what we have - hence a merge is ok
+[14:39] <sarnold> given the way versions of crates get locked together, I'd be surprised if that goal is closer than it was before
+[14:40] <cpaelzer> sarnold: me too, but it is worth rechecking such assumptions of the past
+[14:40] <doko> o/
+[14:40] <cpaelzer> hi doko
+[14:40] <sarnold> heya doko
+[14:40] <cpaelzer> merged and thereby bug closed
+[14:40] <cpaelzer> #topic MIR related Security Review Queue
+[14:40] <slyon> thx!
+[14:40] <cpaelzer> Mission: Check on progress, do deadlines seem doable?
+[14:40] <cpaelzer> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[14:41] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:41] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:41] <cpaelzer> Internal link
+[14:41] <cpaelzer> - ensure your teams items are prioritized among each other as you'd expect
+[14:41] <cpaelzer> - ensure community requests do not get stomped by teams calling for favors too much
+[14:41] <cpaelzer> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[14:41] <sarnold> I don't believe anything currently in flight or yet to start will have any progress this week
+[14:42] <cpaelzer> sarnold: do you happen to know if any still-in-progress are needed for oracular which is extra-soon ?
+[14:42] <sarnold> the mad dash to finish roadmap items has consumed everything in its path
+[14:42] <sarnold> I can't speak to the consequences for our colleagues for these few stragglers :(
+[14:43] <cpaelzer> If in doubt, those responsibilities (like these MIR reviews) need to be "in the roadmap" to avoid them getting blown out by such a rush
+[14:43] <cpaelzer> Maybe an improvement in planning time allocation to suggest?
+[14:43] <cpaelzer> But nothing to debate now and here
+[14:43] <cpaelzer> #topic Any other business?
+[14:44] <sarnold> lenovo wwan thingy
+[14:44] <doko> I wanted to propose a in-person meeting during the engineering sprint, like some "MIR office hours", with the first half of the meeting with just the MIR team members, followed by the second half where everybody can join and have questions/suggestions. Would that be ok with you?
+[14:45] <slyon> +1 for a in-person MIR meeting at the sprint
+[14:46] <sarnold> yes, good idea
+[14:46] <cpaelzer> doko: it was always worthwhile to do, but the calendar keeps filling up ...
+[14:46] <cpaelzer> let me have a look
+[14:46] <doko> I assume you have scheduling powers, so just find a slot ...
+[14:46] <cpaelzer> I have all power :-)
+[14:50] <cpaelzer> found and sent
+[14:51] <cpaelzer> Monday after lunch
+[14:51] <cpaelzer> ok, not much time
+[14:51] <cpaelzer> let me set the stage
+[14:51] <doko> ta
+[14:51] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/lenovo-wwan-unlock/+bug/2058192
+[14:51] -ubottu:#ubuntu-meeting- Launchpad bug 2058192 in OEM Priority Project "[MIR] lenovo-wwan-unlock" [Critical, Confirmed]
+[14:51] <cpaelzer> The question there is mostly "uncertainty"
+[14:51] <cpaelzer> we rarely have something that wants to go to restricted in the first place
+[14:51] <cpaelzer> so none of us has a lot of "that is how we usually do" feeling
+[14:52] <cpaelzer> Furthermore I've heard many including myself get more and more troubled with such blob cases (had similar with keys) like "How would later one check on an SRU if the change is good/bad/fake"
+[14:52] <cpaelzer> We are asking us the same questions but for introducing it
+[14:53] <cpaelzer> I think restricted exists for just that, the neccessity of reality sometimes forcing us to things like that :-/
+[14:53] <cpaelzer> But still I understand that we all feel not to ok with it
+[14:54] <cpaelzer> But I think we need to look at the pure process, what of the requests in https://bugs.launchpad.net/ubuntu/+source/lenovo-wwan-unlock/+bug/2058192/comments/5 are done or still open
+[14:54] -ubottu:#ubuntu-meeting- Launchpad bug 2058192 in OEM Priority Project "[MIR] lenovo-wwan-unlock" [Critical, Confirmed]
+[14:54] <cpaelzer> sarnold: can you explain what exactly this is about https://bugs.launchpad.net/ubuntu/+source/lenovo-wwan-unlock/+bug/2058192/comments/8 ?
+[14:55] <cpaelzer> to have it follow https://github.com/canonical/ubuntu-mir/blob/main/exceptions/OEM.md ?
+[14:56] <sarnold> cpaelzer: we were mostly interested in trying to keep these blobs off unrelated computers
+[14:56] <cpaelzer> ok, discussion moved on - it shall be in the normal archive (comments ~13-end
+[14:56] <sarnold> cpaelzer: very few ubuntu users have the oem archives configured in their apt sources
+[14:56] <slyon> lenovo-fccunlock is still shipping a /usr/lib/libmodemauth.so without corresponding .symbols file..
+[14:56] <sarnold> cpaelzer: so our thought was putting it in the oem archive might do a better job of restricting it to only people who would benefit
+[14:56] <slyon> I guess that is what didrocks mention in his first required TODO
+[14:57] <cpaelzer> thanks sarnold, but the discussion evovled to ask to target the archive and in there restricted again - right?
+[14:57] <cpaelzer> slyon: I agree - to me it seems this is mostly about checking the needs raised in https://bugs.launchpad.net/ubuntu/+source/lenovo-wwan-unlock/+bug/2058192/comments/5 if they are now complete or now
+[14:57] -ubottu:#ubuntu-meeting- Launchpad bug 2058192 in OEM Priority Project "[MIR] lenovo-wwan-unlock" [Critical, Confirmed]
+[14:58] <cpaelzer> doing that we will know more clearly what is still open
+[14:58] <cpaelzer> and then there is security
+[14:58] <slyon> ACK. IMO some of them got addressed, but not all
+[14:58] <cpaelzer> Review was held back when it was considered to go to OEM, but since it is back a review is again needed
+[14:58] <cpaelzer> but then, what do you review in a blob?
+[14:58] <slyon> maybe it'd be best for didrocks to take a 2nd look. reconsidering if his requests were resolved?
+[14:58] <cpaelzer> ack slyon, maybe we could ask didrocks to do the official check of his asks what is done and what isn't?
+[14:58] <slyon> we don't review the blob... that's why we put it into "restricted".
+[14:59] <cpaelzer> didrocks: ? (I know you are budy, but please pick that up later if you can)
+[14:59] <cpaelzer> yeah, but in that case is it just "no security review" or would you still do one for where you can sarnold?
+[14:59] <sarnold> cpaelzer: yes, the conversation did move, when they were worried that the smaller user base would mean too many users who need it can't get it
+[14:59] <slyon> still we can make sure the packaging is clean, potentially has tests and proper confinement
+[14:59] <cpaelzer> slyon: double +1
+[15:00] <slyon> confinement might be even more important here, considering this is a blob
+[15:00] <cpaelzer> agreeing a lot
+[15:00] <cpaelzer> but ok for the scope of this meeting, back for a check by didrocks what was fulfilled and then back to security to do what "can be done"
+[15:00] <cpaelzer> is that ok as an outcome for now
+[15:02] <cpaelzer> time is up, I consider silence a weak ok for now
+[15:02] <cpaelzer> thanks for having that discussion to get myself and many others to the same level
+[15:02] <slyon> this is not nice, btw: https://git.launchpad.net/ubuntu/+source/lenovo-wwan-unlock/tree/debian/lenovo-fccunlock.service "User=root" and executing a random binarry blob..
+[15:03] <sarnold> I'm not surprised that the driver requires privileges to change something as fundamental as allowed radio frequency ranges
+[15:03] <cpaelzer> indeed sarnold, but that just asks for e.g. apparmor
+[15:04] <cpaelzer> it can have root, but should be limited to do just what and where it is supposed to
+[15:04] <sarnold> *nod* I wish it had asked for systemd's seccomp filter lists, too
+[15:04]  * didrocks is backâ¦logging
+[15:04] <cpaelzer> when introducing the "encourage isolation" rules that the level of enforcement depends on the case
+[15:04] <slyon> sarnold: ack
+[15:04] <cpaelzer> this is a case which is indicating rather strong enforcement to make those required
+[15:05] <cpaelzer> other cases can be weaker and that is fine, but here it is important and we seem to agree on that
+[15:05] <cpaelzer> let me try to conclude the meeting then, as some are already distracted
+[15:05] <cpaelzer> thank you for the discussion
+[15:05] <didrocks> makes sense to me. Iâll have a second look at it and see where we stand. I still think even if the blob is binary that we should get the packaging to a certain level
+[15:05] <cpaelzer> thanks didrocks
+[15:05] <slyon> thanks!
+[15:05] <cpaelzer> yes, packaging at minimal level and isolation kind of mandatory in this case
+[15:06] <cpaelzer> #endmeeting
+[15:06] <meetingology> Meeting ended at 15:06:03 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-10-08-14.32.moin.txt
+[15:06] <sarnold> thanks cpaelzer, all :)
+[15:06] <didrocks> thanks!
+=== utkarsh79 is now known as utkarsh2102
+[19:00]  * vorlon waves
+[19:00] <rbasak> o/
+[19:02] <rbasak> Oh, I'm down to chair.
+[19:03] <rbasak> Are we going ahead with just the two of us?
+[19:05] <vorlon> I wouldn't normally consider that quorate
+[19:06] <vorlon> and I guess it's going to mostly be carrying over action items
+[19:06] <vorlon> so punt to the next one?
+[19:08] <rbasak> OK
+[19:15] <seb128> hey, sorry I overlooked the day/time and didn't see the notification...
