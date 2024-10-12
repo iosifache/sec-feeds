@@ -1,0 +1,16 @@
+[01:31] <mainek00n> I'm reading OVAL and have a question.
+[01:31] <mainek00n> When I look at the Ubuntu Security Notice web page, the Source Package is listed in the Update instructions.
+[01:31] <mainek00n> However, when I read the USN OVAL, there is no information about the Source Package Name, and the usns in the PKG OVAL lists packages that are not related to that package.
+[01:31] <mainek00n> How can I combine OVALs to reproduce the information on the Ubuntu Security Notice web page?
+[07:33] <ebarretto> mainek00n: do you have an example ? 
+[08:03] <Luna_UK> Hey, any new podcast today and Security updates? or taking a rest after the 24.10 release?
+[08:25] <ebarretto> Luna_UK: AlexM is on vacation this week and indeed we are all trying to slow down a bit after 24.10, but we will be back next week as usual 
+[08:30] <Luna_UK> ebarretto: alright, then i know amurray enjoy vacation and cya for next week then
+[08:31] <Luna_UK> fighting with a 24.04.1 desktop install that crashes in gnome-boxes and cockpit atm
+=== mdeslaur_ is now known as mdeslaur
+=== Juesto is now known as Juest
+[22:01] <davis135> any idea when Firefox 131.0.2 (fixing the CVE-2024-9680 remote code execution 0-day) is coming to 20.04 focal? it's been like 3 days and every other distro is already patched
+[22:01] -ubottu:#ubuntu-security- An attacker was able to achieve code execution in the content process by exploiting a use-after-free in Animation timelines. We have had reports of this vulnerability being exploited in the wild. This vulnerability affects Firefox < 131.0.2, Firefox ESR < 128.3.1, Firefox ESR < 115.16.1, Thunderbird < 131.0.1, Thunderbird < 128.3.1, and Thunderbird < 115.16.0. <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-9680>
+[22:26] <mdeslaur_> I've asked for an eta from the desktop team
+=== pcthimjksotmytye is now known as jhbdevbmhkbrkwul
+=== jhbdevbmhkbrkwul is now known as georgiag
