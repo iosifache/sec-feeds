@@ -1,0 +1,152 @@
+=== cpaelzer_ is now known as cpaelzer
+[16:00] <gagath> hello
+[16:01] <rbasak> o/
+[16:02] <schopin> o/
+[16:03] <teward> here but via phone so slow replies are to be expected
+[16:06] <schopin> utkarsh is apparently out for health reasons, and today is a US holiday.
+[16:10] <rbasak> Maybe with three of us we can proceed anyway, and fall back to the ML for further votes?
+[16:12] <schopin> I'm rather against it, for a couple of reasons.
+[16:13] <schopin> 1/ the less people are at the meeting the less homogeneous our questions (and thus expectations) are.
+[16:14] <schopin> 2/ It's rather nerve-wracking as a candidate to have to wait for DMB folks to cast their votes (I was in that position for my MOTU application)
+[16:14] <schopin> However if teward feels we should proceed I'm OK bowing to the majority :)
+[16:15] <rbasak> The alternative is to wait until next year, since AIUI there are no slots until then :-(
+[16:15] <gagath> I think I would be OK with the ML wait. If I look at the agenda postponing would push this to 2025. I would prefer to wait votes on a ML.
+[16:15] <gagath> (as long as the vote ends before 2025)
+[16:15] <teward> we could have an impromptu DMB meet via IRC at the Summit but yeah I have no issue postponing
+[16:16] <teward> but we CAN proceed
+[16:16] <teward> i defer to you guys for the decisopn
+[16:16] <teward> i'm good with either decision
+[16:16] <teward> so we can proceed with 3 people here and ask questions then have ML votes if needed as well as other followups.
+[16:17] <teward> (yes i know i'm playing both sides here xD)
+[16:18] <teward> since we're tied i'll say lets have the initial Q/A here now
+[16:19] <teward> then move the vote to ML
+[16:19]  * teward fetches more coffee
+[16:20] <rbasak> Let's proceed. If the others on the ML want to ask their own questions or request to do that at a meeting, then that's OK, but often they don't. (FTR, I would, if the questions I would want to ask weren't asked already)
+[16:22]  * schopin grumbly acquiesces
+[16:24] <rbasak> #startmeeting Developer Membership Board
+[16:24] <meetingology> Meeting started at 16:24:24 UTC.  The chair is rbasak.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[16:24] <meetingology> Available commands: action, commands, idea, info, link, nick
+[16:24] <rbasak> #topic Ubuntu Core Developer Applications
+[16:24] <rbasak> #subtopic Agathe Porte
+[16:24] <rbasak> gagath: welcome!
+[16:25] <gagath> o/
+[16:29] <rbasak> gagath: have you done any transitions yet?
+[16:30] <gagath> rbasak: in debian, yes. in ubuntu, no.
+[16:30] <rbasak> I'm finding it difficult to see the uploads that you've done that aren't kernel (since they're a different process) :-/
+[16:30] <gagath> https://launchpad.net/~gagath/+uploaded-packages
+[16:31] <gagath> I think all of them are on this page ^
+[16:31] <schopin> Just for context, you have been part of the kernel uploader team since last May, right?
+[16:32] <rbasak> The plymouth upload FTBFS in https://launchpad.net/ubuntu/+source/plymouth/23.360.11-0ubuntu1. What happened there?
+[16:32] <gagath> schopin: yes, this was https://wiki.ubuntu.com/gagath/KernelUploadRightsApplication
+[16:34] <rbasak> The first SRU I looked at was bug 2069963 where the SRU verification didn't report the version tested.
+[16:34] -ubottu:#ubuntu-meeting- Bug 2069963 in xkeyboard-config (Ubuntu Oracular) "Add Ergo-L layout" [Undecided, Fix Released] https://launchpad.net/bugs/2069963
+[16:34] <bdrung> \o sorry, I took the day off and missed that we have the DMB meeting today
+[16:34] <gagath> rbasak: for the upload ftbfs, the issue was dh_install: warning: Cannot find (any matches for) "/usr/usr/lib/systemd/system" (tried in ., debian/tmp)
+[16:35] <rbasak> And the next is bug 2073688, where you seem to have flipped the SRU tags with no explanation?
+[16:35] -ubottu:#ubuntu-meeting- Bug 2073688 in kitty (Ubuntu Noble) "/usr/lib/kitty/kitty/options/definition.py:4116: SyntaxWarning: invalid escape sequence '\e'   long_text='''" [Low, Fix Committed] https://launchpad.net/bugs/2073688
+[16:35] <rbasak> gagath: FTBFS> OK, but what went wrong in the process that resulted in you getting sponsorship for an upload that FTBFS? Why wasn't that caught earlier?
+[16:37] <gagath> rbasak: I think the problem was that I and the mentor did not a proper build test of this. The mentor uploaded a 0ubuntu2 that fixed the issue after this was sponsored
+[16:37] <gagath> my mistake was that I did not use a chroot and tested with a wrong version of pkg-config
+[16:38] <gagath> that generated the double /usr
+[16:38] <gagath> for the mentor I guess their mistake could be the same
+[16:39] <gagath> for 2069963 I forgot to add the version tested in my SRU test message. I confirmed the version tested in a later comment on the bug.
+[16:41] <schopin> gagath: you mentioned that you haven't done transitions in Ubuntu yet, but have in Debian. Can you speak of the differences between Debian and Ubuntu on the handling of transitions?
+[16:41] <gagath> and for 2073688 I also forgot to explain what I did and with which version. I really need to focus on that. I performed the test according to the test plan but did not add some logs when changing the tags.
+[16:42] <rbasak> We don't need logs as such FWIW. Just confirmation of what tests you performed and what version you tested, and the pass result.
+[16:42] <gagath> ack
+[16:42] <rbasak> Because we have other people who have flipped tags without testing anything because they think the tags need flipping and that's it.
+[16:43] <gagath> I see what you are referring to.
+[16:43] <rbasak> (and the tests performed need to match the agreed test plan of course)
+[16:43] <rbasak> (IOW we believe what you say, but not if you don't say it :-)
+[16:44] <gagath> schopin: in Debian I uploaded my packages that depended on each other to unstable, and when everything was in place britney was able to publish them all at once to unstable
+[16:45] <gagath> for ubuntu, it would be the same mechanism but using -proposed if the transition is for a stable release
+[16:46] <schopin> Not for devel?
+[16:47] <gagath> for devel, you would push directly to the devel as there is no -proposed and -updates yet in place (like debian)
+[16:47] <gagath> mhm, wiat
+[16:48] <gagath> yes. like https://bugs.launchpad.net/ubuntu/+source/mofed-modules-24.07/+bug/2080904
+[16:48] -ubottu:#ubuntu-meeting- Launchpad bug 2080904 in mofed-modules-24.07 (Ubuntu) "autoconf not installed as dependency of mofed-modules-24.07" [Undecided, Fix Released]
+[16:48] <gagath> the upload was for oracular and the bug got closed directly without SRU involved.
+[16:49] <gagath> (when oracular was devel)
+[16:49] <rbasak> gagath: where is the handing of proposed migration documented in Ubuntu, and where would you go to find a list of outstanding blockers for a given package's pending migration?
+[16:50] <gagath> https://github.com/canonical/ubuntu-maintainers-handbook/blob/main/ProposedMigration.md
+[16:50] <gagath> blockers can be found here: https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses.html
+[16:51] <gagath> there is a nicer page with a .fr domain name but I sometime struggle to find it and it is... unofficial
+[16:51] <schopin> gagath: fwiw, that page is about devel-proposed, which is very much a thing!
+[16:51] <gagath> oh
+[16:52] <gagath> a
+[16:52] <gagath> https://ubuntu-archive-team.ubuntu.com/proposed-migration/
+[16:53] <gagath> eg https://ubuntu-archive-team.ubuntu.com/proposed-migration/noble/update_excuses.html for noble
+[16:53] <rbasak> We're running low on time.
+[16:53] <rbasak> Is everyone ready to vote?
+[16:54] <schopin> I am.
+[16:55] <rbasak> #vote Grant gagath core dev
+[16:55] <meetingology> Please vote on: Grant gagath core dev
+[16:55] <meetingology> Public votes can be registered by saying +1, -1 or +0 in channel (for private voting, private message me with 'vote +1|-1|+0 #channelname')
+[16:55] <rbasak> -1
+[16:55] <meetingology> -1 received from rbasak
+[16:55] <rbasak> (reasons to follow)
+[16:57] <bdrung> -1
+[16:57] <meetingology> -1 received from bdrung
+[16:57] <schopin> -1 While I don't doubt gagath's packaging skills, I feel there is a lack of understanding surrounding the Ubuntu processes at large, and in particular on the lifecycle of a package during the development cycle.
+[16:57] <meetingology> -1 While I don't doubt gagath's packaging skills, I feel there is a lack of understanding surrounding the Ubuntu processes at large, and in particular on the lifecycle of a package during the development cycle. received from schopin
+[16:57] <rbasak> teward: vote?
+[16:59] <bdrung> the reason for my vote is the same as what schopin wrote.
+[16:59] <schopin> gagath: fwiw, something that helped me a lot to familiar with devel was doing +1 shifts.
+[16:59] <gagath> schopin: I wanted to do that, but could not dedicate a full week since the kernel team is already understaffed.
+[17:00] <gagath> maybe I can ask again.
+[17:00] <rbasak> #endvote
+[17:00] <meetingology> Voting ended on: Grant gagath core dev
+[17:00] <meetingology> Votes for: 0, Votes against: 3, Abstentions: 0
+[17:00] <meetingology> Motion denied
+[17:00] <rbasak> More information on my vote:
+[17:00] <rbasak> Thank you for your contributions to Ubuntu! I especially value that you are a DD already.
+[17:00] <rbasak> Unfortunately I think the Ubuntu-specific expectatiosn we have haven't really been demonstrated. These are important when you are uploading unsupervised, and in particular when others ask you to sponsor for them while under pressure.
+[17:00] <rbasak> IMHO (other DMB members differ in opinion on this point), a straight to core dev application needs to be exceptionally strong, but so far, wherever I look, there's some issue. This might be made up by experience or an extensive track record, but I don't see that either in Ubuntu (excluding kernel uploads that have a completely separate process). I appreciate that you have extensive experience in
+[17:00] <rbasak> Debian, but the challenge then is to ensure that you understand how Ubuntu differs in process, and know what Ubuntu-specific expectations we have. Unfortunately that cannot be demonstrated by your Debian experience.
+[17:00] <rbasak> I have my personal expectations documented here: https://wiki.ubuntu.com/RobieBasak/DMB/CoreDev
+[17:00] <rbasak> I don't think your application really demonstrates meeting my expectations. I'd like to see good examples across the various topics in the penultimate paragraph. I'd also like to see endorsements commensurate with that.
+[17:00] <rbasak> Thank you for working towards core dev, and please do continue! I'd love to see you getting this soon.
+[17:01] <gagath> thanks for your time
+[17:02] <rbasak> #topic Outstanding mailing list requests to assign
+[17:02] <rbasak> cpete's application is still open for votes on the ML. Please vote! I need to do this too.
+[17:03] <rbasak> #info cpete's application is still open for votes on the ML. Please vote!
+[17:03] <rbasak> I don't see any other recent ML requests.
+[17:03] <rbasak> #info No other recent ML requests.
+[17:04] <rbasak> #topic Open TB bugs
+[17:04] <rbasak> #info No open TB bugs
+[17:04] <rbasak> #topic Select a chair for the next meeting
+[17:04] <rbasak> Since there was no chair for this meeting I don't know where to start, so I'll start from after my slot
+[17:04] <rbasak> That would be schopin, with tsimonq2 as backup.
+[17:05] <rbasak> #info Next chair will be schopin with tsimonq2 as backup
+[17:05] <rbasak> #topic AOB
+[17:05] <rbasak> AOB?
+[17:05] <schopin> Do we have a script somewhere for the chair to follow?
+[17:05] <schopin> I didn't find it on the wiki.
+[17:05] <bdrung> not that i am aware of
+[17:07] <schopin> Beware that I might not be able to make it on the 11th as it is a holiday and I'm out of town. My presence hinges on the punctuality of the train company...
+[17:08] <teward> rbasak: E:InternetLost
+[17:08] <teward> stupid airport wifi
+[17:09] <teward> rbasak: my vote was -1 for the same reasons you stated
+[17:09] <rbasak> ack, thanks
+[17:09] <teward> we can echo that on the ML but that's -4 which is quorate
+[17:09] <rbasak> schopin: just the agenda.
+[17:09] <schopin> Alright, fair enough.
+[17:09] <teward> sorry about random disappearance btw can't do squat about airport wifi going bonkers
+[17:09] <rbasak> #action rbasak to handle closing gagath's application
+[17:09] <meetingology> ACTION: rbasak to handle closing gagath's application
+[17:10] <rbasak> schopin: and you can see the commands by example. There aren't many!
+[17:10] <rbasak> If there's no other AOB I'll end the meeting.
+[17:10] <teward> rbasak: AOB is whether we're having a impromptu DMB meet during the Summit
+[17:10] <teward> but i think you said that should be emaileid to devel-permissions
+[17:10] <teward> at least if I read IRC backlogs right :)
+[17:10] <rbasak> Someone did and I agree
+[17:11] <rbasak> FTR, IMHO it's fine as long as it's quorate, reasonably public and inclusive.
+[17:14] <rbasak> #endmeeting
+[17:14] <meetingology> Meeting ended at 17:14:17 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-10-14-16.24.moin.txt
+[17:14] <bdrung> A DMB meeting during the summit would be fine from my side as well
+[17:16] <schopin> thanks rbasak for chairing the meeting!
+[17:17]  * schopin is off.
+[17:20] <teward> rbasak: we could hold it as an impromptu session I'm sure we can find a place to hold it with transparency :P
+[17:20]  * teward goes to fetch lunch
+=== pushkarnk1 is now known as pushkarnk
+[21:12] <rbasak> gagath: had you announced your application to devel-permissions@? That's required in the instructions at https://wiki.ubuntu.com/DeveloperMembershipBoard/Agenda, and it's difficult for me to reply to the thread when there isn't one :-/
