@@ -1,0 +1,123 @@
+[14:29] <cpaelzer> uff, really busy in calls
+[14:29] <cpaelzer> can anyone lead the MIR meeting today instead of me or should I double-act to the extend possible?
+[14:31] <cpaelzer> ok, trying ...
+[14:32] <sarnold> do we have enough people to bother?
+[14:32] <cpaelzer> let us see
+[14:32] <cpaelzer> #startmeeting Weekly Main Inclusion Requests status
+[14:32] <meetingology> Meeting started at 14:32:39 UTC.  The chair is cpaelzer.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[14:32] <meetingology> Available commands: action, commands, idea, info, link, nick
+[14:32] <cpaelzer> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( eslerm dviererbe )
+[14:32] <cpaelzer> sarnold:  and me are around
+[14:32] <joalif> o/
+[14:33] <cpaelzer> please chime in now to see if we have a reasonable consensus
+[14:35] <cpaelzer> ok, three then
+[14:35] <cpaelzer> let us assume we check the queues but not expect much decisions
+[14:35] <cpaelzer> #topic current component mismatches
+[14:35] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[14:35] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[14:35] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[14:35] <sarnold> ooo fancy
+[14:37] <cpaelzer> kernel in there for realtime which they usually handle themselve
+[14:38] <cpaelzer> we have no representative of them here
+[14:38] <cpaelzer> let me raise it in the kernel channel to be sure
+[14:38] <sarnold> there's scores of supported kernels, i'm surprised this doesn't come up more often
+[14:41] <cpaelzer> I assume this is due to realtime formerly being a thing of its own
+[14:41] <cpaelzer> but now all in the kernel, so they likely changed from a binary to a meta package or such
+[14:41] <cpaelzer> and that could be new, and thereby start in universe
+[14:41] <cpaelzer> #topic New MIRs
+[14:41] <sarnold> I think it's brand new :)
+[14:41] <cpaelzer> Mission: ensure to assign all incoming reviews for fast processing
+[14:41] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[14:41] <cpaelzer> which matches my thougth
+[14:41] <cpaelzer> empty queue here - good
+[14:42] <cpaelzer> #topic Incomplete bugs / questions
+[14:42] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[14:42] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[14:44] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/linuxptp/+bug/2071717 got some action but still waiting for more tasks to be completed
+[14:44] -ubottu:#ubuntu-meeting- Launchpad bug 2071717 in linuxptp (Ubuntu) "[MIR] linuxptp" [Undecided, Incomplete]
+[14:45] <cpaelzer> didrocks: commented on https://bugs.launchpad.net/ubuntu/+source/lenovo-wwan-unlock/+bug/2058192
+[14:45] -ubottu:#ubuntu-meeting- Launchpad bug 2058192 in OEM Priority Project "[MIR] lenovo-wwan-unlock" [Critical, Confirmed]
+[14:45] <cpaelzer> seems not yet complete
+[14:45] <cpaelzer> no action need to be taken now
+[14:45] <cpaelzer> #topic Process/Documentation improvements
+[14:45] <cpaelzer> Mission: Review pending process/documentation pull-requests or issues
+[14:45] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/pulls
+[14:45] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/issues
+[14:46] <cpaelzer> no new entries
+[14:46] <cpaelzer> last update was on https://github.com/canonical/ubuntu-mir/issues/69
+[14:46] -ubottu:#ubuntu-meeting- Issue 69 in canonical/ubuntu-mir "Do we benefit from having the dev binary packages promoted?" [Open]
+[14:46] <cpaelzer> where slyon gladly carried our discussion that -dev exclusion should still be a per-case thing
+[14:46] <cpaelzer> no action either AFAICS
+[14:46] <cpaelzer> #topic MIR related Security Review Queue
+[14:46] <cpaelzer> Mission: Check on progress, do deadlines seem doable?
+[14:46] <cpaelzer> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[14:46] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:46] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[14:47] <cpaelzer> Internal link
+[14:47] <cpaelzer> - ensure your teams items are prioritized among each other as you'd expect
+[14:47] <cpaelzer> - ensure community requests do not get stomped by teams calling for favors too much
+[14:47] <cpaelzer> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[14:48] <cpaelzer> sarnold: should https://bugs.launchpad.net/ubuntu/+source/openscap/+bug/1877696 get off of that list
+[14:48] -ubottu:#ubuntu-meeting- Launchpad bug 1877696 in openscap (Ubuntu) "[MIR] openscap" [Undecided, Incomplete]
+[14:48] <cpaelzer> it is from & to security
+[14:48] <cpaelzer> and oval / openscap no more seems to be the future
+[14:48] <cpaelzer> is it time to eliminate it from the board and reject the launchpad case?
+[14:48] <sarnold> cpaelzer: heh, I think oval was given a last-second reprieve, I believe the US Navy something or other is taking it over
+[14:48] <cpaelzer> oh is it
+[14:48] <cpaelzer> I'm curious to learn about that - any link?
+[14:49] <cpaelzer> no action for now
+[14:49] <sarnold> excellent question :) I think ebarretto is the one to ask, he may know if it's got an announcement anywhere or not
+[14:49] <cpaelzer> my request for a link is just me being curious
+[14:49] <cpaelzer> Thanks ebarretto just reply here if you have anything to share in that regard
+[14:50] <sarnold> it does feel weird to not have this package in main given that we use it :/
+[14:51] <sarnold> jorge said he was going to ask the fraunhofer folks about his findings in the fdk-aac-free package, but given that the package is a derivative of a derivative I'm not sure if they'll care
+[14:51] <cpaelzer> wow
+[14:52] <sarnold> I'm uneasy about it.
+[14:52] <cpaelzer> about it having no clear owner?
+[14:52] <sarnold> on the one hand the feature (forwarding audio from remote hosts when doing gnome-remote-desktop things) seems like a very nice feature
+[14:52] <sarnold> but on the other hand, it sure feels like there's zero responsible upstream
+[14:52] <sarnold> and codecs .. miserable things.
+[14:54] <sarnold> probably no progress on the other mirs :(
+[14:54] <cpaelzer> yeah
+[14:54] <cpaelzer> sorry, i got stuck reading into the case
+[14:54] <sarnold> .. and unlikely to see any, for a few weeks
+[14:54] <cpaelzer> but it is licensing - never a quick topic
+[14:54] <sarnold> heh, that can happen :)
+[14:54] <cpaelzer> you are right to go on
+[14:54] <cpaelzer> #topic Any other business?
+[14:54] <cpaelzer> nothing from me
+[14:54] <sarnold> see you in the hague :)
+[14:54] <sarnold> oh, actually, next week's meeting ..
+[14:54] <cpaelzer> \o/
+[14:55] <sarnold> i propose we cancel it
+[14:56] <cpaelzer> yeah, there is no way to attend while at sprints
+[14:57] <cpaelzer> I'll cancel the calendar invite ...
+[14:57] <slyon> o/
+[14:57]  * ebarretto reading 
+[14:57] <slyon> do we still have time?
+[14:57] <slyon> I wanted to ask about the Sprint MIR sync
+[14:58] <slyon> it was a MIR sync + office-hours initial. I see its been downgraded to just a "sync" (MIR internal)
+[14:58] <slyon> was that intentional, cpaelzer ?
+[14:58] <slyon> Samir from the Foundations Toolchain squad asked me if we could have MIR office-hours at the sprint, specifically. And was happy to hear that we have something planned.
+[14:59] <cpaelzer> slyon: yes it was intentional as it collided with a plenary while it was at full size
+[14:59] <sarnold> ow
+[14:59] <sarnold> is it near to the plenary at the start or the end of the day?
+[14:59] <cpaelzer> If you sak me - we can welcome guests, but it will eat from the time we have for ourselves
+[15:00] <sarnold> if start .. those things almost always run long
+[15:00] <cpaelzer> no, there is a plenary after lunch
+[15:00] <cpaelzer> which no one expected when planning things early on
+[15:00] <cpaelzer> bonus :-)
+[15:00] <sarnold> *middle* of the day? weird
+[15:00] <cpaelzer> which made me shorten our invite
+[15:00] <cpaelzer> slyon: tell samir to come by still
+[15:00] <slyon> okay. Let's see how it goes than. We can invite guests and otherwise I might run a team-local Foundations/MIR office hours session afterwards
+[15:00] <cpaelzer> but let us not do global office hours, but request based - so we know what to expect
+[15:01] <cpaelzer> ack
+[15:01] <cpaelzer> closing ...
+[15:01] <cpaelzer> #endmeeting
+[15:01] <meetingology> Meeting ended at 15:01:16 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-10-15-14.32.moin.txt
+[15:01] <sarnold> thanks cpaelzer, slyon, joalif, ebarretto :)
+[15:01] <ebarretto> cpaelzer: indeed, oval is not dead, the naval information warfare center (NIWC) is the new maintainer and we do have some updates coming to the oval language itself. For openscap itself and the MIR, at this point I think we might reconsider having a snap version of openscap, as it probably won't be backwards compatible. I will see if I talk to standards next week about what should be done
+[15:01] <slyon> thanks all! (and sorry for being late, I was double-booked)
+[15:02] <joalif> thanks cpaelzer all!
+[15:02] <cpaelzer> thanks ebarretto
