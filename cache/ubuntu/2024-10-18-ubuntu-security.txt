@@ -1,0 +1,5 @@
+=== crazybyte20 is now known as crazybyte2
+[06:32] <Luna_UK> Podcast and Security update time today?
+[08:11] <amurray> Luna_UK: yep, just published now https://ubuntusecuritypodcast.org/episode-239/
+[08:11] <Luna_UK> ah there it comes :) thx gonna listen in 12-13 minutes when i am done listening to yesterdays SLAYRadio Show
+[08:25]  * Luna_UK is listening now and updating 4 Ubuntu hosts at work
