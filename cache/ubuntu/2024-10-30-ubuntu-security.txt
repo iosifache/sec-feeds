@@ -1,0 +1,15 @@
+[09:47] <mpiano> ebarretto: hello, seems like OVAL generation has been stuck again for a few days
+[09:51] <ebarretto> mpiano: yep, I'm on it. The USN feed is up-to-date, but CVE and PKG feeds are silently failing
+[09:51] <mpiano> ack, thanks for the confirmation
+[13:34] <ebarretto> mpiano: the new files are there now, I will keep monitoring what's going on 
+[13:35] <mpiano> perfect, thanks again
+=== sam__ is now known as sam_
+[18:12] <Odd_Bloke> o/ Hey folks, I know you most likely aren't responsible for this directly, but figured I'd let you know that USN search is returning 500s (so I've filed https://github.com/canonical/ubuntu.com/issues/14454).
+[18:12] -ubottu:#ubuntu-security- Issue 14454 in canonical/ubuntu.com "'500: Server Error' when searching USNs" [Open]
+[18:49] <oerheks> seems like an CVE, not USN ?
+[18:49] <oerheks> https://ubuntu.com/security/CVE-2018-14454
+[18:49] -ubottu:#ubuntu-security- An issue was discovered in libgig 4.1.0. There is an out-of-bounds read in the function RIFF::Chunk::Read in RIFF.cpp. <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14454>
+[18:50] <oerheks> latest one was in 2023 USN-6262-1 https://ubuntu.com/security/notices?order=newest&release=&details=wireshark
+[18:55] <Odd_Bloke> Thanks!
+[18:56] <oerheks> yw
+=== Juesto is now known as Juest
