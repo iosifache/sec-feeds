@@ -1,0 +1,65 @@
+=== phckopper5 is now known as phckopper
+=== mdeslaur_ is now known as mdeslaur
+[20:00] <rbasak> o/
+[20:00] <seb128> hey
+[20:01] <rbasak> sil2100 isn't here
+[20:01] <rbasak> amurray: around?
+[20:01] <rbasak> I suspect Steve is out
+[20:02] <amurray> o/
+[20:02] <amurray> hey :)
+[20:02] <rbasak> I don't see any recent ML activity.
+[20:04] <rbasak> Looking at IRC logs we skipped the previous meeting on 2024-10-08 as there were only two of us.
+[20:04] <seb128> right
+[20:04] <rbasak> Shall we run through everything quickly as it's been a while?
+[20:04] <rbasak> At least there are three.
+[20:04] <seb128> +1
+[20:05] <rbasak> #startmeeting Ubuntu Technical Board
+[20:05] <meetingology> Meeting started at 20:05:02 UTC.  The chair is rbasak.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[20:05] <meetingology> Available commands: action, commands, idea, info, link, nick
+[20:05] <rbasak> #topic Action review
+[20:05] <rbasak> ACTION: vorlon to look into scripting for packages in flavor-specific overlays
+[20:05] <rbasak> #actionvorlon to look into scripting for packages in flavor-specific overlays
+[20:05] <rbasak> #action vorlon to look into scripting for packages in flavor-specific overlays
+[20:05] <meetingology> ACTION: vorlon to look into scripting for packages in flavor-specific overlays
+[20:05] <rbasak> ACTION: seb128 to continue working with AA and Release teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[20:05] <seb128> carry over please
+[20:05] <rbasak> #action seb128 to continue working with AA and Release teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[20:05] <meetingology> ACTION: seb128 to continue working with AA and Release teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[20:05] <rbasak> ACTION: sil2100 to follow up on the Cinnamon 24.04 LTS Qualification to ensure the listed contacts can action the flavor
+[20:05] <rbasak> #action sil2100 to follow up on the Cinnamon 24.04 LTS Qualification to ensure the listed contacts can action the flavor
+[20:05] <meetingology> ACTION: sil2100 to follow up on the Cinnamon 24.04 LTS Qualification to ensure the listed contacts can action the flavor
+[20:06] <rbasak> ACTION: rbasak to document the third party software sources policy somewhere appropriate
+[20:06] <rbasak> This one is done.
+[20:06] <amurray> \o/
+[20:06] <rbasak> #topic Scan the mailing list archive for anything we missed (standing item)
+[20:06] <rbasak> I didn't see anything
+[20:06] <rbasak> #info Nothing recent on the mailing list that requires attention
+[20:06] <rbasak> #topic Check up on community bugs and techboard bugs
+[20:07] <rbasak> #info No open community bugs
+[20:07] <rbasak> #info One outstanding techboard bugs on DMB member inactivity causing issues
+[20:07] <rbasak> I need to drive that one still.
+[20:07] <rbasak> Nothing else that I can see.
+[20:07] <rbasak> #topic Select a chair for the next meeting (next from https://launchpad.net/~techboard/+members)
+[20:08] <rbasak> #info The next chair will be seb128 with vorlon as backup
+[20:08] <rbasak> #topic AOB
+[20:08] <rbasak> AOB?
+[20:08] <seb128> o/
+[20:08] <seb128> yes, one, the board expire end of decembre ... is that something we should start doing something about?
+[20:09] <rbasak> Ah yes. Good point!
+[20:09] <seb128> like organize elections or something before it's end of year break?
+[20:09] <rbasak> Usually the CC run the TB elections IIRC
+[20:09] <rbasak> Could you take an action item to contact them about it, please?
+[20:09] <seb128> yes
+[20:09] <rbasak> #action seb128 to contact the CC regarding the upcoming TB elections
+[20:09] <meetingology> ACTION: seb128 to contact the CC regarding the upcoming TB elections
+[20:09] <rbasak> Thanks!
+[20:09] <seb128> thx
+[20:09] <rbasak> AOAOB?
+[20:09] <seb128> not from me :)
+[20:09] <amurray> nor from me
+[20:10] <rbasak> #endmeeting
+[20:10] <meetingology> Meeting ended at 20:10:16 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-11-05-20.05.moin.txt
+[20:10] <rbasak> Thanks all!
+[20:10] <seb128> thanks!
+[20:10] <amurray> thanks rbasak
+[20:10] <seb128> efficient meeting today, nice job rbasak  :-)

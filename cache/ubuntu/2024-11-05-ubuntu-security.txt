@@ -1,0 +1,33 @@
+=== Juesto is now known as Juest
+[16:24] <teward> mdeslaur_: other than the random piece of toilet paper on your foot, can you prod IS / Web and tell them they have some major HTTP 500 errors on the CVE search page
+[16:28] <mdeslaur_> teward: I prodded them a year when those errors started
+[16:28] <teward> well they're back,.
+[16:29] <teward> making CVE searching unusable.  Do you know if this is an API level outage or something else?
+[16:29] <mdeslaur_> no idea, sorry
+[16:29] <teward> no worries.  You might want to remove that toilet paper ;)  *hands you your original nick back*
+[16:30] <mdeslaur_> the search here? https://ubuntu.com/security/notices
+=== mdeslaur_ is now known as mdeslaur
+[16:30] <mdeslaur> heh, was wondering what you were talking about :)
+[16:31] <mdeslaur> kind of looks like it's working for me now...
+[16:31] <mdeslaur> at least it didn't explode when I typed in firefox
+[16:32]  * mdeslaur -> lunch
+[16:33] <teward> heh firefox must be a hot topic lately 'cause i kept mentioning it in -devel xD  
+[16:34] <teward> hmm you're right it looks like its working *now*.  IS must be breaking things
+[17:00] <JanC> the packages.u.c site often gets 500 errors too, I wonder if that's related...
+[17:07] <teward> JanC: wouldn't be surprised
+[17:11] <mdeslaur> ah, it's broken now
+[17:11]  * mdeslaur screams swear words while mashing retry button like a maniac
+=== Someguy96 is now known as TooManyHats96
+[19:50] <Odd_Bloke> I reported 500s in here on the 30th too, for reference, and filed https://github.com/canonical/ubuntu.com/issues/14454 at the same time.
+[19:50] -ubottu:#ubuntu-security- Issue 14454 in canonical/ubuntu.com "'500: Server Error' when searching USNs" [Open]
+[19:52] <Odd_Bloke> And, yeah, the failures were intermittent for me also.
+[19:53] <Odd_Bloke> (Can't believe Marc hasn't already attended to this personally ;.; /s)
+[19:53]  * mdeslaur pulls out his "web crap for dummies" book
+[19:54] <mdeslaur> huh, says here the "Information Superhighway" is going to change how business is done
+[19:55] <Odd_Bloke> I would simply not write a 500 status code to the response stream, it would be easy for me.
+[19:55] <mdeslaur> unfortunately, the screaming I did earlier didn't help at all, but now I need to figure out where the cat is hiding
+[19:56] <mdeslaur> Odd_Bloke: hehe
+[19:58] <Odd_Bloke> I hear there's a handy Cat Venue Explorer search box on ubuntu.com, that'll probably help
+[19:59] <mdeslaur> oh, it says 500! that's my cat's name!
+[19:59] <mdeslaur> hehe *sigh*
+[21:01] <Odd_Bloke> ^_^
