@@ -1,0 +1,178 @@
+=== JanC is now known as Guest8898
+=== JanC is now known as Guest9427
+=== JanC is now known as Guest2142
+[15:59] <bdrung> \o
+[15:59] <danilogondolfo> hello there
+[16:00] <teward> bdrung: alive but slow to type due to phone
+[16:00] <rbasak> o/
+[16:02] <utkarsh2102> o/
+[16:03] <utkarsh2102> do we have quorum?
+[16:04] <rbasak> Looks like we do?
+[16:04] <utkarsh2102> should i start?
+[16:04] <teward> yep
+[16:05] <bdrung> schopin has a public holiday today
+[16:05] <teward> but remember my typing is slower since i'm here with my phone not my computer ;)
+[16:05] <utkarsh2102> okeydoke
+[16:05] <utkarsh2102> bdmurray: hey, if you're around :)
+[16:05] <teward> its also technically a holiday here in the states - veterans day - and my office is closed for it
+[16:05] <utkarsh2102> tsimonq2: you too^
+[16:06] <utkarsh2102> #startmeeting Developer Membership Board
+[16:06] <meetingology> Meeting started at 16:06:04 UTC.  The chair is utkarsh2102.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[16:06] <meetingology> Available commands: action, commands, idea, info, link, nick
+[16:06] <utkarsh2102> i'm gonna do the application first
+[16:06] <utkarsh2102> Agenda @ https://wiki.ubuntu.com/DeveloperMembershipBoard/Agenda
+[16:07] <utkarsh2102> #topic Ubuntu Core Dev Applications
+[16:07] <utkarsh2102> #subtopic Danilo Egea Gondolfo
+[16:07] <utkarsh2102> #link https://wiki.ubuntu.com/danilogondolfo/CoreDeveloperApplication
+[16:07] <utkarsh2102> danilogondolfo: hey! please introduce yourself whilst we go through your application
+[16:09] <danilogondolfo> sure :) Hi, I'm Danilo. Been around for 2 years. Until 3 weeks ago I used to work in the Foundations team, mainly in Netplan-related things. I just got transferred to the OCTO team.
+[16:09] <danilogondolfo> I'm still working on Netplan in my new team
+[16:10] <rbasak> o/
+[16:10] <utkarsh2102> danilogondolfo: are you applying for core-dev directly? :)
+[16:10] <rbasak> Do you have any examples of having done Ubuntu package merges that aren't simply carrying forward existing delta that didn't conflict?
+[16:11] <rbasak> (ie. more than what MoM produces)
+[16:11] <danilogondolfo> utkarsh2102, yes, my friends managed to convince me I should go for core-dev after doing a lot of distro working during these years :)
+[16:12] <utkarsh2102> hm, okay
+[16:12] <utkarsh2102> danilogondolfo: also, have you done any SRU apart from netplan*?
+[16:12] <danilogondolfo> rbasak, let me see my list of merges...
+[16:13] <rbasak> danilogondolfo: there doesn't seem to be a list on your application page?
+[16:14] <rbasak> I've been digging through your full sponsorship miner report but I couldn't immediately see any that match the filter I suggest above
+[16:15] <danilogondolfo> rbasak, yeah I might not have worked on super complicated merges yet apparently
+[16:16] <utkarsh2102> err, I don't think those qualify as super complicated :)
+[16:16] <utkarsh2102> they're just not trivial.
+[16:16] <utkarsh2102> danilogondolfo: also, have you done any SRU apart from netplan*?
+[16:16] <rbasak> On SRUs, I had the same question as utkarsh2102
+[16:16] <rbasak> The first non-netplan SRU I found has https://bugs.launchpad.net/ubuntu/+source/ipvsadm/+bug/2071949/comments/18
+[16:16] -ubottu:#ubuntu-meeting- Launchpad bug 2071949 in ipvsadm (Ubuntu Noble) "[SRU] Missing frame pointers on Noble" [Undecided, Fix Released]
+[16:16] <danilogondolfo> utkarsh2102, yes I worked on network-manager SRUs and the ipvs one related to frame-pointers
+[16:17] <danilogondolfo> but indeed, most of them are netplan related
+[16:17] <bdrung> I looked at the ipvsadm SRU and that one looks good to me
+[16:17] <rbasak> For a direct to core dev application I'd expect to see _excellent_ examples of prior work, and that SRU comment suggests to me that you included unexpected additional changes without explanation, which is the opposite of that.
+[16:18] <rbasak> It's OK if that was just one amongst many SRUs, but I can't really count the netplan ones because they are excepted from most usual SRU requirements.
+[16:19] <utkarsh2102> this^
+[16:19] <danilogondolfo> rbasak, yes, I included some changes I initially though would be useful, those were some improvements in the rules file
+[16:20] <utkarsh2102> danilogondolfo: have you done seed changes before? d'you understand how seed/germinate/metapackages work?
+[16:20] <danilogondolfo> well, to be fair not all my netplan SRUs are version updates
+[16:21] <rbasak> danilogondolfo: but with no SRU documentation though
+[16:21] <danilogondolfo> utkarsh2102, no, I have not. I believe I know those work
+[16:22] <danilogondolfo> rbasak, not sure if I followed
+[16:22] <danilogondolfo> I've always done all the paperwork correctly as far as I know
+[16:22] <teward> danilogondolfo: your extra changes werent documented or explained as part of that SRU. Which is opposite of expectations
+[16:23] <teward> thats what Robie is saying
+[16:23] <utkarsh2102> danilogondolfo: can you explain what is Task-Key, Task-Seeds, etc?
+[16:23] <rbasak> danilogondolfo: not all my netplan SRUs are version updates> fair enough - I found https://launchpad.net/ubuntu/+source/netplan.io/0.107-5ubuntu0.1 that lgtm
+[16:24] <rbasak> danilogondolfo: http://launchpadlibrarian.net/739652449/ipvsadm_1%3A1.31-1build3_1%3A1.31-1ubuntu0.1.diff.gz is your initial (sponsored) upload that led to https://bugs.launchpad.net/ubuntu/+source/ipvsadm/+bug/2071949/comments/18. AFAICT, that change came with no SRU justification or explanation except in that changelog entry, contrary to SRU expectations.
+[16:24] <danilogondolfo> utkarsh2102, I'm familiar with the terms from past conversation but I'm afraid I don't remember right now what they are exactl
+[16:24] -ubottu:#ubuntu-meeting- Launchpad bug 2071949 in ipvsadm (Ubuntu Noble) "[SRU] Missing frame pointers on Noble" [Undecided, Fix Released]
+[16:25] <rbasak> danilogondolfo: if I'm mistaken, then please do correct me though!
+[16:25] <danilogondolfo> rbasak, fair enough
+[16:25] <teward> (stepping away for 3 minutes because i have a call i have to take)
+[16:26] <rbasak> danilogondolfo: so we didn't find an example of a non-trivial merge, so let me ask about them instead.
+[16:27] <rbasak> danilogondolfo: if you add a delta to a package in Ubuntu (eg. for +1 maintenance for some package in universe), what's your process for ensuring that the package doesn't languish in the future?
+[16:29] <danilogondolfo> rbasak, unless it is a very ubuntu specific delta, the patch should be sent to Debian and we should communicate with the maintainer to have it incorporated there. This way we can just sync the whole package back in the future
+[16:30] <rbasak> Would you hold up proposed migration in Ubuntu while you wait on a response from a maintainer in Debian?
+[16:31] <rbasak> (let's say you have a patch ready, and it doesn't have wider implications to just apply in Ubuntu)
+[16:32] <danilogondolfo> rbasak, no, waiting for a response can take a unknown amount of time. My experience is that the core-dev will accept merges with the condition we'll keep an eye in the package. For these cases we'll keep an LP bug opened for tracking
+[16:33] <danilogondolfo> fixing the thing on Ubuntu while we wait for Debian might unblock many other things that were waiting on that migration
+[16:33] <rbasak> OK, so let's say that happens, and the package migrates. What do you expect to happen in the future such that the package can be synced in the future, as you suggest above?
+[16:34] <teward> (returned, sorry for my disappearance)
+[16:34] <rbasak> I'm asking specifically about your process to detect that situation when it occurs
+[16:34] <rbasak> ...so that you know to act.
+[16:39] <danilogondolfo> rbasak, I'd track the Debian bug in the LP bug and/or keep an eye on the merge proposal periodically. If there is a new package to be sync while the development window on Ubuntu is opened I'd request a sync. If we are at feature freeze and the thing it not critical I'd wait until the next release. In any case, when a new package is available with the patch, we'll see it in merge-o-matic so we would see it and
+[16:39] <danilogondolfo> investigate the status
+[16:40] <rbasak> OK
+[16:41] <utkarsh2102> how would another person doing the package merge know about all of this?
+[16:42] <rbasak> Possibly the same question: "we would see it" -> who is "we"? What's the process for ensuring that such a package does get attention?
+[16:44] <danilogondolfo> utkarsh2102, well it's a good practice to look at LP bugs when working on a merge. Like, when I start the merge and see a delta I will check if it could be dropped, ideally there will be an LP bug about it with all the details. At least the changelog should point me to the bug report so I can investigate the delta
+[16:45] <rbasak> danilogondolfo: I'm not really seeing the answer I'm looking for, so let me rephrase: how is it that someone doing a package merge for a package in universe where the delta got added as part of +1 maintenance actually ended up looking to merge that package in the first place?
+[16:46] <utkarsh2102> that's pretty much giving it away, Robie :)
+[16:46] <rbasak> I agree it'll show up in MoM. But what's the process for getting from a package being listed in MoM, to someone actually merging it?
+[16:46] <rbasak> Who is responsible?
+[16:46] <danilogondolfo> rbasak, some teams, such as Foundations, have weekly meeting to deal with the archive. It's a collective effort to ensure that things will migrate, FTBFSs are fixed. We also assign bug to teams so people will look at them every week.
+[16:47] <rbasak> danilogondolfo: AFAIK, that doesn't apply to packages in universe though?
+[16:47] <bdrung> danilogondolfo, and for universe packages?
+[16:49] <danilogondolfo> for packages in universe whoever is doing the +1 shift will, eventually, look at them
+[16:49] <utkarsh2102> ok, we're nearing the time limit - I am ready to vote.
+[16:49] <teward> so am I
+[16:49] <utkarsh2102> rbasak, bdrung?
+[16:49] <bdrung> danilogondolfo, imagine you found a bug in glibc while working on netplan and you developed a patch for it. What would be your next steps?
+[16:50] <rbasak> Given the time, I agree we need to move to voting.
+[16:50] <bdrung> (I had no time to place my question)
+[16:50] <utkarsh2102> go on, we'll wait for you :)
+[16:51] <utkarsh2102> given Danilo replies quickly enough ;)
+[16:51] <danilogondolfo> ok, should I answer that one?
+[16:51] <danilogondolfo> ok
+[16:51] <teward> should I answer that one? > yes
+[16:53] <danilogondolfo> bdrung, well, I'd first reach out to the maintainer on Ubuntu as glibc is super important. If the patch is accepted I'd work with them to get it merged in the package and submitted upstream.
+[16:53] <bdrung> danilogondolfo, thanks.
+[16:53] <bdrung> I am ready to vote.
+[16:54] <utkarsh2102> woot
+[16:54] <utkarsh2102> #voters bdrung, rbasak, teward, utkarsh2102
+[16:54] <meetingology> Current voters: bdrung, rbasak, teward, utkarsh2102
+[16:54] <rbasak> -1 reasons to follow
+[16:55] <utkarsh2102> #vote Danilo to get Core Dev rights
+[16:55] <meetingology> Please vote on: Danilo to get Core Dev rights
+[16:55] <meetingology> Public votes can be registered by saying +1, -1 or +0 in channel (for private voting, private message me with 'vote +1|-1|+0 #channelname')
+[16:55] <teward> try that again rbasak :P
+[16:55] <utkarsh2102> rbasak was toooooo eager, tch tch
+[16:55] <rbasak> -1 reasons to follow
+[16:55] <meetingology> -1 reasons to follow received from rbasak
+[16:55] <rbasak> Sorry, busy writing up my rationale!
+[16:58] <utkarsh2102> -1; for a person going to core dev directly, I expect them to be excellent in at least knowing most of the things/terminologies/processes about Ubuntu and demonstrating experience in some of them (ideally, all of them). In your particular case, I didn't see any merges, regular SRUs, etc and also not the answers we were looking for. I think the
+[16:58] <meetingology> -1; for a person going to core dev directly, I expect them to be excellent in at least knowing most of the things/terminologies/processes about Ubuntu and demonstrating experience in some of them (ideally, all of them). In your particular case, I didn't see any merges, regular SRUs, etc and also not the answers we were looking for. I think the received from utkarsh2102
+[16:58] <utkarsh2102> right path foward would be, at least, MOTU -> Core Dev (unless you want to start by netplan PPU). Anyway, we appreciate your work and I'd really like to see you get core-dev soon but I'm afraid there's quite a lot of work needed to get there. Apologies it didn't work out this time.
+[16:59] <rbasak> I need to go very soon so I'll post my rationale now.
+[16:59] <teward> -1 (short rationale to follow)
+[16:59] <meetingology> -1 (short rationale to follow) received from teward
+[17:00] <bdrung> +0 on the plus side: he knows the processes and when to talk to people (glibc example); on the downside: the initial ipvsadm SRU patch were not in the minimal needed version, the amount of packages touched outside of netplan are less widespread than what i like to see on a coredev application.
+[17:00] <meetingology> +0 on the plus side: he knows the processes and when to talk to people (glibc example); on the downside: the initial ipvsadm SRU patch were not in the minimal needed version, the amount of packages touched outside of netplan are less widespread than what i like to see on a coredev application. received from bdrung
+[17:00] <utkarsh2102> #endvote
+[17:00] <meetingology> Voting ended on: Danilo to get Core Dev rights
+[17:00] <meetingology> Votes for: 0, Votes against: 3, Abstentions: 1
+[17:00] <meetingology> Motion denied
+[17:01] <teward> I am not confident in that you have the requisite understanding of package processes and policies. I also don't see requisite experience in merges, standard SRUs, etc. nor answers to questions asked. I agree with utkarsh2102 that you need to go with the path of MOTU -> Core Dev, or just apply for netplan PPU, and show more experience in SRUs, merges, etc. before we can give you unrestricted upload rights.
+[17:01] <teward> unfortunately the vote is not quorate, so we require the vote to be continued to the ML for secondary voting
+[17:01] <rbasak> In general the work that you have done seems excellent. Please keep it up!
+[17:01] <rbasak> I'm not sure you're ready for core dev yet though, which (unfortunately, today) means unsupervised access to upload to the Ubuntu archive.
+[17:01] <rbasak> I'm concerned that you're missing the overall picture of how Ubuntu delta maintainence works. It appears that if you were left unsupervised uploading +1 fixes then these would build up and languish, and Ubuntu users would find packages in releases that are on old versions because they weren't synced or merged when a sync was available.
+[17:01] <rbasak> We can correct this particular understanding right now, but my concern is that all we're doing is a spot check, and similar gaps might also be present in various other aspects of Ubuntu development that we expect core devs to know.
+[17:01] <rbasak> We also didn't see evidence of non-trivial merges, and your recent SRU history is mixed, possibly because your non-exception SRU work is fairly thin.
+[17:01] <bdrung> I was initially on +1, but I changed it to +0 after seing the -1 to make the vote quorate
+[17:01] <rbasak> Unfortunately the necessary discussion there meant that I didn't manage to consider the other aspects I usually look for (https://wiki.ubuntu.com/RobieBasak/DMB/CoreDev).
+[17:01] <rbasak> For a direct to core dev application I expect a particularly strong application. I'm sorry I don't think that's the case here.
+[17:01] <rbasak> Next steps: I don't think there's anything in particular you need to change about what you're doing, except to continuing gaining experience across the archive. What'd I'd like to see in a re-application is a wider and deeper track record of uploads to the main archive component that are more impactful and required deeper review. I appreciate that you're doing this kind of work for netplan already,
+[17:02] <rbasak> but for a core dev application, I think it needs to be much wider than this.
+[17:02] <teward> bdrung: if you're +0 and the three of us are -1, there's still 3 members who can vote +1 and then it ends in a tie.  So we need to have input from the other DMB members to finalize the vote.
+[17:02] <utkarsh2102> #action utkarsh2102 to reply to the thread with the conclusion
+[17:02] <meetingology> ACTION: utkarsh2102 to reply to the thread with the conclusion
+[17:02] <rbasak> teward: I'm not sure about netplan PPU - see the ML thread on "core packages". The question remains open, including on whether netplan would be considered "core" or not. But I don't want to set danilogondolfo up for a netplan PPU only to be blocked by that :-/
+[17:02] <utkarsh2102> teward: i don't think so, it's never going to be quorate
+[17:02] <danilogondolfo> yeah that's cool. I appreciate all the comments
+[17:03] <bdrung> teward, no, we would need to reach +1 in sum (but we can only reach +0 if all 3 remaining members would vote +1)
+[17:03] <utkarsh2102> the max we could get with 3 votes is 0, with -3 right now
+[17:03] <teward> rbasak: good point, but I think if they primarily work with netplan and that's their primary focus, that could be an Exception as they're also on Foundations but you're right.
+[17:03] <rbasak> teward: I would suggest that in the case of a tie, the motion isn't passed and the status quo would remain.
+[17:03] <teward> rbasak: i agree, but that needs defined in our operational spec/docs
+[17:04] <teward> operations / procedures *
+[17:04] <teward> I desperately need more coffee.  *goes to brew some*
+[17:04] <utkarsh2102> anyway, anyway, we're at time. I'll close the meeting now formally.
+[17:04] <utkarsh2102> informal discussions can still happen.
+[17:04] <utkarsh2102> but i'll wait 10 seconds unless someone has some thing they'd like to speak about
+[17:04] <utkarsh2102> 5
+[17:04] <utkarsh2102> 4
+[17:04] <utkarsh2102> 3
+[17:04] <utkarsh2102> 2
+[17:05] <utkarsh2102> 1
+[17:05] <utkarsh2102> #endvote
+[17:05] <meetingology> No vote in progress
+[17:05] <utkarsh2102> crap :P
+[17:05] <danilogondolfo> Thank you all for your time :)
+[17:05] <utkarsh2102> #endmeeting
+[17:05] <meetingology> Meeting ended at 17:05:09 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-11-11-16.06.moin.txt
+[17:05] <teward> ye i think you meant that one utkarsh ;)
+[17:05] <utkarsh2102> danilogondolfo: thank you, see you soon! :)
+[17:05] <utkarsh2102> teward: hehe yeah :)
+[17:06] <utkarsh2102> ok, i ought to drop
+[17:06] <utkarsh2102> see y'all o/
+[17:06] <utkarsh2102> :wq!
+[17:06] <bdrung> This meeting reminds me to respond on the PPU for "core packages" ML thread.
