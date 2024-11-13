@@ -1,0 +1,125 @@
+[15:32] <slyon> o/
+[15:32] <sarnold> good morning
+[15:33] <jbicha> o/
+[15:33] <slyon> do we have any MIR quorum today?
+[15:34] <sarnold> it's looking like no, heh
+[15:34] <joalif> o/
+[15:34] <sarnold> classic irc, say something, and there's a counterexample immediately :)
+[15:35] <slyon> haha, not sure if c_paelzer is around... let me get this started.
+[15:35] <joalif> :D
+[15:35] <sarnold> #startmeeting Weekly Main Inclusion Requests status
+[15:35] <meetingology> Meeting started at 15:35:12 UTC.  The chair is sarnold.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:35] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:35] <sarnold> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( eslerm dviererbe )
+[15:35] <sarnold> #topic current component mismatches
+[15:35] <sarnold> Mission: Identify required actions and spread the load among the teams
+[15:35] <sarnold> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[15:35] <sarnold> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[15:35] <sarnold> wow so much qt6
+[15:36] <slyon> I pushed some seed changes to hopefully get rid of the qt5 & qt6 trees earlier today.
+[15:36] <sarnold> woot
+[15:36] <slyon> Also I cleaned up the sbuild->mmdebstrap and investigated libgit2 (more about this in AOB)
+[15:36] <jbicha> there was a request for an archive admin to demote new gpgme binaries for qt6
+[15:36] <sarnold> tmux to jemalloc, server team ..
+[15:36] <slyon> jbicha: do you have a reference?
+[15:37] <slyon> I added extra includes for the new libqgpgme* packages
+[15:37] <sarnold> i'm always skeptical of packages that "need" a fancy malloc, I hope this can be cleaned up. (nothing against jemalloc..)
+[15:37] <slyon> *extra-excludes
+[15:37] <jbicha> slyon: https://irclogs.ubuntu.com/2024/11/03/%23ubuntu-release.html#t18:38
+[15:37] <slyon> thx
+[15:37] <slyon> cpaelzer: should investigate/delegate tmux
+[15:38] <sarnold> libgit2 -> node-undici looks to be foundations, too? perhaps the http parser gizmo has a new requirement? I had the impression that there might be a good replacement for the http gizmo they were using, so there might be a very nice outcome there..
+[15:39] <sarnold> python-osprofiler -> python-jaeger-client looks like openstack, is that one for jamespage to either file MIRs (my guess) or remove the dep?
+[15:39] <slyon> sarnold: Yes, I updated the attached MIR bug report. lining out 3 options, and would like to get some security team insights about the different approaches
+[15:39] <sarnold> slyon: oh sweet :)
+[15:39] <sarnold> plucky kernel seed feels like an aa thing to handle, another one for cpaelzer in a free moment?
+[15:40] <sarnold> python-pint -> flexcache and flexparser, feels like another jamespage thing to drive
+[15:40] <slyon> ack, or maybe the kernel team themselves? Not sure who handles those usually, but they tend to go away after a while :)
+[15:40] <sarnold> slyon: lol yes :)
+[15:40] <sarnold> logcheck->esmtp feels like it'd be nice to take off the graph this cycle, through whatever means :)
+[15:41] <jamespage> sarnold: probably - I'll take a look this week
+[15:41] <sarnold> jamespage: thanks :)
+[15:42] <sarnold> so .. that leaves the various unapproved MIRs .. we should probably try to figure out where each one of those is at, and see if they need assignment, or a poke, etc
+[15:42] <sarnold> https://bugs.launchpad.net/ubuntu/+source/jpeg-xl/+bug/2070882 and https://bugs.launchpad.net/ubuntu/+source/highway/+bug/2070807 -- looks like these are back to jbicha for the moment
+[15:42] -ubottu:#ubuntu-meeting- Launchpad bug 2070882 in jpeg-xl (Ubuntu) "[MIR] jpeg-xl" [Undecided, New]
+[15:42] <slyon> ACK, we probably want the original MIR reviewer to validate/update the case
+[15:42] -ubottu:#ubuntu-meeting- Launchpad bug 2070807 in highway (Ubuntu) "[MIR] highway" [Undecided, New]
+[15:43] <sarnold> https://bugs.launchpad.net/ubuntu/+source/libgit2/+bug/2080872 is looking for advice, so please everyone give this a look and advise :) https://bugs.launchpad.net/ubuntu/+source/libgit2/+bug/2080872
+[15:43] -ubottu:#ubuntu-meeting- Launchpad bug 2080872 in node-undici (Ubuntu) "replace unmaintained http-parser dependency with llhttp" [Undecided, New]
+[15:43] <jbicha> I believe jpeg-xl & highway are ready. architecture-properties also
+[15:43] <sarnold> https://bugs.launchpad.net/ubuntu/+source/architecture-properties/+bug/2080965
+[15:43] -ubottu:#ubuntu-meeting- Launchpad bug 2080965 in architecture-properties (Ubuntu) "[MIR] architecture-properties" [Low, New]
+[15:44] <slyon> joalif: can you double-check jpeg-xl
+[15:44] <slyon> ?
+[15:44] <sarnold> jbicha: could you add comments to the bugs with the current states? I thought jpeg-xl might still be waiting on security review? (but I haven't really looked in N weeks)
+[15:44] <slyon> I will double-check highway
+[15:44] <slyon> and I will double-check architecture properties
+[15:45] <sarnold> architecture-properties confuses me, there's a bunch of i386 discussion there, but I thought this package was mostly about indicating 64 bit in general, or which flavor of amd64 instruction sets it supports?
+[15:46] <sarnold> well, I might as well put that in the bug, I may not be the only one curious :)
+[15:47] <slyon> sarnold: I think it also provides some "is-32bit" / "is-64bit" (or alike) conditions
+[15:47] <slyon> so would be good to have on i386
+[15:47] <jbicha> slyon: oops, jpeg-xl is blocked for security review, which means highway doesn't need to be promoted yet
+[15:48] <slyon> ok. Let's assign it to ubuntu-security then
+[15:48] <sarnold> cool cool
+[15:48] <sarnold> https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[15:48] <sarnold> all covered
+[15:48] <slyon> ack
+[15:48] <sarnold> maybe we ought to swap the order of these links? heh
+[15:49] <sarnold> #topic New MIRs
+[15:49] <sarnold> Mission: ensure to assign all incoming reviews for fast processing
+[15:49] <sarnold> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[15:49] <sarnold> looks like all four covered already
+[15:49] <sarnold> #topic Incomplete bugs / questions
+[15:49] <sarnold> Mission: Identify required actions and spread the load among the teams
+[15:49] <sarnold> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[15:49] <slyon> I created tracking bug #2087937
+[15:50] -ubottu:#ubuntu-meeting- Bug 2087937 in sbuild (Ubuntu) "[MIR] mmdebstrap" [Undecided, In Progress] https://launchpad.net/bugs/2087937
+[15:50] <slyon> nothing actionable for us. I downgraded the Recommends in sbuild
+[15:51] <sarnold> is ther any appetite for considering a switch to mmdebstrap? I understand it's way faster than debootstrap, and if this unshare mode is nice it might also be an improvement over chroots?
+[15:51] <slyon> I remember some recent discussion in Foundations about using it in ubuntu-image, which was rejected
+[15:51] <slyon> (I can dig up the details, if needed)
+[15:52] <sarnold> it might be nice, I'm probably not the only one curious :)
+[15:52] <slyon> I'll add a link to the LP bug
+[15:52] <joalif> @slyon @jbicha wrt to jpeg-xl it needs a sec review plus highway to promoted
+[15:53] <sarnold> https://bugs.launchpad.net/ubuntu/+source/lenovo-wwan-unlock/+bug/2058192 is coming along nicely, it looks like they made some changes https://github.com/lenovo/lenovo-wwan-unlock/commit/255ec187a428a99710d0e44b165ee95436952830 so that's probably on me to review
+[15:53] -ubottu:#ubuntu-meeting- Launchpad bug 2058192 in OEM Priority Project "[MIR] lenovo-wwan-unlock" [Critical, Confirmed]
+[15:53] -ubottu:#ubuntu-meeting- Commit 255ec18 in lenovo/lenovo-wwan-unlock "An unconfined execute permission is too broad.(#31) (#32)"
+[15:54] <sarnold> https://bugs.launchpad.net/ubuntu/+source/linuxptp/+bug/2071717 looks like it's "back to ther reporter to handle this"? probably we can skip looking at the rest of this list
+[15:54] -ubottu:#ubuntu-meeting- Launchpad bug 2071717 in linuxptp (Ubuntu) "[MIR] linuxptp" [Undecided, Incomplete]
+[15:54] <slyon> nothing new in here ^ needs more work by the OEM team
+[15:54] <sarnold> #topic Process/Documentation improvements
+[15:54] <sarnold> Mission: Review pending process/documentation pull-requests or issues
+[15:54] <sarnold> #link https://github.com/canonical/ubuntu-mir/pulls
+[15:54] <sarnold> #link https://github.com/canonical/ubuntu-mir/issues
+[15:55] <sarnold> I seriously wish for a date from github on most recent change to a thing; anyway it feels like these are fine
+[15:55] <sarnold> #topic MIR related Security Review Queue
+[15:55] <sarnold> Mission: Check on progress, do deadlines seem doable?
+[15:55] <sarnold> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[15:55] <sarnold> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[15:55] <sarnold> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[15:55] <sarnold> Internal link
+[15:55] <sarnold> - ensure your teams items are prioritized among each other as you'd expect
+[15:55] <sarnold> - ensure community requests do not get stomped by teams calling for favors too much
+[15:55] <sarnold> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[15:55] <sarnold> hmm importance sort is probably not the best (it never is)
+[15:57] <sarnold> well, here's hoping that this cycle is more effective than last cycle.. it's sad seeing last cycle's stuff on here :(
+[15:58] <sarnold> I'm concerned about fdk-aac-free -- that code felt pretty abandoned :(
+[15:58] <sarnold> otherwise i'll try to get some traction on these
+[15:59] <sarnold> please do make sure the items in the jira are prioritised appropriately -- we can't always handle them in priority order, since we also try to match who is available with what is available with the time available, etc..
+[15:59] <sarnold> but it certainly helps
+[15:59] <sarnold> so..
+[15:59] <sarnold> #topic Any other business?
+[15:59] <slyon> sarnold: I'd like you input on option A/B/C in https://bugs.launchpad.net/ubuntu/+source/node-undici/+bug/2080872/comments/2 â doesn't need to be ad-hoc, but maybe as a comment on LP
+[15:59] -ubottu:#ubuntu-meeting- Launchpad bug 2080872 in node-undici (Ubuntu) "replace unmaintained http-parser dependency with llhttp" [Undecided, New]
+[16:00] <sarnold> slyon: ack, thanks for the reminder :)
+[16:00] <slyon> basically, we have no proper libllhttp package, so should consider how to vendor it
+[16:00] <sarnold> oh dang, I was hoping it was "replace it with something less weird" :)
+[16:01] <slyon> well... its typescript being transpiled to C and then vendored as a shared object... tell me about weird :)
+[16:01] <sarnold> *shudder*
+[16:02] <sarnold> if that's it...
+[16:02] <sarnold> #endmeeting
+[16:02] <meetingology> Meeting ended at 16:02:04 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-11-12-15.35.moin.txt
+[16:02] <sarnold> thanks all :)
+[16:02] <slyon> thanks sarnold for running the meeting today!
+[16:02] <joalif> thanks all :)
+=== nicoz- is now known as nicoz
