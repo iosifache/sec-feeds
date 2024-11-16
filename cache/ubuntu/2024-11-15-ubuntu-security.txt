@@ -1,0 +1,7 @@
+=== bdrung_ is now known as bdrung
+=== JanC is now known as Guest2773
+[23:42] <hggdh> hello folks; I was looking at https://ubuntu.com/security/CVE-2024-42148 and it states that linux-azure Noble is fixed for it as of 6.8.0-1014.16. Looking at the git for Noble, I cannot find a commit/fix referencing this CVE. Is it really in?
+[23:42] -ubottu:#ubuntu-security- In the Linux kernel, the following vulnerability has been resolved: bnx2x: Fix multiple UBSAN array-index-out-of-bounds Fix UBSAN warnings that occur when using a system with 32 physical cpu cores or more, or when the user defines a number of Ethernet queues greater than or equal to FP_SB_MAX_E1x using the num_queues module parameter. Currently there is a read/writ... <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42148>
+[23:49] <sarnold> hggdh: https://git.launchpad.net/~canonical-kernel/ubuntu/+source/linux-azure/+git/noble/commit/?h=master-next&id=c4f784c426efe41c0ef3fd8a7e25aeda59912a41
+[23:49] -ubottu:#ubuntu-security- Commit c4f784c in ~canonical-kernel/ubuntu/+source/linux-azure/+git/noble "bnx2x: Fix multiple UBSAN array-index-out-of-bounds"
+[23:50] <sarnold> hggdh: the twisty mazes of kernel trees is hard to grok but I think it's covered
