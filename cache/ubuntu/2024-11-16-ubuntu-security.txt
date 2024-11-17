@@ -1,0 +1,11 @@
+[00:05] <hggdh> I know... took me a while to notice that the git tends to rest on master, not on master-next... and master is not always updated
+[00:06] <hggdh> oh, no references to the CVE
+[00:06] <hggdh> sarnold: as always, in your debt sir
+[00:28] <sarnold> hggdh: yeah, the upstream kernel developers assign cves after the fact, so the commit messages usually don't have them, and we've built a lot of machinery to handle the whole thing regardless of commit messages, so we don't go to any effort to add them there, either.
+[00:31] <hggdh> heh, makes sense. I _might_ have another UBSAN (just got the top line in the message, trying to grab mode details): UBSAN: array-index-out-of-bounds in /build/linux-azure-CPySxa/linux-azure-6.8.0/kernel/bpf/lpm_trie.c:194:14
+[00:31] <hggdh> Azure, 24.04, don't know the kernel version string yet, but it is recentish
+[00:35] <sarnold> https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/kernel/bpf/lpm_trie.c#n194
+[00:35] <sarnold> I dunno if it'll be the same line in your kernel, but how far off could it be? heh
+[00:37] <sarnold> .. if i'm reading this correctly, something went off the rails .. it sure looks like they tried to keep from indexing out of bounds
+[00:44] <hggdh> yeah. It very much sounds like related to the loop, and the indexing on the next line. But I would like to have more data -- call trace as well
+=== JanC is now known as Guest3752
