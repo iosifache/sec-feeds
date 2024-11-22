@@ -1,0 +1,82 @@
+=== tsimonq2_ is now known as tsimonq2
+[16:00] <bdrung> \o
+[16:00] <Skia> o7
+[16:00] <r41k0u> o/
+[16:00] <pushkarnk> \o
+[16:00] <uralt> o/
+[16:00] <mkukri> o./
+[16:00] <liushuyu> o/
+[16:01] <andersson123> o/
+[16:01] <enr0n> o/
+[16:01] <tobhe> o/
+[16:01] <juliank> o/
+[16:01] <zhsj> o/
+[16:01] <slyon> o/
+[16:02] <juliank> #startmeeting Weekly Ubuntu Foundations team
+[16:02] <meetingology> Meeting started at 16:02:05 UTC.  The chair is juliank.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[16:02] <juliank> #topic Lightning rounds
+[16:02] <meetingology> Available commands: action, commands, idea, info, link, nick
+[16:02] <juliank> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-2024-11-21/
+[16:06]  * Skia can't stay for the meeting, but feel free to give him a proposed-migration task anyway. He'll be pleased with anything, so if you find something nasty, you can probably throw it at him, I know he won't complain :-)
+[16:06] <schopin> o/
+[16:07] <juliank> All proposed-migration items go to Skia lol
+[16:07] <juliank>  /jk
+[16:07] <schopin> Is that retroactive for stuff already assigned? Asking for a friend...
+[16:08] <adrien> \o
+[16:08]  * Skia is also on PTO tomorrow and Monday, so throwing at him too much work likely won't work :-)
+[16:08] <juliank> ooh me too
+[16:09] <andersson123> Okay, he's gone, start reassigning your cards folks
+[16:10] <adrien> plus he won't notice until Tuesday
+[16:10] <juliank> winner, winner, ticket dinner
+[16:11] <juliank> #topic Release incoming bugs
+[16:11] <juliank> #link http://reports.qa.ubuntu.com/rls-mgr/rls-pp-incoming-bug-tasks.html#foundations-bugs
+[16:12] <juliank> bug 2085142
+[16:12] -ubottu:#ubuntu-meeting- Bug 2085142 in ubuntu-keyring (Ubuntu) "/project/ubuntu-archive-keyring.gpg is outdated" [Undecided, New] https://launchpad.net/bugs/2085142
+[16:12] <juliank> Need to talk to shard holders, should assign to me and tag I guess
+[16:12] <juliank> doing so
+[16:12] <juliank> No point going over this in the team each week
+[16:13] <juliank> #link http://reports.qa.ubuntu.com/rls-mgr/rls-oo-incoming-bug-tasks.html#foundations-bugs
+[16:13] <juliank> empty!
+[16:13] <juliank> #link http://reports.qa.ubuntu.com/rls-mgr/rls-nn-incoming-bug-tasks.html#foundations-bugs
+[16:13] <juliank> only the bug desktop owns
+[16:13] <juliank> #link http://reports.qa.ubuntu.com/rls-mgr/rls-jj-incoming-bug-tasks.html#foundations-bugs
+[16:13] <juliank> empty
+[16:13] <juliank> #link http://reports.qa.ubuntu.com/rls-mgr/rls-ff-incoming-bug-tasks.html#foundations-bugs
+[16:13] <juliank> empty too
+[16:14] <juliank> What is happening?!
+[16:14] <juliank> #topic Team proposed-migration report
+[16:14] <juliank> #link https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses_by_team.html#foundations-bugs
+[16:15] <ginggs> i suggest to skip cmake, it got a new upload today in debian
+=== pushkarnk1 is now known as pushkarnk
+[16:15] <zhsj> maybe no one triages the bugs and adds incoming tags :/
+[16:16] <juliank> pinentry is with dviererbe still
+[16:16] <juliank> setuptools vs scikit-build is with me, sigh
+[16:16] <dviererbe> just waiting for someone to sponsor my MP
+[16:16] <juliank> will sponsor after meeting
+[16:17] <juliank> apport should be with bdrung but doesn't seem to have an active JIRA
+[16:17] <adrien> I made sure that all migrations that were requiring only re-triggers got them
+[16:17] <adrien> that may have lowered the count
+[16:18] <juliank> iputils is with schopin
+[16:18] <juliank> python-attrs is with levihackerman
+[16:18] <juliank> xz-utils is with chrisccoulson
+[16:19] <juliank> packagekit: juliank (side effect of apt transition, and apt lacking symbols for armhf t64 changes)
+[16:21] <juliank> git vs pristine-tar: adrianoco
+[16:22] <juliank> lintian: ginggs
+[16:22] <ginggs> ack
+[16:23] <juliank> gdb: doko - ftbfs on ppc64el
+[16:27] <juliank>  libxml-libxml-perl blocking libxml2: vpa
+[16:27] <juliank>  libxml-libxml-perl blocking libxml2: vpa1977
+[16:28] <juliank> llvm-toolchain-19 doko
+[16:30] <juliank> #topic AOB
+[16:30] <ginggs> merge party!
+[16:30] <ginggs> https://merges.ubuntu.com/universe.html
+[16:31] <mkukri> who's gonna approve grub2 srus now?
+[16:31] <bdrung> I'll be on PTO on Monday and Tuesday
+[16:31] <ginggs> please looks especially where you are TIL
+[16:31] <ginggs> and also take care of those where TIL are no longer around
+[16:31] <slyon> I'll be out Fri & Mon. Also, I'll be moving to the Server team soonish. So... byebye Foundations! o/
+[16:32] <bdrung> slyon, woah. but remember: once Foundations, always Foundations!
+[16:33] <slyon> for sure!
+[16:33] <adrien> slyon <3 and have fun with these weird people
+[16:45] <juliank> #endmeeting
+[16:45] <meetingology> Meeting ended at 16:45:30 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-11-21-16.02.moin.txt
