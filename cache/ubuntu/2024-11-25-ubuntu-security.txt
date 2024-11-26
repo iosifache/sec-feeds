@@ -1,0 +1,23 @@
+=== hgwbzjezmokhepyv is now known as axpphndmpygoodzy
+=== axpphndmpygoodzy is now known as georgiag
+=== cpaelzer_ is now known as cpaelzer
+=== ebarretto_ is now known as ebarretto
+[20:22] <tomreyn> is there a chance that the security.ubuntu.com website could get httpS support sometime? i keep running into trying to access it via httpS and it takes me a while to realize it doesn't support that.
+[20:24] <oerheks> it is, tomreyn https://ubuntu.com/security/notices
+[20:24] <oerheks> Issued On	Thursday, October 31, 2024 at 8:21:37â¯AM
+[20:24] <oerheks> Expires On	Wednesday, January 29, 2025 at 8:21:36â¯AM
+[20:24] <oerheks> SHA-256 Fingerprints
+[20:25] <tomreyn> hmm, so maybe it was just a temporary outage then
+[20:25] <oerheks> yeah, reinstated today
+[20:26] <tomreyn> you mean httpS on security.ubuntu.com?
+[20:26] <oerheks> that redirects to https://ubuntu.com/security/notices
+[20:27] <tomreyn> here's what curl gave me a few minutes ago https://paste.debian.net/plain/1336827
+[20:27] <tomreyn> and it still does
+[20:27] <oerheks> indeed https://security.ubuntu.com/ does not have it, odd
+[20:28] <oerheks> is that url used in software or pages? 
+[20:29] <tomreyn> https://security.ubuntu.com/test ? probably not.
+[20:31] <tomreyn> somehow i tent to think once could access http://security.ubuntu.com/CVE-xxxx-yyyyy and that would redirect to the security tracker, which is actually somewhere on people.ubuntu.com, which i can never remember
+[20:32] <tomreyn> i guess the problem is just me
+[20:41] <tomreyn> and i'm wrong (no longer right) about "actually somewhere on people.ubuntu.com" - sorry.
+[20:45] <oerheks> np :-D
+[20:45] <oerheks> funny it redirected here, immediately
