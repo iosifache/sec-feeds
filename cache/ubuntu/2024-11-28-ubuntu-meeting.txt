@@ -1,0 +1,110 @@
+=== pushkarnk1 is now known as pushkarnk
+[16:00] <bdrung> \o
+[16:00] <mateus-morais> o/
+[16:00] <Skia> o7
+[16:00] <mkukri> o/
+[16:01] <zhsj> o/
+[16:01] <ravikant_> o/
+[16:01] <pushkarnk> o/
+[16:01] <r41k0u> o/
+[16:01] <xypron> o/
+[16:01] <liushuyu> å¢/
+[16:01] <liushuyu> o/
+[16:01] <adrien> \o
+[16:02] <andersson123> o/
+[16:03] <waveform> o.O
+[16:03] <uralt> o/
+[16:04] <dviererbe> o/
+[16:04] <bdrung> #startmeeting
+[16:04] <meetingology> Meeting started at 16:04:44 UTC.  The chair is bdrung.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[16:04] <meetingology> Available commands: action, commands, idea, info, link, nick
+[16:05] <bdrung> #topic Lightning rounds
+[16:05] <bdrung> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-2024-11-28
+[16:15] <bdrung> no questions? ready to move on?
+[16:16] <bdrung> #topic Release incoming bugs
+[16:16] <bdrung> #link http://reports.qa.ubuntu.com/rls-mgr/rls-pp-incoming-bug-tasks.html#foundations-bugs
+[16:17] <bdrung> bug #2089151
+[16:17] -ubottu:#ubuntu-meeting- Bug 2089151 in apt (Ubuntu) "apt-daily and apt-daily-upgrade may never actually run" [Undecided, New] https://launchpad.net/bugs/2089151
+[16:17] <schopin> shall we punt this to next week's meeting?
+[16:18] <bdrung> let's keep it until next week for juliank to be present
+[16:19] <bdrung> bug #2089690
+[16:19] -ubottu:#ubuntu-meeting- Bug 2089690 in rust-sequoia-sq (Ubuntu) "[MIR] rust-sequoia-sq" [Undecided, Incomplete] https://launchpad.net/bugs/2089690
+[16:20] <schopin> That's Julian again, isn't it?
+[16:20] <adrien> too early, needs to be worked on
+[16:20] <adrien> yup
+[16:20] <adrien> we didn't complete the MIR, it's from two days ago I think
+[16:21] <adrien> I'm not sure we have a consensus yet for that
+[16:21] <juliank> o/
+[16:22] <juliank> Yeah I guess next week
+[16:22] <bdrung> okay, moving on
+[16:22] <ravikant_> lets tag todo?
+[16:23] <ravikant_> ah, keep for discussion next week.
+[16:23] <bdrung> #link http://reports.qa.ubuntu.com/rls-mgr/rls-oo-incoming-bug-tasks.html#foundations-bugs
+[16:23] <bdrung> bug #1874927
+[16:23] -ubottu:#ubuntu-meeting- Bug 1874927 in ubuntu-release-upgrader (Ubuntu) "do-release-upgrade's upgradeable package check doesn't consider kept back packages" [Low, Triaged] https://launchpad.net/bugs/1874927
+[16:28] <bdrung> is ignoring phased updates the right approach or do we want users to install the updates ignoring the phase before the upgrade?
+[16:31] <bdrung> juliank will comment on it
+[16:32] <bdrung> #link http://reports.qa.ubuntu.com/rls-mgr/rls-nn-incoming-bug-tasks.html#foundations-bugs
+[16:33] <bdrung> bug #1888347
+[16:33] -ubottu:#ubuntu-meeting- Bug 1888347 in lvm2 (Ubuntu) "blk-availability unmounts filesystems before applications have finished using them" [High, Confirmed] https://launchpad.net/bugs/1888347
+[16:37] <ravikant_> this one is weird, importance is High but the incoming tag was dropped without a comment. could you please triage^?
+=== JanC is now known as Guest723
+[16:41] <schopin> I think it's just a matter of backporting a fix?
+[16:41] <schopin> ... and then do the SRU dance :)
+[16:41] <ravikant_> bdrung: lets re-visit this later?
+[16:41] <bdrung> okay
+[16:41] <bdrung> bug #2088268
+[16:41] -ubottu:#ubuntu-meeting- Bug 2088268 in systemd (Ubuntu) "systemd /tmp cleaning removes files that it shouldn't" [Low, New] https://launchpad.net/bugs/2088268
+[16:42] <ravikant_> schopin: did you find the fix for the previous bug?
+[16:42] <schopin> If you look at the Debian bug it's been closed in a upload. I haven't dug into what they did to fix it.
+[16:43] <ravikant_> schopin: thanks
+[16:44] <schopin> For the last one, personally I'd mark it as Opinion.
+[16:46] <bdrung> then you have to argue against the "security bug" reasoning
+[16:46] <juliank> So, assign it to the security team for security considerations :D
+[16:46] <ravikant_> I think it is waiting for Desktop Packages's opinion
+[16:46] <schopin> I'm with juliank on that one :)
+[16:47] <juliank> set assignee to ~ubuntu-security and ask for opinion?
+[16:48] <bdrung> done
+[16:48] <bdrung> bug #2041518
+[16:49] -ubottu:#ubuntu-meeting- Bug 2041518 in gtk+3.0 (Ubuntu) "/usr/share/apport/apport-gtk:5:_g_log_abort:g_log_writer_default:g_log_structured_array:g_log_structured_array:g_log_structured_standard" [Undecided, New] https://launchpad.net/bugs/2041518
+[16:49] <schopin> Of, that one.
+[16:49] <bdrung> this is still with the desktop team
+[16:49] <bdrung> #link http://reports.qa.ubuntu.com/rls-mgr/rls-jj-incoming-bug-tasks.html#foundations-bugs
+[16:49] <bdrung> bug #2055825
+[16:49] -ubottu:#ubuntu-meeting- Bug 2055825 in apt (Ubuntu) "fips-updates: upgrade from 20.04 to 22.04 fails" [Undecided, Confirmed] https://launchpad.net/bugs/2055825
+[16:52] <bdrung> nothing to do for us?
+[16:53] <juliank> how is it in apt
+[16:54] <juliank> this is kernel, next
+[16:54] <bdrung> removed apt from being affected
+[16:54] <bdrung> bug #2089712
+[16:54] -ubottu:#ubuntu-meeting- Bug 2089712 in pam (Ubuntu) "pam-auth-update --remove doesn't work properly" [Undecided, New] https://launchpad.net/bugs/2089712
+[16:57] <schopin> Reading through, I don't understand if it's a bug or not.
+[16:58] <waveform> seems invalid, but we should verify that before closing
+[16:59] <juliank> I realize now btw the fips upgrade bug is that email thread we got
+[16:59] <juliank> the ask there was to disable updaes on fips focal to jammy
+[17:00] <bdrung> waveform to confirm pam-auth-update behaviour
+[17:00] <waveform> ack
+[17:00] <bdrung> #link http://reports.qa.ubuntu.com/rls-mgr/rls-ff-incoming-bug-tasks.html#foundations-bugs
+[17:00] <bdrung> nothing for us
+[17:00] <bdrung> #topic Team proposed-migration report
+[17:00] <bdrung> #link https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses_by_team.html#foundations-bugs
+[17:01] <juliank> ok
+[17:01] <bdrung> apport and iputils are still with schopin and me
+[17:02] <juliank> python-attrs is with levihackerman
+[17:02] <juliank> gdb with doko
+[17:03] <juliank> boost1.83  vpa1977
+[17:05] <juliank> libgit2 with liushuyu
+[17:07] <juliank> I guess that's all
+[17:07] <juliank> bdrung:
+[17:07] <bdrung> #topic AOB
+[17:08] <bdrung> since we are already over time, speak now or keep your peace forever
+[17:08] <bdrung> 3
+[17:08] <bdrung> 2
+[17:08] <bdrung> 1
+[17:08] <Skia> 4
+[17:08] <bdrung> #endmeeting
+[17:08] <meetingology> Meeting ended at 17:08:35 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-11-28-16.04.moin.txt
+[17:09] <andersson123> o7
+=== dviererbe1 is now known as dviererbe
+=== JanC is now known as Guest7379
+=== JanC is now known as Guest3827
