@@ -1,0 +1,5 @@
+=== tsimonq2_ is now known as tsimonq2
+=== cpaelzer_ is now known as cpaelzer
+=== JanC is now known as Guest4566
+[22:45] <amurray> to avoid this the snap could plug the mount-observe interface - but mozilla would need to make this change themselves upstream - I just filed https://bugzilla.mozilla.org/show_bug.cgi?id=1934713 for this fwiw
+[22:45] -ubottu:#ubuntu-security- Mozilla bug 1934713 in Firefox "Firefox snap AppArmor denial on /etc/fstab when using file chooser dialog" [--, Unconfirmed]
