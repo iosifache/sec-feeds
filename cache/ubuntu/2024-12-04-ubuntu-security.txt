@@ -1,0 +1,8 @@
+[08:01] <klatls> Hi all, where can I find the .der ubuntu certificate for secure boot ?
+[10:54] <klatls> None knows where to find ubuntu .der certificate ? Debian grub menu gives error "bad shim signature" when try to boot ubuntu and I would import the ubuntu certificates in UEFI db
+[11:22] <amurray> klatls: there was a similar question via LP - https://answers.launchpad.net/ubuntu/+question/700326 - I think we have a copy of them in the qa-regression-testing repo https://git.launchpad.net/qa-regression-testing/tree/notes_testing/bootloaders/keys but I am not sure if they are the most recent ones - the best option is to extract them from shim etc
+[11:40] <klatls> amurray: will search on how to excract it
+[11:49] <klatls> amurray: is this recent ?
+[11:49] <klatls> https://git.launchpad.net/ubuntu/+source/shim/tree/debian/
+[12:10] <klatls> when importing it abort with error 
+[12:47] <klatls> amurray: extracted from shimx64.efi thks
