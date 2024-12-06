@@ -1,0 +1,229 @@
+[16:00] <Skia> o7
+[16:00] <mkukri> o/
+[16:00] <liushuyu> o/
+[16:00] <pushkarnk> \o
+[16:00] <bdrung> \o
+[16:00] <ravikant_> o/
+[16:00] <ginggs> o/
+[16:01] <adrien> \o
+[16:01] <juliank> o/
+[16:01] <uralt> o/
+[16:02] <juliank> #startmeeting Weekly Ubuntu Foundations team
+[16:02] <r41k0u> o/
+[16:02] <meetingology> Meeting started at 16:02:29 UTC.  The chair is juliank.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[16:02] <meetingology> Available commands: action, commands, idea, info, link, nick
+[16:02] <juliank> #topic Lightning rounds
+[16:02] <juliank> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-2024-12-05/50606
+[16:02] <andersson123> o/
+[16:03] <mateus-morais> o/
+[16:03] <levihackerman_> o/
+[16:04] <dviererbe> o/
+[16:05] <adrien> I think I was waiting for a sponsor to pick up a changer I never sent...
+[16:06] <mateus-morais> dviererbe I wouldn't know how to say that one time slowly
+[16:06] <dviererbe> :D
+[16:10] <xypron> o/
+[16:16] <juliank> #topic Release incoming bugs
+[16:17] <juliank> #link http://reports.qa.ubuntu.com/rls-mgr/rls-pp-incoming-bug-tasks.html#foundations-bugs
+[16:17] <juliank> bug 2089151
+[16:17] -ubottu:#ubuntu-meeting- Bug 2089151 in apt (Ubuntu) "apt-daily and apt-daily-upgrade may never actually run" [Undecided, New] https://launchpad.net/bugs/2089151
+[16:17] <juliank> This is true and we don't have a clear way to solve this
+[16:18] <juliank> We could run every 5 minutes I guess
+[16:19] <juliank> I'm not sure we should be fetching a lot of data and decompress them using all your CPU cores and whatnot on battery
+[16:19] <adrien> I think it's a pretty common situation in other operating systems: at some point there is an expectation that your machine/device is in a state where background updates can happen
+[16:19] <juliank> If we design a nice daemon we could have it e.g. download 1 package and upgrade that and it rate limits itself when on battery
+[16:20] <bdrung> how about having these services ignore the ConditionACPower=true in case their update was $x days ago and the system is not low on power?
+[16:20] <adrien> but what may want is something that _wait_ for the conditions rather than checks them every n minutes
+[16:20] <juliank> See, ConditionACPower just skips, it doesn't wait
+[16:20] <waveform> indeed, some condition that can check AC or battery >=75% (insert arbitrary level here) rather than straight AC
+[16:21] <juliank> And then we need to stop unattended-upgrades once power level goes low
+[16:21] <juliank> But also we disable suspend
+[16:21] <juliank> In  any case this can't be solved at a bug level, it needs a complete epic and stories
+[16:21] <waveform> true
+[16:22] <adrien> +1
+[16:23] <juliank> tagging it
+[16:25] <juliank> bug 2089690
+[16:25] -ubottu:#ubuntu-meeting- Bug 2089690 in rust-sequoia-sq (Ubuntu) "[MIR] rust-sequoia-sq" [Undecided, Incomplete] https://launchpad.net/bugs/2089690
+[16:25] <juliank> We are writing a spec for it and then we'll do the MIR
+[16:29] <juliank> #link http://reports.qa.ubuntu.com/rls-mgr/rls-oo-incoming-bug-tasks.html#foundations-bugs
+[16:30] <juliank> bug 2085713
+[16:30] -ubottu:#ubuntu-meeting- Bug 2085713 in grub2 (Ubuntu) "package grub-pc 2.12-5ubuntu5 failed to install/upgrade: installed grub-pc package post-installation script subprocess returned error exit status 1" [Undecided, Confirmed] https://launchpad.net/bugs/2085713
+[16:31] <mkukri> this is weird
+[16:31] <mkukri> what's taking the md5sum of a tmpfile
+[16:35] <juliank> I think that's a debconf bug
+[16:35] <juliank> env $ucf_env ucf --three-way --debconf-ok --sum-file=/usr/share/grub/default/grub.md5sum "$tmp_default_grub" /etc/default/grub
+[16:39] <juliank> set to incomplete
+[16:40] <juliank> #link http://reports.qa.ubuntu.com/rls-mgr/rls-nn-incoming-bug-tasks.html#foundations-bugs
+[16:40] <juliank> bug 1888347
+[16:40] -ubottu:#ubuntu-meeting- Bug 1888347 in lvm2 (Ubuntu) "blk-availability unmounts filesystems before applications have finished using them" [High, Confirmed] https://launchpad.net/bugs/1888347
+[16:43] <juliank> There does not seem to be a consensus
+[16:44] <juliank> Tagged incomplete
+[16:44] <juliank> 2090972
+[16:44] <juliank> bug 2090972
+[16:44] -ubottu:#ubuntu-meeting- Bug 2090972 in util-linux (Ubuntu Plucky) "/boot intermittently fails to mount on boot" [High, In Progress] https://launchpad.net/bugs/2090972
+[16:45] <juliank> This is SRU sponsoring request afaict
+[16:47] <juliank> bug 2088268
+[16:47] -ubottu:#ubuntu-meeting- Bug 2088268 in systemd (Ubuntu) "systemd /tmp cleaning removes files that it shouldn't" [Low, New] https://launchpad.net/bugs/2088268
+[16:48] <juliank> security is looking more let's revisit next week
+[16:48] <juliank> Skipping the apport bug that is a gtk bug
+[16:48] <juliank> bug 2083993
+[16:48] -ubottu:#ubuntu-meeting- Bug 2083993 in ubuntu-release-upgrader (Ubuntu) "'Could not calculate the upgrade' while upgrading to 24.04.1" [Undecided, Confirmed] https://launchpad.net/bugs/2083993
+[16:49] <juliank> Skia: what's special about it for tagging?
+[16:51] <Skia> juliank: that's u-r-u, so on us, and this is an `apport-bug` that has a lot of attachements, so we might be able to investigate at least a bit if this was a kinda of regular use, or if that was a completely broken system...
+[16:51] <mkukri> sorry have to drop, but please assign me proposed migration when the meeting gets there
+[16:51] <juliank> Skia: Yes but we  triage those out of band
+[16:53] <liushuyu> also can we assign bug 2041518 to the desktop team so they will see that from their list?
+[16:53] -ubottu:#ubuntu-meeting- Bug 2041518 in gtk+3.0 (Ubuntu) "/usr/share/apport/apport-gtk:5:_g_log_abort:g_log_writer_default:g_log_structured_array:g_log_structured_array:g_log_structured_standard" [Undecided, New] https://launchpad.net/bugs/2041518
+[16:54] <juliank> bug 2055825
+[16:54] -ubottu:#ubuntu-meeting- Bug 2055825 in ubuntu-release-upgrader (Ubuntu Focal) "fips-updates: upgrade from 20.04 to 22.04 fails" [Undecided, New] https://launchpad.net/bugs/2055825
+[16:54] <juliank> liushuyu: they also have an incoming list they see it on
+[16:56] <juliank> #link http://reports.qa.ubuntu.com/rls-mgr/rls-ff-incoming-bug-tasks.html#foundations-bugs
+[16:56] <juliank> bug 2056291
+[16:56] -ubottu:#ubuntu-meeting- Bug 2056291 in libnss-db (Ubuntu) "makedb hangs when a tempfile already exists" [Undecided, Confirmed] https://launchpad.net/bugs/2056291
+[16:57] <juliank> Ugh
+[16:57] <juliank> So kind of the process writing it should take a lock probably
+[16:58] <juliank> Because you need to figure out if the process owning the temporary file is dead before you write to it
+[16:58] <liushuyu> juliank: I see
+[16:58] <juliank> Tagging it todo
+[16:58] <juliank> That said, this happens in unclean shutdowns
+[16:58] <juliank> #topic Team proposed-migration report
+[16:58] <juliank> #link https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses_by_team.html#foundations-bugs
+[17:00] <bdrung> apport vs iputils is still with schopin and me (pending new apport release)
+[17:03] <waveform> python-attrs still with levihackerman
+[17:03] <waveform> gdb's still with doko
+[17:03] <waveform> boost1.83's still with vpa1977
+[17:03] <waveform> libgit2 with liushuyu
+[17:05] <waveform> twisted for sespiros
+[17:06] <waveform> dnspython for adrianoco
+[17:07] <waveform> okay, ignore dnspython as that's part of python3-defaults
+[17:08] <waveform> right, talloc for adrianoco
+[17:08] <waveform> dracut for bdrung
+[17:09] <waveform> openssl is already with adrien
+[17:10] <waveform> debootstrap for chrisccoulson
+[17:10] <adrien> also, openssl has tests failing with python 3.12 and I'm not sure how to handle them since there is python3.13 too: should I just ignore them and wait for python3.13 to be ready?
+[17:11] <waveform> pyopenssl vs freedombox for mkukri
+[17:12] <juliank> I think it's back to me
+[17:12] <juliank> #topic AOB
+[17:13] <juliank> Send a . if you have some now
+[17:13] <juliank> 5
+[17:13] <juliank> 4
+[17:13] <juliank> 3
+[17:13] <juliank> 2
+[17:13] <juliank> 1!
+[17:13] <juliank> 0!
+[17:13] <juliank> #endmeeting
+[17:13] <meetingology> Meeting ended at 17:13:50 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-12-05-16.02.moin.txt
+[17:13] <adrien> thanks, see you o/
+[17:14] <r41k0u> o7
+[19:50] <lucyllewy> ð
+[19:56] <Wild_Man> hello andrew_46
+[19:56] <andrew_46> Wild_Man: hello!
+[19:56] <lucyllewy> goooooood evening
+[19:56] <andrew_46> lucyllewy: evening
+[19:56] <Wild_Man> hi lucyllewy
+[19:56] <Kilos> hi andrew_46
+[19:56] <andrew_46> Kilos: hi
+[19:57] <Bashing-om> Welcome andrew_46 :D
+[19:57] <Wild_Man> I plan to chair even though I am out of practice if no board member objects, I have been practicing
+[19:58] <andrew_46> Bashing-om: Thanks
+[19:58] <lucyllewy> awesome
+[19:59] <Kilos> lucyllewy  you arent in the rmb channel
+[19:59] <Bashing-om> Wild_Man: Sure = you chair - I did prior prudent planning however in the event you do not chair :D
+[19:59] <Kilos> all yours Wild_Man
+[20:00] <Wild_Man> One sec
+[20:01] <Wild_Man> #startmeeting Hello and welcome to the Ubuntu Membership Review Board meeting for 5 December 2024. The wiki page for the Review Boards is available here: https://wiki.ubuntu.com/Membership/Boards
+[20:01] <meetingology> Meeting started at 20:01:07 UTC.  The chair is Wild_Man.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[20:01] <meetingology> Available commands: action, commands, idea, info, link, nick
+[20:01] <Wild_Man> You have signed the Code of Conduct. Do you affirm that you have read and understood the whole document, and do you agree to be bound by the terms for the duration of your membership should it be granted?
+[20:02] <andrew_46> Yes I have read and understand the whole document and I agree to be bound
+[20:02] <Wild_Man>  We will attempt to get through all the applicants that have added themselves to that list, or posted a thread to the Ubuntu Discourse, before today's meeting. If we are unable to make it through the complete list due to time constraints, then at the next meeting we will pick up where we left off.
+[20:02] <Kilos> great
+[20:02] <lucyllewy> ðð»
+[20:03] <Wild_Man> The format for the meeting is as follows: We will go through the list of applicants one by one, by date of application (FIFO).
+[20:03] <Wild_Man> Each applicant should introduce themselves (1-5 sentences) and
+[20:03] <Wild_Man> provide links to their Ubuntu Wiki page or Ubuntu Discourse thread. After the introduction, the members of the Membership Review Board will review the pages and, if needed, ask the applicant further questions.
+[20:03] <Wild_Man> During this time, it is encouraged for other members of the community to show their support for the applicant. Do not be alarmed if the members of the Membership Review Board are quiet during this time; they are reading wiki/launchpad/forum/other pages and deciding how they are going to vote.
+[20:04] <Wild_Man> When the board is ready to vote, they will publicly vote in the channel with either +1, 0, or -1 (for membership, abstain, and against membership, respectively). If most of the voting board members vote +1, then the applicant is now an official Ubuntu member! (Feel free congratulate them!)
+[20:04] <Wild_Man> Now, with any further ado, let's get started with the first applicant...
+[20:04] <Wild_Man> #topic andrew_46
+[20:05] <Wild_Man> So, first up we have andrew_46, could you please introduce yourself to the board, share your pre-written statement, and share the links to your wiki page and launchpad accountâ¦
+[20:06] <andrew_46> Hi! I am commonly known as andrew.46 and I am here to apply for Ubuntu Membership. A membership I allowed to lapse some years ago
+[20:06] <andrew_46> I have a Discourse application here:
+[20:06] <andrew_46> https://discourse.ubuntu.com/t/andrew-strong-andrew-46-membership-application/49833
+[20:06] <andrew_46> and a Launchpad page here:
+[20:07] <andrew_46> https://launchpad.net/%7Eandrew-david-strong
+[20:07] <andrew_46> I had a long history with the Ubuntu Forums where I wrote many guides and became a part of the Ubntu Community.
+[20:08] <andrew_46> After some time away from that Community I returned to Ask Ubuntu where eventually I became a moderator
+[20:08] <andrew_46> https://askubuntu.com/users/57576/andrew-46
+[20:08] <andrew_46> And have worked there steadily for about 2 years
+[20:09] <lucyllewy> lapsed..? ð± *insert Simpson's "that's a paddlin'" meme here (I'm being silly - really happy to see you reapply)
+[20:09] <andrew_46> And my Forums id:
+[20:09] <andrew_46> https://ubuntuforums.org/member.php?u=208550
+[20:10] <andrew_46> Oops, more than 5 sentences :)
+[20:10] <lucyllewy> :P
+[20:10] <andrew_46> lucyllewy: Thanks
+[20:11] <fenris> you may have more than 5 sentences :)
+[20:11] <Kilos> we forgive
+[20:12] <Wild_Man> That is because you have a long history andrew_46
+[20:12] <andrew_46> It has been many years now
+[20:12] <Kilos> yip, old member that went astray
+[20:12] <lucyllewy> huff. honestly. can't sum up two decades of work in 5 sentences? what is the world coming to :P
+[20:13] <Wild_Man> #voters Wild_Man Kilos Bashing-om lucyllewy fenris
+[20:13] <meetingology> Current voters: Bashing-om, Kilos, Wild_Man, fenris, lucyllewy
+[20:14] <fenris> @andrew_ : mind to share whats your coming plan on contributing ? are you plan to contribute with other projects ?
+[20:15] <andrew_46> fenris: I have a deep suspicion with the current turbulence on Ask Ubuntu that my focus will be there for the next few years
+[20:15] <andrew_46> Specifically the trouble with the owning company and the arrival of AI
+[20:16] <andrew_46> But I am retired and will be available for other work when this has settled down
+[20:17] <andrew_46> That may take a while :)
+[20:17] <Bashing-om> andrew_46: http://www.andrews-corner.org/ubuntu/irssi.html - Is now updated to current ?
+[20:17] <fenris> hoping that you have something that will help the community with the suspicion
+[20:18] <andrew_46> Bashing-om: There should be a 404 on that one, I moved that one to the Ubuntu Forums I think a whle back?
+[20:18] <lucyllewy> can confirm.- it goes to 404
+[20:18] <Kilos> yip
+[20:18] <Bashing-om> andrew_46: Good works :D
+[20:19] <andrew_46> I think there is not much Ubuntu material on that web site any more
+[20:21] <andrew_46> Some became outdated, some went to the Forums and some went to the Ubuntu Community Wiki
+[20:22] <Bashing-om> andrew_46: Ubuntu Forums soon goes read only - any plans for your post maintenance ?
+[20:23] <andrew_46> Bashing-om: I have been pretty inactive on the Forums for some time now. Certain of the guides that I wrote I can repurpose to Ask Ubuntu and some would be suitable for my web site
+[20:23] <Wild_Man> andrew_46, anyone with old guides on the forum can move them to discourse and update them
+[20:24] <andrew_46> Some might be better to sleep, read only
+[20:24] <andrew_46> Wild_Man: That is something I had not considered yet
+[20:24] <andrew_46> The Usenet and mutt material would be best left
+[20:25] <Wild_Man> the forum goes read only the 12th of January if not sooner
+[20:25] <andrew_46> Wild_Man: End of an era
+[20:25] <andrew_46> and the beginning of a new one
+[20:26] <andrew_46> There is a section on Discourse for such guides?
+[20:26] <Bashing-om> End of era == Clean out the trash :P
+[20:26] <mapreri> here!
+[20:26] <Wild_Man> #vote on andrew_46 membership application
+[20:26] <meetingology> Please vote on: on andrew_46 membership application
+[20:26] <meetingology> Public votes can be registered by saying +1, -1 or +0 in channel (for private voting, private message me with 'vote +1|-1|+0 #channelname')
+[20:27] <Wild_Man> +1
+[20:27] <meetingology> +1 received from Wild_Man
+[20:27] <lucyllewy> +1 I can't say enough about how invaluable folks are that work on the forums and askubuntu and related spaces. I'm really happy to be here to give a +1 vote on your membership reapplication. But don't let us catch you accidentally lapsing your membership again, now, y'hear? *bops you on the noggin with a party balloon* :P
+[20:27] <meetingology> +1 I can't say enough about how invaluable folks are that work on the forums and askubuntu and related spaces. I'm really happy to be here to give a +1 vote on your membership reapplication. But don't let us catch you accidentally lapsing your membership again, now, y'hear? *bops you on the noggin with a party balloon* :P received from lucyllewy
+[20:27] <Kilos> +1 Glad to  have you back
+[20:27] <meetingology> +1 Glad to  have you back received from Kilos
+[20:27] <Bashing-om> +1 - continued contributions that are significant in many roles.
+[20:27] <meetingology> +1 - continued contributions that are significant in many roles. received from Bashing-om
+[20:27] <fenris> +1 glad to have you back and continued contributing to the Ubuntu project
+[20:27] <meetingology> +1 glad to have you back and continued contributing to the Ubuntu project received from fenris
+[20:28] <Wild_Man> #endvote
+[20:28] <meetingology> Voting ended on: on andrew_46 membership application
+[20:28] <meetingology> Votes for: 5, Votes against: 0, Abstentions: 0
+[20:28] <meetingology> Motion carried
+[20:28] <andrew_46> Thanks all!!
+[20:28] <Kilos> congrats andrew_46
+[20:28] <Wild_Man> topic Congratulations to all the new members. Don't forget to check the perks at https://wiki.ubuntu.com/Membership#The_Perks and once you've been added to the members group remember to apply for your certificate at https://forms.canonical.com/certificate/
+[20:28] <lucyllewy> congratulations
+[20:28] <fenris> congrats andrew and welcome back
+[20:29] <Wild_Man> our @ubuntu.com email address will go live within 48 hours. Do NOT set it as your primary launchpad.net email address because that will cause emails to loop forever and you'll never receive them!
+[20:29] <Bashing-om> congrats !!
+[20:29] <andrew_46> A good feeling. Thanks for making the whole process painless
+=== tsimonq2_ is now known as tsimonq2
+[20:29] <Wild_Man> Congratulations andrew_46
+[20:29] <andrew_46> Wild_Man: I was nervous :)
+[20:30] <Wild_Man> andrew_46, I understand
+[20:30] <Wild_Man> #endmeeting
+[20:30] <meetingology> Meeting ended at 20:30:40 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-12-05-20.01.moin.txt
+[20:32] <andrew_46> Thanks all and doubtless see many of you around :)
+=== JanC is now known as Guest3359
