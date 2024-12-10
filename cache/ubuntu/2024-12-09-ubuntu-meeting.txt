@@ -1,0 +1,138 @@
+=== arif-ali_ is now known as arif-ali
+[16:00] <bdrung> \o
+[16:00] <rbasak> o/
+[16:13] <schopin> o/ (but DST messed me up, I'll be fairly passive)
+[16:17] <bdrung> 3 is not enough to be quorate
+[16:32] <bdrung> 30min passed an we are not quorate, the agenda mentions no chair
+[16:34] <teward> i'm here now
+[16:34] <teward> but i was busy AF with a call with my CEO at $DAYJOB
+[16:34] <teward> and yeah i can't avoid when the CEO calls :P
+[16:34] <bdrung> 4 people. we can start. who wants to chair?
+[16:35] <teward> guess i can but give me a moment to login on my PC
+[16:35] <bdrung> thanks
+[16:35] <teward> don't want to chair from my phone
+[16:37] <teward> #startmeeting Developer Membership Board Meeting - 2024-12-09
+[16:37] <meetingology> Meeting started at 16:37:06 UTC.  The chair is teward.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[16:37] <meetingology> Available commands: action, commands, idea, info, link, nick
+[16:37] <teward> #chair teward bdrung rbasak schopin
+[16:37] <meetingology> Current chairs: bdrung, rbasak, schopin, teward
+[16:37] <schopin> that's a lot of chairs?
+[16:37] <teward> Hello, welcome to the December 9th, 2024 meeting for the Developer Membership Board
+[16:38] <teward> because we're 40 minutes overdue I'm going to move some things around.
+[16:38] <teward> #topic Ubuntu Core Developer Applications
+[16:38] <teward> #subtopic Ubuntu Core Developer Application for Dave Jones (waveform)
+[16:39] <teward> #link https://wiki.ubuntu.com/DaveJones/CoreDevApplication
+[16:39] <waveform> Hello!
+[16:39] <teward> waveform: if you're around, say hi, and introduce yourself while we read your application
+[16:39] <teward> schopin: gives all DMB members present the ability to interact with the bot's commands, you're right it's a lot of chairs, it's a force of habit for me in case I go AWOL to designate others.
+[16:40] <schopin> oh, that's smart.
+[16:40] <waveform> Hi, I'm Dave Jones, foundations member for ... erm ... 6-ish years, and developer of several pi-related things. I would've typed more but had this meeting down for an hour from now! So, organized as ever
+[16:41] <bdrung> waveform, is that a demonstration that you failed handling time zones? So do you want to do the next tzdata release? ;)
+[16:41] <teward> hah
+[16:42] <waveform> yes and no :)
+[16:42] <waveform> and you clearly shouldn't trust me with it!
+[16:42] <schopin> I did some tzdata uploads, and yet my calendar is the same as yours ;)
+[16:42] <bdrung> waveform, you cannot break it worse than me!
+[16:42] <teward> let me note ahead of time that rbasak has stated they will be abstaining from the vote as a DMB member as there's a personal friendship Conflict of Interest at play
+[16:43] <teward> (yes i read)
+[16:43] <schopin> rbasak: would you vote to reach quorum if need be?
+[16:43] <teward> i'm familiar with waveform's work so i don't have any questions but I open the floor to questions from other DMB members
+[16:44] <teward> waveform: thanks for the quick introduction :)
+[16:45] <bdrung> I'll give you the edge to ask question (hiding that I have none).
+[16:45] <waveform> no problem! (he says quickly dumping rpi gpio logic out of his head and trying to swap in packaging knowledge)
+[16:46] <bdrung> (I would have rpi related question, but they are not related to this meeting)
+[16:46] <teward> bdrung: at least you know who to direct the questions to now xD
+[16:47] <teward> schopin: any questions for waveform?
+[16:47] <teward> if not i'm just going to move on for time's sake to the vote.  rbasak if you want to vote to make sure quorum is reached you're allowed despite your desire to abstain :P
+[16:47] <bdrung> teward, I have known that for much longer. waveform is a colleague in the Foundations team.
+[16:47] <teward> :P
+[16:48]  * schopin is still on the floor from waveform's application.
+[16:48] <schopin> I don't have any questions.
+[16:48] <waveform> I said someone should pick him up...
+[16:49] <bdrung> I worked enough with waveform to judge his work. He shows that he knows a lot of corners of Ubuntu. Asking questions where I know that he knows the answer is pointless.
+[16:50] <teward> then i'll move on to the vote for time's sake
+[16:50] <teward> #vote Core Developer rights for Dave Jones (waveform)
+[16:50] <meetingology> Please vote on: Core Developer rights for Dave Jones (waveform)
+[16:50] <meetingology> Public votes can be registered by saying +1, -1 or +0 in channel (for private voting, private message me with 'vote +1|-1|+0 #channelname')
+[16:50] <teward> #votesrequired 4
+[16:50] <meetingology> Votes now need 4 to be passed
+[16:50] <teward> #voters schopin bdrung teward rbasak
+[16:50] <meetingology> Current voters: bdrung, rbasak, schopin, teward
+[16:51] <teward> +1
+[16:51] <meetingology> +1 received from teward
+[16:51] <bdrung> +1 (see my last comment)
+[16:51] <meetingology> +1 (see my last comment) received from bdrung
+[16:51] <rbasak> I'm going to abstain, but if everyone else is +1, and it goes to the mailing list and nobody else has a contrary opinion, then I'll settle it with a +1. I hope that's an appropriate balance between the need to make progress and a conflict of interest.
+[16:51] <teward> rbasak: yep, that should be fine
+[16:51] <teward> schopin: ?
+[16:51] <schopin> +1
+[16:51] <meetingology> +1 received from schopin
+[16:52] <rbasak> (Since I endorsed, I'm obviously in favour so it's also pointless me asking questions to satisfy myself)
+[16:52] <teward> #info rbasak abstained from voting in the DMB meeting itself
+[16:52] <teward> #endvote
+[16:52] <meetingology> Voting ended on: Core Developer rights for Dave Jones (waveform)
+[16:52] <meetingology> Votes for: 3, Votes against: 0, Abstentions: 0
+[16:52] <meetingology> Motion denied
+[16:52] <teward> so that says motion denied, ignore it
+[16:53] <teward> waveform: you have +3 here, with an abstension from Robie. We're going to have to take kthis to the mailing list to get non-present DMB members to vote on this, we'll have to circle back and let you know how that turns out
+[16:53] <bdrung> waveform, did you mop the floor with schopin or why is he on the floor?
+[16:53] <waveform> no problem!
+[16:53] <waveform> bdrung, read the first para of the application :)
+[16:53] <teward> #action Complete Core Dev Application for Dave Jones (waveform) vote via Mailing List
+[16:53] <meetingology> ACTION: Complete Core Dev Application for Dave Jones (waveform) vote via Mailing List
+[16:54] <liushuyu> Does the current DMB meeting have one more slot (so that I won't have to wait until year 2025)?
+[16:54] <schopin> liushuyu: no, we're very close to ENOTIME
+[16:54] <bdrung> waveform, I read that but I miss what you want to reference there.
+[16:54] <teward> schopin: bdrung: rbasak: do you have more time to review liushuyu's application or shall we wait to the next slot (2025)
+[16:54] <teward> we have only 6 minutes left in the normal time slot, i was 30min  delayed due to DAYJOB
+[16:54] <waveform> bdrung, oh -- I was merely referring to the fact he would be astonished by the fact I was applying
+[16:54] <bdrung> I have enough time
+[16:55] <rbasak> I don't have time, sorry.
+[16:55] <waveform> (having dodged it for years!)
+[16:55] <liushuyu> I see. See you in Jan 2025 then
+[16:55] <teward> liushuyu: the next DMB meeting if it were in December would be right in the middle of the holidays, so we unanimously decided to not have an extra December meeting, and we're not quorate for oa meeting for your items, so we'll see you in January 2025
+[16:56] <teward> #topic Previous Action Items
+[16:56] <teward> #subtopic teward follow up to get all application process wiki/docs to explain the process to be able to edit wiki pages, for applicants who don't yet have wiki edit access (carried over)
+[16:56] <teward> yes that's staying carried over
+[16:56] <teward> #action teward follow up to get all application process wiki/docs to explain the process to be able to edit wiki pages, for applicants who don't yet have wiki edit access (carried over)
+[16:56] <meetingology> ACTION: teward follow up to get all application process wiki/docs to explain the process to be able to edit wiki pages, for applicants who don't yet have wiki edit access (carried over)
+[16:56] <teward> #topic AOB
+[16:56] <teward> #subtopic: Next meeting date - January 1st, 2025
+[16:56] <teward> oops
+[16:56] <teward> #subtopic Next meeting date - January 1st, 2025
+[16:57] <teward> our next meeting is in January, on January 8th, 2025
+[16:57] <teward> ffs #subtopic Next meeting date - January 8th, 2025
+[16:57] <teward> #subtopic Next meeting date - January 8th, 2025
+[16:57] <liushuyu> Another issue is the calendar for DMB meeting might not be correct
+[16:57] <bdrung> teward, https://wiki.ubuntu.com/DeveloperMembershipBoard/Agenda says 2025-01-06
+[16:57] <teward> blah i can't read it's 6th
+[16:57] <teward> too much data in the agenda page
+[16:58] <teward> #subtopic Next meeting date - January 6th, 2025 (ignore all other AOB items on this)
+[16:58] <teward> i need more coffee too
+[16:58] <teward> anything else for today?
+[16:58] <bdrung> I am not sure if I can make it on 2025-01-06. I'll be the last day of my vacation.
+[16:58] <liushuyu>  https://wiki.ubuntu.com/DeveloperMembershipBoard/Agenda says 2025-01-06 > That table was added by me, so might not be 100% correct
+[16:59] <bdrung> the first quarter of the table looks correct to me
+[17:00] <teward> if there's any issues we can always adjust the list
+[17:00] <teward> but if all looks good then that's fine.
+[17:00] <teward> if there's nothing else from anyone...
+[17:01] <teward> 5
+[17:01] <teward> 4
+[17:01] <teward> 3
+[17:01] <teward> 2
+[17:01] <teward> 1
+[17:01] <teward> #endmeeting
+[17:01] <meetingology> Meeting ended at 17:01:08 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-12-09-16.37.moin.txt
+[17:01] <teward> i'mma go bash my head on Python stuff again
+[17:02] <teward> see ya
+[17:02] <bdrung> thanks for hosting. time to grab some food...
+[17:03] <teward> actually food sounds good.  *borrows $20US from bdrung's wallet for food*
+[17:03] <bdrung> teward, sorry. I don't have dollar bills in my wallet :p
+[17:03] <teward> that's fine you've probably got **credit cards** or **debit cards** somewhere :p
+[17:04]  * teward just waits for Canonical EA Group to reimburse his expenses
+[17:04]  * bdrung removes debig card from wallet.
+[17:04] <teward> (from the Summit)
+[17:04] <bdrung> back to the DMB topic: 2025-06-09 collides with Whit Monday
+[17:07] <liushuyu> The calendar feed at https://fridge.ubuntu.com/calendars/fridge/ will then be incorrect, because it says the next DMB meeting will be Jan 2nd, 2025
+[17:16] <teward> Fridge isn't controlled by the DMB though, it's nontrivial to update that
+[17:16] <teward> i forget who all handles the Fridge calendar
