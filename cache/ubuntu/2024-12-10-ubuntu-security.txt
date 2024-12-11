@@ -1,0 +1,39 @@
+=== JanC is now known as Guest3012
+=== JanC is now known as Guest4670
+=== JanC is now known as Guest1329
+[13:51] <ahasenack> hi #security
+[13:51] <ahasenack> just wondering if you were aware of a recent change in src:iputils
+[13:52] <ahasenack> tl;dr /usr/bin/ping used to have a NET_RAW capability, which allowed ping to work for non-privileged users. Latest upload dropped that capability, and ping now only works for root,
+[13:52] <ahasenack> or for users with groups in the net.ipv4.ping_group_range setting
+[13:52] <ahasenack> a lot of our dep8 tests failed (i.e., caught this)
+[13:53] <ahasenack> and there is some scrambling going on to set that proc setting to 0-2*31
+[13:53] <ahasenack> but that doesn't work well in containers, where we don't have that full range of gids available, due to gid/uid mapping
+[13:53] <ahasenack> and we are wondering if this change overall was a good choice
+[13:54] <ahasenack> I understand NET_RAW is way more than just allow icmp pings, so from that POV it sounds a good change to drop it
+[13:54] <ahasenack> but... doesn't look like it was well thought
+[13:54] <ahasenack> and we are wondering about reverting it, as long as the iputils code also didn't drop certain safety checks it might have had in place because it knew it was running with NET_RAW
+[13:54] <ahasenack> thoughts?
+[13:54] <ahasenack> lemme get some pointers
+[13:55] <ahasenack> https://bugs.launchpad.net/ubuntu/+source/iputils/+bug/2089938
+[13:55] -ubottu:#ubuntu-security- Launchpad bug 2089938 in iputils (Ubuntu) "iputils 3:20240905-1 doesn't work for unprivileged users" [Undecided, New]
+[13:55] <ahasenack> https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1085289
+[13:55] -ubottu:#ubuntu-security- Debian bug 1085289 in src:backuppc "Please set net.ipv4.ping_group_range sysctl in autopkgtests" [Serious, Open]
+[14:00] <mdeslaur> eww
+[14:01] <mdeslaur> ping has been audited to death, I'm totally  ok with reverting the change for now
+[14:07] <ahasenack> schopin: ^
+[14:08] <ahasenack> unless there are code changes because of this
+[14:08] <ahasenack> I'm not sure if this was just a packaging change
+[14:08] <ahasenack> or something driven by upstream
+[14:08] <schopin> ahasenack: I'll check it out and write it down on the bug.
+[14:10] <schopin> My guess is that there was no associated upstream change, since Fedora and OpenSUSE have had the ping_ip_range setting for that very reason for a few years already.
+[14:10] <schopin> But I'll make sure.
+[14:11] <mdeslaur> nothing stands out in code changes or upstream changelog
+=== JanC is now known as Guest3444
+[14:23] <schopin> The code change that allows for dropping setcap is this one: https://github.com/iputils/iputils/commit/87dbb3a5db657d5eae6934707beaf0507980a1c3 merged almost 10 years ago.
+[14:23] -ubottu:#ubuntu-security- Commit 87dbb3a in iputils/iputils "This patch allows running ping and ping6 without root privileges on"
+[14:23] <schopin> I think we're safe :)
+=== JanC is now known as Guest9590
+=== JanC is now known as Guest9046
+[15:02] <mdeslaur> ah, nice :)
+=== JanC is now known as Guest8560
+=== JanC is now known as Guest7654

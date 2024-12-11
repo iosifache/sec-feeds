@@ -1,0 +1,138 @@
+=== JanC is now known as Guest4670
+=== JanC is now known as Guest1329
+=== JanC is now known as Guest3444
+=== JanC is now known as Guest9590
+=== JanC is now known as Guest9046
+=== JanC is now known as Guest3297
+=== dviererbe1 is now known as dviererbe
+[15:29] <cpaelzer> o/
+[15:30] <cpaelzer> #startmeeting Weekly Main Inclusion Requests status
+[15:30] <meetingology> Meeting started at 15:30:00 UTC.  The chair is cpaelzer.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:30] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:30] <cpaelzer> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( eslerm dviererbe )
+[15:30] <sarnold> good morning
+[15:31] <slyon> o/
+[15:31] <dviererbe> o/
+[15:32] <cpaelzer> hidiho, let's go
+[15:32] <cpaelzer> #topic current component mismatches
+[15:32] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[15:32] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[15:32] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[15:32] <cpaelzer> plucky-release looks fine
+[15:32] <cpaelzer> jemallox goes on, notihng new on jpeg-xl yet
+[15:32] <cpaelzer> the python things around openstack slowly become MIRs to review (one is in unapproved now)
+[15:32] <cpaelzer> that is it
+[15:33] <cpaelzer> no action from component mismatches this time AFAICS
+[15:33] <sarnold> quiet .. must be december
+[15:33] <cpaelzer> it is
+[15:33] <cpaelzer> #topic New MIRs
+[15:33] <cpaelzer> Mission: ensure to assign all incoming reviews for fast processing
+[15:33] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[15:33] <cpaelzer> empty
+[15:33] <jamespage> o/
+[15:33] <cpaelzer> #topic Incomplete bugs / questions
+[15:33] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[15:33] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[15:34] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/gnupg2/+bug/2089690 is resolved for now, now new updates since
+[15:34] -ubottu:#ubuntu-meeting- Launchpad bug 2089690 in rust-sequoia-sq (Ubuntu) "[MIR] rust-sequoia-sq" [Undecided, Incomplete]
+[15:34] <cpaelzer> and one that might become a MIR
+[15:34] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/python-legacy-cgi/+bug/2089244
+[15:34] -ubottu:#ubuntu-meeting- Launchpad bug 2089244 in python-legacy-cgi (Ubuntu) "[MIR] python-legacy-cgi" [Undecided, Incomplete]
+[15:34] <cpaelzer> but then it likely is a fast-path as the code was in main if I read doko's comment right
+[15:34] <cpaelzer> still, as long as it is in TBC I'd hold back our action
+[15:35] <cpaelzer> #topic Process/Documentation improvements
+[15:35] <cpaelzer> Mission: Review pending process/documentation pull-requests or issues
+[15:35] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/pulls
+[15:35] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/issues
+[15:35] <sarnold> and some amount of "why was it dropped, and will it have upstream support" feels worth fleshing out
+[15:35] <cpaelzer> sarnold: sure, but let us see if foundations even wants to keep it
+[15:35] <cpaelzer> sarnold: often enough those are not even needed to be kept
+[15:35] <sarnold> \o/
+[15:35] <cpaelzer> sarnold: we haven't seen it in mismatches 8yet)
+[15:36] <cpaelzer> wow
+[15:36] <cpaelzer> sarnold: - just in time - 1 minute ago :-)
+[15:36] <cpaelzer> https://github.com/canonical/ubuntu-mir/pull/73
+[15:36] -ubottu:#ubuntu-meeting- Pull 73 in canonical/ubuntu-mir "Update README.md -- remove eslerm" [Open]
+[15:36] <sarnold> :D
+[15:36] <cpaelzer> makes sense, even though I'll miss him
+[15:36] <cpaelzer> he's not even on the channel so he won't see it :-)
+[15:36] <cpaelzer> but sure, it make sense to clean up
+[15:36] <sarnold> oh ;) ha
+[15:36] <cpaelzer> merging ...
+[15:37] <cpaelzer> #topic MIR related Security Review Queue
+[15:37] <cpaelzer> Mission: Check on progress, do deadlines seem doable?
+[15:37] <cpaelzer> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[15:37] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[15:37] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[15:37] <cpaelzer> Internal link
+[15:37] <cpaelzer> - ensure your teams items are prioritized among each other as you'd expect
+[15:37] <cpaelzer> - ensure community requests do not get stomped by teams calling for favors too much
+[15:37] <cpaelzer> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[15:37] <cpaelzer> you said you have not been fully back to speed last time
+[15:38] <cpaelzer> any improvement for you or those you are pushing to help you for those reviews sarnold?
+[15:38] <sarnold> I believe I have found a volunteer for jpeg-xl, and exfatprogs will likely have progress soon
+[15:39] <sarnold> my own portion of improving our onboarding process has had no progress
+[15:39] <cpaelzer> both good
+[15:39] <cpaelzer> provd/libimobiledevice-glue in the queue?
+[15:39] <cpaelzer> or can you only look at them once the others are out=
+[15:39] <cpaelzer> ?
+[15:39] <sarnold> three day weeks look even shorter when there's interviews in the mix, too :/
+[15:39] <cpaelzer> we all know the same, I understand
+[15:40] <cpaelzer> do we need to do something about lenovo-wwan-unlock (in review) by eslerm?
+[15:40] <sarnold> there's nothing hard preventing them from being started yet, just no 'interest' yet. I might need to resort to prodding rather than poking.
+[15:40] <cpaelzer> since you said he looks at other things now?
+[15:41] <sarnold> oh, hmm. I added a comment to that bug a month ago with a lot of feedback and had no reply ..
+[15:42] <cpaelzer> indeed
+[15:42] <cpaelzer> and it is incomplete
+[15:42] <cpaelzer> but maybe put your name on it int he jira tracking?
+[15:42] <sarnold> yeah
+[15:42] <cpaelzer> going on
+[15:42] <cpaelzer> #topic Any other business?
+[15:42] <cpaelzer> I have one, which is a soft touch on re-reviews
+[15:42] <cpaelzer> We sometimes get them served on a silver plate
+[15:42] <slyon> nothign from my side
+[15:43] <cpaelzer> e..g when source renames make it pop up again
+[15:43] <cpaelzer> we usually do, and that is fair to not hold up people, kind of quick-look / fast-path them as the code was in main before
+[15:43] <cpaelzer> But I wondered about the following case:
+[15:44] <cpaelzer> "If the code in main is so long in main that there isn't any historical MIR record" => should we do a review
+[15:44] <cpaelzer> maybe with none except extreme misses being "required", but I'd love to ahve the chance to "recommend" some
+[15:44] <sarnold> I like the idea
+[15:45] <cpaelzer> WDYT - should we try to do that "not so fast" fast path if there is no audit trail as it is in main forever?
+[15:45] <cpaelzer> then at least one could check when it was last evaluated
+[15:45] <cpaelzer> and by making all "recommended" we'd stay pragmatic and not hold up teams that do transitions
+[15:45] <slyon> Yes, I like that, too. It would probably catch quite a few misses.
+[15:45] <cpaelzer> slyon:  jamespage: WDYT - if you are +1 I can file a PR for a rule change in that regard
+[15:46] <sarnold> we have significantly raised the bar on our expectations for MIRs over time, we might prefer to say "more than ten years ago" or something similar, just to keep sliding this window ever forward, too
+[15:46] <cpaelzer> yes slyon, I mostly think of things we added due to painful lessons learned
+[15:46] <cpaelzer> ok, I hear +1 all around
+[15:46] <cpaelzer> let me file an issue for it
+[15:46] <slyon> I like sarnold's sliding window idea.
+[15:46] <slyon> otherwise this would only be a one-off thing..
+[15:46] <cpaelzer> yes, but a bit softer for now
+[15:46] <cpaelzer> it is a window from "since we track it" to "now"
+[15:47] <sarnold> I figure it comes up pretty infrequently, i'm not sure there'd be a big workload difference to either one, heh
+[15:47] <cpaelzer> but it can be a demo for how a sliding window could look
+[15:47] <jamespage> I think that makes sense
+[15:47] <slyon> right. That should give use quite some backlog, already. But then we need to change the rules again a few years down the road (which is fine9
+[15:49] <cpaelzer> filed https://github.com/canonical/ubuntu-mir/issues/74 for it
+[15:49] -ubottu:#ubuntu-meeting- Issue 74 in canonical/ubuntu-mir "let us fully soft re-evaluate any requests that have no trackable bug" [Open]
+[15:49] <cpaelzer> no other topics from me
+[15:50] <sarnold> cpaelzer: this rough outline is missing the "trigger" -- source renames, anything else?
+[15:50] <sarnold> well, maybe "any requests" is the trigger ..
+[15:51] <cpaelzer> added
+[15:51] <sarnold> web 2.0 isn't all bad :) heh
+[15:51] <cpaelzer> hehe
+[15:51] <cpaelzer> ok closing then
+[15:51] <cpaelzer> anything else?
+[15:52] <slyon> thanks cpaelzer, all!
+[15:52] <sarnold> uh I can't remember when exactly I'm off
+[15:52] <cpaelzer> you'll notice then sarnold :-)
+[15:52] <cpaelzer> 11
+[15:52] <cpaelzer> 10
+[15:52] <cpaelzer> 01
+[15:52] <cpaelzer> out
+[15:52] <sarnold> :D
+[15:52] <cpaelzer> #endmeeting
+[15:52] <meetingology> Meeting ended at 15:52:40 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-12-10-15.30.moin.txt
+[15:52] <sarnold> ooo fun one
+[15:52] <sarnold> thanks cpaelzer, all :)
