@@ -1,0 +1,61 @@
+=== tsimonq2_ is now known as tsimonq2
+=== ahasenack_ is now known as ahasenack
+=== paride8 is now known as paride
+[16:00] <juliank> #startmeeting Weekly Ubuntu Foundations team
+[16:00] <meetingology> Meeting started at 16:00:10 UTC.  The chair is juliank.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[16:00] <meetingology> Available commands: action, commands, idea, info, link, nick
+[16:00] <ginggs> o/
+[16:00] <juliank> #topic Lightning rounds
+[16:00] <juliank> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-2024-12-12/
+[16:00] <r41k0u> o/
+[16:00] <liushuyu> o/
+[16:00] <adrien> o/
+[16:00] <mkukri> o/
+[16:01] <tobhe> o/
+[16:01] <mateus-morais> o/
+[16:01] <uralt> o/
+[16:01] <zhsj> o/
+[16:01] <bdrung> \o
+[16:01] <andersson123> o/
+[16:02] <enr0n> o/
+[16:10] <juliank> #topic Release incoming bugs
+[16:10] <juliank> #link http://reports.qa.ubuntu.com/rls-mgr/rls-pp-incoming-bug-tasks.html#foundations-bugs
+[16:10] <juliank> bug 2091440
+[16:10] -ubottu:#ubuntu-meeting- Bug 2091440 in Ubuntu on IBM z Systems "[UBUNTU 24.10] lftp: buffer overflow detected when accessing z/VM FTP server and changing the directory" [High, New] https://launchpad.net/bugs/2091440
+[16:11]  * schopin is late to the meeting.
+[16:11] <juliank> schopin: so, IBM stuff :D
+[16:12] <schopin> tag and assign it to me I guess :)
+[16:12] <juliank> tagged and assigned to you
+[16:12] <schopin> I'll endeavour to dump^Wgift it to someone else ;)
+[16:12] <juliank> Sequoia MIR we skip
+[16:13] <juliank> bug 2071640, Skia says it's a candidate for removal
+[16:13] -ubottu:#ubuntu-meeting- Bug 2071640 in python-future (Ubuntu) "python3-future 0.18.2 is not compatible with Python 3.12" [Undecided, Confirmed] https://launchpad.net/bugs/2071640
+[16:13] <juliank> I have run reverse-depends and verified there are none, so I'll comment and assign ubuntu-archive to it
+[16:14] <juliank> #link http://reports.qa.ubuntu.com/rls-mgr/rls-oo-incoming-bug-tasks.html#foundations-bugs
+[16:14] <juliank> bug 2085713
+[16:14] -ubottu:#ubuntu-meeting- Bug 2085713 in grub2 (Ubuntu) "package grub-pc 2.12-5ubuntu5 failed to install/upgrade: installed grub-pc package post-installation script subprocess returned error exit status 1" [Undecided, Incomplete] https://launchpad.net/bugs/2085713
+[16:15] <juliank> marking it invalid
+[16:16] <juliank> #link https://reports.qa.ubuntu.com/rls-mgr/rls-nn-incoming-bug-tasks.html#foundations-bugs
+[16:16] <juliank> bug 1888347
+[16:16] -ubottu:#ubuntu-meeting- Bug 1888347 in lvm2 (Ubuntu) "blk-availability unmounts filesystems before applications have finished using them" [High, Incomplete] https://launchpad.net/bugs/1888347
+[16:17] <juliank> I guess we'll wait to get more information and keep it tagged to not forget about it
+[16:17] <juliank> bug 2088268 is in analysis with security
+[16:17] -ubottu:#ubuntu-meeting- Bug 2088268 in systemd (Ubuntu) "systemd /tmp cleaning removes files that it shouldn't" [Low, New] https://launchpad.net/bugs/2088268
+[16:17] <juliank> bug 2041518 is with desktop
+[16:17] -ubottu:#ubuntu-meeting- Bug 2041518 in gtk+3.0 (Ubuntu) "/usr/share/apport/apport-gtk:5:_g_log_abort:g_log_writer_default:g_log_structured_array:g_log_structured_array:g_log_structured_standard" [Undecided, New] https://launchpad.net/bugs/2041518
+[16:17] <juliank> this leaves
+[16:18] <juliank> bug 2091430
+[16:18] -ubottu:#ubuntu-meeting- Bug 2091430 in ubuntu-release-upgrader (Ubuntu) "Upgrade over fresh 22.04 LTS Fails" [Undecided, Incomplete] https://launchpad.net/bugs/2091430
+[16:19] <juliank> That seems to be resolved now it was a kenrel SRU release issue
+[16:19] <juliank> I'm going to untag it
+[16:19] <juliank> #topic Team proposed-migration report
+[16:19] <juliank> #link https://ubuntu-archive-team.ubuntu.com/proposed-migration/update_excuses_by_team.html#foundations-bugs
+[16:20] <juliank> erlang FTBFS on amd64: tobhe
+[16:20] <juliank> and that's that
+[16:20] <juliank> #topic AOB
+[16:21] <juliank> moving erlang to andersson123
+[16:21] <juliank> Well I guess this wraps it up
+[16:21] <juliank> #endmeeting
+[16:21] <meetingology> Meeting ended at 16:21:31 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-12-12-16.00.moin.txt
+[16:21] <andersson123> o7
+[16:24] <zhsj> oh, forget to mention that i'm out from next week.
