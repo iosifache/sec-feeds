@@ -1,0 +1,18 @@
+=== NotEickmeyer is now known as Eickmeyer
+=== JanC is now known as Guest776
+=== JanC is now known as Guest2218
+[13:17] <tsimonq2> FYI, I'm also working on updating git in plucky. Not sure if there's pending CVE work but it looks like a semi-frequent flyer.
+[13:24] <mdeslaur> tsimonq2: not sure, but thanks for doing it
+=== oerheks1 is now known as oerheks
+=== hariharan_ is now known as hariharan
+=== jchittum_ is now known as jchittum
+=== bdrung_ is now known as bdrung
+=== voeid3 is now known as voeid
+=== kenyon_ is now known as kenyon
+=== UnivrslSuprBox_ is now known as UnivrslSuprBox
+=== tomreyn_ is now known as tomreyn
+[18:31] <kmcdebs> I have a question about how seahorse behaves when using the Finding Remote Keys dialog to search keyserver.ubuntu.com, is this the right place for me to ask that?
+[18:34] <kmcdebs> When I try to find my key, seahorse never seems to complete the action. Seahorse finds my key, but it remains grayed out, and a progress bar at the bottom of the window never completes. Is this a bug? Or do I have a setting wrong. Performing the same search through the command line seems to work just fine
+=== JanC is now known as Guest8500
+=== JanC is now known as Guest3103
+=== tomreyn_ is now known as tomreyn
