@@ -1,0 +1,276 @@
+=== genii_ is now known as genii
+[15:30] <cpaelzer> o/
+[15:30] <cpaelzer> #startmeeting Weekly Main Inclusion Requests status
+[15:30] <meetingology> Meeting started at 15:30:42 UTC.  The chair is cpaelzer.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[15:30] <meetingology> Available commands: action, commands, idea, info, link, nick
+[15:30] <cpaelzer> Ping for MIR meeting - didrocks joalif slyon sarnold cpaelzer jamespage ( dviererbe )
+[15:30] <cpaelzer> some may already be out for EOY
+[15:31] <cpaelzer> and I'm slightly distracted with a sick rabbit on my lap
+[15:31] <cpaelzer> but we will get this done
+[15:31] <sarnold> good morning
+[15:31] <sarnold> aww poor bunny :(
+[15:32] <cpaelzer> #topic current component mismatches
+[15:32] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[15:32] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches-proposed.svg
+[15:32] <cpaelzer> #link https://people.canonical.com/~ubuntu-archive/component-mismatches.svg
+[15:32] <cpaelzer> normal view is good
+[15:32] <cpaelzer> proposed has a bit
+[15:32] <cpaelzer> hmm, I didn't pick up sanlock as new
+[15:32] <cpaelzer> but it is there
+[15:32] <cpaelzer> I'll ask sergio
+[15:32] <sarnold> hah, and I missed augeas entirely
+[15:33] <sarnold> it's already got an approved MIR?
+[15:33] <sarnold> is this *ancient* MIR bug really "the bug"? https://bugs.launchpad.net/ubuntu/+source/augeas/+bug/434836
+[15:33] -ubottu:#ubuntu-meeting- Launchpad bug 434836 in augeas (Ubuntu Karmic) "[MIR] augeas" [High, Fix Released]
+[15:33] <cpaelzer> it was there in the long past
+[15:34] <cpaelzer> anyway conside this to be done
+[15:34] <sarnold> .. I have to wonder if charms would have been easier if this were part of main
+[15:34] <sarnold> but apparently it was, and they weren't? :)
+[15:34] <cpaelzer> yep
+[15:34] <cpaelzer> abseil -> google test sounds like a memory
+[15:35] <cpaelzer> seb128: jbicha: would one of you plesae look afte rabseil?
+[15:35] <seb128> will do
+[15:35] <cpaelzer> highway is a known case
+[15:35] <cpaelzer> so is jemalloc
+[15:35] <cpaelzer> all in reviewstages
+[15:35] <cpaelzer> and then the set of openstack packages which grind their way to proper cases
+[15:35] <cpaelzer> all good, actions distributed
+[15:35] <cpaelzer> going on
+[15:36] <cpaelzer> #topic New MIRs
+[15:36] <cpaelzer> Mission: ensure to assign all incoming reviews for fast processing
+[15:36] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&assignee_option=none&field.assignee=&field.subscriber=ubuntu-mir
+[15:36] <cpaelzer> flexcache was updated to be ready
+[15:36] <cpaelzer> I'll do the review
+[15:37] <cpaelzer> #topic Incomplete bugs / questions
+[15:37] <cpaelzer> Mission: Identify required actions and spread the load among the teams
+[15:37] <cpaelzer> #link https://bugs.launchpad.net/ubuntu/?field.searchtext=&orderby=-date_last_updated&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&field.subscriber=ubuntu-mir
+[15:37] <cpaelzer> three caes with recent updates
+[15:37] <slyon> o/
+[15:37] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/rust-sequoia-sqv/+bug/2089690 - non change, just more incomplete bug task states
+[15:37] -ubottu:#ubuntu-meeting- Launchpad bug 2089690 in rust-sequoia-sqv (Ubuntu) "[MIR] rust-sequoia-sq" [Undecided, Incomplete]
+[15:37] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/libgit2/+bug/2080872
+[15:37] -ubottu:#ubuntu-meeting- Launchpad bug 2080872 in libgit2 (Ubuntu) "libgit2: replace unmaintained http-parser dependency with llhttp" [Undecided, Incomplete]
+[15:37] <cpaelzer> assigning to people
+[15:37] <cpaelzer> ok
+[15:37] <cpaelzer> https://bugs.launchpad.net/ubuntu/+source/nbd/+bug/2054480
+[15:37] -ubottu:#ubuntu-meeting- Launchpad bug 2054480 in nbd (Ubuntu) "[MIR] nbd-client" [Undecided, Incomplete]
+[15:38] <sarnold> libgit2 is more than that
+[15:38] <cpaelzer> discussions between Pragyansh and sarnold
+[15:38] <sarnold> near the very top there's a new merge proposal
+[15:38] <cpaelzer> readiny ...
+[15:38] <cpaelzer> I ee, asssigned to sponsors
+[15:38] <sarnold> I wish the 'flow' of comments could indicate that, I also jumped right past it yesterday when talking it over with eslerm :)
+[15:39] <cpaelzer> nice
+[15:39] <sarnold> is there anything we need to do to encourage this one along?
+[15:39] <cpaelzer> this is what we wanted and discussed as least worse option
+[15:39] <cpaelzer> no it will be picked up by patch pilots of foundations sponsors I'd assume
+[15:40] <sarnold> cool cool
+[15:40] <slyon> well... it's still "on hold", why's that?
+[15:40] <cpaelzer> sarnold: your comment on https://bugs.launchpad.net/ubuntu/+source/nbd/+bug/2054480 - do you consider it a hint or a blocking (all arch need to be enabled)
+[15:40] -ubottu:#ubuntu-meeting- Launchpad bug 2054480 in nbd (Ubuntu) "[MIR] nbd-client" [Undecided, Incomplete]
+[15:40] <slyon> latest comment was "Currently pending review from the security team"
+[15:40] <cpaelzer> I need to read more what the recent comments are about
+[15:40] <cpaelzer> seems the apparmor profile
+[15:41] <cpaelzer> indeed slyon
+[15:41] <cpaelzer> sarnold:  is that review what you've been going over with eslerm?
+[15:41] <cpaelzer> should we add a ubuntu-security review slot maybe?
+[15:42] <sarnold> cpaelzer: libgit2, eslerm raised it with me, I think he's mostly interested in making sure that goes all the way to completion
+[15:42] <slyon> well, sarnold already did the quick approval here: https://bugs.launchpad.net/ubuntu/+source/libgit2/+bug/2080872/comments/5
+[15:42] -ubottu:#ubuntu-meeting- Launchpad bug 2080872 in libgit2 (Ubuntu) "libgit2: replace unmaintained http-parser dependency with llhttp" [Undecided, Incomplete]
+[15:42] <sarnold> cpaelzer: nbd, I don't think anybody has raised that one
+[15:44] <cpaelzer> I like that they work on tests and appamor - I wonder at what point we should call the propose sufficient
+[15:44] <cpaelzer> I want to avoid some others rushing through without by saying they tried and can't - and those that spend the effort to be punished by small thing in it
+[15:44] <sarnold> ugh I think they went off into the weeds on this one
+[15:44] <cpaelzer> to be clear - all I am is unsure
+[15:45] <cpaelzer> but I'm tending to want to reward that go for tests and isolation with a positive posture
+[15:45] <cpaelzer> so when they come back for review or sponsoring I'd feel +1'ish (plus actually looking at it in depth)
+[15:45] <cpaelzer> sarnold:  this feels they tried to explain to you in the last comment
+[15:46] <cpaelzer> I'm unsure if more pings there help much, maybe send a DM and discuss this whenever you are both online?
+[15:46] <cpaelzer> and then add a comment on the bug with whatever your closing state is afte rthat discussion?
+[15:46] <sarnold> cpaelzer: I'll write up a comment
+[15:47] <sarnold> "both online" is going to be a Big Challenge, I have a few hours left in the year :)
+[15:47] <cpaelzer> slyon: do you know if Pragyansh is in EOY already?
+[15:47] <cpaelzer> not sure if you still see the foundations calendar
+[15:47] <cpaelzer> sarnold: ok I see why you therefore consider a bug comment
+[15:47] <cpaelzer> ok
+[15:47] <cpaelzer> let us go on
+[15:47] <cpaelzer> #topic Process/Documentation improvements
+[15:47] <cpaelzer> Mission: Review pending process/documentation pull-requests or issues
+[15:47] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/pulls
+[15:47] <cpaelzer> #link https://github.com/canonical/ubuntu-mir/issues
+[15:47] <slyon> cpaelzer: sarnold:, no r41k0u still seems to be around
+[15:48] <cpaelzer> https://github.com/canonical/ubuntu-mir/pull/72 is still draft - not touching this one
+[15:48] -ubottu:#ubuntu-meeting- Pull 72 in canonical/ubuntu-mir "vendor/Rust: more comprehensive dependency removal" [Open]
+[15:48] <cpaelzer> https://github.com/canonical/ubuntu-mir/pull/75 would be ready if you like it slyon and sarnold?
+[15:48] -ubottu:#ubuntu-meeting- Pull 75 in canonical/ubuntu-mir "Add rules to re-evaluate very old renames" [Open]
+[15:49] <cpaelzer> it is what we discussed, allowing for doing a bit more than "auto-yes" when we see renames - AND - the case is super duper old
+[15:49] <cpaelzer> and allowing this to be non gating
+[15:49] <sarnold> reading
+[15:49] <cpaelzer> and furthermore allowing teams to suggest for re-review - which is a nice offering but has to be balanced
+[15:49] <cpaelzer> e.g. we recently had a full rewrite in rust - that is worth re-checking and I've done so
+[15:50] <cpaelzer> there is no rush, if you both are happy in 3 min - fine. Otherwise leave your comments and I can evolve it until the meeting next year
+[15:51] <slyon> +1, lgtm
+[15:51] <sarnold> > We'd appreciate if the owning team could file a MIR-reporter bug for it, but would not insist on it if they can't. In that case we create a stub for it.
+[15:52] <sarnold> if the goal is to get packages onto our queue, asking for the bug doesn't seem to be too much to ask, right/
+[15:52] <sarnold> as a percentage of effort ..
+[15:52] <cpaelzer> if they self-ask then it would be no challenge
+[15:52] <cpaelzer> but if all that happened is auto sync libfoo3 over libfoo2
+[15:52] <cpaelzer> then I thought we can ask, but not insist
+[15:53] <sarnold> ahhh, to avoid a potential case of a team needing to do a dozen of them in one cycle?
+[15:53] <cpaelzer> yes
+[15:53] <slyon> right. Filing a MIR bug takes quite some investigation, and people might not like that. We could still file a stub and do the review/recommendations in there
+[15:53] <sarnold> okay, sounds good. baby steps.
+[15:53] <cpaelzer> hence all of this is optional - a first step to a better world but acknowledging the shrotages
+[15:53] <cpaelzer> also Schrott :-) but actuall shortages
+[15:53] <slyon> :)
+[15:54] <sarnold> :D (I had to look that one up)
+[15:54] <cpaelzer> BTW I also have more ruls to put down out of archive admin work on multivers/restricted - but one at a time
+[15:54] <cpaelzer> ok 2x good
+[15:54] <cpaelzer> merging
+[15:54] <cpaelzer> #topic MIR related Security Review Queue
+[15:54] <cpaelzer> Mission: Check on progress, do deadlines seem doable?
+[15:54] <cpaelzer> Some clients can only work with one, some with the other escaping - the URLs point to the same place.
+[15:54] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=%5BMIR%5D&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[15:54] <cpaelzer> #link https://bugs.launchpad.net/~ubuntu-security/+bugs?field.searchtext=[MIR]&assignee_option=choose&field.assignee=ubuntu-security&field.bug_reporter=&field.bug_commenter=&field.subscriber=ubuntu-mir
+[15:54] <cpaelzer> Internal link
+[15:54] <cpaelzer> - ensure your teams items are prioritized among each other as you'd expect
+[15:54] <cpaelzer> - ensure community requests do not get stomped by teams calling for favors too much
+[15:54] <cpaelzer> #link https://warthogs.atlassian.net/jira/software/c/projects/SEC/boards/594
+[15:55] <cpaelzer> jpeg-xl was on my mind
+[15:55] <cpaelzer> it is still in TODO but now has a name
+[15:55] <cpaelzer> is that good sarnold?
+[15:55] <sarnold> yes, it is good, but likely very little has been done recently :)
+[15:55] <jbicha> I just uploaded a jpeg-xl security fix to plucky today ð
+[15:55] <cpaelzer> hope for increased progress in january?
+[15:56] <sarnold> also, our poor coverity server seems unhappy after repatriating :( we're looking into charming it up to deploy into one of the prodstacks now that we have decent vm capacity
+[15:56] <sarnold> I also hope so, I'll certainly be a bit pointier in asking for status updates post-holidays :) -- december is not a month for getting things done :/
+[15:56] <cpaelzer> ok, so TL;DR many reasons, the queue is not moving much but gladly not (yet) huge either
+[15:57] <cpaelzer> it is THE month to get things done, get into the close-out-before-EOY feeling
+[15:57] <sarnold> rodrigo did sound optimistic to push exfatprogs over the finish line soon :)
+[15:57] <cpaelzer> great
+[15:57] <sarnold> we shouldn't schedule our use-it-or-lose-it-PTO rally in the same month
+[15:57] <cpaelzer> I think that is it then for today
+[15:57] <cpaelzer> yes @sarnold
+[15:57] <cpaelzer> #topic Any other business?
+[15:57] <slyon> nothing.
+[15:57] <jbicha> btw, Desktop intends to file a MIR soon for https://gitlab.gnome.org/GNOME/glycin as a dependency for the loupe image viewer. Probably more of a 25.10 project but we are trying to give Security more time.
+[15:57] <cpaelzer> enjoy the downtime for some fresh energey next year
+[15:57] <sarnold> see you next year :)
+[15:58] <jbicha> it's a bit of a next gen gdk-pixbuf
+[15:58] <cpaelzer> yeah jbicha, doing that early will help
+[15:58] <slyon> jbicha: thanks for the heads up!
+[15:58] <sarnold> jbicha: hopefully without a scary warning to the console every single upgrade? :)
+[15:58] <cpaelzer> but I assume it will need to exist alongside gdk-pixbuf for a whiel
+[15:58] <slyon> if you could file a stub MIR already, that might help to keep it on our radar
+[15:58] <sarnold> > The decoding happens in sandboxed modular image loaders
+[15:58] <cpaelzer> indeed
+[15:58] <sarnold> WOOOHOOO
+[15:59] <jbicha> yes, this was filed recently but it's very early: https://gitlab.gnome.org/GNOME/Initiatives/-/issues/53
+[15:59] <cpaelzer> I want to keep the feeling of hope and call it done for today
+[15:59] -ubottu:#ubuntu-meeting- Issue 53 in GNOME/Initiatives "Move away from GdkPixbuf" [Opened]
+[15:59] <slyon> thanks cpaelzer, all!
+[15:59] <cpaelzer> nice to show advantages AND drawbacks
+[15:59] <cpaelzer> that background in a stub would indeed already help
+[15:59] <cpaelzer> #endmeeting
+[15:59] <meetingology> Meeting ended at 15:59:46 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-12-17-15.30.moin.txt
+[16:00] <sarnold> ahh, nice, 'farbfeld' format! so micha can always forget the farbfeld.
+[16:00] <sarnold> thanks cpaelzer, all :)
+[20:00] <rbasak> o/
+[20:00] <amurray> o/
+[20:01] <seb128> o/
+[20:03] <seb128> I just noticed that Lukasz isn't listed on https://launchpad.net/~techboard/+members#active anymore
+[20:03] <seb128> did he leave the team?
+[20:03] <amurray> I wonder if this happened as part of his off-boarding from Canonical?
+[20:03] <seb128> anyway I guess it's only the 3 of us and Steve/Lukasz where chair and backup so amurray you are next
+[20:04] <amurray> ah ok - give me a couple secs to remember how to drive meetingology :)
+[20:04] <seb128> amurray, oh, could well be, the IS process doesn't seem to be precise
+[20:04] <amurray> #startmeeting Ubuntu Technical Board
+[20:04] <meetingology> Meeting started at 20:04:36 UTC.  The chair is amurray.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[20:04] <meetingology> Available commands: action, commands, idea, info, link, nick
+[20:04] <amurray> #topic Apologies
+[20:05] <amurray> vorlon mentioned he would not be able to make this meeting in an email thread earlier but nothing from sil2100 that I saw
+[20:06] <amurray> #topic Action review
+[20:06] <amurray> ACTION: vorlon to look into scripting for packages in flavor-specific overlays
+[20:06] <amurray> will carry over
+[20:06] <amurray> #action vorlon to look into scripting for packages in flavor-specific overlays
+[20:06] <meetingology> ACTION: vorlon to look into scripting for packages in flavor-specific overlays
+[20:06] <amurray> ACTION: seb128 to continue working with AA and Release teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[20:06] <seb128> carry over please...
+[20:06] <amurray> #action seb128 to continue working with AA and Release teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[20:06] <meetingology> ACTION: seb128 to continue working with AA and Release teams to document their membership process and link to it from https://wiki.ubuntu.com/TechnicalBoard#Team_Delegations
+[20:06] <amurray> ACTION: sil2100 to follow up on the Cinnamon 24.04 LTS Qualification to ensure the listed contacts can action the flavor
+[20:06] <amurray> will also carry-over
+[20:07] <amurray> #action sil2100 to follow up on the Cinnamon 24.04 LTS Qualification to ensure the listed contacts can action the flavor
+[20:07] <meetingology> ACTION: sil2100 to follow up on the Cinnamon 24.04 LTS Qualification to ensure the listed contacts can action the flavor
+[20:07] <amurray> #topic Scan the mailing list archive for anything we missed (standing item)
+[20:07] <amurray> #link https://lists.ubuntu.com/archives/technical-board/2024-December/thread.html
+[20:08] <amurray> nothing other than a pending AMA I guess :)
+[20:08] <rbasak> Does anyone have any comment on my AMA suggestion?
+[20:08] <rbasak> I've had no feedback whatsoever except for Seb's question to Merlijn
+[20:08] <seb128> indeed, sounds like that's delayed to next year, I guess Mark needs to approve the candidates and didn't reply to the CC yet...
+[20:09] <amurray> I think it is a good idea - am not sure if we'll get much engagement but I like the idea of letting folks ask questions to help them clarify their votes and its a chance for the future TB to understand what issues / initiatives are important
+[20:09] <seb128> no comment from my part, I'm happy to participate to an AMA session
+[20:10] <rbasak> I suppose we might as well make it coincide with a TB meeting because then it shouldn't really be any burden on any candidate.
+[20:10] <rbasak> But it seems likely we'll end up with no question!
+[20:10] <seb128> similarly I've doubt on whether we will have participation/questions but let's see
+[20:11] <amurray> yep - during the next respective TB meeting makes sense to me
+[20:11] <seb128> which triggers a side question
+[20:11] <seb128> do we need Mark to extend to the memberships?
+[20:11] <seb128> since we will not have an election on time now
+[20:11] <rbasak> Yes - or any CC member can do it I think.
+[20:12] <rbasak> Might as well be Merlijn as he has the best handle on the schedule I think.
+[20:12] <seb128> ah, right, they are owner
+[20:12] <amurray> perhaps, but I don't think we need the explicit LP membership to have an informal AMA
+[20:12] <seb128> I was looking at the admins
+[20:12] <seb128> well, the membership is not for AMA
+[20:12] <rbasak> amurray: I think seb128 means for regular TB activities and (presumably) emergencies.
+[20:12] <seb128> but I do wonder if we hit tasks where we need a TB members for the project at a time where we have none
+[20:13] <seb128> I know it was needed at archive opening time for plucky for example
+[20:13] <rbasak> eg. if the DMB needs a PPU adding, that sort of thing.
+[20:13] <seb128> but yeah, I think it's better to have acrive member in case we need something restricted to TB
+[20:14] <amurray> right, I guess I was assuming the election etc would happen quite soon in the new year and so there wouldn't be much need for emergency powers etc - but I suppose it makes more sense to have it ready to go just in case
+[20:14] <seb128> I will take an action item to talk to Merlijn about that if you want
+[20:14] <amurray> sure
+[20:14] <rbasak> Thanks!
+[20:14] <seb128> also I will take one to talk to IS/Lukasz about what happened there
+[20:14] <amurray> #action seb128 to follow-up with Merlijn about temporarily extending TB memberships
+[20:14] <meetingology> ACTION: seb128 to follow-up with Merlijn about temporarily extending TB memberships
+[20:14] <rbasak> IS really need to have an allowlist of teams whose memberships continue when a Canonical employee leaves.
+[20:15] <seb128> or the opposite, a list of teams they need to manage
+[20:15] <amurray> So I saw a mailing list post from Heather around this topic, and I've been meaning to respond as well
+[20:15] <seb128> I've seen several cases of people removed to random project they were working on in their freetime after leaving
+[20:16] <amurray> (oh I see Heather's email was more about 2FA but is related)
+[20:17] <amurray> #link https://lists.launchpad.net/launchpad-users/msg07251.html
+[20:17] <seb128> I will share the RT/Cc you if you are interested
+[20:17] <amurray> sure - I was going to say I can take an action to follow this up with IS but if there is already a RT then I don't want to duplicate things
+[20:20] <amurray> although from the TB side I am happy to take an action to try and drive this forward from our perspective but via any existing RT etc
+[20:21] <seb128> either way is fine to me
+[20:22] <seb128> pick on, or just list you can me and we can figure out who gets to it first
+[20:22] <seb128> one
+[20:22] <seb128> shrug, that sentence is buggy, let me start again :p
+[20:22] <seb128> pick one, or just list you and me and we can figure out who gets to it first
+[20:22] <amurray> #action amurray and seb128 to engage with IS re Canonical leavers and ubuntu LP team memberships
+[20:22] <meetingology> ACTION: amurray and seb128 to engage with IS re Canonical leavers and ubuntu LP team memberships
+[20:24] <amurray> #topic Check up on community bugs and techboard bugs
+[20:24] <amurray> #link https://bugs.launchpad.net/ubuntu-community/+bugs?field.assignee=techboard
+[20:24] <amurray> #link https://bugs.launchpad.net/techboard
+[20:25] <amurray> nothing new
+[20:25] <amurray> #topic Select a chair for the next meeting (next from https://launchpad.net/~techboard/+members)
+[20:26] <seb128> so probably Robie and me as backup?
+[20:26] <amurray> hmm without sil2100 on the list I guess it is rbasak with seb128 as backup
+[20:26] <amurray> heh yep
+[20:26] <rbasak> Ah that's why. He just wanted to get out of chairing :-)
+[20:26] <seb128> also next meeting is 01-14, just as a reminder that we agreed to skip the 12-31 one
+[20:26] <rbasak> I don't mind being picked
+[20:27] <amurray> #agreed next meeting chair: rbasak, backup: seb128
+[20:27] <meetingology> AGREED: next meeting chair: rbasak, backup: seb128
+[20:27] <amurray> #topic AOB
+[20:27] <seb128> none from me
+[20:29] <amurray> nor from me
+[20:29] <rbasak> Nor me
+[20:30] <amurray> ok, then that's a wrap - thanks seb128 rbasak :)
+[20:30] <amurray> #endmeeting
+[20:30] <meetingology> Meeting ended at 20:30:05 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-12-17-20.04.moin.txt
+[20:30] <rbasak> Thanks all!
+[20:30] <seb128> thanks amurray and rbasak, have nice holidays and see you next year!
+[20:30] <amurray> thanks - you two too :) have a great break, will see you on the 14th if not beforehand
