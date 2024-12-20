@@ -1,0 +1,52 @@
+[16:00] <juliank> #startmeeting Weekly Ubuntu Foundations team
+[16:00] <meetingology> Meeting started at 16:00:54 UTC.  The chair is juliank.  Information about MeetBot at https://wiki.ubuntu.com/meetingology
+[16:00] <meetingology> Available commands: action, commands, idea, info, link, nick
+[16:00] <juliank> #topic Lightning rounds
+[16:01] <r41k0u> o/
+[16:01] <juliank> #link https://discourse.ubuntu.com/t/foundations-team-updates-thursday-2024-12-19/
+[16:01] <bdrung> \o
+[16:02] <andersson123> o/
+[16:03] <liushuyu> o/
+[16:04] <adrien> \o
+[16:07] <bdrung> waveform, were there other Wandboard Quad user reporting back to you?
+[16:07] <waveform> bdrung, yup
+[16:08] <mateus-morais> o/
+[16:12] <juliank> #topic Release incoming bugs
+[16:13] <juliank> #link http://reports.qa.ubuntu.com/rls-mgr/rls-pp-incoming-bug-tasks.html#foundations-bugs
+[16:13] <juliank> bug 2091659
+[16:13] -ubottu:#ubuntu-meeting- Bug 2091659 in pam (Ubuntu) "pam-auth-update silently fails if a config file has CRLF line endings" [Medium, Triaged] https://launchpad.net/bugs/2091659
+[16:13] <juliank> schopin: this is funny
+[16:14] <schopin> Ouch.
+[16:15] <juliank> schopin: want to take (ownership of) it? :D
+[16:16] <juliank> schopin: I wonder though if that needs a security update and the security team needs to work on it _aynhow_
+[16:16] <schopin> I'm not sure it's a security issue?
+[16:18] <schopin> Alright, give it to me, I'll discuss it with the Security folks.
+[16:20] <juliank> bug 2071640
+[16:20] -ubottu:#ubuntu-meeting- Bug 2071640 in python-future (Ubuntu) "Remove python-future (python3-future 0.18.2 is not compatible with Python 3.12)" [Undecided, Confirmed] https://launchpad.net/bugs/2071640
+[16:21] <bdrung> that one can be untagged. ubuntu-archive is subscribed. so nothing left to do for us.
+[16:21] <r41k0u> cd ..
+[16:22] <schopin> Skia: why did you tag it in the first place?
+[16:22] <schopin> oh Skia is AFK today I believe.
+[16:22] <juliank> Sorry I forgot to remove the task
+[16:23] <juliank> Maybe schopin wants to talk to his AA mentor and check how to remove :D
+[16:23] <schopin> Now just leave me be, will you? ;)
+[16:23] <juliank> #link http://reports.qa.ubuntu.com/rls-mgr/rls-nn-incoming-bug-tasks.html#foundations-bugs
+[16:24] <juliank> bug 1888347
+[16:24] -ubottu:#ubuntu-meeting- Bug 1888347 in lvm2 (Ubuntu) "blk-availability unmounts filesystems before applications have finished using them" [High, Incomplete] https://launchpad.net/bugs/1888347
+[16:24] <juliank> Still incomplete
+[16:24] <juliank> bug 2088268
+[16:24] -ubottu:#ubuntu-meeting- Bug 2088268 in systemd (Ubuntu) "systemd /tmp cleaning removes files that it shouldn't" [Low, New] https://launchpad.net/bugs/2088268
+[16:24] <juliank> Still waiting for security evaluation
+[16:24] <juliank> 2041518 was with desktop
+[16:25] <juliank> #link http://reports.qa.ubuntu.com/rls-mgr/rls-oo-incoming-bug-tasks.html#foundations-bugs
+[16:25] <juliank> going back to forgotten
+[16:25] <juliank> bug 2084107
+[16:25] -ubottu:#ubuntu-meeting- Bug 2084107 in plymouth (Ubuntu) "Splash does not show up on Ubuntu 24.10 with TPM FDE" [Undecided, New] https://launchpad.net/bugs/2084107
+[16:27] <juliank> Needs further discussion
+[16:29] <juliank> I asked in the TPM FDE channel
+[16:29] <juliank> That's all
+[16:29] <juliank> No proposed migration today
+[16:29] <juliank> #topic AOB
+[16:30] <adrien> christmas break :P
+[16:40] <juliank> #endmeeting
+[16:40] <meetingology> Meeting ended at 16:40:52 UTC.  Minutes at https://ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-12-19-16.00.moin.txt
