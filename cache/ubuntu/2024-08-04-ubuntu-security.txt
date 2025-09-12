@@ -1,6 +1,0 @@
-=== chris14_ is now known as chris14
-=== wiowtalukssyyucj is now known as nyhgizoshlwcsema
-=== nyhgizoshlwcsema is now known as georgiag
-=== mcphail5 is now known as mcphail
-[19:34] <Guest87> Anyone familiar with apparmor here?
-[20:05] <JanC> Guest87: best just ask your question & wait around to see if someone answers (it's weekend, and night here in Europe, so possibly an answer will only come tomorrow)

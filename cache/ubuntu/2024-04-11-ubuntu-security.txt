@@ -1,4 +1,0 @@
-[13:20] <tomreyn> sbeattie: did you get around to forward my errors.u.c XSS (2046565) internally? i still (bug filed 2023-12-15) haven't heard a single peep. please keep in mind the bug is private.
-[15:00] <sbeattie> tomreyn: I poked a little, but the xz tire fire and resulting mass rebuild of noble packages to compensate interfered. I'll nudge again.
-[15:01] <tomreyn> sbeattie: thanks. if i should try to contact folks on my own, i can try that, too, but would need to know whom to contact. (i did so previously, actually, but got no response)
-=== Juesto is now known as Juest

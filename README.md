@@ -1,21 +1,13 @@
 # `sec-feeds`
 
-## Description
+Some cybersecurity data sources I'm interested in don't have RSS feeds. This repository generates and serves Atom feeds for them.
 
-`sec-feeds` is a repository hosting Atom RSS feeds for different cybersecurity topics in which I'm interested.
+## Data Sources
 
-All feeds can be accessed at `iosifache.me/feeds/<id>`, where `<id>` is the ID of the feed you want to follow.
+| ID       | Name            | Data                                   |
+| -------- | --------------- | -------------------------------------- |
+| `phrack` | Phrack Magazine | All articles from all published issues |
 
-## Features
+## Usage
 
-- Hosting of RSS feeds
-- RSS feeds generation for the data sources which doesn't have public feeds
-- Caching of the content used for the generation of the feeds
-- Daily regeneration of the feeds
-
-## Feeds and their data sources
-
-| ID       | Name               | Contained data                                  | Feed location      | Cache location   |
-|----------|--------------------|-------------------------------------------------|--------------------|------------------|
-| `ubuntu` | Security on Ubuntu | `ubuntu-security` and `ubuntu-meeting` IRC logs | `feeds/ubuntu.xml` | `cache/ubuntu/*` |
-
+Just import `iosifache.me/feeds/<id>` into your RSS reader, where `<id>` is the ID of the data source you are interested in.

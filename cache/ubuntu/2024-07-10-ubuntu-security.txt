@@ -1,9 +1,0 @@
-=== itu is now known as Guest3711
-=== crazybyte26 is now known as crazybyte2
-=== Guest3711 is now known as itu
-[15:41] <mcphail> https://ubuntu.com/security/notices/USN-6880-1 - does this mean that 4 year old 20.04 gets the update by default but 2 year old 22.04 doesn't unless subscribed to Ubuntu Pro? This is pretty confusing
-[15:48] <ebarretto> mcphail: tomcat9 fixes for 20.04 came directly from debian, same version
-[15:50] <mcphail> Ok. Thanks. Quite a minefield
-[15:53] <ebarretto> yeah, that's the trickyness with universe and Ubuntu Pro, things can come from debian, from community or actively worked by canonical, and because of that they can go to different places for different releases. A reminder that for up to 5 machines Ubuntu Pro is accessible for free
-[15:54] <mcphail> Indeed. Thanks
-=== JanC is now known as Guest3954

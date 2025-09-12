@@ -1,6 +1,0 @@
-[00:14] <blahdeblah> amurray: Loved the analysis of Ubuntu update testing in the light of CrowdStrike.  Do you happen to know if there's a written summary that covers the same ground?
-[00:17] <amurray> blahdeblah:  thanks - the expected testing is documented in https://git.launchpad.net/qa-regression-testing/tree/README.testing
-=== chris14_ is now known as chris14
-=== pwlkaasmhtyyqkmg is now known as dsbvpzisvhldqcgr
-=== dsbvpzisvhldqcgr is now known as georgiag
-=== cpaelzer_ is now known as cpaelzer

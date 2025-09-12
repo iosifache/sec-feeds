@@ -3,32 +3,23 @@ on:
   workflow_dispatch: {}
   schedule:
     - cron: "0 0 * * *"
-  push:
-    paths:
-      - generate.py
-      - .github/workflows/daily-run.yaml
 jobs:
   daily-run:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - uses: actions/checkout@v5
+      - name: Setup Go
+        uses: actions/setup-go@v5
         with:
-          python-version: 3.x
-      - name: Installs Poetry
-        uses: Gr1N/setup-poetry@v8
-      - name: Install the dependencies
-        run: poetry install
-      - name: Update the feeds
-        run: |
-          poetry run python3 generate.py 01.01.2024
+          go-version: '1.23.x'
+      - name: Install dependencies
+        run: go get .
+      - name: Run the script
+        run: go run main.go
       - name: Commit the changes
         run: |
-          git add cache/ feeds/
+          git add feeds/
           git config --global user.name "RSS feeds updater"
           git config --global user.email "username@users.noreply.github.com"
-          git commit -a -m "Updates the feeds"
+          git commit -a -m "feat: Updates the feeds"
           git push
-

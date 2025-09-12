@@ -1,8 +1,0 @@
-=== NotEickmeyer is now known as Eickmeyer
-=== JanC is now known as Guest776
-[14:50] <toabctl> sru-team, can we proceed with the noble gnome-shell package from the queue and move it to proposed please? the public cloud team requires a fix for lp:#2084306 which is included in that SRU
-[14:50] -ubottu:#ubuntu-meeting- Launchpad bug 2084306 in gnome-shell (Ubuntu Noble) "Impossible to patch gnome shell to set a custom ShellUserVerifier" [Undecided, Incomplete] https://launchpad.net/bugs/2084306
-[14:51] <toabctl> wrong channel - sorry
-=== jchittum_ is now known as jchittum
-=== bdrung_ is now known as bdrung
-=== JanC is now known as Guest3103

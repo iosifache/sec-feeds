@@ -1,6 +1,0 @@
-=== JanC is now known as Guest4647
-[10:58] <rouca> mdeslaur: just send you a mail about imagemagick
-[11:06] <mdeslaur> rouca: I've pinged the esm folks to respond, thanks
-[11:41] <ebarretto> rouca: thanks again for the info/email 
-[18:53] <rouca> mdeslaur: just send you another mail about imagemagick
-[18:59] <mdeslaur> rouca: I pinged the person who worked on those cves, thanks

@@ -1,8 +1,0 @@
-[02:17] <eslerm> I setup sendmail on the vm, and configured it with a fastmail account
-[02:18] <eslerm> a local user can conntenct to sendmail over telnet and send emails to other local users using smtp commands
-[02:18] <eslerm> that works well, but none of the end-of-data sequences for smuggling split the email
-[02:20] <eslerm> I believe I'm testing the wrong smuggling direction
-[02:34] <eslerm> okay, that fits with https://www.postfix.org/smtp-smuggling.html
-[02:35] <eslerm> I need to setup a _destination_ server to test the _inbound_ parsing https://smtpsmuggling.com/
-[02:37] <eslerm> my current fastmail destination server must be patched
-[09:12] <rouca> eslerm: ok

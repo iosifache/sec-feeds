@@ -1,9 +1,0 @@
-=== zhsj_ is now known as zhsj
-=== zhsj_ is now known as zhsj
-[11:40] <Skia> Question to the DMB: would an application like this (https://wiki.ubuntu.com/skia/MembershipApplication) be accepted? It just redirects to a Discourse application because I first applied to Ubuntu Member before "upgrading" to Ubuntu Contributing Developer upon suggestion by p_aride. Do I really need to convert the application to a Wiki page?
-[11:41] <Skia> bdrung_: bdmurray: rbasak: schopin: tsimonq2: teward: utkarsh: ^
-[13:11] <rbasak> Skia: IMHO that's fine
-[13:14] <jbicha> yeah, people have had issues editing the Ubuntu wiki anyway so using discourse is good
-[13:20] <slyon> jbicha: Yes, the sysprof MIR looks ready. Now you need to chase an AA to get it promoted: https://bugs.launchpad.net/ubuntu/+source/sysprof/+bug/2066269/comments/7
-[13:20] -ubottu:#ubuntu-meeting- Launchpad bug 2066269 in sysprof (Ubuntu) "[MIR] sysprof" [Undecided, Fix Committed]
-[13:20] <Skia> okay thanks :-)

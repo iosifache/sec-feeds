@@ -1,5 +1,0 @@
-=== esj1 is now known as esj
-[15:04] <sudip> https://wiki.ubuntu.com/sudipmuk/CoreDevApplication
-[15:53] <teward> sudip: welcome to Core Dev! (summary of our vote)
-[15:53] <teward> (note this is being actioned separately)
-[15:55] <sudip> thanks teward and also thanks everyone for the f2f DMB meeting today

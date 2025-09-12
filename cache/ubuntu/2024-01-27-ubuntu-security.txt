@@ -1,6 +1,0 @@
-[00:34] <JanC> SSH might not be using PAM...
-[00:34] <JanC> seems like Karl is gone though  :)
-[00:34] <sarnold> yeah :(
-=== chris14_ is now known as chris14
-=== user03 is now known as gchound
-=== JanC_ is now known as JanC

@@ -1,4 +1,0 @@
-=== chris14_ is now known as chris14
-[17:59] <mdeslaur> tsimonq2: sorry, couldn't publish today, someone called "Major Outage" seems to have set our cloud on fire...will try again monday
-[18:18] <arraybolt3> mdeslaur: lol :)
-[20:50] <UnivrslSuprBox> Good news! https://ubuntu.com/security/notices is turned the right way around now. Bad news: browsing between pages often results in 504 errors (and did before the outage today too)

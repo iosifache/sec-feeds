@@ -1,7 +1,0 @@
-=== JanC is now known as Guest4738
-=== JanC_ is now known as JanC
-=== chris14_ is now known as chris14
-[04:47] <blahdeblah> amurray: Great to hear the podcast up & running again for 2024, and great to hear your rant about the SNR of a lot of security reports.
-[04:47] <blahdeblah> Sometime I should tell you about my experiences with Snyk and some of the completely ridiculous vulnerability reports it generates.
-[04:51] <amurray> hey blahdeblah - thanks - sure, I'd love to hear about it :)
-=== ChanServ changed the topic of #ubuntu-security to: Twitter: @ubuntu_sec || https://usn.ubuntu.com || https://wiki.ubuntu.com/SecurityTeam || https://wiki.ubuntu.com/Security/Features || Community: sarnold

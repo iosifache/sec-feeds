@@ -1,8 +1,0 @@
-=== Juesto is now known as Juest
-=== codyshepherd_ is now known as codyshepherd
-=== kenyon_ is now known as kenyon
-[18:18] <tomreyn> https://ubuntu.com/security/esm states this on top: "ESM enables continuous vulnerability management for critical, high and medium CVEs." And this further down: "ESM continues security updates [..] for high and critical CVEs [..]"
-[18:18] <tomreyn> this sounds like a contradiction regarding medium priority CVEs.
-[18:20] <tomreyn> (though "vulnerability management" can mean many things - but it is at best ambiguous)
-[22:04] <sbeattie> tomreyn: thanks, will pass that along.
-[22:07] <tomreyn> thanks, Steve

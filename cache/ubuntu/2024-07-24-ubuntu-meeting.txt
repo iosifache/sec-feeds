@@ -1,8 +1,0 @@
-[06:42] <cpaelzer> didrocks joalif slyon cpaelzer jamespage: here is the (hopefully you agree) trivial MIR that I mentioned will come https://bugs.launchpad.net/ubuntu/+source/isa-support/+bug/2073895 . due to the expected virtual sprint and debconf downtime for many I'm reaching out here to maybe get it reviewed before two more weeks pass
-[06:43] -ubottu:#ubuntu-meeting- Launchpad bug 2073895 in isa-support (Ubuntu) "[MIR] isa-support" [Undecided, New]
-=== pushkarnk1 is now known as pushkarnk
-=== pushkarnk1 is now known as pushkarnk
-=== pushkarnk1 is now known as pushkarnk
-=== pushkarnk1 is now known as pushkarnk
-=== pushkarnk1 is now known as pushkarnk
-=== ahasenack__ is now known as ahasenack

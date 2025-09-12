@@ -1,9 +1,0 @@
-=== arraybolt3 is now known as arraybolt3_tl
-=== arraybolt3_wc is now known as arraybolt3
-=== crazybyte3 is now known as crazybyte
-=== codingkoopa8 is now known as codingkoopa
-=== crazybyte0 is now known as crazybyte
-=== ChanServ changed the topic of #ubuntu-security to: Twitter: @ubuntu_sec || https://usn.ubuntu.com || https://wiki.ubuntu.com/SecurityTeam || https://wiki.ubuntu.com/Security/Features || Community: leosilva
-=== user03 is now known as gchound
-=== vx^ is now known as vx
-=== punkcoder6 is now known as punkcoder

@@ -1,6 +1,0 @@
-[02:02] <sarnold> fungi: I don't know what our ubuntu pro / esm-apps backlog looks like, it might be a while before we'd get around to that package. if you're in a position to prepare a package for sponsorship it would probably be available more quickly, especially if you've got your backports tested
-[02:02] <sarnold> fungi: our documentation on preparing updates for sponsoring is a bit thin, there's some information on https://wiki.ubuntu.com/SecurityTeam/SponsorsQueue that might help get there
-=== tsimonq2_ is now known as tsimonq2
-[13:47] <fungi> sarnold: tempting, though we didn't do sru-compliant patch backporting, merely got the sid packages building and working on focal/jammy/noble as a stopgap
-[13:48] <fungi> since we've tended to need newer openafs fixes anyway (e.g. on arm64 servers)
-[21:51] <sarnold> fungi: aha, thanks :)

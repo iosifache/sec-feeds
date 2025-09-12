@@ -1,4 +1,0 @@
-[09:44] <xnox> something something kexec-tools xen cpalzer
-[09:45] <xnox> rbasak: what happened with kexec-tools and xen in february?
-[11:09] <rbasak> xnox: I don't know what you're referring to, sorry.
-[11:11] <xnox> yeah, it's like ping from february

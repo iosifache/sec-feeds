@@ -1,5 +1,0 @@
-[09:43] <Skia> juliank: about that python-amqplib issue, it's on my todo to have a look at that indeed :-)
-=== pushkarnk1 is now known as pushkarnk
-=== pushkarnk1 is now known as pushkarnk
-=== pushkarnk1 is now known as pushkarnk
-=== nicoz_ is now known as nicoz

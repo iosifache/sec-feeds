@@ -1,4 +1,0 @@
-=== chris14_ is now known as chris14
-=== cpaelzer_ is now known as cpaelzer
-=== ChanServ changed the topic of #ubuntu-security to: Mastodon: @ubuntusecurity@fosstodon.org || https://usn.ubuntu.com || https://wiki.ubuntu.com/SecurityTeam || https://wiki.ubuntu.com/Security/Features || Community: mdeslaur
-=== fabiomirmar_ is now known as fabiomirmar

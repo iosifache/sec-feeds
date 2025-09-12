@@ -1,9 +1,0 @@
-[09:11] <luna_> Hey, any new episode today or have you taken xmas break?
-[10:28] <Bilo67> Last night unattended update (13/12/2024) on Ubuntu 20.04.6 LTS (focal) upgraded php7.4 from version 7.4.3-4ubuntu2.24 to 7.4.3-4ubuntu2.26.
-[10:28] <Bilo67> Unfortunately, after the upgrade, the php-ldap module no longer works.
-[10:28] <Bilo67> Unable to load dynamic library 'ldap.so' (tried: /usr/lib/php/20190902/ldap.so (/usr/lib/php/20190902/ldap.so: undefined symbol: RETURN_THROWS), /usr/lib/php/20190902/ldap.so.so (/usr/lib/php/20190902/ldap.so.so: cannot open shared object file
-[10:28] <Bilo67> I've verified this on two different servers.
-[10:28] <Bilo67> Is this the right place to report the problem?
-[12:23] <mdeslaur> Whoops, reporter is gone, but there is a bug here we're looking at: https://bugs.launchpad.net/ubuntu/+source/php7.4/+bug/2091695
-[12:23] -ubottu:#ubuntu-security- Launchpad bug 2091695 in php7.4 (Ubuntu Plucky) "PHP ldap: undefined symbol RETURN_THROWS" [Undecided, Confirmed]
-=== JanC is now known as Guest7775

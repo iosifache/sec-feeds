@@ -1,8 +1,0 @@
-[11:46] <noob64> Hey guys, I was just doing a system apt upgrade from terminal, and towards the end I got a kind of pop up that took up most of the screen for something related to UEFI and system configuration from boot, and it wanted me to insert a password of at least 8 characters. What is this, and why did it ask for this?
-[12:44] <mdeslaur> ...and he's gone
-[15:18] <clarkb> out of curiousity is that an expected change?
-[15:22] <mdeslaur> it's probably asking for the confirmation password to enroll the local secureboot signing keys...more info here https://wiki.ubuntu.com/UEFI/SecureBoot
-[15:23] <clarkb> got it, thanks
-[18:54] <rouca> mdeslaur: just send a mail about GPG
-[22:20] <mdeslaur> rouca: thanks, I'll take a look monday morning
-=== sdeziel_ is now known as sdeziel

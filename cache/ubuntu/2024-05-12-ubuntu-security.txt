@@ -1,4 +1,0 @@
-=== chris14_ is now known as chris14
-[19:03] <xFCFFDFFFFEFFFAF> 1405
-[21:39] <JanC> what is the current state of security support on arm64 servers?
-[23:53] <amurray> JanC: can you be more specific? all architectures are supported equally in general, so arm64 has just as much security support as amd64

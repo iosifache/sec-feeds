@@ -1,4 +1,0 @@
-[06:51] <doko> upils: I'm looking into gcc-11
-[06:52] <upils> doko, ack! Let me know if you need a hand (I doubt that).
-=== cpaelzer_ is now known as cpaelzer
-=== pushkarnk1 is now known as pushkarnk

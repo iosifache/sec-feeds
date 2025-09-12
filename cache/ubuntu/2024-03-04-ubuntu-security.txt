@@ -1,6 +1,0 @@
-=== chris14_ is now known as chris14
-=== cpaelzer_ is now known as cpaelzer
-[10:17] <mpiano> Hi folks. I noticed that cvescan databases (https://people.canonical.com/~ubuntu-security/cvescan/) stopped updating a couple of days ago. Is this just some flakiness, or did we get to the final nail in the coffin for this project?
-[11:16] <ebarretto> mpiano, probably some issue in the server, but we should take this as the final coffin as the project has been unsupported for more than an year now 
-[11:19] <mpiano> ebarretto, I'm ready to bet it's somehow related to handling the leap year. Anyhow, sad to see this one go for real, I guess it's time to actually switch to OVAL databases.
-=== Juesto is now known as Juest

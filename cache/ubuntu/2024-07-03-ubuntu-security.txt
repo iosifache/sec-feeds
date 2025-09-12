@@ -1,3 +1,0 @@
-[07:47] <ricotz> hello, please retry https://launchpad.net/~ubuntu-security-proposed/+archive/ubuntu/ppa/+build/28622842
-[07:56] <ebarretto> ricotz: done
-[07:57] <ricotz> thanks
