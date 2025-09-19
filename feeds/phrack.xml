@@ -1,13 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>Phrack Magazine</title>
   <id>https://phrack.org</id>
-  <updated>2025-09-18T00:19:28Z</updated>
+  <updated>2025-09-19T00:20:41Z</updated>
   <subtitle>Phrack is written by hackers, for hackers, and offers a glimpse into the world just beyond what most people see.</subtitle>
   <link href="https://phrack.org"></link>
   <author>
     <name>Phrack Staff</name>
     <email>staff[at]phrack{dot}org</email>
   </author>
+  <entry>
+    <title>Issue #72: Introduction</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/1_md.html</id>
+    <link href="https://phrack.org/issues/72/1_md.html#article" rel="alternate"></link>
+    <author>
+      <name>Phrack Staff</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Issue #72: Phrack Prophile on Gera</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/2.html</id>
+    <link href="https://phrack.org/issues/72/2.html#article" rel="alternate"></link>
+    <author>
+      <name>Phrack Staff</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Issue #72: Linenoise</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/3_md.html</id>
+    <link href="https://phrack.org/issues/72/3_md.html#article" rel="alternate"></link>
+    <author>
+      <name>Phrack Staff</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Issue #72: Loopback</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/4_md.html</id>
+    <link href="https://phrack.org/issues/72/4_md.html#article" rel="alternate"></link>
+    <author>
+      <name>Phrack Staff</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Issue #72: The Art of PHP - My CTF Journey and Untold Stories!</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/5_md.html</id>
+    <link href="https://phrack.org/issues/72/5_md.html#article" rel="alternate"></link>
+    <author>
+      <name>Orange Tsai</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Issue #72: Guarding the PHP Temple</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/6_md.html</id>
+    <link href="https://phrack.org/issues/72/6_md.html#article" rel="alternate"></link>
+    <author>
+      <name>mr_me</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Issue #72: APT Down - The North Korea Files</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/7_md.html</id>
+    <link href="https://phrack.org/issues/72/7_md.html#article" rel="alternate"></link>
+    <author>
+      <name>Saber, cyb0rg</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Issue #72: A learning approach on exploiting CVE-2020-9273</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/8_md.html</id>
+    <link href="https://phrack.org/issues/72/8_md.html#article" rel="alternate"></link>
+    <author>
+      <name>dukpt</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Issue #72: Mapping IOKit Methods Exposed to User Space on macOS</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/9_md.html</id>
+    <link href="https://phrack.org/issues/72/9_md.html#article" rel="alternate"></link>
+    <author>
+      <name>Karol Mazurek</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Issue #72: Popping an alert from a sandboxed WebAssembly module</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/10_md.html</id>
+    <link href="https://phrack.org/issues/72/10_md.html#article" rel="alternate"></link>
+    <author>
+      <name>Thomas Rinsma</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Issue #72: Desync the Planet - Rsync RCE</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/11_md.html</id>
+    <link href="https://phrack.org/issues/72/11_md.html#article" rel="alternate"></link>
+    <author>
+      <name>Simon, Pedro, Jasiel</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Issue #72: Quantum ROP</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/12_md.html</id>
+    <link href="https://phrack.org/issues/72/12_md.html#article" rel="alternate"></link>
+    <author>
+      <name>Yoav Shifman, Yahav Rahom</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Issue #72: Revisiting Similarities of Android Apps</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/13_md.html</id>
+    <link href="https://phrack.org/issues/72/13_md.html#article" rel="alternate"></link>
+    <author>
+      <name>Jakob Bleier, Martina Lindorfer</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Issue #72: Money for Nothing, Chips for Free</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/14_md.html</id>
+    <link href="https://phrack.org/issues/72/14_md.html#article" rel="alternate"></link>
+    <author>
+      <name>Peter Honeyman</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Issue #72: E0 - Selective Symbolic Instrumentation</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/15_md.html</id>
+    <link href="https://phrack.org/issues/72/15_md.html#article" rel="alternate"></link>
+    <author>
+      <name>Jex Amro</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Issue #72: Roadside to Everyone</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/16_md.html</id>
+    <link href="https://phrack.org/issues/72/16_md.html#article" rel="alternate"></link>
+    <author>
+      <name>Jon Gaines</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Issue #72: A CPU Backdoor</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/17_md.html</id>
+    <link href="https://phrack.org/issues/72/17_md.html#article" rel="alternate"></link>
+    <author>
+      <name>uty</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Issue #72: The Feed Is Ours</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/18_md.html</id>
+    <link href="https://phrack.org/issues/72/18_md.html#article" rel="alternate"></link>
+    <author>
+      <name>tgr</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Issue #72: The Hacker&#39;s Renaissance - A Manifesto Reborn</title>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <id>tag:phrack.org,2025-08-19:/issues/72/19.html</id>
+    <link href="https://phrack.org/issues/72/19.html#article" rel="alternate"></link>
+    <author>
+      <name>TMZ</name>
+    </author>
+  </entry>
   <entry>
     <title>Issue #72: Introduction</title>
     <updated>2025-08-19T00:00:00Z</updated>
