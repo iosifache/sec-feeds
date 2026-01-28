@@ -15,7 +15,7 @@ const (
 	tenMegaInBytes = 1024 * 1024
 	issueRegex     = `\/issues\/([0-9]*)\/1\.html`
 	articlesRegex  = `<tr><td align=\"left\"><a href=\"([^\"]+)\">([^<]+)</a></td><td align=\"right\">([^<]+)</td></tr>`
-	dateRegex      = `date: ([0-9]{4}-[0-9]{2}-[0-9]{2})`
+	dateRegex      = `"datePublished":\s*"([0-9]{4}-[0-9]{2}-[0-9]{2})"`
 )
 
 type PhrackFeed struct{}
